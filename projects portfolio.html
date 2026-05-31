@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastiaan van der Horst | Data & Marketing Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy2: #0f2040;
+  --navy3: #162d56;
+  --blue: #1875ad;
+  --blue-light: #2196d3;
+  --blue-pale: #e8f4fb;
+  --sky: #60b8e0;
+  --sky-light: #a8d8f0;
+  --white: #f8fbff;
+  --muted: #8facc4;
+  --muted2: #b8cedd;
+  --text: #ddeaf4;
+  --border: rgba(96, 184, 224, 0.15);
+  --glow: rgba(33, 150, 211, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(24, 117, 173, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 117, 173, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* HEADER */
+header {
+  position: relative;
+  padding: 120px 60px 100px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 50%, #0d1f3e 100%);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 1;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(33, 150, 211, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(33, 150, 211, 0.12);
+  border: 1px solid rgba(33, 150, 211, 0.3);
+  color: var(--sky);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.82em;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: clamp(2.8em, 6vw, 5em);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+h1 .accent {
+  color: var(--sky);
+  position: relative;
+}
+
+.tagline {
+  font-size: 1.2em;
+  color: var(--muted2);
+  max-width: 600px;
+  margin-bottom: 48px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 0.95em;
+  transition: all 0.25s;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: var(--blue-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 150, 211, 0.25);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--sky);
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  font-size: 0.95em;
+  transition: all 0.25s;
+  border: 1px solid rgba(96, 184, 224, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(96, 184, 224, 0.08);
+  border-color: var(--sky);
+  transform: translateY(-2px);
+}
+
+/* STATS BAR */
+.stats-bar {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-item {
+  padding: 36px 32px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.4s ease;
+}
+
+.stat-item:hover::before { width: 100%; }
+
+.stat-number {
+  font-size: 2.4em;
+  font-weight: 700;
+  color: var(--sky);
+  font-family: 'DM Mono', monospace;
+  display: block;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 60px;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78em;
+  color: var(--sky);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 80px;
+}
+
+h2 {
+  font-size: clamp(1.8em, 3vw, 2.6em);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  color: var(--muted2);
+  font-size: 1.1em;
+  max-width: 620px;
+  margin-bottom: 60px;
+  line-height: 1.7;
+}
+
+/* PROJECT CARDS */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 52px 56px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--blue), var(--sky));
+}
+
+.project-card:hover {
+  border-color: rgba(33, 150, 211, 0.3);
+  background: linear-gradient(135deg, var(--navy2), #0d1f3e);
+  box-shadow: 0 20px 60px rgba(10, 22, 40, 0.6), 0 0 0 1px rgba(33, 150, 211, 0.1);
+  transform: translateY(-2px);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.project-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.project-status {
+  background: rgba(33, 150, 211, 0.12);
+  border: 1px solid rgba(33, 150, 211, 0.25);
+  color: var(--sky);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78em;
+  font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+.project-desc {
+  color: var(--muted2);
+  font-size: 1.05em;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.metric {
+  background: var(--navy3);
+  padding: 20px 22px;
+}
+
+.metric-val {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--sky);
+  font-family: 'DM Mono', monospace;
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.metric-label {
+  font-size: 0.8em;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.feature-list {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.feature-list li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted2);
+  font-size: 0.98em;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.feature-list li:last-child { border-bottom: none; }
+
+.feature-list li::before {
+  content: '→';
+  color: var(--blue);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.feature-list strong {
+  color: var(--text);
+}
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tech-tag {
+  background: rgba(24, 117, 173, 0.1);
+  border: 1px solid rgba(24, 117, 173, 0.2);
+  color: var(--sky-light);
+  padding: 5px 13px;
+  border-radius: 4px;
+  font-size: 0.82em;
+  font-family: 'DM Mono', monospace;
+}
+
+.project-link {
+  color: var(--sky);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.project-link:hover { color: var(--white); }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.skill-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px 28px;
+  transition: all 0.25s;
+}
+
+.skill-card:hover {
+  border-color: rgba(33, 150, 211, 0.3);
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.4);
+}
+
+.skill-category {
+  font-size: 0.75em;
+  font-family: 'DM Mono', monospace;
+  color: var(--sky);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-item {
+  background: rgba(24, 117, 173, 0.08);
+  border: 1px solid rgba(24, 117, 173, 0.15);
+  color: var(--muted2);
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* RESULTS */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.result-item {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.25s;
+}
+
+.result-item:hover {
+  border-color: rgba(33, 150, 211, 0.25);
+  transform: translateY(-2px);
+}
+
+.result-number {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--sky);
+  font-family: 'DM Mono', monospace;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.result-text {
+  color: var(--muted2);
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.result-text strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  padding: 80px 60px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--blue), transparent);
+}
+
+.footer-inner { max-width: 600px; margin: 0 auto; }
+
+footer h2 { margin-bottom: 16px; }
+
+footer p {
+  color: var(--muted2);
+  margin-bottom: 40px;
+  font-size: 1.05em;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 0.85em;
+  font-family: 'DM Mono', monospace;
+}
+
+@media (max-width: 768px) {
+  header { padding: 80px 24px 60px; }
+  .container { padding: 60px 24px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .project-card { padding: 32px 24px; }
+  footer { padding: 60px 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="badge">Available for new opportunities</div>
+    <h1>Bastiaan<br><span class="accent">van der Horst</span></h1>
+    <p class="tagline">Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen die werken. Python, ML-modellen, dashboards — gebouwd om gebruikt te worden.</p>
+    <div class="cta-row">
+      <a href="https://linkedin.com/in/bastiaanvanderhorst" class="btn-primary">LinkedIn</a>
+      <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-secondary">bastiaanvanderhorst@hotmail.com</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-number">+38%</span>
+      <span class="stat-label">Organische groei YoY</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">€1.3M</span>
+      <span class="stat-label">Revenue attributed</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">10+</span>
+      <span class="stat-label">Productietools gebouwd</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">10K+</span>
+      <span class="stat-label">Meta titels geoptimaliseerd</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-label">Projecten</div>
+    <h2>Gebouwde platforms</h2>
+    <p class="section-intro">Geen schoolprojectjes. Dit zijn tools die dagelijks draaien en meetbare impact hebben op bedrijfsresultaten.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Marketing Intelligence Suite</div>
+          </div>
+          <span class="project-status">● Productie — Live</span>
+        </div>
+        <p class="project-desc">Volledig Python-gebaseerde marketing intelligence pipeline die data uit GSC, GA4 en Google Ads samenvoegt tot één decision-support dashboard. Inclusief ML-model voor verkeersvoorspelling, concurrentieanalysetool met automatische gap-identificatie en revenue attribution tracking.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">+38%</span>
+            <span class="metric-label">Organisch verkeer YoY</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">31K</span>
+            <span class="metric-label">Clicks/maand</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">10u+</span>
+            <span class="metric-label">Bespaard per week</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">0.75+</span>
+            <span class="metric-label">ML model R²</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Keyword Research Pipeline:</strong> GSC + Google Ads API integratie met automatische prioritering op volume, positie en CTR-gap</li>
+          <li><strong>SEO Performance Forecaster:</strong> Random Forest model met 100+ geëngineerde features — voorspelt clicks per pagina en identificeert quick wins</li>
+          <li><strong>Concurrentieanalyse Tool:</strong> Crawlt concurrent websites, vergelijkt met eigen GSC-data, genereert prioriteitsadviezen automatisch</li>
+          <li><strong>Revenue Attribution Dashboard:</strong> Tracked €1.3M/jaar van eerste touchpoint tot conversie met automatische afwijkingsdetectie</li>
+          <li><strong>SEA Dashboard:</strong> Multi-company Google Ads monitoring met AI-aanbevelingen, budget tracking en auto-pause voorstellen</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">Google APIs</span>
+          <span class="tech-tag">Pandas/NumPy</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">BeautifulSoup</span>
+          <span class="tech-tag">Playwright</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/marketing-intelligence-suite" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Product Automatisering Platform</div>
+          </div>
+          <span class="project-status">● Productie — Live</span>
+        </div>
+        <p class="project-desc">AI-powered content generatie en CMS integratie platform voor e-commerce. Verwerkt 5.000+ productbeschrijvingen in 4 uur via web scraping, PDF parsing met OCR en dual-AI model benadering (ChatGPT + Claude). Kosten: €0.02 per product versus €5-10 handmatig.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">5K+</span>
+            <span class="metric-label">Producten in 4 uur</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">80x</span>
+            <span class="metric-label">Sneller dan handmatig</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">95%+</span>
+            <span class="metric-label">Match nauwkeurigheid</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">99%</span>
+            <span class="metric-label">Kostenreductie</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Web Scraper:</strong> BeautifulSoup crawler voor concurrent product data met rate limiting en error handling</li>
+          <li><strong>PDF Parser:</strong> OCR-gebaseerde extractie van productsheets en veiligheidsbladen met intelligente document matching</li>
+          <li><strong>Dual-AI Generator:</strong> ChatGPT + Claude cross-validatie voor meta titels en productbeschrijvingen op schaal</li>
+          <li><strong>CMS Integratie:</strong> Excel export in KING-compatibel formaat met bulk import validatie</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">BeautifulSoup</span>
+          <span class="tech-tag">Tesseract OCR</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">Claude API</span>
+          <span class="tech-tag">FuzzyWuzzy</span>
+          <span class="tech-tag">Pandas</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--navy2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Skills</div>
+    <h2>Technische stack</h2>
+    <p class="section-intro">Geen certificatenlijst. Dit zijn tools die ik dagelijks gebruik en waarmee ik aantoonbare resultaten heb geboekt.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-category">Data & Analyse</div>
+        <div class="skill-items">
+          <span class="skill-item">GA4</span>
+          <span class="skill-item">Google Search Console</span>
+          <span class="skill-item">Looker Studio</span>
+          <span class="skill-item">Pandas</span>
+          <span class="skill-item">NumPy</span>
+          <span class="skill-item">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Machine Learning</div>
+        <div class="skill-items">
+          <span class="skill-item">scikit-learn</span>
+          <span class="skill-item">Random Forest</span>
+          <span class="skill-item">Feature Engineering</span>
+          <span class="skill-item">Predictive Modelling</span>
+          <span class="skill-item">Trend Detectie</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Automatisering & APIs</div>
+        <div class="skill-items">
+          <span class="skill-item">Python</span>
+          <span class="skill-item">Google Ads API</span>
+          <span class="skill-item">Analytics API</span>
+          <span class="skill-item">REST APIs</span>
+          <span class="skill-item">Playwright</span>
+          <span class="skill-item">Git</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Marketing</div>
+        <div class="skill-items">
+          <span class="skill-item">Google Ads</span>
+          <span class="skill-item">SEO/SEA</span>
+          <span class="skill-item">Conversion Optimization</span>
+          <span class="skill-item">Revenue Attribution</span>
+          <span class="skill-item">HubSpot</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Dashboards & Visualisatie</div>
+        <div class="skill-items">
+          <span class="skill-item">Looker Studio</span>
+          <span class="skill-item">Streamlit</span>
+          <span class="skill-item">Tkinter</span>
+          <span class="skill-item">Google Sheets API</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Finance & Beleggen</div>
+        <div class="skill-items">
+          <span class="skill-item">Portfolio Analytics</span>
+          <span class="skill-item">Fundamentele Analyse</span>
+          <span class="skill-item">Technische Analyse</span>
+          <span class="skill-item">Wft Basis</span>
+          <span class="skill-item">37% YTD rendement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Resultaten</div>
+    <h2>Concrete impact</h2>
+    <p class="section-intro">Cijfers die ergens op slaan.</p>
+
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-number">+38%</div>
+        <div class="result-text">
+          <strong>Organische groei YoY</strong>
+          Systematische content optimalisatie op basis van ML-voorspellingen en gap-analyse
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">28→12</div>
+        <div class="result-text">
+          <strong>Gemiddelde positieverbering</strong>
+          Top-100 producten geanalyseerd, content herschreven via script, resultaat direct meetbaar
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">€1.3M</div>
+        <div class="result-text">
+          <strong>Revenue attribution</strong>
+          Real-time dashboard dat omzet tracked van eerste touchpoint tot conversie
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">80x</div>
+        <div class="result-text">
+          <strong>Sneller dan handmatig</strong>
+          5.000+ productbeschrijvingen verwerkt in 4 uur via geautomatiseerde AI pipeline
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">37%</div>
+        <div class="result-text">
+          <strong>Beleggingsrendement YTD</strong>
+          Persoonlijke portefeuille systematisch doorgelicht op basis van data en fundamentele analyse
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">10u+</div>
+        <div class="result-text">
+          <strong>Bespaard per week</strong>
+          Door automatisering van repetitieve marketing- en data-taken met Python pipelines
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <h2>Laten we kennismaken</h2>
+    <p>Op zoek naar een data of analytics rol waar ik direct impact kan maken. Open voor gesprekken.</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/bastiaanvanderhorst" class="btn-primary">LinkedIn</a>
+      <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-secondary">Mail mij</a>
+    </div>
+    <p class="footer-copy">© 2026 Bastiaan van der Horst · Harlingen, Netherlands</p>
+  </div>
+</footer>
+
+</body>
+</html>
