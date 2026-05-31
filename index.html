@@ -54,7 +54,7 @@ nav {
   background: rgba(10, 22, 40, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 0 60px;
+  padding: 0 80px;
 }
 .nav-inner {
   max-width: 1100px;
@@ -155,7 +155,7 @@ nav {
 /* HEADER */
 header {
   position: relative;
-  padding: 120px 60px 100px;
+  padding: 120px 80px 100px;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 50%, #0d1f3e 100%);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
@@ -178,6 +178,7 @@ header::after {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  padding: 0 max(80px, 5vw);
 }
 
 .badge {
@@ -273,6 +274,7 @@ h1 .accent {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  padding: 0 max(80px, 5vw);
 }
 
 .stat-item {
@@ -322,7 +324,7 @@ section {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 100px 60px;
+  padding: 100px max(80px, 5vw);
 }
 
 .section-label {
@@ -610,7 +612,7 @@ h2 {
 footer {
   background: var(--navy2);
   border-top: 1px solid var(--border);
-  padding: 80px 60px;
+  padding: 80px 80px;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -718,7 +720,7 @@ footer p {
     <div class="about-grid">
       <div>
         <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
-          Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met een minor Beleggen. Ik werk op het snijvlak van data, marketing en technologie — en bouw liever een tool die het probleem permanent oplost dan het elke week handmatig op te lossen.
+          Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met twee minors: Beleggen en Marketing Communicatie & Content Marketing. Ik werk op het snijvlak van data, marketing en technologie — en bouw liever een tool die een probleem permanent oplost dan het elke week handmatig aan te pakken.
         </p>
         <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
           Bij FOV heb ik als enige data specialist een volledig marketing intelligence platform opgezet: van ruwe API-data naar dashboards, ML-modellen en geautomatiseerde pipelines die dagelijks door management worden gebruikt. Dat soort eigenaarschap — iets bouwen dat écht werkt en gebruikt wordt — geeft me energie.
@@ -1000,51 +1002,54 @@ footer p {
   <div class="container">
     <div class="section-label">Beleggen</div>
     <h2>Persoonlijke portefeuille</h2>
-    <p class="section-intro">Beleggen is niet alleen een hobby — het is een systematisch analytisch proces. Dezelfde aanpak die ik gebruik bij data-analyse pas ik toe op investeringsbeslissingen.</p>
+    <p class="section-intro">Beleggen doe ik niet op gevoel. Ik analyseer bedrijven systematisch, houd een duidelijke thesis aan per positie en heb daar ook tooling voor gebouwd — zodat ik dagelijks een scherp beeld heb van wat er speelt.</p>
 
     <div class="results-grid">
       <div class="result-item">
         <div class="result-number">37%</div>
         <div class="result-text">
           <strong>YTD rendement</strong>
-          Persoonlijke portefeuille, actief beheerd op basis van fundamentele en technische analyse
+          Persoonlijke portefeuille, actief beheerd op basis van data en eigen analyse
         </div>
       </div>
       <div class="result-item">
         <div class="result-number">34%</div>
         <div class="result-text">
           <strong>Alltime rendement</strong>
-          Consistent boven marktgemiddelde door geconcentreerde, data-gedreven posities
+          Consistent boven marktgemiddelde door geconcentreerde, onderbouwde posities
         </div>
       </div>
       <div class="result-item">
         <div class="result-number">~7</div>
         <div class="result-text">
           <strong>Geconcentreerde posities</strong>
-          Van buy-and-hold naar geconcentreerde strategie met focus op AI-gerelateerde sectoren
+          Van brede spreiding naar focus op een handvol goed doorgelichte aandelen
         </div>
       </div>
     </div>
 
     <div class="project-card" style="margin-top: 40px;">
-      <div class="project-title" style="margin-bottom: 16px;">Hoe ik aandelen doorlicht</div>
-      <p class="project-desc">Elke positie begint met een systematische analyse van meerdere databronnen — financiële rapporten, nieuwsflow, sectorontwikkelingen, technische grafieken. Die informatie combineer ik tot een helder beeld waarop ik een beslissing neem. Dezelfde werkwijze als mijn data-pipelines: input structureren, analyseren, beslissen, meten.</p>
+      <div class="project-title" style="margin-bottom: 16px;">Stockbot — dagelijkse portefeuille briefing</div>
+      <p class="project-desc">Ik heb een geautomatiseerde tool gebouwd die elke ochtend een briefing genereert van alle posities in mijn portefeuille. De bot haalt nieuws, koersdata en financiële updates op, legt die naast de thesis die ik per aandeel heb vastgelegd, en geeft aan of die thesis nog intact is. Breekt de thesis? Dan krijg ik een melding plus een concreet advies. Zo hoef ik niet elke dag handmatig alles langs te lopen maar heb ik toch altijd een actueel beeld.</p>
 
       <ul class="feature-list">
-        <li><strong>Fundamentele analyse:</strong> Omzetgroei, marges, balanssterkte, waardering (P/E, EV/EBITDA) — bedrijven doorlichten op basis van cijfers</li>
-        <li><strong>Technische analyse:</strong> Trendherkenning, support/resistance niveaus, momentum indicatoren voor timing van in- en uitstap</li>
-        <li><strong>Sectoranalyse:</strong> Macro-economische ontwikkelingen vertalen naar kansen in specifieke sectoren — met name AI, technologie en groeimarkten</li>
-        <li><strong>Nieuwsmonitoring:</strong> Dagelijks nieuws, earnings calls en analistenrapporten bijhouden en wegen op relevantie voor portefeuille</li>
-        <li><strong>Risicobeheer:</strong> Geconcentreerde posities vragen om strakke discipline — stop-loss niveaus, positiegrootte en diversificatie bewust inzetten</li>
+        <li><strong>Dagelijkse briefing:</strong> Automatisch gegenereerd overzicht per positie met koersontwikkeling, nieuws en relevante cijfers</li>
+        <li><strong>Thesis monitoring:</strong> Elke positie heeft een vastgelegde investeringsthese — de bot checkt dagelijks of die nog klopt op basis van nieuwe informatie</li>
+        <li><strong>Alertsysteem:</strong> Zodra een thesis breekt of er een significante ontwikkeling is, komt er direct een melding met advies over de mogelijke vervolgstap</li>
+        <li><strong>Actief portfoliomanagement:</strong> Via plugins gekoppeld aan mijn broker — een pipeline die posities, rendement en risico inzichtelijk houdt in één overzicht</li>
+        <li><strong>Fundamentele analyse:</strong> Omzetgroei, marges, waardering (P/E, EV/EBITDA) — bedrijven doorlichten op basis van harde cijfers, niet op gevoel</li>
+        <li><strong>Technische analyse:</strong> Trendherkenning en momentum om het instapmoment te bepalen nadat de fundamentals kloppen</li>
       </ul>
 
       <div class="tech-row">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">API integraties</span>
+        <span class="tech-tag">Thesis Monitoring</span>
         <span class="tech-tag">Fundamentele Analyse</span>
         <span class="tech-tag">Technische Analyse</span>
         <span class="tech-tag">Portfolio Management</span>
         <span class="tech-tag">Wft Basis</span>
         <span class="tech-tag">Minor Beleggen</span>
-        <span class="tech-tag">Risicobeheer</span>
       </div>
     </div>
   </div>
