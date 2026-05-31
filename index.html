@@ -46,6 +46,112 @@ body::before {
   z-index: 0;
 }
 
+/* NAVBAR */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 60px;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85em;
+  color: var(--sky);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted2);
+  text-decoration: none;
+  font-size: 0.88em;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--sky); }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--blue), transparent);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 36px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid var(--navy);
+  box-shadow: 0 0 0 3px rgba(24, 117, 173, 0.2);
+}
+.timeline-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75em;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.timeline-role {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.timeline-company {
+  font-size: 0.9em;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+.timeline-desc {
+  font-size: 0.9em;
+  color: var(--muted2);
+  line-height: 1.6;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 0.8em; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
 /* HEADER */
 header {
   position: relative;
@@ -557,7 +663,20 @@ footer p {
 </head>
 <body>
 
-<header>
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">bastiaanvdh</a>
+    <ul class="nav-links">
+      <li><a href="#over-mij">Over mij</a></li>
+      <li><a href="#projecten">Projecten</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#beleggen">Beleggen</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
   <div class="header-inner">
     <div class="badge">Available for new opportunities</div>
     <h1>Bastiaan<br><span class="accent">van der Horst</span></h1>
@@ -591,9 +710,58 @@ footer p {
   </div>
 </div>
 
-<section>
+<section id="over-mij" style="border-bottom: 1px solid var(--border);">
   <div class="container">
-    <div class="section-label">Projecten</div>
+    <div class="section-label">Over mij</div>
+    <h2>Wie ik ben</h2>
+
+    <div class="about-grid">
+      <div>
+        <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
+          Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met een minor Beleggen. Ik werk op het snijvlak van data, marketing en technologie — en bouw liever een tool die het probleem permanent oplost dan het elke week handmatig op te lossen.
+        </p>
+        <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
+          Bij FOV heb ik als enige data specialist een volledig marketing intelligence platform opgezet: van ruwe API-data naar dashboards, ML-modellen en geautomatiseerde pipelines die dagelijks door management worden gebruikt. Dat soort eigenaarschap — iets bouwen dat écht werkt en gebruikt wordt — geeft me energie.
+        </p>
+        <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8;">
+          Naast mijn werk beleg ik actief en beheer ik mijn eigen portefeuille op basis van fundamentele en technische analyse. Die combinatie van data, finance en nieuwsgierigheid naar waarom dingen bewegen zoals ze bewegen, is wat mij drijft. Ik ben op zoek naar een rol waar ik die breedte kan inzetten en verder kan groeien.
+        </p>
+      </div>
+
+      <div>
+        <p style="font-family: 'DM Mono', monospace; font-size: 0.75em; color: var(--sky); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px;">Werkervaring</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-period">Mrt 2025 — Heden</div>
+            <div class="timeline-role">Data & Marketing Intelligence Specialist</div>
+            <div class="timeline-company">FOV Friesche Olie- en Verfhandel · Leeuwarden</div>
+            <div class="timeline-desc">Volledige marketing intelligence pipeline gebouwd in Python. ML-modellen, revenue attribution, concurrentieanalyse en automatisering van 10+ uur werk per week.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Aug 2024 — Mrt 2025</div>
+            <div class="timeline-role">MKB Adviseur Klantenservice</div>
+            <div class="timeline-company">Rabobank (via DPA Professionals) · Utrecht</div>
+            <div class="timeline-desc">MKB-klanten adviseren over financiële producten en digitaal bankieren. Klantanalyses in Siebel CRM voor upsell en cross-sell kansen.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Jun 2020 — Jun 2023</div>
+            <div class="timeline-role">Eigenaar / Founder</div>
+            <div class="timeline-company">BeLion Sportswear · Harlingen</div>
+            <div class="timeline-desc">E-commerce sportswear merk opgezet. Google Ads, SEO, Python automation voor feed optimalisatie en competitor tracking.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Aug 2021 — Mei 2024</div>
+            <div class="timeline-role">Leidinggevende / Weekendmanager</div>
+            <div class="timeline-company">Poiesz Supermarkten · Friesland</div>
+            <div class="timeline-desc">Leiding aan teams van ~30 medewerkers over meerdere filialen. 3 collega's opgeleid tot sleutelhouder.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projecten">
     <h2>Gebouwde platforms</h2>
     <p class="section-intro">Geen schoolprojectjes. Dit zijn tools die dagelijks draaien en meetbare impact hebben op bedrijfsresultaten.</p>
 
@@ -703,7 +871,7 @@ footer p {
   </div>
 </section>
 
-<section style="background: var(--navy2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<section id="skills" style="background: var(--navy2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
     <div class="section-label">Skills</div>
     <h2>Technische stack</h2>
@@ -828,7 +996,7 @@ footer p {
   </div>
 </section>
 
-<section style="background: var(--navy); border-top: 1px solid var(--border);">
+<section id="beleggen" style="background: var(--navy); border-top: 1px solid var(--border);">
   <div class="container">
     <div class="section-label">Beleggen</div>
     <h2>Persoonlijke portefeuille</h2>
@@ -882,7 +1050,7 @@ footer p {
   </div>
 </section>
 
-<footer>
+<footer id="contact">
   <div class="footer-inner">
     <h2>Laten we kennismaken</h2>
     <p>Op zoek naar een data of analytics rol waar ik direct impact kan maken. Open voor gesprekken.</p>
