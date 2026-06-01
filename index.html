@@ -769,7 +769,7 @@ footer p {
 
     <div class="projects-grid">
 
-      <!-- Project 1 -->
+      <!-- Project 1: Marketing Intelligence Suite -->
       <div class="project-card">
         <div class="project-header">
           <div>
@@ -777,7 +777,7 @@ footer p {
           </div>
           <span class="project-status">● Productie: Live</span>
         </div>
-        <p class="project-desc">Volledig Python-gebaseerde marketing intelligence pipeline die data uit GSC, GA4 en Google Ads samenvoegt tot één decision-support dashboard. Inclusief ML-model voor verkeersvoorspelling, concurrentieanalysetool met automatische gap-identificatie en revenue attribution tracking.</p>
+        <p class="project-desc">De centrale hub voor alle marketingdata bij FOV. Een volledig Python-gebouwde pipeline die data uit Google Search Console, GA4 en Google Ads samenvoegt tot één dashboard waar management dagelijks beslissingen op baseert. Inclusief ML-model voor verkeersvoorspelling en automatische afwijkingsdetectie op omzet.</p>
 
         <div class="metrics-row">
           <div class="metric">
@@ -789,8 +789,8 @@ footer p {
             <span class="metric-label">Clicks/maand</span>
           </div>
           <div class="metric">
-            <span class="metric-val">10u+</span>
-            <span class="metric-label">Bespaard per week</span>
+            <span class="metric-val">€1.3M</span>
+            <span class="metric-label">Revenue attributed</span>
           </div>
           <div class="metric">
             <span class="metric-val">0.75+</span>
@@ -799,11 +799,10 @@ footer p {
         </div>
 
         <ul class="feature-list">
-          <li><strong>Keyword Research Pipeline:</strong> GSC + Google Ads API integratie met automatische prioritering op volume, positie en CTR-gap</li>
-          <li><strong>SEO Performance Forecaster:</strong> Random Forest model met 100+ geëngineerde features: voorspelt clicks per pagina en identificeert quick wins</li>
-          <li><strong>Concurrentieanalyse Tool:</strong> Crawlt concurrent websites, vergelijkt met eigen GSC-data, genereert prioriteitsadviezen automatisch</li>
-          <li><strong>Revenue Attribution Dashboard:</strong> Tracked €1.3M/jaar van eerste touchpoint tot conversie met automatische afwijkingsdetectie</li>
-          <li><strong>SEA Dashboard:</strong> Multi-company Google Ads monitoring met AI-aanbevelingen, budget tracking en auto-pause voorstellen</li>
+          <li><strong>Multi-source dashboard:</strong> GSC, GA4 en Google Ads data gecombineerd in één real-time overzicht voor management</li>
+          <li><strong>SEO Performance Forecaster:</strong> Random Forest model met 100+ features dat per pagina voorspelt hoeveel clicks er te winnen zijn</li>
+          <li><strong>Revenue Attribution:</strong> Tracked €1.3M/jaar van eerste klik tot aankoop, inclusief automatische melding bij afwijkingen</li>
+          <li><strong>Keyword pipeline:</strong> Automatische prioritering van zoekwoorden op volume, positie en CTR-gap</li>
         </ul>
 
         <div class="tech-row">
@@ -813,14 +812,104 @@ footer p {
           <span class="tech-tag">Pandas/NumPy</span>
           <span class="tech-tag">Streamlit</span>
           <span class="tech-tag">OpenAI API</span>
-          <span class="tech-tag">BeautifulSoup</span>
-          <span class="tech-tag">Playwright</span>
         </div>
 
         <a href="https://github.com/bastiaanvdh/marketing-intelligence-suite" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
-      <!-- Project 2 -->
+      <!-- Project 2: FOV Ads Autopilot -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">FOV Ads Autopilot</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">Een Google Ads autopilot die campagnes, zoektermen en aanbevelingen automatisch analyseert en beoordeelt. Het systeem werkt read-only en review-first: het doet geen wijzigingen zonder goedkeuring, maar levert wel kant-en-klare adviezen en actielijsten. Wordt uitgerold voor meerdere bedrijven.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">4u+</span>
+            <span class="metric-label">Bespaard per bedrijf/week</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">4</span>
+            <span class="metric-label">Bedrijven in uitrol</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">43</span>
+            <span class="metric-label">Scripts in het systeem</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">1x/week</span>
+            <span class="metric-label">Review cyclus</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Campagne analyse:</strong> Automatisch doorlichten van prestaties, budgetverdeling en afwijkingen per campagne</li>
+          <li><strong>Zoektermbeheer:</strong> Signaleert irrelevante zoektermen en stelt negatieve zoekwoorden voor ter goedkeuring</li>
+          <li><strong>Aanbevelingsengine:</strong> Genereert concrete actieadviezen op basis van historische data en prestatiepatronen</li>
+          <li><strong>Multi-account uitrol:</strong> Gebouwd voor FOV, wordt doorontwikkeld voor Jachtlakken, FOVde en SLB</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Google Ads API</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">Excel/CSV export</span>
+        </div>
+      </div>
+
+      <!-- Project 3: Gap Intelligence -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Gap Intelligence Suite</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">Een volledig zelfgebouwde SEO concurrentie-analyse tool die doet wat Ahrefs en SEMrush doen, maar dan specifiek gericht op FOV. Het systeem crawlt concurrentpagina's, vergelijkt die met eigen GSC-data, detecteert automatisch waar kansen liggen én waar concurrenten juist sterk zijn. Direct bruikbaar als input voor contentbeslissingen.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">12</span>
+            <span class="metric-label">Scripts in de suite</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">Geen</span>
+            <span class="metric-label">Ahrefs/SEMrush nodig</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">Realtime</span>
+            <span class="metric-label">Content briefs</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">2-weg</span>
+            <span class="metric-label">Gaps én sterktes</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Competitor crawler:</strong> Crawlt concurrent websites en haalt relevante pagina's, zoekwoorden en contentstructuur op</li>
+          <li><strong>Gap detector:</strong> Vergelijkt eigen GSC-data met concurrent data en detecteert automatisch ontbrekende content</li>
+          <li><strong>Tweerichtingsanalyse:</strong> Laat zien waar jij beter bent dan de concurrent én waar de concurrent een voorsprong heeft</li>
+          <li><strong>Content brief generator:</strong> Maakt direct bruikbare content briefs op basis van gedetecteerde gaps</li>
+          <li><strong>Praktijkvoorbeeld:</strong> Concurrent had sterke badkamerpagina's, gap gedetecteerd, meerdere pagina's geschreven over schilderen, kitten en afwerking</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Playwright</span>
+          <span class="tech-tag">BeautifulSoup</span>
+          <span class="tech-tag">GSC API</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">OpenAI API</span>
+        </div>
+      </div>
+
+      <!-- Project 4: Product Automatisering Platform -->
       <div class="project-card">
         <div class="project-header">
           <div>
@@ -828,7 +917,7 @@ footer p {
           </div>
           <span class="project-status">● Productie: Live</span>
         </div>
-        <p class="project-desc">AI-powered content generatie en CMS integratie platform voor e-commerce. Verwerkt 5.000+ productbeschrijvingen in 4 uur via web scraping, PDF parsing met OCR en dual-AI model benadering (ChatGPT + Claude). Kosten: €0.02 per product versus €5-10 handmatig.</p>
+        <p class="project-desc">AI-powered content generatie platform dat productbeschrijvingen, meta titels en SEO-teksten genereert op basis van productdata, gescrapete informatie en PDF-productsheets. Verwerkt duizenden producten in één run via een dual-AI aanpak met ChatGPT en Claude als cross-validatie.</p>
 
         <div class="metrics-row">
           <div class="metric">
@@ -840,8 +929,8 @@ footer p {
             <span class="metric-label">Sneller dan handmatig</span>
           </div>
           <div class="metric">
-            <span class="metric-val">95%+</span>
-            <span class="metric-label">Match nauwkeurigheid</span>
+            <span class="metric-val">€0.02</span>
+            <span class="metric-label">Per product vs €5-10</span>
           </div>
           <div class="metric">
             <span class="metric-val">99%</span>
@@ -850,10 +939,10 @@ footer p {
         </div>
 
         <ul class="feature-list">
-          <li><strong>Web Scraper:</strong> BeautifulSoup crawler voor concurrent product data met rate limiting en error handling</li>
-          <li><strong>PDF Parser:</strong> OCR-gebaseerde extractie van productsheets en veiligheidsbladen met intelligente document matching</li>
-          <li><strong>Dual-AI Generator:</strong> ChatGPT + Claude cross-validatie voor meta titels en productbeschrijvingen op schaal</li>
-          <li><strong>CMS Integratie:</strong> Excel export in KING-compatibel formaat met bulk import validatie</li>
+          <li><strong>Web scraper:</strong> Haalt productdata op van leveranciers en concurrenten als basis voor contentgeneratie</li>
+          <li><strong>PDF parser:</strong> OCR-gebaseerde extractie van technische productsheets en veiligheidsbladen</li>
+          <li><strong>Dual-AI generator:</strong> ChatGPT en Claude genereren en valideren elkaar voor hogere consistentie op schaal</li>
+          <li><strong>CMS integratie:</strong> Directe export naar KING-compatibel formaat voor bulk import in het webshopsysteem</li>
         </ul>
 
         <div class="tech-row">
@@ -862,7 +951,6 @@ footer p {
           <span class="tech-tag">Tesseract OCR</span>
           <span class="tech-tag">OpenAI API</span>
           <span class="tech-tag">Claude API</span>
-          <span class="tech-tag">FuzzyWuzzy</span>
           <span class="tech-tag">Pandas</span>
         </div>
 
