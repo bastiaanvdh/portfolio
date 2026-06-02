@@ -669,12 +669,24 @@ footer p {
   <div class="nav-inner">
     <a href="#top" class="nav-logo">bastiaanvdh</a>
     <ul class="nav-links">
-      <li><a href="#over-mij">Over mij</a></li>
-      <li><a href="#projecten">Projecten</a></li>
+      <li><a href="#over-mij" data-nl="Over mij" data-en="About" data-translate="label-about">Over mij</a></li>
+      <li><a href="#projecten" data-nl="Projecten" data-en="Projects" data-translate="label-projects">Projecten</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#beleggen">Beleggen</a></li>
+      <li><a href="#beleggen" data-nl="Beleggen" data-en="Investing" data-translate="label-investing">Beleggen</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button id="lang-toggle" onclick="toggleLanguage()" style="
+      background: rgba(33,150,211,0.12);
+      border: 1px solid rgba(96,184,224,0.3);
+      color: #60b8e0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: DM Mono, monospace;
+      font-size: 0.78em;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    ">EN</button>
   </div>
 </nav>
 
@@ -682,7 +694,7 @@ footer p {
   <div class="header-inner">
     <div class="badge">Available for new opportunities</div>
     <h1>Bastiaan<br><span class="accent">van der Horst</span></h1>
-    <p class="tagline">Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen die werken. Python, ML-modellen, dashboards: gebouwd om gebruikt te worden.</p>
+    <p class="tagline" data-translate="tagline">Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen die werken. Python, ML-modellen, dashboards: gebouwd om gebruikt te worden.</p>
     <div class="cta-row">
       <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
       <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
@@ -695,19 +707,19 @@ footer p {
   <div class="stats-inner">
     <div class="stat-item">
       <span class="stat-number">+38%</span>
-      <span class="stat-label">Organische groei YoY</span>
+      <span class="stat-label" data-translate="stat-1-label">Organische groei YoY</span>
     </div>
     <div class="stat-item">
       <span class="stat-number">€1.3M</span>
-      <span class="stat-label">Revenue attributed</span>
+      <span class="stat-label" data-translate="stat-2-label">Revenue attributed</span>
     </div>
     <div class="stat-item">
       <span class="stat-number">10+</span>
-      <span class="stat-label">Productietools gebouwd</span>
+      <span class="stat-label" data-translate="stat-3-label">Productietools gebouwd</span>
     </div>
     <div class="stat-item">
       <span class="stat-number">10K+</span>
-      <span class="stat-label">Meta titels geoptimaliseerd</span>
+      <span class="stat-label" data-translate="stat-4-label">Meta titels geoptimaliseerd</span>
     </div>
   </div>
 </div>
@@ -715,7 +727,7 @@ footer p {
 <section id="over-mij" style="border-bottom: 1px solid var(--border);">
   <div class="container">
     <div class="section-label">Over mij</div>
-    <h2>Wie ik ben</h2>
+    <h2 data-translate="title-about">Wie ik ben</h2>
 
     <div class="about-grid">
       <div>
@@ -764,7 +776,7 @@ footer p {
 </section>
 
 <section id="projecten">
-    <h2>Gebouwde platforms</h2>
+    <h2 data-translate="title-projects">Gebouwde platforms</h2>
     <p class="section-intro">Geen schoolprojectjes. Dit zijn tools die dagelijks draaien en meetbare impact hebben op bedrijfsresultaten.</p>
 
     <div class="projects-grid">
@@ -967,7 +979,7 @@ footer p {
 <section id="skills" style="background: var(--navy2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
     <div class="section-label">Skills</div>
-    <h2>Technische stack</h2>
+    <h2 data-translate="title-skills">Technische stack</h2>
     <p class="section-intro">Geen certificatenlijst. Dit zijn tools die ik dagelijks gebruik en waarmee ik aantoonbare resultaten heb geboekt.</p>
 
     <div class="skills-grid">
@@ -1038,8 +1050,8 @@ footer p {
 
 <section>
   <div class="container">
-    <div class="section-label">Resultaten</div>
-    <h2>Concrete impact</h2>
+    <div class="section-label" data-translate="label-results">Resultaten</div>
+    <h2 data-translate="title-results">Concrete impact</h2>
     <p class="section-intro">Cijfers die ergens op slaan.</p>
 
     <div class="results-grid">
@@ -1092,7 +1104,7 @@ footer p {
 <section id="beleggen" style="background: var(--navy); border-top: 1px solid var(--border);">
   <div class="container">
     <div class="section-label">Beleggen</div>
-    <h2>Persoonlijke portefeuille</h2>
+    <h2 data-translate="title-investing">Persoonlijke portefeuille</h2>
     <p class="section-intro">Beleggen doe ik niet op gevoel. Ik analyseer bedrijven systematisch, houd een duidelijke thesis aan per positie en heb daar ook tooling voor gebouwd: zodat ik dagelijks een scherp beeld heb van wat er speelt.</p>
 
     <div class="results-grid">
@@ -1153,7 +1165,7 @@ footer p {
 
 <footer id="contact">
   <div class="footer-inner">
-    <h2>Laten we kennismaken</h2>
+    <h2 data-translate="footer-title">Laten we kennismaken</h2>
     <p>Op zoek naar een data of analytics rol waar ik direct impact kan maken. Open voor gesprekken.</p>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
@@ -1164,5 +1176,118 @@ footer p {
   </div>
 </footer>
 
+
+<script>
+let currentLang = 'nl';
+
+const translations = {
+  // HEADER
+  'tagline': {
+    nl: 'Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen die werken. Python, ML-modellen, dashboards — gebouwd om gebruikt te worden.',
+    en: 'Data & Marketing Intelligence Specialist turning raw data into decisions that work. Python, ML models, dashboards — built to be used.'
+  },
+  'btn-linkedin': { nl: 'LinkedIn', en: 'LinkedIn' },
+  'btn-github': { nl: 'GitHub', en: 'GitHub' },
+  'badge': { nl: 'Available for new opportunities', en: 'Available for new opportunities' },
+
+  // STATS
+  'stat-1-label': { nl: 'Organische groei YoY', en: 'Organic growth YoY' },
+  'stat-2-label': { nl: 'Revenue attributed', en: 'Revenue attributed' },
+  'stat-3-label': { nl: 'Productietools gebouwd', en: 'Production tools built' },
+  'stat-4-label': { nl: 'Meta titels geoptimaliseerd', en: 'Meta titles optimized' },
+
+  // SECTION LABELS
+  'label-about': { nl: 'Over mij', en: 'About me' },
+  'label-projects': { nl: 'Projecten', en: 'Projects' },
+  'label-skills': { nl: 'Skills', en: 'Skills' },
+  'label-results': { nl: 'Resultaten', en: 'Results' },
+  'label-investing': { nl: 'Beleggen', en: 'Investing' },
+
+  // SECTION TITLES
+  'title-about': { nl: 'Wie ik ben', en: 'Who I am' },
+  'title-projects': { nl: 'Gebouwde platforms', en: 'Built platforms' },
+  'title-skills': { nl: 'Technische stack', en: 'Technical stack' },
+  'title-results': { nl: 'Concrete impact', en: 'Concrete impact' },
+  'title-investing': { nl: 'Persoonlijke portefeuille', en: 'Personal portfolio' },
+
+  // SECTION INTROS
+  'intro-projects': {
+    nl: 'Geen schoolprojectjes. Dit zijn tools die dagelijks draaien en meetbare impact hebben op bedrijfsresultaten.',
+    en: 'Not hobby projects. These are tools running daily with measurable impact on business results.'
+  },
+  'intro-skills': {
+    nl: 'Geen certificatenlijst. Dit zijn tools die ik dagelijks gebruik en waarmee ik aantoonbare resultaten heb geboekt.',
+    en: 'Not a certificate list. These are tools I use daily with proven results to show for it.'
+  },
+  'intro-results': { nl: 'Cijfers die ergens op slaan.', en: 'Numbers that actually mean something.' },
+  'intro-investing': {
+    nl: 'Beleggen doe ik niet op gevoel. Ik analyseer bedrijven systematisch, houd een duidelijke thesis aan per positie en heb daar ook tooling voor gebouwd.',
+    en: 'I don't invest on gut feeling. I analyze companies systematically, maintain a clear thesis per position and have built tooling to support it.'
+  },
+
+  // ABOUT TEXT
+  'about-p1': {
+    nl: 'Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met twee minors: Beleggen en Marketing Communicatie & Content Marketing. Ik werk op het snijvlak van data, marketing en technologie — en bouw liever een tool die een probleem permanent oplost dan het elke week handmatig aan te pakken.',
+    en: 'I'm Bastiaan, 27, based in Harlingen, the Netherlands. Bachelor of Science in Commercial Economics from NHL Stenden, with two minors: Investing and Marketing Communication & Content Marketing. I work at the intersection of data, marketing and technology — and would rather build a tool that permanently solves a problem than fix it manually every week.'
+  },
+  'about-p2': {
+    nl: 'Bij FOV heb ik als enige data specialist een volledig marketing intelligence platform opgezet: van ruwe API-data naar dashboards, ML-modellen en geautomatiseerde pipelines die dagelijks door management worden gebruikt. Dat soort eigenaarschap — iets bouwen dat écht werkt en gebruikt wordt — geeft me energie.',
+    en: 'At FOV I built a complete marketing intelligence platform as the sole data specialist: from raw API data to dashboards, ML models and automated pipelines used by management daily. That kind of ownership — building something that actually works and gets used — is what drives me.'
+  },
+  'about-p3': {
+    nl: 'Naast mijn werk beleg ik actief en beheer ik mijn eigen portefeuille op basis van fundamentele en technische analyse. Die combinatie van data, finance en nieuwsgierigheid naar waarom dingen bewegen zoals ze bewegen, is wat mij drijft. Ik ben op zoek naar een rol waar ik die breedte kan inzetten en verder kan groeien.',
+    en: 'Outside of work I actively manage my own investment portfolio based on fundamental and technical analysis. That combination of data, finance and curiosity about why things move the way they do is what drives me. I'm looking for a role where I can apply that breadth and keep growing.'
+  },
+
+  // TIMELINE
+  'timeline-label': { nl: 'Werkervaring', en: 'Work Experience' },
+  'job1-title': { nl: 'Data & Marketing Intelligence Specialist', en: 'Data & Marketing Intelligence Specialist' },
+  'job1-desc': { nl: 'Volledige marketing intelligence pipeline gebouwd in Python. ML-modellen, revenue attribution, concurrentieanalyse en automatisering van 10+ uur werk per week.', en: 'Built a full marketing intelligence pipeline in Python. ML models, revenue attribution, competitive analysis and automating 10+ hours of work per week.' },
+  'job2-title': { nl: 'MKB Adviseur Klantenservice', en: 'SME Customer Service Advisor' },
+  'job2-desc': { nl: 'MKB-klanten adviseren over financiële producten en digitaal bankieren. Klantanalyses in Siebel CRM.', en: 'Advising SME clients on financial products and digital banking. Customer analyses in Siebel CRM.' },
+  'job3-title': { nl: 'Eigenaar / Founder', en: 'Owner / Founder' },
+  'job3-desc': { nl: 'E-commerce sportswear merk opgezet. Google Ads, SEO, Python automation.', en: 'Founded an e-commerce sportswear brand. Google Ads, SEO, Python automation.' },
+  'job4-title': { nl: 'Leidinggevende / Weekendmanager', en: 'Team Leader / Weekend Manager' },
+  'job4-desc': { nl: 'Leiding aan teams van ~30 medewerkers over meerdere filialen. 3 collega's opgeleid tot sleutelhouder.', en: 'Led teams of ~30 employees across multiple locations. Trained 3 colleagues to key holder level.' },
+
+  // FOOTER
+  'footer-title': { nl: 'Laten we kennismaken', en: 'Let's connect' },
+  'footer-desc': { nl: 'Op zoek naar een data of analytics rol waar ik direct impact kan maken. Open voor gesprekken.', en: 'Looking for a data or analytics role where I can make direct impact. Open for conversations.' },
+  'footer-copy': { nl: '© 2026 Bastiaan van der Horst · Harlingen, Netherlands', en: '© 2026 Bastiaan van der Horst · Harlingen, Netherlands' },
+
+  // INVESTING
+  'investing-stockbot-title': { nl: 'Stockbot — dagelijkse portefeuille briefing', en: 'Stockbot — daily portfolio briefing' },
+  'investing-stockbot-desc': {
+    nl: 'Ik heb een geautomatiseerde tool gebouwd die elke ochtend een briefing genereert van alle posities in mijn portefeuille. De bot haalt nieuws, koersdata en financiële updates op, legt die naast de thesis die ik per aandeel heb vastgelegd, en geeft aan of die thesis nog intact is. Breekt de thesis? Dan krijg ik een melding plus een concreet advies.',
+    en: 'I built an automated tool that generates a daily briefing on all positions in my portfolio. The bot pulls news, price data and financial updates, checks them against the thesis I set per stock, and tells me whether the thesis still holds. If it breaks, I get an alert plus a concrete recommendation.'
+  },
+  'belegd-met-bastiaan': {
+    nl: 'Naast mijn eigen portefeuille deel ik mijn aanpak via <strong style="color: var(--text);">Beleggen met Bastiaan</strong>, een Instagram kanaal waarop ik bedrijven doorlicht, marktbewegingen bespreek en mensen meeneem in hoe je zelf naar beleggingen kunt kijken. Puur informatief, geen advies.',
+    en: 'Alongside my own portfolio I share my approach via <strong style="color: var(--text);">Beleggen met Bastiaan</strong>, an Instagram channel where I analyze companies, discuss market movements and show people how to think about investing for themselves. Purely informational, no advice.'
+  }
+};
+
+function toggleLanguage() {
+  currentLang = currentLang === 'nl' ? 'en' : 'nl';
+  document.getElementById('lang-toggle').textContent = currentLang === 'nl' ? 'EN' : 'NL';
+
+  // Update all data-translate elements
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (translations[key]) {
+      if (el.getAttribute('data-html') === 'true') {
+        el.innerHTML = translations[key][currentLang];
+      } else {
+        el.textContent = translations[key][currentLang];
+      }
+    }
+  });
+
+  // Update nav links
+  document.querySelectorAll('.nav-links a[data-nl]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + currentLang);
+  });
+}
+</script>
 </body>
 </html>
