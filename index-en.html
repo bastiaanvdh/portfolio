@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastiaan van der Horst | Data & Marketing Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy2: #0f2040;
+  --navy3: #162d56;
+  --blue: #1875ad;
+  --blue-light: #2196d3;
+  --blue-pale: #e8f4fb;
+  --sky: #60b8e0;
+  --sky-light: #a8d8f0;
+  --white: #f8fbff;
+  --muted: #8facc4;
+  --muted2: #b8cedd;
+  --text: #ddeaf4;
+  --border: rgba(96, 184, 224, 0.15);
+  --glow: rgba(33, 150, 211, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(24, 117, 173, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 117, 173, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAVBAR */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 max(80px, 5vw);
+}
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85em;
+  color: var(--sky);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted2);
+  text-decoration: none;
+  font-size: 0.88em;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--sky); }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--blue), transparent);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 36px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid var(--navy);
+  box-shadow: 0 0 0 3px rgba(24, 117, 173, 0.2);
+}
+.timeline-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75em;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.timeline-role {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.timeline-company {
+  font-size: 0.9em;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+.timeline-desc {
+  font-size: 0.9em;
+  color: var(--muted2);
+  line-height: 1.6;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 0.8em; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* HEADER */
+header {
+  position: relative;
+  padding: 120px 80px 100px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 50%, #0d1f3e 100%);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 1;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(33, 150, 211, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 max(80px, 5vw);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(33, 150, 211, 0.12);
+  border: 1px solid rgba(33, 150, 211, 0.3);
+  color: var(--sky);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.82em;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: clamp(2.8em, 6vw, 5em);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+h1 .accent {
+  color: var(--sky);
+  position: relative;
+}
+
+.tagline {
+  font-size: 1.2em;
+  color: var(--muted2);
+  max-width: 600px;
+  margin-bottom: 48px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 0.95em;
+  transition: all 0.25s;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: var(--blue-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 150, 211, 0.25);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--sky);
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  font-size: 0.95em;
+  transition: all 0.25s;
+  border: 1px solid rgba(96, 184, 224, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(96, 184, 224, 0.08);
+  border-color: var(--sky);
+  transform: translateY(-2px);
+}
+
+/* STATS BAR */
+.stats-bar {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 max(80px, 5vw);
+}
+
+.stat-item {
+  padding: 36px 32px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.4s ease;
+}
+
+.stat-item:hover::before { width: 100%; }
+
+.stat-number {
+  font-size: 2.4em;
+  font-weight: 700;
+  color: var(--sky);
+  font-family: 'DM Mono', monospace;
+  display: block;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px max(80px, 5vw);
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78em;
+  color: var(--sky);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 80px;
+}
+
+h2 {
+  font-size: clamp(1.8em, 3vw, 2.6em);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  color: var(--muted2);
+  font-size: 1.1em;
+  max-width: 620px;
+  margin-bottom: 60px;
+  line-height: 1.7;
+}
+
+/* PROJECT CARDS */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 52px 56px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--blue), var(--sky));
+}
+
+.project-card:hover {
+  border-color: rgba(33, 150, 211, 0.3);
+  background: linear-gradient(135deg, var(--navy2), #0d1f3e);
+  box-shadow: 0 20px 60px rgba(10, 22, 40, 0.6), 0 0 0 1px rgba(33, 150, 211, 0.1);
+  transform: translateY(-2px);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.project-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.project-status {
+  background: rgba(33, 150, 211, 0.12);
+  border: 1px solid rgba(33, 150, 211, 0.25);
+  color: var(--sky);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78em;
+  font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+.project-desc {
+  color: var(--muted2);
+  font-size: 1.05em;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.metric {
+  background: var(--navy3);
+  padding: 20px 22px;
+}
+
+.metric-val {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--sky);
+  font-family: 'DM Mono', monospace;
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.metric-label {
+  font-size: 0.8em;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.feature-list {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.feature-list li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted2);
+  font-size: 0.98em;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.feature-list li:last-child { border-bottom: none; }
+
+.feature-list li::before {
+  content: '→';
+  color: var(--blue);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.feature-list strong {
+  color: var(--text);
+}
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tech-tag {
+  background: rgba(24, 117, 173, 0.1);
+  border: 1px solid rgba(24, 117, 173, 0.2);
+  color: var(--sky-light);
+  padding: 5px 13px;
+  border-radius: 4px;
+  font-size: 0.82em;
+  font-family: 'DM Mono', monospace;
+}
+
+.project-link {
+  color: var(--sky);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.project-link:hover { color: var(--white); }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.skill-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px 28px;
+  transition: all 0.25s;
+}
+
+.skill-card:hover {
+  border-color: rgba(33, 150, 211, 0.3);
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.4);
+}
+
+.skill-category {
+  font-size: 0.75em;
+  font-family: 'DM Mono', monospace;
+  color: var(--sky);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-item {
+  background: rgba(24, 117, 173, 0.08);
+  border: 1px solid rgba(24, 117, 173, 0.15);
+  color: var(--muted2);
+  padding: 5px 11px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* RESULTS */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.result-item {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.25s;
+}
+
+.result-item:hover {
+  border-color: rgba(33, 150, 211, 0.25);
+  transform: translateY(-2px);
+}
+
+.result-number {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--sky);
+  font-family: 'DM Mono', monospace;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.result-text {
+  color: var(--muted2);
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.result-text strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  background: var(--navy2);
+  border-top: 1px solid var(--border);
+  padding: 80px 80px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--blue), transparent);
+}
+
+.footer-inner { max-width: 600px; margin: 0 auto; }
+
+footer h2 { margin-bottom: 16px; }
+
+footer p {
+  color: var(--muted2);
+  margin-bottom: 40px;
+  font-size: 1.05em;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 0.85em;
+  font-family: 'DM Mono', monospace;
+}
+
+@media (max-width: 768px) {
+  header { padding: 80px 24px 60px; }
+  .container { padding: 60px 24px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .project-card { padding: 32px 24px; }
+  footer { padding: 60px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">bastiaanvdh</a>
+    <ul class="nav-links">
+      <li><a href="#over-mij" data-nl="Over mij" data-en="About" data-translate="label-about">About</a></li>
+      <li><a href="#projecten" data-nl="Projecten" data-en="Projects" data-translate="label-projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#beleggen" data-nl="Beleggen" data-en="Investing" data-translate="label-investing">Investing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="lang-toggle" onclick="toggleLanguage()" style="
+      background: rgba(33,150,211,0.12);
+      border: 1px solid rgba(96,184,224,0.3);
+      color: #60b8e0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: DM Mono, monospace;
+      font-size: 0.78em;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    ">NL</button>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="header-inner">
+    <div class="badge">Available for new opportunities</div>
+    <h1>Bastiaan<br><span class="accent">van der Horst</span></h1>
+    <p class="tagline" data-translate="tagline">Data & Marketing Intelligence Specialist turning raw data into decisions that work. Python, ML models, dashboards — built to be used.</p>
+    <div class="cta-row">
+      <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
+      <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-secondary">bastiaanvanderhorst@hotmail.com</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-number">+38%</span>
+      <span class="stat-label" data-translate="stat-1-label">Organic growth YoY</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">€1.3M</span>
+      <span class="stat-label" data-translate="stat-2-label">Revenue attributed</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">10+</span>
+      <span class="stat-label" data-translate="stat-3-label">Production tools built</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">10K+</span>
+      <span class="stat-label" data-translate="stat-4-label">Meta titles optimized</span>
+    </div>
+  </div>
+</div>
+
+<section id="over-mij" style="border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">About</div>
+    <h2 data-translate="title-about">Who I am</h2>
+
+    <div class="about-grid">
+      <div>
+        <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
+          Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met twee minors: Beleggen en Marketing Communicatie & Content Marketing. Ik werk op het snijvlak van data, marketing en technologie: en bouw liever een tool die een probleem permanent oplost dan het elke week handmatig aan te pakken.
+        </p>
+        <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
+          Bij FOV heb ik als enige data specialist een volledig marketing intelligence platform opgezet: van ruwe API-data naar dashboards, ML-modellen en geautomatiseerde pipelines die dagelijks door management worden gebruikt. Dat soort eigenaarschap: iets bouwen dat écht werkt en gebruikt wordt: geeft me energie.
+        </p>
+        <p style="color: var(--muted2); font-size: 1.05em; line-height: 1.8;">
+          Outside of work I actively manage my own investment portfolio based on fundamental and technical analysis. That combination of data, finance and curiosity about why things move the way they do is what drives me. I'm looking for a role where I can apply that breadth and keep growing.
+        </p>
+      </div>
+
+      <div>
+        <p style="font-family: 'DM Mono', monospace; font-size: 0.75em; color: var(--sky); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px;">Work Experience</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-period">Mrt 2025: Heden</div>
+            <div class="timeline-role">Data & Marketing Intelligence Specialist</div>
+            <div class="timeline-company">FOV Friesche Olie- en Verfhandel · Leeuwarden</div>
+            <div class="timeline-desc">Built a full marketing intelligence pipeline in Python. ML models, revenue attribution, competitive analysis and automating 10+ hours of work per week.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Aug 2024: Mrt 2025</div>
+            <div class="timeline-role">SME Customer Service Advisor</div>
+            <div class="timeline-company">Rabobank (via DPA Professionals) · Utrecht</div>
+            <div class="timeline-desc">MKB-klanten adviseren over financiële producten en digitaal bankieren. Klantanalyses in Siebel CRM voor upsell en cross-sell kansen.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Jun 2020: Jun 2023</div>
+            <div class="timeline-role">Owner / Founder</div>
+            <div class="timeline-company">BeLion Sportswear · Harlingen</div>
+            <div class="timeline-desc">E-commerce sportswear merk opgezet. Google Ads, SEO, Python automation voor feed optimalisatie en competitor tracking.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">Aug 2021: Mei 2024</div>
+            <div class="timeline-role">Team Leader / Weekend Manager</div>
+            <div class="timeline-company">Poiesz Supermarkten · Friesland</div>
+            <div class="timeline-desc">Led teams of ~30 employees across multiple locations. Trained 3 colleagues to key holder level.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projecten">
+    <h2 data-translate="title-projects">Built platforms</h2>
+    <p class="section-intro">Not hobby projects. These are tools running daily with measurable impact on business results.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1: Marketing Intelligence Suite -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Marketing Intelligence Suite</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">The central hub for all marketing data at FOV. A fully Python-built pipeline consolidating data from Google Search Console, GA4 and Google Ads into one dashboard used by management for daily decisions. Includes ML model for traffic prediction and automatic revenue deviation detection.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">+38%</span>
+            <span class="metric-label">Organisch verkeer YoY</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">31K</span>
+            <span class="metric-label">Clicks/maand</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">€1.3M</span>
+            <span class="metric-label">Revenue attributed</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">0.75+</span>
+            <span class="metric-label">ML model R²</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Multi-source dashboard:</strong> GSC, GA4 and Google Ads data combined into one real-time overview for management</li>
+          <li><strong>SEO Performance Forecaster:</strong> Random Forest model with 100+ features predicting how many clicks can be won per page</li>
+          <li><strong>Revenue Attribution:</strong> Tracks €1.3M/year from first click to purchase, including automatic deviation alerts</li>
+          <li><strong>Keyword pipeline:</strong> Automatic keyword prioritization on volume, position and CTR gap</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">Google APIs</span>
+          <span class="tech-tag">Pandas/NumPy</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">OpenAI API</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/marketing-intelligence-suite" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+      <!-- Project 2: FOV Ads Autopilot -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">FOV Ads Autopilot</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">A Google Ads autopilot that automatically analyzes and evaluates campaigns, search terms and recommendations. The system works read-only and review-first: it makes no changes without approval, but delivers ready-to-use advice and action lists. Being rolled out to multiple companies.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">4u+</span>
+            <span class="metric-label">Bespaard per bedrijf/week</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">4</span>
+            <span class="metric-label">Bedrijven in uitrol</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">43</span>
+            <span class="metric-label">Scripts in het systeem</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">1x/week</span>
+            <span class="metric-label">Review cyclus</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Campagne analyse:</strong> Automatisch doorlichten van prestaties, budgetverdeling en afwijkingen per campagne</li>
+          <li><strong>Zoektermbeheer:</strong> Identifies irrelevant search terms and suggests negative keywords for approval</li>
+          <li><strong>Aanbevelingsengine:</strong> Generates concrete action recommendations based on historical data and performance patterns</li>
+          <li><strong>Multi-account uitrol:</strong> Built for FOV, being further developed for Jachtlakken, FOVde and SLB</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Google Ads API</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">Excel/CSV export</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/ads-autopilot" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+      <!-- Project 3: Gap Intelligence -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Gap Intelligence Suite</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">A fully self-built SEO competitive intelligence tool that does what Ahrefs and SEMrush do — but tailored to your own data. The system crawls competitor pages, compares them with your own GSC data and automatically detects where opportunities lie and where competitors are strong. Directly usable as input for content decisions.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">12</span>
+            <span class="metric-label">Scripts in de suite</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">Geen</span>
+            <span class="metric-label">Ahrefs/SEMrush nodig</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">Realtime</span>
+            <span class="metric-label">Content briefs</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">2-weg</span>
+            <span class="metric-label">Gaps én sterktes</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Competitor crawler:</strong> Crawls competitor websites and retrieves relevant pages, keywords and content structure</li>
+          <li><strong>Gap detector:</strong> Compares own GSC data with competitor data and automatically detects missing content</li>
+          <li><strong>Tweerichtingsanalyse:</strong> Shows where you outperform competitors and where competitors have an advantage</li>
+          <li><strong>Content brief generator:</strong> Creates directly usable content briefs based on detected gaps</li>
+          <li><strong>Praktijkvoorbeeld:</strong> Competitor had strong bathroom pages, gap detected, multiple pages written on painting, caulking and finishing</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Playwright</span>
+          <span class="tech-tag">BeautifulSoup</span>
+          <span class="tech-tag">GSC API</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">OpenAI API</span>
+        </div>
+        <a href="https://github.com/bastiaanvdh/gap-intelligence-suite" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+      <!-- Project 4: Product Automatisering Platform -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Product Automatisering Platform</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">AI-powered content generation platform that creates product descriptions, meta titles and SEO texts based on product data, scraped information and PDF product sheets. Processes thousands of products in one run via a dual-AI approach with ChatGPT and Claude for cross-validation.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">5K+</span>
+            <span class="metric-label">Producten in 4 uur</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">80x</span>
+            <span class="metric-label">Faster than manual</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">€0.02</span>
+            <span class="metric-label">Per product vs €5-10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">99%</span>
+            <span class="metric-label">Kostenreductie</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Web scraper:</strong> Retrieves product data from suppliers and competitors as a basis for content generation</li>
+          <li><strong>PDF parser:</strong> OCR-based extraction of technical product sheets and safety data sheets</li>
+          <li><strong>Dual-AI generator:</strong> ChatGPT and Claude generate and validate each other for higher consistency at scale</li>
+          <li><strong>CMS integratie:</strong> Direct export to KING-compatible format for bulk import into the webshop system</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">BeautifulSoup</span>
+          <span class="tech-tag">Tesseract OCR</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">Claude API</span>
+          <span class="tech-tag">Pandas</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background: var(--navy2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Skills</div>
+    <h2 data-translate="title-skills">Technical stack</h2>
+    <p class="section-intro">Not a certificate list. These are tools I use daily with proven results to show for it.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-category">Data & Analyse</div>
+        <div class="skill-items">
+          <span class="skill-item">GA4</span>
+          <span class="skill-item">Google Search Console</span>
+          <span class="skill-item">Looker Studio</span>
+          <span class="skill-item">Pandas</span>
+          <span class="skill-item">NumPy</span>
+          <span class="skill-item">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Machine Learning</div>
+        <div class="skill-items">
+          <span class="skill-item">scikit-learn</span>
+          <span class="skill-item">Random Forest</span>
+          <span class="skill-item">Feature Engineering</span>
+          <span class="skill-item">Predictive Modelling</span>
+          <span class="skill-item">Trend Detectie</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Automatisering & APIs</div>
+        <div class="skill-items">
+          <span class="skill-item">Python</span>
+          <span class="skill-item">Google Ads API</span>
+          <span class="skill-item">Analytics API</span>
+          <span class="skill-item">REST APIs</span>
+          <span class="skill-item">Playwright</span>
+          <span class="skill-item">Git</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Marketing</div>
+        <div class="skill-items">
+          <span class="skill-item">Google Ads</span>
+          <span class="skill-item">SEO/SEA</span>
+          <span class="skill-item">Conversion Optimization</span>
+          <span class="skill-item">Revenue Attribution</span>
+          <span class="skill-item">HubSpot</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Dashboards & Visualisatie</div>
+        <div class="skill-items">
+          <span class="skill-item">Looker Studio</span>
+          <span class="skill-item">Streamlit</span>
+          <span class="skill-item">Tkinter</span>
+          <span class="skill-item">Google Sheets API</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Finance & Beleggen</div>
+        <div class="skill-items">
+          <span class="skill-item">Portfolio Analytics</span>
+          <span class="skill-item">Fundamentele Analyse</span>
+          <span class="skill-item">Technische Analyse</span>
+          <span class="skill-item">Wft Basis</span>
+          <span class="skill-item">37% YTD rendement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label" data-translate="label-results">Results</div>
+    <h2 data-translate="title-results">Concrete impact</h2>
+    <p class="section-intro">Numbers that actually mean something.</p>
+
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-number">+38%</div>
+        <div class="result-text">
+          <strong>Organic growth YoY</strong>
+          Systematic content optimization based on ML predictions and gap analysis
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">28→12</div>
+        <div class="result-text">
+          <strong>Average position improvement</strong>
+          Top-100 products analyzed, content rewritten via script, result directly measurable
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">€1.3M</div>
+        <div class="result-text">
+          <strong>Revenue attribution</strong>
+          Real-time dashboard dat omzet tracked van eerste touchpoint tot conversie
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">80x</div>
+        <div class="result-text">
+          <strong>Faster than manual</strong>
+          5,000+ product descriptions processed in 4 hours via automated AI pipeline
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">37%</div>
+        <div class="result-text">
+          <strong>Investment return YTD</strong>
+          Personal portfolio systematically analyzed based on data and fundamental analysis
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">10u+</div>
+        <div class="result-text">
+          <strong>Saved per week</strong>
+          By automating repetitive marketing and data tasks with Python pipelines
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beleggen" style="background: var(--navy); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Investing</div>
+    <h2 data-translate="title-investing">Personal portfolio</h2>
+    <p class="section-intro">Beleggen doe ik niet op gevoel. Ik analyseer bedrijven systematisch, houd een duidelijke thesis aan per positie en heb daar ook tooling voor gebouwd: zodat ik dagelijks een scherp beeld heb van wat er speelt.</p>
+
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-number">37%</div>
+        <div class="result-text">
+          <strong>YTD rendement</strong>
+          Persoonlijke portefeuille, actief beheerd op basis van data en eigen analyse
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">34%</div>
+        <div class="result-text">
+          <strong>Alltime rendement</strong>
+          Consistent boven marktgemiddelde door geconcentreerde, onderbouwde posities
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-number">~7</div>
+        <div class="result-text">
+          <strong>Geconcentreerde posities</strong>
+          Van brede spreiding naar focus op een handvol goed doorgelichte aandelen
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" style="margin-top: 40px;">
+      <div class="project-title" style="margin-bottom: 16px;">Stockbot: dagelijkse portefeuille briefing</div>
+      <p class="project-desc">I built an automated tool that generates a daily briefing on all positions in my portfolio. The bot pulls news, price data and financial updates, checks them against the thesis I set per stock and tells me whether it still holds. If the thesis breaks, I get an alert plus a concrete recommendation. No need to manually check everything daily — I always have a current picture.</p>
+
+      <ul class="feature-list">
+        <li><strong>Daily briefing:</strong> Automatically generated overview per position with price development, news and relevant figures</li>
+        <li><strong>Thesis monitoring:</strong> Elke positie heeft een vastgelegde investeringsthese: de bot checkt dagelijks of die nog klopt op basis van nieuwe informatie</li>
+        <li><strong>Alert system:</strong> As soon as a thesis breaks or a significant development occurs, an immediate alert arrives with advice on possible next steps</li>
+        <li><strong>Active portfolio management:</strong> Via plugins gekoppeld aan mijn broker: een pipeline die posities, rendement en risico inzichtelijk houdt in één overzicht</li>
+        <li><strong>Fundamental analysis:</strong> Omzetgroei, marges, waardering (P/E, EV/EBITDA): bedrijven doorlichten op basis van harde cijfers, niet op gevoel</li>
+        <li><strong>Technical analysis:</strong> Trend recognition and momentum to determine entry timing once fundamentals check out</li>
+      </ul>
+
+      <div class="tech-row">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">API integraties</span>
+        <span class="tech-tag">Thesis Monitoring</span>
+        <span class="tech-tag">Fundamentele Analyse</span>
+        <span class="tech-tag">Technische Analyse</span>
+        <span class="tech-tag">Portfolio Management</span>
+        <span class="tech-tag">Wft Basis</span>
+        <span class="tech-tag">Minor Beleggen</span>
+      </div>
+
+      <div style="margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--border);">
+        <div style="font-size: 0.78em; font-family: 'DM Mono', monospace; color: var(--sky); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">Beleggen met Bastiaan</div>
+        <p style="color: var(--muted2); font-size: 0.95em; line-height: 1.7;">Alongside my own portfolio I share my approach via <strong style="color: var(--text);">Beleggen met Bastiaan</strong>, an Instagram channel where I analyze companies, discuss market movements and show people how to think about investing. Purely informational, no advice. The idea is simple: show how to look at a stock systematically and what goes into an investment decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <h2 data-translate="footer-title">Let's connect</h2>
+    <p>Looking for a data or analytics role where I can make direct impact. Open for conversations.</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
+      <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-secondary">Mail mij</a>
+    </div>
+    <p class="footer-copy">© 2026 Bastiaan van der Horst · Harlingen, Netherlands</p>
+  </div>
+</footer>
+
+
+<script>
+let currentLang = 'nl';
+
+const translations = {
+  // HEADER
+  'tagline': {
+    nl: 'Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen die werken. Python, ML-modellen, dashboards — gebouwd om gebruikt te worden.',
+    en: 'Data & Marketing Intelligence Specialist turning raw data into decisions that work. Python, ML models, dashboards — built to be used.'
+  },
+  'btn-linkedin': { nl: 'LinkedIn', en: 'LinkedIn' },
+  'btn-github': { nl: 'GitHub', en: 'GitHub' },
+  'badge': { nl: 'Available for new opportunities', en: 'Available for new opportunities' },
+
+  // STATS
+  'stat-1-label': { nl: 'Organische groei YoY', en: 'Organic growth YoY' },
+  'stat-2-label': { nl: 'Revenue attributed', en: 'Revenue attributed' },
+  'stat-3-label': { nl: 'Productietools gebouwd', en: 'Production tools built' },
+  'stat-4-label': { nl: 'Meta titels geoptimaliseerd', en: 'Meta titles optimized' },
+
+  // SECTION LABELS
+  'label-about': { nl: 'Over mij', en: 'About me' },
+  'label-projects': { nl: 'Projecten', en: 'Projects' },
+  'label-skills': { nl: 'Skills', en: 'Skills' },
+  'label-results': { nl: 'Resultaten', en: 'Results' },
+  'label-investing': { nl: 'Beleggen', en: 'Investing' },
+
+  // SECTION TITLES
+  'title-about': { nl: 'Wie ik ben', en: 'Who I am' },
+  'title-projects': { nl: 'Gebouwde platforms', en: 'Built platforms' },
+  'title-skills': { nl: 'Technische stack', en: 'Technical stack' },
+  'title-results': { nl: 'Concrete impact', en: 'Concrete impact' },
+  'title-investing': { nl: 'Persoonlijke portefeuille', en: 'Personal portfolio' },
+
+  // SECTION INTROS
+  'intro-projects': {
+    nl: 'Not hobby projects. These are tools running daily with measurable impact on business results.',
+    en: 'Not hobby projects. These are tools running daily with measurable impact on business results.'
+  },
+  'intro-skills': {
+    nl: 'Not a certificate list. These are tools I use daily with proven results to show for it.',
+    en: 'Not a certificate list. These are tools I use daily with proven results to show for it.'
+  },
+  'intro-results': { nl: 'Numbers that actually mean something.', en: 'Numbers that actually mean something.' },
+  'intro-investing': {
+    nl: 'I don't invest on gut feeling. I analyze companies systematically, maintain a clear thesis per position and have built tooling to support it.',
+    en: 'I don't invest on gut feeling. I analyze companies systematically, maintain a clear thesis per position and have built tooling to support it.'
+  },
+
+  // ABOUT TEXT
+  'about-p1': {
+    nl: 'Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met twee minors: Beleggen en Marketing Communicatie & Content Marketing. Ik werk op het snijvlak van data, marketing en technologie — en bouw liever een tool die een probleem permanent oplost dan het elke week handmatig aan te pakken.',
+    en: 'I'm Bastiaan, 27, based in Harlingen, the Netherlands. Bachelor of Science in Commercial Economics from NHL Stenden, with two minors: Investing and Marketing Communication & Content Marketing. I work at the intersection of data, marketing and technology — and would rather build a tool that permanently solves a problem than fix it manually every week.'
+  },
+  'about-p2': {
+    nl: 'At FOV I built a complete marketing intelligence platform as the sole data specialist: from raw API data to dashboards, ML models and automated pipelines used by management daily. That kind of ownership — building something that actually works and gets used — is what drives me.',
+    en: 'At FOV I built a complete marketing intelligence platform as the sole data specialist: from raw API data to dashboards, ML models and automated pipelines used by management daily. That kind of ownership — building something that actually works and gets used — is what drives me.'
+  },
+  'about-p3': {
+    nl: 'Outside of work I actively manage my own investment portfolio based on fundamental and technical analysis. That combination of data, finance and curiosity about why things move the way they do is what drives me. I'm looking for a role where I can apply that breadth and keep growing.',
+    en: 'Outside of work I actively manage my own investment portfolio based on fundamental and technical analysis. That combination of data, finance and curiosity about why things move the way they do is what drives me. I'm looking for a role where I can apply that breadth and keep growing.'
+  },
+
+  // TIMELINE
+  'timeline-label': { nl: 'Werkervaring', en: 'Work Experience' },
+  'job1-title': { nl: 'Data & Marketing Intelligence Specialist', en: 'Data & Marketing Intelligence Specialist' },
+  'job1-desc': { nl: 'Built a full marketing intelligence pipeline in Python. ML models, revenue attribution, competitive analysis and automating 10+ hours of work per week.', en: 'Built a full marketing intelligence pipeline in Python. ML models, revenue attribution, competitive analysis and automating 10+ hours of work per week.' },
+  'job2-title': { nl: 'SME Customer Service Advisor', en: 'SME Customer Service Advisor' },
+  'job2-desc': { nl: 'Advising SME clients on financial products and digital banking. Customer analyses in Siebel CRM.', en: 'Advising SME clients on financial products and digital banking. Customer analyses in Siebel CRM.' },
+  'job3-title': { nl: 'Owner / Founder', en: 'Owner / Founder' },
+  'job3-desc': { nl: 'Founded an e-commerce sportswear brand. Google Ads, SEO, Python automation.', en: 'Founded an e-commerce sportswear brand. Google Ads, SEO, Python automation.' },
+  'job4-title': { nl: 'Team Leader / Weekend Manager', en: 'Team Leader / Weekend Manager' },
+  'job4-desc': { nl: 'Led teams of ~30 employees across multiple locations. Trained 3 colleagues to key holder level.', en: 'Led teams of ~30 employees across multiple locations. Trained 3 colleagues to key holder level.' },
+
+  // FOOTER
+  'footer-title': { nl: 'Laten we kennismaken', en: 'Let's connect' },
+  'footer-desc': { nl: 'Looking for a data or analytics role where I can make direct impact. Open for conversations.', en: 'Looking for a data or analytics role where I can make direct impact. Open for conversations.' },
+  'footer-copy': { nl: '© 2026 Bastiaan van der Horst · Harlingen, Netherlands', en: '© 2026 Bastiaan van der Horst · Harlingen, Netherlands' },
+
+  // INVESTING
+  'investing-stockbot-title': { nl: 'Stockbot — daily portfolio briefing', en: 'Stockbot — daily portfolio briefing' },
+  'investing-stockbot-desc': {
+    nl: 'Ik heb een geautomatiseerde tool gebouwd die elke ochtend een briefing genereert van alle posities in mijn portefeuille. De bot haalt nieuws, koersdata en financiële updates op, legt die naast de thesis die ik per aandeel heb vastgelegd, en geeft aan of die thesis nog intact is. Breekt de thesis? Dan krijg ik een melding plus een concreet advies.',
+    en: 'I built an automated tool that generates a daily briefing on all positions in my portfolio. The bot pulls news, price data and financial updates, checks them against the thesis I set per stock, and tells me whether the thesis still holds. If it breaks, I get an alert plus a concrete recommendation.'
+  },
+  'belegd-met-bastiaan': {
+    nl: 'Naast mijn eigen portefeuille deel ik mijn aanpak via <strong style="color: var(--text);">Beleggen met Bastiaan</strong>, een Instagram kanaal waarop ik bedrijven doorlicht, marktbewegingen bespreek en mensen meeneem in hoe je zelf naar beleggingen kunt kijken. Puur informatief, geen advies.',
+    en: 'Alongside my own portfolio I share my approach via <strong style="color: var(--text);">Beleggen met Bastiaan</strong>, an Instagram channel where I analyze companies, discuss market movements and show people how to think about investing for themselves. Purely informational, no advice.'
+  }
+};
+
+function toggleLanguage() { window.location.href = 'index.html'; return;
+  currentLang = currentLang === 'nl' ? 'en' : 'nl';
+  document.getElementById('lang-toggle').textContent = currentLang === 'nl' ? 'EN' : 'NL';
+
+  // Update all data-translate elements
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (translations[key]) {
+      if (el.getAttribute('data-html') === 'true') {
+        el.innerHTML = translations[key][currentLang];
+      } else {
+        el.textContent = translations[key][currentLang];
+      }
+    }
+  });
+
+  // Update nav links
+  document.querySelectorAll('.nav-links a[data-nl]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + currentLang);
+  });
+}
+</script>
+</body>
+</html>
