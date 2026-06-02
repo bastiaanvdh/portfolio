@@ -1267,17 +1267,7 @@ const translations = {
   }
 };
 
-function toggleLanguage() {
-  currentLang = currentLang === 'nl' ? 'en' : 'nl';
-  document.getElementById('lang-toggle').textContent = currentLang === 'nl' ? 'EN' : 'NL';
-
-  // Update all data-translate elements
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
-    if (translations[key]) {
-      if (el.getAttribute('data-html') === 'true') {
-        el.innerHTML = translations[key][currentLang];
-      } else {
+function toggleLanguage() { window.location.href = 'index-en.html'; } else {
         el.textContent = translations[key][currentLang];
       }
     }
