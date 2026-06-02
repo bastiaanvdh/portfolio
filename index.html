@@ -1267,16 +1267,8 @@ const translations = {
   }
 };
 
-function toggleLanguage() { window.location.href = 'index-en.html'; } else {
-        el.textContent = translations[key][currentLang];
-      }
-    }
-  });
-
-  // Update nav links
-  document.querySelectorAll('.nav-links a[data-nl]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + currentLang);
-  });
+function toggleLanguage() {
+  window.location.href = 'index-en.html';
 }
 </script>
 </body>
