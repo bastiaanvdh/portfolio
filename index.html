@@ -972,6 +972,55 @@ footer p {
         <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
+      <!-- Project 5: Portfolio Monitor -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Portfolio Monitor — Persoonlijk Beleggingsdashboard</div>
+          </div>
+          <span class="project-status">● Open Source · Persoonlijk</span>
+        </div>
+        <p class="project-desc">Een zelfgebouwd, volledig lokaal portfolio-monitoringsysteem met 19 gespecialiseerde Python-agents. Geen externe AI-API, geen abonnement, geen cloud. Het systeem analyseert dagelijks alle posities op fundamentals, earnings, peer-vergelijking, macro-correlaties en scenario-impact, en serveert het resultaat als interactief dashboard op localhost. Gebouwd voor mijn eigen portefeuille — openbaar gemaakt voor anderen die hetzelfde willen opzetten.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">19</span>
+            <span class="metric-label">Gespecialiseerde agents</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">9.2K</span>
+            <span class="metric-label">Regels code</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">16</span>
+            <span class="metric-label">Dashboard tabs</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">0</span>
+            <span class="metric-label">Externe AI-API's nodig</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>19-agent modulaire pipeline:</strong> Data, alerts, thesis-thermometer, earnings, peer-vergelijking, fair-value modellen, macro-correlaties, scenario-analyse, benchmark vs. S&P 500, dividenden, Box 3 en meer</li>
+          <li><strong>Interactief lokaal dashboard:</strong> Lokale HTTP-server serveert een Chart.js dashboard op localhost — watchlist-namen toevoegen en verwijderen rechtstreeks via formulieren in de browser, zonder terminal</li>
+          <li><strong>Watchlist screener:</strong> Kluis-code doorlichting van kandidaat-aandelen: score 0–100 op generieke fundamentals, fair value, peer-ranking en instap-criteria-check</li>
+          <li><strong>Macro correlatie + scenario's:</strong> Pearson-correlatiematrix + OLS-regressie (numpy) voor portfolio-betas, gevolgd door 5 macro-shockscenario's (recessie, dollar rally, inflatie etc.)</li>
+          <li><strong>EUR/USD blootstelling:</strong> Exacte valuta-splitsen en gevoeligheidstabel — wat doet een EUR/USD-beweging van 10% met je koopkracht als Nederlander met een USD-portfolio?</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">yfinance</span>
+          <span class="tech-tag">NumPy</span>
+          <span class="tech-tag">Chart.js</span>
+          <span class="tech-tag">http.server</span>
+          <span class="tech-tag">JSON pipeline</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1132,25 +1181,27 @@ footer p {
     </div>
 
     <div class="project-card" style="margin-top: 40px;">
-      <div class="project-title" style="margin-bottom: 16px;">Stockbot: dagelijkse portefeuille briefing</div>
-      <p class="project-desc">Ik heb een geautomatiseerde tool gebouwd die elke ochtend een briefing genereert van alle posities in mijn portefeuille. De bot haalt nieuws, koersdata en financiële updates op, legt die naast de thesis die ik per aandeel heb vastgelegd, en geeft aan of die thesis nog intact is. Breekt de thesis? Dan krijg ik een melding plus een concreet advies. Zo hoef ik niet elke dag handmatig alles langs te lopen maar heb ik toch altijd een actueel beeld.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+        <div class="project-title">Portfolio Monitor — open source op GitHub</div>
+        <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link" style="white-space:nowrap">→ github.com/bastiaanvdh/portfolio-monitor</a>
+      </div>
+      <p class="project-desc">Een 19-agent Python-pipeline die dagelijks mijn volledige portefeuille analyseert: koersen, alerts, earnings, peer-vergelijking, macro-correlaties en scenario-analyse. Geen extern abonnement, geen AI-API — alles draait lokaal en serveert een interactief Chart.js dashboard op localhost. De watchlist-screener licht kandidaat-aandelen automatisch door op basis van een kluis-code methodiek (score 0–100), inclusief fair-value berekening en instap-criteria-check. Open source gepubliceerd zodat anderen het met hun eigen posities kunnen opzetten.</p>
 
       <ul class="feature-list">
-        <li><strong>Dagelijkse briefing:</strong> Automatisch gegenereerd overzicht per positie met koersontwikkeling, nieuws en relevante cijfers</li>
-        <li><strong>Thesis monitoring:</strong> Elke positie heeft een vastgelegde investeringsthese: de bot checkt dagelijks of die nog klopt op basis van nieuwe informatie</li>
-        <li><strong>Alertsysteem:</strong> Zodra een thesis breekt of er een significante ontwikkeling is, komt er direct een melding met advies over de mogelijke vervolgstap</li>
-        <li><strong>Actief portfoliomanagement:</strong> Via plugins gekoppeld aan mijn broker: een pipeline die posities, rendement en risico inzichtelijk houdt in één overzicht</li>
-        <li><strong>Fundamentele analyse:</strong> Omzetgroei, marges, waardering (P/E, EV/EBITDA): bedrijven doorlichten op basis van harde cijfers, niet op gevoel</li>
-        <li><strong>Technische analyse:</strong> Trendherkenning en momentum om het instapmoment te bepalen nadat de fundamentals kloppen</li>
+        <li><strong>Dagelijkse briefing:</strong> Koersontwikkeling, macro-data (EUR/USD, VIX, S&amp;P 500), alerts en nieuws per positie — gegenereerd als HTML in seconden</li>
+        <li><strong>Thesis thermometer:</strong> Elke positie heeft een vastgelegde investeringsthese met gewogen fundamentele checks — score 0–100, dagelijks bijgehouden</li>
+        <li><strong>Macro-correlatie + scenario's:</strong> Pearson-correlatiematrix met numpy OLS-betas, gevolgd door 5 macro-shockscenario's (recessie, dollar rally, inflatie etc.)</li>
+        <li><strong>Watchlist screener:</strong> Kandidaat-aandelen worden automatisch doorgelicht op fundamentals, waardering en peers — met instap-criteria-check per naam</li>
+        <li><strong>EUR/USD blootstelling:</strong> Exacte valuta-splitsen en gevoeligheidstabel voor koopkrachtrisico als Nederlandse belegger met een overwegend USD-portfolio</li>
       </ul>
 
       <div class="tech-row">
         <span class="tech-tag">Python</span>
-        <span class="tech-tag">API integraties</span>
-        <span class="tech-tag">Thesis Monitoring</span>
+        <span class="tech-tag">yfinance</span>
+        <span class="tech-tag">NumPy</span>
+        <span class="tech-tag">Chart.js</span>
+        <span class="tech-tag">http.server</span>
         <span class="tech-tag">Fundamentele Analyse</span>
-        <span class="tech-tag">Technische Analyse</span>
-        <span class="tech-tag">Portfolio Management</span>
         <span class="tech-tag">Wft Basis</span>
         <span class="tech-tag">Minor Beleggen</span>
       </div>

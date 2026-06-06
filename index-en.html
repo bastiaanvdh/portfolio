@@ -972,6 +972,55 @@ footer p {
         <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ View on GitHub</a>
       </div>
 
+      <!-- Project 5: Portfolio Monitor -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Portfolio Monitor — Personal Investment Dashboard</div>
+          </div>
+          <span class="project-status">● Open Source · Personal</span>
+        </div>
+        <p class="project-desc">A fully self-built, local portfolio monitoring system with 19 specialized Python agents. No external AI API, no subscription, no cloud. The system analyzes all positions daily on fundamentals, earnings, peer comparison, macro correlations and scenario impact, and serves the result as an interactive Chart.js dashboard on localhost. Built for my own portfolio — open sourced for others who want to set up the same.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">19</span>
+            <span class="metric-label">Specialized agents</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">9.2K</span>
+            <span class="metric-label">Lines of code</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">16</span>
+            <span class="metric-label">Dashboard tabs</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">0</span>
+            <span class="metric-label">External AI APIs needed</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>19-agent modular pipeline:</strong> Data, alerts, thesis thermometer, earnings, peer comparison, fair-value models, macro correlations, scenario analysis, benchmark vs. S&amp;P 500, dividends, Box 3 tax estimate and more</li>
+          <li><strong>Interactive local dashboard:</strong> Local HTTP server serves a Chart.js dashboard on localhost — add and remove watchlist names directly via browser forms, no terminal needed</li>
+          <li><strong>Watchlist screener:</strong> Automated deep-dive of candidate stocks: score 0–100 on fundamentals, fair value, peer ranking and entry-criteria check</li>
+          <li><strong>Macro correlation + scenarios:</strong> Pearson correlation matrix + OLS regression (numpy) for portfolio betas, followed by 5 macro shock scenarios (recession, dollar rally, inflation etc.)</li>
+          <li><strong>EUR/USD exposure:</strong> Exact currency splits and sensitivity table — what does a 10% EUR/USD move do to your purchasing power as a European investor with a USD-heavy portfolio?</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">yfinance</span>
+          <span class="tech-tag">NumPy</span>
+          <span class="tech-tag">Chart.js</span>
+          <span class="tech-tag">http.server</span>
+          <span class="tech-tag">JSON pipeline</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link">→ View on GitHub</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1132,25 +1181,27 @@ footer p {
     </div>
 
     <div class="project-card" style="margin-top: 40px;">
-      <div class="project-title" style="margin-bottom: 16px;">Stockbot: daily portfolio briefing</div>
-      <p class="project-desc">I built an automated tool that generates a daily briefing on all positions in my portfolio. The bot pulls news, price data and financial updates, checks them against the thesis I set per stock and tells me whether it still holds. If the thesis breaks, I get an alert plus a concrete recommendation. No need to manually check everything daily — I always have a current picture.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+        <div class="project-title">Portfolio Monitor — open source on GitHub</div>
+        <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link" style="white-space:nowrap">→ github.com/bastiaanvdh/portfolio-monitor</a>
+      </div>
+      <p class="project-desc">A 19-agent Python pipeline that analyzes my full portfolio daily: prices, alerts, earnings, peer comparison, macro correlations and scenario analysis. No subscription, no AI API — everything runs locally and serves an interactive Chart.js dashboard. The watchlist screener automatically evaluates candidate stocks using a structured methodology (score 0–100), including fair-value calculation and entry-criteria check. Open sourced so others can set it up with their own positions.</p>
 
       <ul class="feature-list">
-        <li><strong>Daily briefing:</strong> Automatically generated overview per position with price development, news and relevant figures</li>
-        <li><strong>Thesis monitoring:</strong> Every position has a documented investment thesis — the bot checks daily whether it still holds based on new information</li>
-        <li><strong>Alert system:</strong> As soon as a thesis breaks or a significant development occurs, an immediate alert arrives with advice on possible next steps</li>
-        <li><strong>Active portfolio management:</strong> Connected to my broker via plugins — a pipeline keeping positions, returns and risk visible in one overview</li>
-        <li><strong>Fundamental analysis:</strong> Revenue growth, margins, valuation (P/E, EV/EBITDA) — analyzing companies based on hard numbers, not gut feeling</li>
-        <li><strong>Technical analysis:</strong> Trend recognition and momentum to determine entry timing once fundamentals check out</li>
+        <li><strong>Daily briefing:</strong> Price movements, macro data (EUR/USD, VIX, S&amp;P 500), alerts and news per position — generated as HTML in seconds</li>
+        <li><strong>Thesis thermometer:</strong> Every position has a documented investment thesis with weighted fundamental checks — score 0–100, updated daily</li>
+        <li><strong>Macro correlation + scenarios:</strong> Pearson correlation matrix with numpy OLS betas, followed by 5 macro shock scenarios (recession, dollar rally, inflation etc.)</li>
+        <li><strong>Watchlist screener:</strong> Candidate stocks automatically analyzed on fundamentals, valuation and peers — with entry-criteria check per name</li>
+        <li><strong>EUR/USD exposure:</strong> Exact currency splits and sensitivity table for purchasing power risk as a Dutch investor with a predominantly USD portfolio</li>
       </ul>
 
       <div class="tech-row">
         <span class="tech-tag">Python</span>
-        <span class="tech-tag">API integrations</span>
-        <span class="tech-tag">Thesis Monitoring</span>
+        <span class="tech-tag">yfinance</span>
+        <span class="tech-tag">NumPy</span>
+        <span class="tech-tag">Chart.js</span>
+        <span class="tech-tag">http.server</span>
         <span class="tech-tag">Fundamental Analysis</span>
-        <span class="tech-tag">Technical Analysis</span>
-        <span class="tech-tag">Portfolio Management</span>
         <span class="tech-tag">Wft Basis</span>
         <span class="tech-tag">Minor Investing</span>
       </div>
