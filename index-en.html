@@ -972,7 +972,54 @@ footer p {
         <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ View on GitHub</a>
       </div>
 
-      <!-- Project 5: Portfolio Monitor -->
+      <!-- Project 5: FOV SQL Portfolio -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">FOV SQL Portfolio</div>
+          </div>
+          <span class="project-status">● Open Source · Data Analysis</span>
+        </div>
+        <p class="project-desc">Three BigQuery queries based on real FOV e-commerce and SEO data. Not tutorial exercises — concrete business questions: which products drive traffic but don't convert, how does organic traffic grow month-over-month, and which keywords does the competitor rank for that we're missing. Each case includes dummy data, the query and a README with expected output.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">3</span>
+            <span class="metric-label">Use cases</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">JOIN</span>
+            <span class="metric-label">+ GROUP BY + HAVING</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">LAG()</span>
+            <span class="metric-label">Window function</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">LEFT JOIN</span>
+            <span class="metric-label">+ NULL gap detection</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Product performance:</strong> JOIN between traffic and revenue tables, identifying high-traffic/low-revenue products via revenue_per_session</li>
+          <li><strong>Monthly growth:</strong> LAG() window function for MoM organic traffic comparison, including seasonal pattern analysis</li>
+          <li><strong>Competitor gap:</strong> LEFT JOIN + NULL-check to find keywords the competitor ranks for but FOV doesn't — direct input for the Gap Intelligence Suite</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">BigQuery</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">Window Functions</span>
+          <span class="tech-tag">JOIN / GROUP BY</span>
+          <span class="tech-tag">GSC Data</span>
+          <span class="tech-tag">E-commerce Analytics</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/fov-sql-portfolio" class="project-link">→ View on GitHub</a>
+      </div>
+
+      <!-- Project 6: Portfolio Monitor -->
       <div class="project-card">
         <div class="project-header">
           <div>
