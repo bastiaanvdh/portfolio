@@ -1069,6 +1069,57 @@ footer p {
       </div>
 
     </div>
+
+      <!-- Product Data Automatisering -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Product Data Automatisering</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">Flask webapplicatie die het aanmaken van nieuwe producten in het KING ERP-systeem automatiseert. Upload een spreadsheet met artikelnummer, merk en omschrijving — de tool scrapet de leverancierspagina, genereert AI-teksten, downloadt productafbeeldingen naar 1600×1600 px en levert een importklare Excel af met 42 ingevulde kolommen.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">~5 min</span>
+            <span class="metric-label">Per product (was 60 min)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">90%</span>
+            <span class="metric-label">Tijdsbesparing</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">42</span>
+            <span class="metric-label">ERP-kolommen automatisch</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">6</span>
+            <span class="metric-label">Afbeeldingen per product</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>AI content generatie:</strong> GPT-4o-mini schrijft webtitel, URL-slug, metateksten en volledige HTML-productomschrijving op basis van leverancierspagina</li>
+          <li><strong>Automatische beeldverwerking:</strong> Scrapet productafbeeldingen, filtert logo's en sfeerplaatjes, schaalt naar exact 1600x1600 px met witte achtergrond en slaat op op NAS</li>
+          <li><strong>PIB/VIB automatisering:</strong> Detecteert en downloadt technische databladen en veiligheidsbladen van leverancierspagina's naar de juiste mapstructuur</li>
+          <li><strong>ERP-klare import:</strong> Output is een 42-koloms Excel in het exacte KING-importformaat — direct te importeren via Excel2King</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">Pillow</span>
+          <span class="tech-tag">BeautifulSoup4</span>
+          <span class="tech-tag">openpyxl</span>
+          <span class="tech-tag">httpx</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/product-data-automation" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
