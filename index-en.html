@@ -1069,6 +1069,57 @@ footer p {
       </div>
 
     </div>
+
+      <!-- Product Data Automation -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Product Data Automation</div>
+          </div>
+          <span class="project-status">● Production: Live</span>
+        </div>
+        <p class="project-desc">Flask web application that automates creating new products in the KING ERP system. Upload a spreadsheet with article number, brand and description — the tool scrapes the supplier page, generates AI content, downloads product images at 1600x1600 px and delivers an import-ready Excel file with 42 filled columns.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">~5 min</span>
+            <span class="metric-label">Per product (was 60 min)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">90%</span>
+            <span class="metric-label">Time saved</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">42</span>
+            <span class="metric-label">ERP columns auto-filled</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">6</span>
+            <span class="metric-label">Images per product</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>AI content generation:</strong> GPT-4o-mini writes web title, URL slug, meta texts and full HTML product description based on supplier page content</li>
+          <li><strong>Automated image processing:</strong> Scrapes product images, filters logos and lifestyle photos, scales to exactly 1600x1600 px on a white background and saves to NAS</li>
+          <li><strong>Technical document automation:</strong> Detects and downloads data sheets and safety sheets from supplier pages into the correct folder structure</li>
+          <li><strong>ERP-ready import:</strong> Output is a 42-column Excel in the exact KING import format — directly importable via Excel2King</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">Pillow</span>
+          <span class="tech-tag">BeautifulSoup4</span>
+          <span class="tech-tag">openpyxl</span>
+          <span class="tech-tag">httpx</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/product-data-automation" class="project-link">→ View on GitHub</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
