@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Monitor — Live Demo | Bastiaan van der Horst</title>
+<meta name="description" content="Interactieve demo van de Portfolio Monitor: allocatie, thesis-scores, scenario-analyse en benchmark. Gebouwd in Python, hier nagebouwd in de browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0f0d;
+  --surface: #101713;
+  --surface2: #16201a;
+  --surface3: #1c2820;
+  --green: #2dd4a0;
+  --green-bright: #4ae8b8;
+  --gold: #e8b44f;
+  --gold-soft: #f2cd7e;
+  --red: #f0716e;
+  --white: #f2f8f4;
+  --text: #d7e4dc;
+  --muted: #7e9489;
+  --muted2: #a8bcb1;
+  --border: rgba(45, 212, 160, 0.14);
+  --border-gold: rgba(232, 180, 79, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+::selection { background: var(--green); color: var(--bg); }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(45, 212, 160, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 160, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 15, 13, 0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  padding: 0 max(40px, 4vw);
+}
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88em;
+  color: var(--green);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+.nav-back {
+  color: var(--muted2);
+  text-decoration: none;
+  font-size: 0.87em;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--green-bright); }
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 56px max(40px, 4vw) 90px;
+  position: relative;
+  z-index: 1;
+}
+.demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232, 180, 79, 0.1);
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.78em;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+}
+h1 { font-size: clamp(1.9em, 4vw, 2.8em); letter-spacing: -0.02em; margin-bottom: 12px; }
+.intro {
+  color: var(--muted2);
+  font-size: 1.05em;
+  max-width: 700px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+.intro a { color: var(--green-bright); text-decoration: none; }
+.intro a:hover { text-decoration: underline; }
+
+/* Tabs */
+.tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.tab-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted2);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-btn:hover { border-color: var(--green); color: var(--green-bright); }
+.tab-btn.active {
+  background: var(--green);
+  color: #07120d;
+  border-color: var(--green);
+  font-weight: 700;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.35s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* Cards & layout */
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px 28px;
+}
+.card h3 { font-size: 1em; margin-bottom: 18px; }
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.kpi { background: var(--surface3); padding: 18px 20px; }
+.kpi-val {
+  font-size: 1.4em;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  color: var(--green-bright);
+}
+.kpi-val.neg { color: var(--red); }
+.kpi-label {
+  font-size: 0.76em;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+th {
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78em;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+}
+td { padding: 12px; border-bottom: 1px solid var(--border); color: var(--muted2); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(45, 212, 160, 0.04); }
+td.num, th.num { text-align: right; font-family: 'JetBrains Mono', monospace; }
+.pos { color: var(--green-bright); }
+.neg { color: var(--red); }
+.tick-name { color: var(--white); font-weight: 600; }
+.tick-sub { font-size: 0.82em; color: var(--muted); display: block; }
+
+/* Thesis */
+.thesis-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.thesis-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.thesis-head:hover { background: var(--surface2); }
+.thesis-score {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.3em;
+  min-width: 56px;
+}
+.thesis-name { flex: 1; }
+.thesis-name b { color: var(--white); display: block; }
+.thesis-name span { font-size: 0.82em; color: var(--muted); }
+.thesis-bar {
+  flex: 2;
+  height: 8px;
+  background: var(--surface3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.thesis-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  transition: width 1s ease;
+}
+.thesis-toggle { color: var(--muted); font-family: 'JetBrains Mono', monospace; transition: transform 0.25s; }
+.thesis-card.open .thesis-toggle { transform: rotate(90deg); }
+.thesis-body {
+  display: none;
+  padding: 0 24px 20px;
+  border-top: 1px solid var(--border);
+}
+.thesis-card.open .thesis-body { display: block; }
+.check-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9em;
+}
+.check-row:last-child { border-bottom: none; }
+.check-row .w { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; color: var(--muted); margin-left: 10px; }
+
+/* Scenario */
+.scenario-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.scenario-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted2);
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82em;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.scenario-btn:hover { border-color: var(--gold); color: var(--gold-soft); }
+.scenario-btn.active {
+  background: rgba(232, 180, 79, 0.12);
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+}
+.scenario-desc {
+  background: var(--surface2);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  font-size: 0.92em;
+  color: var(--muted2);
+  margin-bottom: 24px;
+}
+.impact-total {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1em;
+  margin-bottom: 18px;
+  color: var(--muted2);
+}
+.impact-total b { font-size: 1.3em; }
+
+.chart-note {
+  margin-top: 14px;
+  font-size: 0.78em;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* CTA */
+.cta-card {
+  margin-top: 50px;
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 34px 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cta-card h3 { margin-bottom: 6px; }
+.cta-card p { color: var(--muted2); font-size: 0.95em; max-width: 560px; }
+.btn-primary {
+  background: var(--green);
+  color: #07120d;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 0.95em;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--green-bright); transform: translateY(-2px); }
+
+@media (max-width: 860px) {
+  .panel-grid { grid-template-columns: 1fr; }
+  .card { padding: 20px 16px; }
+  .thesis-head { flex-wrap: wrap; gap: 10px; }
+  .thesis-bar { flex-basis: 100%; order: 5; }
+  .container { padding: 36px max(20px, 4vw) 60px; }
+  table { font-size: 0.8em; }
+  td, th { padding: 8px 6px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">bastiaanvdh_</a>
+    <a href="index.html#beleggen" class="nav-back">← Terug naar portfolio</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="demo-badge">⚡ LIVE DEMO · FICTIEVE DATA</div>
+  <h1>Portfolio Monitor</h1>
+  <p class="intro">Dit is een interactieve, vereenvoudigde versie van mijn <a href="https://github.com/bastiaanvdh/portfolio-monitor">Portfolio Monitor</a> — de echte tool draait lokaal in Python met 19 agents, 16 tabs en live koersdata via yfinance. Deze demo gebruikt een fictieve voorbeeldportefeuille zodat je kunt voelen hoe het werkt. Klik, schuif en speel.</p>
+
+  <div class="tab-row" role="tablist">
+    <button class="tab-btn active" data-tab="overzicht">01 · Overzicht</button>
+    <button class="tab-btn" data-tab="thesis">02 · Thesis Thermometer</button>
+    <button class="tab-btn" data-tab="scenario">03 · Scenario-analyse</button>
+    <button class="tab-btn" data-tab="benchmark">04 · Benchmark</button>
+  </div>
+
+  <!-- TAB 1: OVERZICHT -->
+  <div class="tab-panel active" id="tab-overzicht">
+    <div class="kpi-row">
+      <div class="kpi"><span class="kpi-val" id="kpi-total">—</span><span class="kpi-label">Totale waarde</span></div>
+      <div class="kpi"><span class="kpi-val" id="kpi-day">—</span><span class="kpi-label">Vandaag</span></div>
+      <div class="kpi"><span class="kpi-val" id="kpi-ytd">—</span><span class="kpi-label">Rendement YTD</span></div>
+      <div class="kpi"><span class="kpi-val" id="kpi-positions">—</span><span class="kpi-label">Posities</span></div>
+    </div>
+    <div class="panel-grid">
+      <div class="card">
+        <h3>Allocatie</h3>
+        <canvas id="alloc-chart"></canvas>
+      </div>
+      <div class="card">
+        <h3>Posities</h3>
+        <table>
+          <thead><tr><th>Naam</th><th class="num">Weging</th><th class="num">Vandaag</th><th class="num">Totaal</th></tr></thead>
+          <tbody id="positions-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <p class="chart-note">// Fictieve demo-portefeuille. De echte tool haalt dagelijks live koersen, earnings en nieuws op.</p>
+  </div>
+
+  <!-- TAB 2: THESIS -->
+  <div class="tab-panel" id="tab-thesis">
+    <p class="intro" style="margin-bottom: 24px;">Elke positie heeft een vastgelegde investeringsthese met gewogen fundamentele checks. De thermometer toont in één oogopslag of de thesis nog overeind staat — zakt een score onder de 60, dan is dat een signaal om de positie opnieuw door te lichten. Klik op een positie voor de onderliggende checks.</p>
+    <div id="thesis-list"></div>
+  </div>
+
+  <!-- TAB 3: SCENARIO -->
+  <div class="tab-panel" id="tab-scenario">
+    <p class="intro" style="margin-bottom: 24px;">Wat doet een macro-schok met de portefeuille? Elke positie heeft een geschatte gevoeligheid (beta) per scenario. Kies een scenario en zie de verwachte impact per positie — live herberekend.</p>
+    <div class="scenario-row" id="scenario-btns">
+      <button class="scenario-btn active" data-scenario="basis">📊 Basisscenario</button>
+      <button class="scenario-btn" data-scenario="recessie">📉 Recessie</button>
+      <button class="scenario-btn" data-scenario="dollar">💵 Dollar rally +10%</button>
+      <button class="scenario-btn" data-scenario="inflatie">🔥 Inflatiepiek</button>
+    </div>
+    <div class="scenario-desc" id="scenario-desc">Huidige situatie zonder schok. Selecteer een scenario om de geschatte impact te zien.</div>
+    <div class="impact-total" id="impact-total"></div>
+    <div class="card">
+      <canvas id="scenario-chart"></canvas>
+    </div>
+    <p class="chart-note">// Beta's zijn illustratief. De echte tool berekent ze met Pearson-correlaties en OLS-regressie (numpy) op historische data.</p>
+  </div>
+
+  <!-- TAB 4: BENCHMARK -->
+  <div class="tab-panel" id="tab-benchmark">
+    <p class="intro" style="margin-bottom: 24px;">De enige vraag die telt: versla je de index? Demo-portefeuille versus S&amp;P 500, geïndexeerd op 1 januari 2026. Hover over de lijnen voor de maandstanden.</p>
+    <div class="card">
+      <canvas id="bench-chart"></canvas>
+    </div>
+    <p class="chart-note">// Indicatief verloop met fictieve data. Resultaten uit het verleden bieden geen garantie voor de toekomst.</p>
+  </div>
+
+  <div class="cta-card">
+    <div>
+      <h3>De echte versie draait lokaal — zonder abonnement, zonder cloud</h3>
+      <p>19 gespecialiseerde Python-agents, 9.2K regels code, 16 dashboard-tabs. Open source, zodat je hem met je eigen posities kunt opzetten.</p>
+    </div>
+    <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="btn-primary">→ Bekijk op GitHub</a>
+  </div>
+</div>
+
+<script>
+// ===== Demo data (fictief) =====
+var PORTFOLIO = [
+  { ticker: 'ASML',  name: 'ASML Holding',      weight: 24, day: +1.8, total: +42, currency: 'EUR',
+    thesis: 88, checks: [['EUV-monopolie intact', 30, true], ['Orderboek groeit', 25, true], ['Marge > 50%', 25, true], ['Waardering < 35x fwd P/E', 20, false]],
+    beta: { recessie: -1.4, dollar: +0.3, inflatie: -0.8 } },
+  { ticker: 'MSFT',  name: 'Microsoft',          weight: 21, day: +0.6, total: +31, currency: 'USD',
+    thesis: 84, checks: [['Azure-groei > 25%', 30, true], ['AI-monetisatie zichtbaar', 30, true], ['FCF-marge > 30%', 20, true], ['Waardering redelijk', 20, false]],
+    beta: { recessie: -0.9, dollar: +0.9, inflatie: -0.5 } },
+  { ticker: 'NVDA',  name: 'NVIDIA',             weight: 17, day: -2.1, total: +67, currency: 'USD',
+    thesis: 76, checks: [['Datacenter-vraag houdt aan', 35, true], ['Marge > 70%', 25, true], ['Concurrentie beperkt', 20, false], ['Waardering houdbaar', 20, false]],
+    beta: { recessie: -1.8, dollar: +0.9, inflatie: -1.0 } },
+  { ticker: 'AAPL',  name: 'Apple',              weight: 13, day: +0.2, total: +12, currency: 'USD',
+    thesis: 71, checks: [['Services-groei > 10%', 30, true], ['Buybacks op koers', 25, true], ['iPhone-cyclus sterk', 25, false], ['China-risico beheersbaar', 20, false]],
+    beta: { recessie: -1.0, dollar: +0.8, inflatie: -0.4 } },
+  { ticker: 'SHELL', name: 'Shell plc',          weight: 13, day: +1.1, total: +18, currency: 'EUR',
+    thesis: 79, checks: [['FCF-yield > 10%', 30, true], ['Dividend gedekt', 30, true], ['Schuld daalt', 20, true], ['LNG-positie sterk', 20, false]],
+    beta: { recessie: -0.7, dollar: +0.2, inflatie: +0.9 } },
+  { ticker: 'VWRL',  name: 'Vanguard FTSE All-World', weight: 12, day: +0.4, total: +9, currency: 'EUR',
+    thesis: 90, checks: [['Kosten 0.22%', 30, true], ['Wereldwijd gespreid', 30, true], ['Herbalancering automatisch', 20, true], ['Geen klusterrisico', 20, true]],
+    beta: { recessie: -1.0, dollar: +0.4, inflatie: -0.5 } }
+];
+var TOTAL_VALUE = 48250;
+
+var SCENARIOS = {
+  basis:    { label: 'Basisscenario', shock: 0,
+              desc: 'Huidige situatie zonder schok. Selecteer een scenario om de geschatte impact te zien.' },
+  recessie: { label: 'Recessie', shock: 15,
+              desc: 'Wereldwijde groeivertraging: -15% op de brede markt. Cyclische en hoog gewaardeerde namen krijgen de hardste klap; defensieve waarden en brede ETF’s dempen.' },
+  dollar:   { label: 'Dollar rally +10%', shock: 10,
+              desc: 'EUR/USD daalt 10%. USD-posities worden in euro’s méér waard — als Nederlandse belegger profiteer je, maar het is geen verdienste van de bedrijven zelf.' },
+  inflatie: { label: 'Inflatiepiek', shock: 8,
+              desc: 'Inflatie loopt op, rente stijgt. Groeiaandelen met verre kasstromen dalen; energie en bedrijven met prijszettingsmacht houden stand of profiteren.' }
+};
+
+var COLORS = ['#2dd4a0', '#4ae8b8', '#e8b44f', '#f2cd7e', '#169873', '#a8bcb1'];
+
+Chart.defaults.color = '#7e9489';
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.borderColor = 'rgba(45, 212, 160, 0.1)';
+
+// ===== Tabs =====
+document.querySelectorAll('.tab-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    if (btn.dataset.tab === 'thesis') animateThesisBars();
+  });
+});
+
+// ===== Tab 1: Overzicht =====
+(function () {
+  var dayTotal = 0, ytd = 37;
+  PORTFOLIO.forEach(function (p) { dayTotal += p.day * p.weight / 100; });
+  document.getElementById('kpi-total').textContent = '€' + TOTAL_VALUE.toLocaleString('nl-NL');
+  var dayEl = document.getElementById('kpi-day');
+  dayEl.textContent = (dayTotal >= 0 ? '+' : '') + dayTotal.toFixed(2) + '%';
+  dayEl.classList.toggle('neg', dayTotal < 0);
+  document.getElementById('kpi-ytd').textContent = '+' + ytd + '%';
+  document.getElementById('kpi-positions').textContent = PORTFOLIO.length;
+
+  var tbody = document.getElementById('positions-body');
+  PORTFOLIO.forEach(function (p) {
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td><span class="tick-name">' + p.ticker + '</span><span class="tick-sub">' + p.name + ' · ' + p.currency + '</span></td>' +
+      '<td class="num">' + p.weight + '%</td>' +
+      '<td class="num ' + (p.day >= 0 ? 'pos' : 'neg') + '">' + (p.day >= 0 ? '+' : '') + p.day.toFixed(1) + '%</td>' +
+      '<td class="num ' + (p.total >= 0 ? 'pos' : 'neg') + '">' + (p.total >= 0 ? '+' : '') + p.total + '%</td>';
+    tbody.appendChild(tr);
+  });
+
+  new Chart(document.getElementById('alloc-chart'), {
+    type: 'doughnut',
+    data: {
+      labels: PORTFOLIO.map(function (p) { return p.ticker; }),
+      datasets: [{
+        data: PORTFOLIO.map(function (p) { return p.weight; }),
+        backgroundColor: COLORS,
+        borderColor: '#0a0f0d',
+        borderWidth: 3
+      }]
+    },
+    options: {
+      cutout: '62%',
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 14, boxWidth: 12 } },
+        tooltip: { callbacks: { label: function (ctx) { return ' ' + ctx.label + ': ' + ctx.parsed + '%'; } } }
+      }
+    }
+  });
+})();
+
+// ===== Tab 2: Thesis =====
+(function () {
+  var list = document.getElementById('thesis-list');
+  PORTFOLIO.slice().sort(function (a, b) { return b.thesis - a.thesis; }).forEach(function (p) {
+    var color = p.thesis >= 80 ? 'var(--green-bright)' : p.thesis >= 60 ? 'var(--gold)' : 'var(--red)';
+    var card = document.createElement('div');
+    card.className = 'thesis-card';
+    var checksHtml = p.checks.map(function (c) {
+      return '<div class="check-row"><span>' + (c[2] ? '✅' : '⚠️') + ' ' + c[0] + '</span><span class="w">weging ' + c[1] + '%</span></div>';
+    }).join('');
+    card.innerHTML =
+      '<div class="thesis-head">' +
+        '<span class="thesis-score" style="color:' + color + '">' + p.thesis + '</span>' +
+        '<span class="thesis-name"><b>' + p.ticker + '</b><span>' + p.name + '</span></span>' +
+        '<span class="thesis-bar"><i data-w="' + p.thesis + '" style="background:' + color + '"></i></span>' +
+        '<span class="thesis-toggle">▸</span>' +
+      '</div>' +
+      '<div class="thesis-body">' + checksHtml + '</div>';
+    card.querySelector('.thesis-head').addEventListener('click', function () { card.classList.toggle('open'); });
+    list.appendChild(card);
+  });
+})();
+function animateThesisBars() {
+  document.querySelectorAll('.thesis-bar i').forEach(function (bar) {
+    requestAnimationFrame(function () { bar.style.width = bar.dataset.w + '%'; });
+  });
+}
+
+// ===== Tab 3: Scenario =====
+var scenarioChart;
+(function () {
+  scenarioChart = new Chart(document.getElementById('scenario-chart'), {
+    type: 'bar',
+    data: {
+      labels: PORTFOLIO.map(function (p) { return p.ticker; }),
+      datasets: [{ label: 'Impact (%)', data: PORTFOLIO.map(function () { return 0; }),
+                   backgroundColor: PORTFOLIO.map(function () { return '#2dd4a0'; }), borderRadius: 6 }]
+    },
+    options: {
+      indexAxis: 'y',
+      scales: {
+        x: { min: -35, max: 15, ticks: { callback: function (v) { return v + '%'; } } },
+        y: { grid: { display: false } }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function (ctx) { return ' geschatte impact: ' + (ctx.parsed.x >= 0 ? '+' : '') + ctx.parsed.x.toFixed(1) + '%'; } } }
+      }
+    }
+  });
+  applyScenario('basis');
+
+  document.querySelectorAll('.scenario-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.scenario-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyScenario(btn.dataset.scenario);
+    });
+  });
+})();
+function applyScenario(key) {
+  var sc = SCENARIOS[key];
+  document.getElementById('scenario-desc').textContent = sc.desc;
+  var impacts = PORTFOLIO.map(function (p) {
+    return key === 'basis' ? 0 : p.beta[key] * sc.shock;
+  });
+  var portfolioImpact = 0;
+  impacts.forEach(function (imp, i) { portfolioImpact += imp * PORTFOLIO[i].weight / 100; });
+  scenarioChart.data.datasets[0].data = impacts;
+  scenarioChart.data.datasets[0].backgroundColor = impacts.map(function (v) { return v >= 0 ? '#2dd4a0' : '#f0716e'; });
+  scenarioChart.update();
+  var totalEl = document.getElementById('impact-total');
+  if (key === 'basis') {
+    totalEl.innerHTML = 'Portefeuille-impact: <b style="color:var(--muted2)">0.0%</b>';
+  } else {
+    var col = portfolioImpact >= 0 ? 'var(--green-bright)' : 'var(--red)';
+    var eur = TOTAL_VALUE * portfolioImpact / 100;
+    totalEl.innerHTML = 'Portefeuille-impact: <b style="color:' + col + '">' + (portfolioImpact >= 0 ? '+' : '') + portfolioImpact.toFixed(1) + '%</b>' +
+      ' <span style="color:var(--muted)">(≈ ' + (eur >= 0 ? '+' : '−') + '€' + Math.abs(Math.round(eur)).toLocaleString('nl-NL') + ')</span>';
+  }
+}
+
+// ===== Tab 4: Benchmark =====
+(function () {
+  var months = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun'];
+  new Chart(document.getElementById('bench-chart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        { label: 'Demo-portefeuille', data: [0, 5, 3, 14, 24, 37], borderColor: '#2dd4a0',
+          backgroundColor: 'rgba(45, 212, 160, 0.08)', fill: true, tension: 0.35, pointRadius: 4, pointBackgroundColor: '#2dd4a0' },
+        { label: 'S&P 500', data: [0, 2, 0, 4, 6, 8], borderColor: '#e8b44f',
+          backgroundColor: 'transparent', fill: false, tension: 0.35, pointRadius: 4, pointBackgroundColor: '#e8b44f' }
+      ]
+    },
+    options: {
+      interaction: { mode: 'index', intersect: false },
+      scales: { y: { ticks: { callback: function (v) { return (v >= 0 ? '+' : '') + v + '%'; } } } },
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 16, boxWidth: 12 } },
+        tooltip: { callbacks: { label: function (ctx) { return ' ' + ctx.dataset.label + ': ' + (ctx.parsed.y >= 0 ? '+' : '') + ctx.parsed.y + '%'; } } }
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

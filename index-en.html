@@ -782,6 +782,8 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#investing">Investing</a></li>
+      <li><a href="monitor.html">Demo</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="lang-btn" onclick="window.location.href='index.html'">NL</button>
@@ -1129,6 +1131,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
         <div class="tech-row">
           <span class="tech-tag">Python</span><span class="tech-tag">yfinance</span><span class="tech-tag">NumPy</span><span class="tech-tag">Chart.js</span><span class="tech-tag">http.server</span><span class="tech-tag">JSON pipeline</span>
         </div>
+        <a href="monitor.html" class="project-link" style="margin-right: 24px; color: var(--gold);">▶ Try the live demo</a>
         <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link">→ View on GitHub</a>
       </div>
 
@@ -1277,7 +1280,10 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
     <div class="project-card reveal" style="margin-top: 40px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
         <div class="project-title">Portfolio Monitor — open source on GitHub</div>
-        <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link" style="white-space:nowrap">→ github.com/bastiaanvdh/portfolio-monitor</a>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="monitor.html" class="project-link" style="white-space:nowrap; color: var(--gold);">▶ Try the live demo</a>
+          <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link" style="white-space:nowrap">→ github.com/bastiaanvdh/portfolio-monitor</a>
+        </div>
       </div>
       <p class="project-desc">A 19-agent Python pipeline that analyzes my full portfolio daily: prices, alerts, earnings, peer comparison, macro correlations and scenario analysis. No external subscription, no AI API — everything runs locally and serves an interactive Chart.js dashboard on localhost. The watchlist screener automatically vets candidate stocks using a vault-code methodology (score 0–100), including fair-value calculation and entry criteria check. Published open source so others can set it up with their own positions.</p>
 
