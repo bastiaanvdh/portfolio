@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Bastiaan van der Horst | Data & Marketing Intelligence Specialist</title>
+<meta name="description" content="Curriculum vitae van Bastiaan van der Horst — Data & Marketing Intelligence Specialist. Python, ML, automatisering en beleggen.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cv.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f0d; --surface: #101713; --surface3: #1c2820;
+  --green: #2dd4a0; --green-bright: #4ae8b8; --gold: #e8b44f;
+  --white: #f2f8f4; --text: #d7e4dc; --muted: #7e9489; --muted2: #a8bcb1;
+  --border: rgba(45, 212, 160, 0.14);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+
+/* Toolbar (niet meegeprint) */
+.toolbar { position: sticky; top: 0; z-index: 10; background: rgba(10,15,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.toolbar-inner { max-width: 880px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 56px; padding: 0 24px; }
+.toolbar a { color: var(--muted2); text-decoration: none; font-size: 0.87em; font-weight: 500; }
+.toolbar a:hover { color: var(--green-bright); }
+.btn-print { background: var(--green); color: #07120d; border: none; padding: 10px 20px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9em; cursor: pointer; transition: all 0.2s; }
+.btn-print:hover { background: var(--green-bright); }
+
+.page { max-width: 880px; margin: 0 auto; padding: 48px 56px 80px; }
+
+/* Header */
+.cv-head { display: flex; gap: 28px; align-items: flex-start; border-bottom: 1px solid var(--border); padding-bottom: 26px; margin-bottom: 30px; }
+.cv-photo { width: 96px; height: 96px; border-radius: 14px; object-fit: cover; border: 1px solid var(--border); flex-shrink: 0; }
+.cv-head-text { flex: 1; }
+.cv-head h1 { font-size: 2.1em; letter-spacing: -0.02em; line-height: 1.1; }
+.cv-role { color: var(--green-bright); font-size: 1.05em; font-weight: 500; margin: 4px 0 12px; }
+.cv-contact { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.86em; color: var(--muted2); font-family: 'JetBrains Mono', monospace; }
+.cv-contact a { color: var(--muted2); text-decoration: none; }
+.cv-contact a:hover { color: var(--green-bright); }
+
+.cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cv-section { margin-bottom: 26px; }
+.cv-section h2 { font-size: 0.82em; font-family: 'JetBrains Mono', monospace; color: var(--green); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.cv-section p { color: var(--muted2); font-size: 0.94em; }
+
+.job { margin-bottom: 16px; }
+.job-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.job-role { color: var(--white); font-weight: 600; font-size: 0.98em; }
+.job-period { font-family: 'JetBrains Mono', monospace; font-size: 0.76em; color: var(--muted); white-space: nowrap; }
+.job-company { color: var(--green-bright); font-size: 0.86em; margin-bottom: 4px; }
+.job-desc { color: var(--muted2); font-size: 0.88em; }
+
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.metric { background: var(--surface3); border-radius: 8px; padding: 14px 16px; }
+.metric b { display: block; font-family: 'JetBrains Mono', monospace; color: var(--green-bright); font-size: 1.2em; line-height: 1; margin-bottom: 5px; }
+.metric span { font-size: 0.74em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag { background: rgba(45,212,160,0.07); border: 1px solid rgba(45,212,160,0.16); color: var(--muted2); padding: 4px 11px; border-radius: 5px; font-size: 0.8em; font-family: 'JetBrains Mono', monospace; }
+
+.proj { margin-bottom: 12px; }
+.proj b { color: var(--white); font-size: 0.92em; }
+.proj span { color: var(--muted2); font-size: 0.86em; }
+
+.edu-item { margin-bottom: 10px; }
+.edu-item b { color: var(--white); font-size: 0.94em; display: block; }
+.edu-item span { color: var(--muted2); font-size: 0.85em; }
+
+@media (max-width: 720px) {
+  .page { padding: 32px 22px 60px; }
+  .cv-grid { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .cv-head { flex-direction: column; }
+}
+
+/* ---- PRINT ---- */
+@media print {
+  @page { margin: 14mm; }
+  body { background: #fff; color: #1a2420; }
+  .toolbar { display: none; }
+  .page { max-width: none; padding: 0; }
+  h1, h2, h3, .job-role, .proj b, .edu-item b { color: #0a0f0d; }
+  .cv-role, .job-company, .cv-section h2 { color: #169873; }
+  .cv-contact, .cv-contact a, .job-desc, .cv-section p, .proj span, .edu-item span, .job-period { color: #3a4742; }
+  .cv-head, .cv-section h2 { border-color: #c9d6cf; }
+  .metric { background: #eef4f1; }
+  .metric b { color: #169873; }
+  .metric span { color: #5a6c64; }
+  .tag { background: #eef4f1; border-color: #c9d6cf; color: #3a4742; }
+  .cv-section { page-break-inside: avoid; }
+  a { text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <a href="index.html">← Terug naar portfolio</a>
+    <button class="btn-print" onclick="window.print()">⬇ Download als PDF</button>
+  </div>
+</div>
+
+<div class="page">
+  <div class="cv-head">
+    <!-- FOTO: zet hier je portret. Vervang src en verwijder style="display:none". -->
+    <img class="cv-photo" src="assets/bastiaan.jpg" alt="Bastiaan van der Horst" style="display:none;">
+    <div class="cv-head-text">
+      <h1>Bastiaan van der Horst</h1>
+      <div class="cv-role">Data &amp; Marketing Intelligence Specialist</div>
+      <div class="cv-contact">
+        <span>Harlingen, Nederland</span>
+        <a href="mailto:bastiaanvanderhorst@hotmail.com">bastiaanvanderhorst@hotmail.com</a>
+        <a href="https://www.linkedin.com/in/bastiaan-v-01846112a">LinkedIn</a>
+        <a href="https://github.com/bastiaanvdh">github.com/bastiaanvdh</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2>Profiel</h2>
+    <p>Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen die werken. Ik bouw liever een tool die een probleem permanent oplost dan het elke week handmatig aan te pakken: van ML-modellen en revenue attribution tot volledig geautomatiseerde pipelines. Daarnaast belegger in hart en nieren, met een eigen op data gebaseerde portefeuille.</p>
+  </div>
+
+  <div class="cv-section">
+    <h2>Kerncijfers</h2>
+    <div class="metrics">
+      <div class="metric"><b>+38%</b><span>Organische groei YoY</span></div>
+      <div class="metric"><b>€1.3M</b><span>Revenue attributed</span></div>
+      <div class="metric"><b>80x</b><span>Sneller dan handmatig</span></div>
+      <div class="metric"><b>10u+</b><span>Bespaard per week</span></div>
+      <div class="metric"><b>+37%</b><span>Beleggingsrendement YTD</span></div>
+      <div class="metric"><b>10+</b><span>Productietools gebouwd</span></div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2>Werkervaring</h2>
+    <div class="job">
+      <div class="job-top"><span class="job-role">Data & Marketing Intelligence Specialist</span><span class="job-period">mrt 2025 — heden</span></div>
+      <div class="job-company">FOV Friesche Olie- en Verfhandel · Leeuwarden</div>
+      <div class="job-desc">Als enige data specialist een volledig marketing intelligence platform opgezet in Python: ML-modellen, revenue attribution, concurrentieanalyse en automatisering van 10+ uur werk per week. Dagelijks gebruikt door management.</div>
+    </div>
+    <div class="job">
+      <div class="job-top"><span class="job-role">MKB Adviseur Klantenservice</span><span class="job-period">aug 2024 — mrt 2025</span></div>
+      <div class="job-company">Rabobank (via DPA Professionals) · Utrecht</div>
+      <div class="job-desc">MKB-klanten geadviseerd over financiële producten en digitaal bankieren. Klantanalyses in Siebel CRM voor upsell- en cross-sell-kansen.</div>
+    </div>
+    <div class="job">
+      <div class="job-top"><span class="job-role">Eigenaar / Founder</span><span class="job-period">jun 2020 — jun 2023</span></div>
+      <div class="job-company">BeLion Sportswear · Harlingen</div>
+      <div class="job-desc">E-commerce sportswear merk opgezet. Google Ads, SEO en Python-automatisering voor feed-optimalisatie en competitor tracking.</div>
+    </div>
+    <div class="job">
+      <div class="job-top"><span class="job-role">Leidinggevende / Weekendmanager</span><span class="job-period">aug 2021 — mei 2024</span></div>
+      <div class="job-company">Poiesz Supermarkten · Friesland</div>
+      <div class="job-desc">Leiding aan teams van ~30 medewerkers over meerdere filialen. 3 collega's opgeleid tot sleutelhouder.</div>
+    </div>
+  </div>
+
+  <div class="cv-grid">
+    <div class="cv-section">
+      <h2>Opleiding</h2>
+      <div class="edu-item">
+        <b>HBO Commerciële Economie</b>
+        <span>NHL Stenden Hogeschool · Leeuwarden</span><br>
+        <span>Minors: Beleggen · Marketing Communicatie & Content Marketing</span>
+      </div>
+      <div class="edu-item">
+        <b>Wft Basis</b>
+        <span>Certificaat financiële dienstverlening</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h2>Finance & Beleggen</h2>
+      <p>Eigen portefeuille, actief beheerd op basis van fundamentele en technische analyse (+37% YTD). Deel mijn aanpak via het Instagram-kanaal "Beleggen met Bastiaan".</p>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2>Technische vaardigheden</h2>
+    <div class="tags">
+      <span class="tag">Python</span><span class="tag">Pandas/NumPy</span><span class="tag">scikit-learn</span><span class="tag">SQL / BigQuery</span><span class="tag">GA4</span><span class="tag">Google Search Console</span><span class="tag">Google Ads API</span><span class="tag">Looker Studio</span><span class="tag">Streamlit</span><span class="tag">Playwright</span><span class="tag">Git</span><span class="tag">SEO/SEA</span><span class="tag">Revenue Attribution</span><span class="tag">Fundamentele Analyse</span>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h2>Geselecteerde projecten</h2>
+    <div class="proj"><b>Marketing Intelligence Suite</b> — <span>Python-pipeline (GSC/GA4/Ads) met ML-forecasting en €1.3M revenue attribution.</span></div>
+    <div class="proj"><b>FOV Ads Autopilot</b> — <span>Read-only Google Ads-analyse die wekelijks campagnes doorlicht en adviezen genereert.</span></div>
+    <div class="proj"><b>Gap Intelligence Suite</b> — <span>Zelfgebouwde SEO-concurrentieanalyse zonder Ahrefs/SEMrush.</span></div>
+    <div class="proj"><b>Product Automatisering</b> — <span>AI-contentgeneratie: 5.000+ producten in 4 uur, 99% kostenreductie.</span></div>
+    <div class="proj"><b>Portfolio Monitor</b> — <span>Lokale 19-agent Python-pipeline voor dagelijkse portefeuilleanalyse (open source).</span></div>
+    <p style="margin-top:10px; font-size:0.84em; color:var(--muted);">Volledig overzicht met cijfers en code: bastiaanvdh.github.io/portfolio</p>
+  </div>
+</div>
+</body>
+</html>

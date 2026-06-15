@@ -797,9 +797,26 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* ============ NAV TOGGLE & ABOUT PHOTO ============ */
+.nav-controls { display: flex; align-items: center; gap: 10px; }
+.nav-toggle { display: none; background: rgba(45,212,160,0.1); border: 1px solid var(--border); color: var(--green); width: 40px; height: 34px; border-radius: 8px; font-size: 1.05em; cursor: pointer; line-height: 1; transition: all 0.2s; }
+.nav-toggle:hover { background: rgba(45,212,160,0.2); }
+.about-photo { margin-bottom: 26px; }
+.about-photo img { width: 150px; height: 150px; border-radius: 16px; object-fit: cover; border: 1px solid var(--border); display: block; }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 860px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: absolute; top: 58px; left: 0; right: 0;
+    flex-direction: column; gap: 0; display: none;
+    background: rgba(10,15,13,0.98); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border); padding: 6px 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 13px max(40px, 4vw); font-size: 0.95em; }
+  .nav-links a::after { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .stats-inner { grid-template-columns: 1fr 1fr; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
@@ -815,7 +832,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 <nav>
   <div class="nav-inner">
     <a href="#top" class="nav-logo">bastiaanvdh<span class="cursor-blink">_</span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#over-mij">Over mij</a></li>
       <li><a href="#drijfveren">Drijfveren</a></li>
       <li><a href="#projecten">Projecten</a></li>
@@ -823,9 +840,13 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
       <li><a href="#beleggen">Beleggen</a></li>
       <li><a href="monitor.html">Demo</a></li>
       <li><a href="blog.html">Blog</a></li>
+      <li><a href="cv.html">CV</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="lang-btn" onclick="window.location.href='index-en.html'">EN</button>
+    <div class="nav-controls">
+      <button class="lang-btn" onclick="window.location.href='index-en.html'">EN</button>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    </div>
   </div>
 </nav>
 
@@ -885,6 +906,10 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 
     <div class="about-grid">
       <div class="reveal">
+        <div class="about-photo" style="display:none;">
+          <!-- FOTO: zet je portret in assets/bastiaan.jpg en verwijder style="display:none" hierboven -->
+          <img src="assets/bastiaan.jpg" alt="Bastiaan van der Horst">
+        </div>
         <p>
           Ik ben Bastiaan, 27 jaar, woonachtig in Harlingen. HBO Commerciële Economie afgestudeerd aan NHL Stenden, met twee minors: <strong>Beleggen</strong> en <strong>Marketing Communicatie & Content Marketing</strong>. Ik werk op het snijvlak van data, marketing en technologie — en bouw liever een tool die een probleem permanent oplost dan het elke week handmatig aan te pakken.
         </p>
@@ -1363,6 +1388,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
       <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
+      <a href="cv.html" class="btn-secondary">📄 Download cv</a>
       <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-gold">Mail mij</a>
     </div>
     <p class="footer-copy">© 2026 Bastiaan van der Horst · Harlingen, Netherlands</p>
@@ -1470,6 +1496,16 @@ document.querySelectorAll('[data-count]').forEach(function (el) { countObserver.
   }, { threshold: 0.4 });
   chartObserver.observe(chart);
 })();
+
+// ===== Mobiel menu =====
+function toggleMenu(btn){
+  var n = document.getElementById('navLinks');
+  var open = n.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
 </script>
 </body>
 </html>
