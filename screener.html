@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aandelen-screener — Live Demo | Bastiaan van der Horst</title>
+<meta name="description" content="Interactieve aandelen-screener: vul de cijfers in en krijg een score 0-100 op fundamentals, waardering, peers en instap-criteria. De methodiek achter mijn portefeuille.">
+<meta name="author" content="Bastiaan van der Horst">
+<link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/screener.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/screener.html">
+<meta property="og:title" content="Aandelen-screener — Live Demo">
+<meta property="og:description" content="Vul de cijfers van een bedrijf in en zie live een score 0-100 opbouwen. De methodiek achter mijn portefeuille, interactief.">
+<meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f0d; --surface: #101713; --surface2: #16201a; --surface3: #1c2820;
+  --green: #2dd4a0; --green-bright: #4ae8b8; --gold: #e8b44f; --gold-soft: #f2cd7e;
+  --red: #f0716e; --white: #f2f8f4; --text: #d7e4dc; --muted: #7e9489; --muted2: #a8bcb1;
+  --border: rgba(45, 212, 160, 0.14); --border-gold: rgba(232, 180, 79, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; overflow-x: hidden; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+::selection { background: var(--green); color: var(--bg); }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(45,212,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,160,0.03) 1px, transparent 1px);
+  background-size: 56px 56px; pointer-events: none; z-index: 0;
+}
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,15,13,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 max(40px, 4vw); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; color: var(--green); text-decoration: none; letter-spacing: 0.04em; font-weight: 700; }
+.nav-back { color: var(--muted2); text-decoration: none; font-size: 0.87em; font-weight: 500; transition: color 0.2s; }
+.nav-back:hover { color: var(--green-bright); }
+.container { max-width: 1140px; margin: 0 auto; padding: 56px max(40px, 4vw) 90px; position: relative; z-index: 1; }
+.demo-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,180,79,0.1); border: 1px solid var(--border-gold); color: var(--gold); padding: 6px 16px; border-radius: 20px; font-size: 0.78em; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; margin-bottom: 22px; }
+h1 { font-size: clamp(1.9em, 4vw, 2.8em); letter-spacing: -0.02em; margin-bottom: 12px; }
+.intro { color: var(--muted2); font-size: 1.05em; max-width: 720px; margin-bottom: 30px; line-height: 1.7; }
+.intro a { color: var(--green-bright); text-decoration: none; }
+.intro a:hover { text-decoration: underline; }
+
+.preset-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; align-items: center; }
+.preset-label { font-family: 'JetBrains Mono', monospace; font-size: 0.78em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-right: 4px; }
+.preset-btn { background: var(--surface); border: 1px solid var(--border); color: var(--muted2); padding: 8px 16px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.82em; cursor: pointer; transition: all 0.2s; }
+.preset-btn:hover { border-color: var(--green); color: var(--green-bright); }
+
+.layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 26px; align-items: start; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 30px; }
+.group-title { font-family: 'JetBrains Mono', monospace; font-size: 0.78em; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin: 26px 0 14px; display: flex; justify-content: space-between; align-items: baseline; }
+.group-title:first-of-type { margin-top: 0; }
+.group-title .weight { color: var(--muted); }
+.field { margin-bottom: 18px; }
+.field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.field label { font-size: 0.92em; color: var(--text); }
+.field .val { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: var(--green-bright); font-weight: 500; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: var(--surface3); outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--green); cursor: pointer; border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--green); }
+input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--green); cursor: pointer; border: 2px solid var(--bg); }
+.field .hint { font-size: 0.78em; color: var(--muted); margin-top: 4px; }
+
+/* Score panel */
+.score-panel { position: sticky; top: 80px; }
+.score-big { text-align: center; padding: 14px 0 22px; }
+.score-num { font-family: 'JetBrains Mono', monospace; font-size: 4.2em; font-weight: 700; line-height: 1; }
+.score-verdict { font-family: 'JetBrains Mono', monospace; font-size: 0.95em; margin-top: 8px; letter-spacing: 0.04em; }
+.score-ring { display: block; margin: 0 auto; }
+.breakdown { margin-top: 8px; }
+.bd-row { margin-bottom: 16px; }
+.bd-head { display: flex; justify-content: space-between; font-size: 0.86em; margin-bottom: 6px; }
+.bd-head .name { color: var(--muted2); }
+.bd-head .pts { font-family: 'JetBrains Mono', monospace; color: var(--green-bright); }
+.bd-bar { height: 7px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+.bd-bar i { display: block; height: 100%; background: linear-gradient(to right, var(--green), var(--green-bright)); border-radius: 4px; transition: width 0.4s ease; }
+.verdict-box { margin-top: 22px; padding: 18px 20px; border-radius: 10px; font-size: 0.9em; line-height: 1.6; border: 1px solid var(--border); background: var(--surface2); color: var(--muted2); }
+.disclaimer { margin-top: 40px; font-size: 0.82em; color: var(--muted); font-family: 'JetBrains Mono', monospace; line-height: 1.6; }
+.cta-card { margin-top: 30px; background: var(--surface); border: 1px solid var(--border-gold); border-radius: 12px; padding: 30px 34px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.cta-card h3 { margin-bottom: 6px; font-size: 1.1em; }
+.cta-card p { color: var(--muted2); font-size: 0.92em; max-width: 540px; }
+.btn-primary { background: var(--green); color: #07120d; padding: 13px 26px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 0.92em; transition: all 0.25s; white-space: nowrap; }
+.btn-primary:hover { background: var(--green-bright); transform: translateY(-2px); }
+@media (max-width: 920px) { .layout { grid-template-columns: 1fr; } .score-panel { position: static; } .container { padding: 36px max(20px,4vw) 60px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">bastiaanvdh_</a>
+    <a href="index.html#beleggen" class="nav-back">← Terug naar portfolio</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="demo-badge">⚡ INTERACTIEVE DEMO</div>
+  <h1>Aandelen-screener</h1>
+  <p class="intro">Dit is de methodiek waarmee ik elk kandidaat-aandeel doorlicht vóór ik koop — hier als interactieve tool. Schuif met de cijfers van een bedrijf en zie live hoe de score 0–100 zich opbouwt uit vier blokken. Lees ook de uitleg in mijn <a href="blog.html#zo-werkt-mijn-screener">blogpost over de screener</a>.</p>
+
+  <div class="preset-row">
+    <span class="preset-label">Voorbeeld laden:</span>
+    <button class="preset-btn" data-preset="kwaliteit">Kwaliteitsgroeier</button>
+    <button class="preset-btn" data-preset="waarde">Waardeaandeel</button>
+    <button class="preset-btn" data-preset="hype">Hype-aandeel</button>
+    <button class="preset-btn" data-preset="reset">Reset</button>
+  </div>
+
+  <div class="layout">
+    <div class="card" id="inputs">
+      <div class="group-title">1 · Fundamentals <span class="weight">40 punten</span></div>
+      <div class="field">
+        <div class="field-head"><label>Omzetgroei (jaar-op-jaar)</label><span class="val" id="v-growth">12%</span></div>
+        <input type="range" id="growth" min="-10" max="40" value="12" step="1">
+        <div class="hint">Structurele groei, niet één goed jaar.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Vrije kasstroom-marge</label><span class="val" id="v-margin">18%</span></div>
+        <input type="range" id="margin" min="-10" max="45" value="18" step="1">
+        <div class="hint">Hoeveel cash blijft er over per euro omzet.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label>ROIC (rendement op kapitaal)</label><span class="val" id="v-roic">15%</span></div>
+        <input type="range" id="roic" min="-5" max="40" value="15" step="1">
+        <div class="hint">Boven de kapitaalkosten (~8%) creëert groei waarde.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Netto schuld / EBITDA</label><span class="val" id="v-debt">1.0x</span></div>
+        <input type="range" id="debt" min="-1" max="6" value="1" step="0.5">
+        <div class="hint">Lager is veiliger; boven ~3x wordt het risicovol.</div>
+      </div>
+
+      <div class="group-title">2 · Fair value <span class="weight">25 punten</span></div>
+      <div class="field">
+        <div class="field-head"><label>Op-/onderwaardering vs. fair value</label><span class="val" id="v-upside">+10%</span></div>
+        <input type="range" id="upside" min="-40" max="50" value="10" step="1">
+        <div class="hint">Positief = onder fair value (koopkans), negatief = te duur.</div>
+      </div>
+
+      <div class="group-title">3 · Peer-ranking <span class="weight">20 punten</span></div>
+      <div class="field">
+        <div class="field-head"><label>Kwaliteit vs. sectorgenoten (percentiel)</label><span class="val" id="v-peerq">70</span></div>
+        <input type="range" id="peerq" min="0" max="100" value="70" step="5">
+        <div class="hint">100 = beste van de sector op groei en marges.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Waardering vs. sectorgenoten (percentiel)</label><span class="val" id="v-peerv">50</span></div>
+        <input type="range" id="peerv" min="0" max="100" value="50" step="5">
+        <div class="hint">Lager = goedkoper dan peers. Het zoete punt: hoge kwaliteit, lage waardering.</div>
+      </div>
+
+      <div class="group-title">4 · Instap-criteria <span class="weight">15 punten</span></div>
+      <div class="field">
+        <div class="field-head"><label>Concrete katalysator aanwezig</label><span class="val" id="v-cat">Ja</span></div>
+        <input type="range" id="cat" min="0" max="2" value="1" step="1">
+        <div class="hint">0 = geen · 1 = mogelijk · 2 = duidelijke katalysator.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Lage correlatie met huidige posities</label><span class="val" id="v-corr">Gemiddeld</span></div>
+        <input type="range" id="corr" min="0" max="2" value="1" step="1">
+        <div class="hint">Spreiding: voegt het iets toe of overlapt het met wat je hebt.</div>
+      </div>
+    </div>
+
+    <div class="score-panel">
+      <div class="card">
+        <div class="score-big">
+          <svg class="score-ring" width="150" height="150" viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="64" fill="none" stroke="#1c2820" stroke-width="11"/>
+            <circle id="ring" cx="75" cy="75" r="64" fill="none" stroke="#2dd4a0" stroke-width="11" stroke-linecap="round" transform="rotate(-90 75 75)" stroke-dasharray="402" stroke-dashoffset="402" style="transition: stroke-dashoffset 0.5s ease, stroke 0.3s ease"/>
+          </svg>
+          <div class="score-num" id="score" style="margin-top:-110px">0</div>
+          <div class="score-verdict" id="verdict" style="margin-top:62px">—</div>
+        </div>
+        <div class="breakdown">
+          <div class="bd-row"><div class="bd-head"><span class="name">Fundamentals</span><span class="pts"><span id="p-fund">0</span> / 40</span></div><div class="bd-bar"><i id="bar-fund"></i></div></div>
+          <div class="bd-row"><div class="bd-head"><span class="name">Fair value</span><span class="pts"><span id="p-fv">0</span> / 25</span></div><div class="bd-bar"><i id="bar-fv"></i></div></div>
+          <div class="bd-row"><div class="bd-head"><span class="name">Peer-ranking</span><span class="pts"><span id="p-peer">0</span> / 20</span></div><div class="bd-bar"><i id="bar-peer"></i></div></div>
+          <div class="bd-row"><div class="bd-head"><span class="name">Instap-criteria</span><span class="pts"><span id="p-entry">0</span> / 15</span></div><div class="bd-bar"><i id="bar-entry"></i></div></div>
+        </div>
+        <div class="verdict-box" id="verdict-box">Schuif met de cijfers links om de score te zien opbouwen.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-card">
+    <div>
+      <h3>Wil je de echte versie zien?</h3>
+      <p>In mijn Portfolio Monitor draait deze screener automatisch op live data via yfinance — inclusief fair-value-berekening en peer-ranking per naam. Probeer ook de interactieve monitor-demo.</p>
+    </div>
+    <a href="monitor.html" class="btn-primary">▶ Open de Monitor-demo</a>
+  </div>
+
+  <p class="disclaimer">// Educatieve tool, geen beleggingsadvies. De score is een vereenvoudiging van mijn eigen methodiek en bedoeld om te laten zien hóé ik naar een aandeel kijk — niet om koopbeslissingen op te baseren.</p>
+</div>
+
+<script>
+var ids = ['growth','margin','roic','debt','upside','peerq','peerv','cat','corr'];
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+function lerp(v, inMin, inMax, outMin, outMax){ return clamp((v-inMin)/(inMax-inMin),0,1)*(outMax-outMin)+outMin; }
+
+var PRESETS = {
+  kwaliteit: { growth:18, margin:30, roic:25, debt:0.5, upside:5,  peerq:85, peerv:60, cat:2, corr:2 },
+  waarde:    { growth:4,  margin:14, roic:11, debt:2,   upside:30, peerq:55, peerv:20, cat:1, corr:2 },
+  hype:      { growth:35, margin:-2, roic:3,  debt:3.5, upside:-30,peerq:40, peerv:95, cat:1, corr:0 }
+};
+var DEFAULTS = { growth:12, margin:18, roic:15, debt:1, upside:10, peerq:70, peerv:50, cat:1, corr:1 };
+
+function fmt(id, v){
+  if(id==='debt') return v.toFixed(1)+'x';
+  if(id==='upside'||id==='growth'||id==='margin'||id==='roic') return (v>=0?'+':'')+v+'%';
+  if(id==='peerq'||id==='peerv') return ''+v;
+  if(id==='cat') return ['Nee','Mogelijk','Ja'][v];
+  if(id==='corr') return ['Hoog','Gemiddeld','Laag'][v];
+  return ''+v;
+}
+
+function compute(g){
+  // Fundamentals (40): growth 12, margin 10, roic 10, debt 8
+  var fund = lerp(g.growth,-10,30,0,12) + lerp(g.margin,-10,40,0,10) + lerp(g.roic,-5,30,0,10) + lerp(g.debt,4,0,0,8);
+  fund = clamp(fund,0,40);
+  // Fair value (25)
+  var fv = lerp(g.upside,-30,40,0,25);
+  fv = clamp(fv,0,25);
+  // Peer (20): quality 13, cheapness 7 (lower valuation percentile = better)
+  var peer = lerp(g.peerq,0,100,0,13) + lerp(g.peerv,100,0,0,7);
+  peer = clamp(peer,0,20);
+  // Entry (15): catalyst up to 8, low correlation up to 7
+  var entry = (g.cat/2)*8 + (g.corr/2)*7;
+  entry = clamp(entry,0,15);
+  return { fund:fund, fv:fv, peer:peer, entry:entry, total: fund+fv+peer+entry };
+}
+
+function verdictFor(score){
+  if(score>=80) return ['SERIEUZE KANDIDAAT', 'var(--green-bright)', 'Sterke score. Dit aandeel is verder onderzoek waard — diep in de jaarverslagen en de concurrentiepositie.'];
+  if(score>=60) return ['WATCHLIST', 'var(--gold)', 'Genoeg kwaliteit om te volgen, maar nog niet overtuigend genoeg om nu te kopen. Op de watchlist, wachten op een beter instapmoment of betere cijfers.'];
+  if(score>=40) return ['ONVOLDOENDE', 'var(--gold-soft)', 'Interessant verhaal misschien, maar de cijfers ondersteunen het (nog) niet. Hier zou de screener me afremmen.'];
+  return ['VOLGENDE.', 'var(--red)', 'Te zwak op te veel fronten. Hoe mooi het verhaal ook is — dit komt mijn portefeuille niet in.'];
+}
+
+function render(){
+  var g = {};
+  ids.forEach(function(id){
+    var el = document.getElementById(id);
+    g[id] = parseFloat(el.value);
+    document.getElementById('v-'+ ({growth:'growth',margin:'margin',roic:'roic',debt:'debt',upside:'upside',peerq:'peerq',peerv:'peerv',cat:'cat',corr:'corr'}[id])).textContent = fmt(id, g[id]);
+  });
+  var r = compute(g);
+  var total = Math.round(r.total);
+  document.getElementById('p-fund').textContent = Math.round(r.fund);
+  document.getElementById('p-fv').textContent = Math.round(r.fv);
+  document.getElementById('p-peer').textContent = Math.round(r.peer);
+  document.getElementById('p-entry').textContent = Math.round(r.entry);
+  document.getElementById('bar-fund').style.width = (r.fund/40*100)+'%';
+  document.getElementById('bar-fv').style.width = (r.fv/25*100)+'%';
+  document.getElementById('bar-peer').style.width = (r.peer/20*100)+'%';
+  document.getElementById('bar-entry').style.width = (r.entry/15*100)+'%';
+
+  var v = verdictFor(total);
+  document.getElementById('score').textContent = total;
+  document.getElementById('score').style.color = v[1];
+  var vd = document.getElementById('verdict');
+  vd.textContent = v[0]; vd.style.color = v[1];
+  document.getElementById('verdict-box').textContent = v[2];
+  var ring = document.getElementById('ring');
+  ring.style.strokeDashoffset = 402 - (402 * total/100);
+  ring.setAttribute('stroke', v[1].indexOf('green')>-1 ? '#4ae8b8' : (v[1].indexOf('red')>-1 ? '#f0716e' : '#e8b44f'));
+}
+
+ids.forEach(function(id){ document.getElementById(id).addEventListener('input', render); });
+document.querySelectorAll('.preset-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var p = btn.dataset.preset === 'reset' ? DEFAULTS : PRESETS[btn.dataset.preset];
+    ids.forEach(function(id){ document.getElementById(id).value = p[id]; });
+    render();
+  });
+});
+render();
+</script>
+</body>
+</html>
