@@ -17,5 +17,8 @@
   <url><loc>https://bastiaanvdh.github.io/portfolio/screener.html</loc><priority>0.8</priority></url>
   <url><loc>https://bastiaanvdh.github.io/portfolio/calculator.html</loc><priority>0.8</priority></url>
   <url><loc>https://bastiaanvdh.github.io/portfolio/blog.html</loc><priority>0.7</priority></url>
+  <url><loc>https://bastiaanvdh.github.io/portfolio/cv.html</loc><priority>0.7</priority></url>
   <url><loc>https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html</loc><priority>0.7</priority></url>
+  <url><loc>https://bastiaanvdh.github.io/portfolio/cases/product-automation-platform.html</loc><priority>0.7</priority></url>
+  <url><loc>https://bastiaanvdh.github.io/portfolio/cases/portfolio-monitor.html</loc><priority>0.7</priority></url>
 </urlset>

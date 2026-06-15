@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Bastiaan van der Horst | Data, Marketing Intelligence & Beleggen</title>
 <meta name="description" content="Data & Marketing Intelligence Specialist. Python, ML, automatisering en beleggen. Bouwt tools die dagelijks draaien en meetbare impact hebben.">
 <meta name="author" content="Bastiaan van der Horst">
@@ -17,18 +18,18 @@
 <meta property="og:site_name" content="Bastiaan van der Horst">
 <meta property="og:title" content="Bastiaan van der Horst | Data, Marketing Intelligence & Beleggen">
 <meta property="og:description" content="Data & Marketing Intelligence Specialist. Python, ML, automatisering en beleggen. Bouwt tools die dagelijks draaien en meetbare impact hebben.">
-<meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.svg">
+<meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bastiaan van der Horst | Data, Marketing Intelligence & Beleggen">
 <meta name="twitter:description" content="Python, ML, automatisering en beleggen. Tools die dagelijks draaien en meetbare impact hebben.">
-<meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.svg">
+<meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Bastiaan van der Horst",
   "url": "https://bastiaanvdh.github.io/portfolio/",
-  "image": "https://bastiaanvdh.github.io/portfolio/og-image.svg",
+  "image": "https://bastiaanvdh.github.io/portfolio/og-image.png",
   "jobTitle": "Data & Marketing Intelligence Specialist",
   "description": "Data & Marketing Intelligence Specialist die ruwe data omzet in beslissingen. Python, ML-modellen, automatisering en beleggen.",
   "email": "mailto:bastiaanvanderhorst@hotmail.com",
@@ -804,6 +805,17 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 .about-photo { margin-bottom: 26px; }
 .about-photo img { width: 150px; height: 150px; border-radius: 16px; object-fit: cover; border: 1px solid var(--border); display: block; }
 
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 860px) {
   .nav-toggle { display: block; }
@@ -1112,6 +1124,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
         <div class="tech-row">
           <span class="tech-tag">Python</span><span class="tech-tag">BeautifulSoup</span><span class="tech-tag">Tesseract OCR</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">Claude API</span><span class="tech-tag">Pandas</span>
         </div>
+        <a href="cases/product-automation-platform.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Lees de case study</a>
         <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
@@ -1197,6 +1210,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
           <span class="tech-tag">Python</span><span class="tech-tag">yfinance</span><span class="tech-tag">NumPy</span><span class="tech-tag">Chart.js</span><span class="tech-tag">http.server</span><span class="tech-tag">JSON pipeline</span>
         </div>
         <a href="monitor.html" class="project-link" style="margin-right: 24px; color: var(--gold);">▶ Probeer de live demo</a>
+        <a href="cases/portfolio-monitor.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Lees de case study</a>
         <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
@@ -1406,6 +1420,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 (function () {
   var words = ['data_pipelines', 'ml_modellen', 'beleggingsanalyses', 'ai_automatisering', 'dashboards', 'rendement'];
   var el = document.getElementById('typed');
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = "'data_pipelines'"; return; }
   var wi = 0, ci = 0, deleting = false;
   function tick() {
     var word = words[wi];
