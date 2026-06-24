@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "slug": "twee-ais-die-elkaar-controleren",
+      "file": "2026-06-twee-ais-die-elkaar-controleren.md",
+      "title": "Twee AI's die elkaar controleren: 5.000 productteksten in 4 uur",
+      "date": "2026-06-14",
+      "tags": ["ai", "python", "automatisering"],
+      "summary": "Build-log: hoe ik AI op schaal betrouwbaar maakte met een dual-AI opzet waarin ChatGPT en Claude elkaars werk valideren. De echte winst zit in controle, niet in creativiteit."
+    },
+    {
+      "slug": "zo-werkt-mijn-screener",
+      "file": "2026-06-zo-werkt-mijn-screener.md",
+      "title": "Zo werkt mijn aandelen-screener: score 0–100 in vier stappen",
+      "date": "2026-06-12",
+      "tags": ["beleggen", "python", "screener"],
+      "summary": "Hoe ik kandidaat-aandelen automatisch doorlicht voordat ik er ook maar één euro in steek: fundamentals, fair value, peer-ranking en instap-criteria — samengevat in één score."
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Case: Marketing Intelligence Suite | Bastiaan van der Horst</title>
+<meta name="description" content="Hoe ik bij FOV een volledig marketing intelligence platform bouwde in Python: van losse API-data naar één dashboard met ML-forecasting en €1.3M revenue attribution.">
+<meta name="author" content="Bastiaan van der Horst">
+<link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html">
+<meta property="og:title" content="Case: Marketing Intelligence Suite">
+<meta property="og:description" content="Van losse exports uit drie tools naar één dashboard met ML-forecasting en €1.3M revenue attribution.">
+<meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Case: Marketing Intelligence Suite",
+  "description": "Hoe ik bij FOV een volledig marketing intelligence platform bouwde in Python met ML-forecasting en €1.3M revenue attribution.",
+  "author": { "@type": "Person", "name": "Bastiaan van der Horst", "url": "https://bastiaanvdh.github.io/portfolio/" },
+  "publisher": { "@type": "Person", "name": "Bastiaan van der Horst" },
+  "mainEntityOfPage": "https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html",
+  "about": ["Marketing Intelligence", "Machine Learning", "Python", "Revenue Attribution", "SEO"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f0d; --surface: #101713; --surface2: #16201a; --surface3: #1c2820;
+  --green: #2dd4a0; --green-bright: #4ae8b8; --gold: #e8b44f; --gold-soft: #f2cd7e;
+  --red: #f0716e; --white: #f2f8f4; --text: #d7e4dc; --muted: #7e9489; --muted2: #a8bcb1;
+  --border: rgba(45, 212, 160, 0.14); --border-gold: rgba(232, 180, 79, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; overflow-x: hidden; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+::selection { background: var(--green); color: var(--bg); }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(45,212,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,160,0.03) 1px, transparent 1px);
+  background-size: 56px 56px; pointer-events: none; z-index: 0;
+}
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,15,13,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 max(40px, 4vw); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; color: var(--green); text-decoration: none; letter-spacing: 0.04em; font-weight: 700; }
+.nav-back { color: var(--muted2); text-decoration: none; font-size: 0.87em; font-weight: 500; transition: color 0.2s; }
+.nav-back:hover { color: var(--green-bright); }
+.container { max-width: 860px; margin: 0 auto; padding: 56px max(40px, 4vw) 90px; position: relative; z-index: 1; }
+.case-label { font-family: 'JetBrains Mono', monospace; font-size: 0.78em; color: var(--green); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+h1 { font-size: clamp(2em, 5vw, 3em); letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.1; }
+.lead { color: var(--muted2); font-size: 1.18em; margin-bottom: 36px; line-height: 1.7; }
+.tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+.tech-tag { background: rgba(45,212,160,0.07); border: 1px solid rgba(45,212,160,0.16); color: var(--muted2); padding: 5px 13px; border-radius: 6px; font-size: 0.8em; font-family: 'JetBrains Mono', monospace; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 46px; }
+.kpi { background: var(--surface3); padding: 22px 20px; }
+.kpi-val { font-size: 1.6em; font-weight: 700; font-family: 'JetBrains Mono', monospace; display: block; line-height: 1.1; margin-bottom: 6px; color: var(--green-bright); }
+.kpi-label { font-size: 0.74em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+h2 { font-size: 1.5em; margin: 46px 0 8px; }
+.section-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.74em; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
+p { color: var(--muted2); margin-bottom: 18px; font-size: 1.04em; }
+strong { color: var(--text); }
+a.inline { color: var(--green-bright); text-decoration: none; }
+a.inline:hover { text-decoration: underline; }
+ul { margin: 0 0 18px 22px; color: var(--muted2); }
+li { margin-bottom: 10px; }
+li strong { color: var(--text); }
+
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; margin: 24px 0 30px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.flow-step { flex: 1; min-width: 140px; padding: 20px 18px; background: var(--surface); border-right: 1px solid var(--border); position: relative; }
+.flow-step:last-child { border-right: none; }
+.flow-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72em; color: var(--green); margin-bottom: 8px; }
+.flow-step b { color: var(--white); display: block; font-size: 0.95em; margin-bottom: 4px; }
+.flow-step span { font-size: 0.82em; color: var(--muted); }
+
+blockquote { border-left: 3px solid var(--gold); background: var(--surface2); border-radius: 0 8px 8px 0; padding: 16px 24px; margin: 0 0 22px; color: var(--muted2); font-style: italic; }
+.cta-card { margin-top: 50px; background: var(--surface); border: 1px solid var(--border-gold); border-radius: 12px; padding: 32px 36px; }
+.cta-card h3 { margin-bottom: 8px; }
+.cta-card p { font-size: 0.95em; margin-bottom: 18px; }
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: var(--green); color: #07120d; padding: 13px 26px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 0.92em; transition: all 0.25s; }
+.btn-primary:hover { background: var(--green-bright); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: var(--green-bright); padding: 13px 26px; text-decoration: none; font-weight: 500; border-radius: 8px; font-size: 0.92em; border: 1px solid var(--border); transition: all 0.25s; }
+.btn-secondary:hover { border-color: var(--green); transform: translateY(-2px); }
+@media (max-width: 700px) { .kpi-row { grid-template-columns: 1fr 1fr; } .container { padding: 36px max(20px,4vw) 60px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">bastiaanvdh_</a>
+    <a href="../index.html#projecten" class="nav-back">← Alle projecten</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="case-label">Case study · FOV</div>
+  <h1>Marketing Intelligence Suite</h1>
+  <p class="lead">Van losse exports uit drie tools naar één dashboard waar het management dagelijks beslissingen op baseert — inclusief een ML-model dat voorspelt waar de volgende groei zit.</p>
+
+  <div class="tech-row">
+    <span class="tech-tag">Python</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Google APIs</span><span class="tech-tag">Pandas/NumPy</span><span class="tech-tag">Streamlit</span><span class="tech-tag">OpenAI API</span>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><span class="kpi-val">+38%</span><span class="kpi-label">Organisch YoY</span></div>
+    <div class="kpi"><span class="kpi-val">€1.3M</span><span class="kpi-label">Revenue attributed</span></div>
+    <div class="kpi"><span class="kpi-val">0.75+</span><span class="kpi-label">ML model R²</span></div>
+    <div class="kpi"><span class="kpi-val">10u+</span><span class="kpi-label">Bespaard/week</span></div>
+  </div>
+
+  <span class="section-tag">Het probleem</span>
+  <h2>Drie tools, geen overzicht</h2>
+  <p>FOV draaide op Google Search Console, GA4 en Google Ads — drie krachtige bronnen, maar volledig los van elkaar. Elke week werd er handmatig geëxporteerd, geplakt in Excel en met de hand een rapport gemaakt. Het kostte uren, was foutgevoelig, en de echte vraag bleef onbeantwoord: <strong>welke pagina's leveren straks de meeste extra omzet op, en waar lekt het weg?</strong></p>
+  <p>Het management stuurde op cijfers van vorige maand, terwijl de data om vooruit te kijken er wel was — alleen niet gecombineerd en niet geïnterpreteerd.</p>
+
+  <span class="section-tag">De aanpak</span>
+  <h2>Eén pipeline, van ruwe API tot beslissing</h2>
+  <p>Ik bouwde een volledig in Python geschreven pipeline die de drie bronnen via hun API's binnenhaalt, schoonmaakt, koppelt op URL- en zoekwoordniveau, en serveert in één Streamlit-dashboard. Geen handmatige export meer — één druk op de knop.</p>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-num">01</div><b>Ingest</b><span>GSC, GA4 & Ads via API's, dagelijks opgehaald</span></div>
+    <div class="flow-step"><div class="flow-num">02</div><b>Koppel</b><span>Joins op URL & zoekwoord, opschoning in Pandas</span></div>
+    <div class="flow-step"><div class="flow-num">03</div><b>Modelleer</b><span>Random Forest forecast + anomaliedetectie</span></div>
+    <div class="flow-step"><div class="flow-num">04</div><b>Beslis</b><span>Dashboard + geprioriteerde actielijst</span></div>
+  </div>
+  <p>Het hart is een <strong>Random Forest-model met 100+ features</strong> dat per pagina voorspelt hoeveel clicks er te winnen zijn als de positie verbetert. Daarnaast draait er continu anomaliedetectie op de omzet: zakt een productlijn onverwacht weg, dan komt er automatisch een melding — voordat iemand het in een maandrapport zou zien.</p>
+
+  <blockquote>De kern was niet het model, maar de koppeling. Pas toen GSC-posities, GA4-gedrag en Ads-kosten op één rij stonden, werd zichtbaar waar verkeer wél binnenkwam maar niet converteerde.</blockquote>
+
+  <span class="section-tag">De uitdaging</span>
+  <h2>Attributie die klopt</h2>
+  <p>De lastigste stap was revenue attribution: omzet terugleiden van de uiteindelijke aankoop naar het eerste contactmoment, over sessies en kanalen heen. Door GA4-events te koppelen aan de transactiedata en een consistent attributiemodel te kiezen, kon ik <strong>€1.3M jaaromzet</strong> betrouwbaar toewijzen aan de bron. Dat veranderde het gesprek: niet meer "SEO voelt waardevol", maar "dit kanaal leverde dit bedrag op".</p>
+
+  <span class="section-tag">Het resultaat</span>
+  <h2>Sturen op de toekomst, niet op het verleden</h2>
+  <ul>
+    <li><strong>+38% organische groei jaar-op-jaar</strong> door systematisch de pagina's aan te pakken die het model als kansrijk markeerde.</li>
+    <li><strong>€1.3M aan omzet</strong> betrouwbaar toegewezen, met automatische signalering bij afwijkingen.</li>
+    <li><strong>10+ uur per week bespaard</strong> doordat het wekelijkse handwerk volledig verdween.</li>
+    <li><strong>Eén bron van waarheid</strong> waar management én marketing dagelijks op vertrouwen.</li>
+  </ul>
+
+  <span class="section-tag">Wat ik eruit haalde</span>
+  <h2>Geleerd onderweg</h2>
+  <p>De grootste les: een voorspelmodel is pas waardevol als de data eronder kloppen en de uitkomst leidt tot een concrete actie. Ik heb bewust veel tijd in de datakoppeling en in een begrijpelijke, geprioriteerde actielijst gestoken — niet in een nóg complexer model. Een R² van 0.75 die wekelijks gebruikt wordt, is meer waard dan een 0.90 die in een notebook blijft staan.</p>
+
+  <div class="cta-card">
+    <h3>Meer zien?</h3>
+    <p>Dit is één van de tools die ik bouwde. Bekijk de code, of ga terug naar het volledige overzicht.</p>
+    <div class="btn-row">
+      <a href="https://github.com/bastiaanvdh/marketing-intelligence-suite" class="btn-primary">→ Bekijk op GitHub</a>
+      <a href="../index.html#projecten" class="btn-secondary">Alle projecten</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

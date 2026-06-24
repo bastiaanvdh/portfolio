@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Rente-op-rente calculator | Bastiaan van der Horst</title>
+<meta name="description" content="Bereken hoe je vermogen groeit met rente-op-rente. Schuif met inleg, rendement en looptijd en zie het effect van samengestelde groei en je FIRE-doel.">
+<meta name="author" content="Bastiaan van der Horst">
+<link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/calculator.html">
+<meta property="og:title" content="Rente-op-rente calculator">
+<meta property="og:description" content="Zie hoe samengestelde groei je inleg laat exploderen. Schuif met inleg, rendement en looptijd en ontdek je FIRE-doel.">
+<meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0f0d; --surface: #101713; --surface2: #16201a; --surface3: #1c2820;
+  --green: #2dd4a0; --green-bright: #4ae8b8; --gold: #e8b44f; --gold-soft: #f2cd7e;
+  --red: #f0716e; --white: #f2f8f4; --text: #d7e4dc; --muted: #7e9489; --muted2: #a8bcb1;
+  --border: rgba(45, 212, 160, 0.14); --border-gold: rgba(232, 180, 79, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.65; overflow-x: hidden; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+::selection { background: var(--green); color: var(--bg); }
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(45,212,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,160,0.03) 1px, transparent 1px);
+  background-size: 56px 56px; pointer-events: none; z-index: 0;
+}
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,15,13,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 58px; padding: 0 max(40px, 4vw); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; color: var(--green); text-decoration: none; letter-spacing: 0.04em; font-weight: 700; }
+.nav-back { color: var(--muted2); text-decoration: none; font-size: 0.87em; font-weight: 500; transition: color 0.2s; }
+.nav-back:hover { color: var(--green-bright); }
+.container { max-width: 1140px; margin: 0 auto; padding: 56px max(40px, 4vw) 90px; position: relative; z-index: 1; }
+.demo-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(45,212,160,0.08); border: 1px solid var(--border); color: var(--green-bright); padding: 6px 16px; border-radius: 20px; font-size: 0.78em; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; margin-bottom: 22px; }
+h1 { font-size: clamp(1.9em, 4vw, 2.8em); letter-spacing: -0.02em; margin-bottom: 12px; }
+.intro { color: var(--muted2); font-size: 1.05em; max-width: 720px; margin-bottom: 32px; line-height: 1.7; }
+
+.layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 26px; align-items: start; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 30px; }
+.field { margin-bottom: 22px; }
+.field:last-child { margin-bottom: 0; }
+.field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.field label { font-size: 0.92em; color: var(--text); }
+.field .val { font-family: 'JetBrains Mono', monospace; font-size: 0.95em; color: var(--green-bright); font-weight: 600; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: var(--surface3); outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--green); cursor: pointer; border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--green); }
+input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--green); cursor: pointer; border: 2px solid var(--bg); }
+.field .hint { font-size: 0.78em; color: var(--muted); margin-top: 5px; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 22px; }
+.kpi { background: var(--surface3); padding: 18px 20px; }
+.kpi-val { font-size: 1.5em; font-weight: 700; font-family: 'JetBrains Mono', monospace; display: block; line-height: 1.1; margin-bottom: 6px; }
+.kpi-val.green { color: var(--green-bright); }
+.kpi-val.gold { color: var(--gold); }
+.kpi-val.white { color: var(--white); }
+.kpi-label { font-size: 0.74em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.insight { background: var(--surface2); border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; padding: 14px 20px; font-size: 0.92em; color: var(--muted2); margin-top: 22px; line-height: 1.6; }
+.insight b { color: var(--gold-soft); }
+.fire-toggle { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-size: 0.88em; color: var(--muted2); cursor: pointer; user-select: none; }
+.fire-toggle input { width: 16px; height: 16px; accent-color: var(--green); cursor: pointer; }
+.disclaimer { margin-top: 40px; font-size: 0.82em; color: var(--muted); font-family: 'JetBrains Mono', monospace; line-height: 1.6; }
+@media (max-width: 920px) { .layout { grid-template-columns: 1fr; } .container { padding: 36px max(20px,4vw) 60px; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">bastiaanvdh_</a>
+    <a href="index.html#beleggen" class="nav-back">← Terug naar portfolio</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="demo-badge">📈 INTERACTIEVE CALCULATOR</div>
+  <h1>De kracht van rente-op-rente</h1>
+  <p class="intro">Het belangrijkste effect bij beleggen is samengestelde groei: je rendement gaat zélf weer rendement opleveren. Schuif met de inleg, het verwachte rendement en de looptijd, en zie hoe je inleg en je groei uit elkaar lopen. Zet het FIRE-doel aan om te zien wanneer je van je vermogen zou kunnen leven.</p>
+
+  <div class="layout">
+    <div class="card">
+      <div class="field">
+        <div class="field-head"><label>Startkapitaal</label><span class="val" id="v-start">€5.000</span></div>
+        <input type="range" id="start" min="0" max="100000" value="5000" step="1000">
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Maandelijkse inleg</label><span class="val" id="v-monthly">€250</span></div>
+        <input type="range" id="monthly" min="0" max="2000" value="250" step="25">
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Verwacht rendement (per jaar)</label><span class="val" id="v-rate">7%</span></div>
+        <input type="range" id="rate" min="1" max="15" value="7" step="0.5">
+        <div class="hint">Historisch deed een wereldwijde aandelenindex ~7% reëel per jaar. Mijn eigen portefeuille mikt hoger, met meer risico.</div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label>Looptijd</label><span class="val" id="v-years">25 jaar</span></div>
+        <input type="range" id="years" min="1" max="50" value="25" step="1">
+      </div>
+      <label class="fire-toggle"><input type="checkbox" id="fire-on" checked> Toon FIRE-doel (4%-regel)</label>
+    </div>
+
+    <div class="card">
+      <div class="kpi-row">
+        <div class="kpi"><span class="kpi-val white" id="kpi-total">—</span><span class="kpi-label">Eindwaarde</span></div>
+        <div class="kpi"><span class="kpi-val gold" id="kpi-in">—</span><span class="kpi-label">Totaal ingelegd</span></div>
+        <div class="kpi"><span class="kpi-val green" id="kpi-growth">—</span><span class="kpi-label">Waarvan groei</span></div>
+      </div>
+      <canvas id="chart" height="220"></canvas>
+      <div class="insight" id="insight">—</div>
+    </div>
+  </div>
+
+  <p class="disclaimer">// Educatieve tool, geen beleggingsadvies. Rekenmodel met constant rendement en maandelijkse inleg vooraf; de werkelijkheid kent volatiliteit, kosten, belasting en inflatie. De 4%-regel is een vuistregel, geen garantie.</p>
+</div>
+
+<script>
+Chart.defaults.color = '#7e9489';
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.borderColor = 'rgba(45,212,160,0.1)';
+
+function euro(n){ return '€' + Math.round(n).toLocaleString('nl-NL'); }
+function euroShort(n){
+  if(n>=1000000) return '€' + (n/1000000).toFixed(n>=10000000?0:1) + 'M';
+  if(n>=1000) return '€' + Math.round(n/1000) + 'k';
+  return '€' + Math.round(n);
+}
+
+var chart;
+function build(){
+  var ctx = document.getElementById('chart');
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: [], datasets: [
+      { label: 'Ingelegd', data: [], borderColor: '#e8b44f', backgroundColor: 'rgba(232,180,79,0.06)', fill: true, tension: 0.2, pointRadius: 0, borderWidth: 2 },
+      { label: 'Totale waarde', data: [], borderColor: '#2dd4a0', backgroundColor: 'rgba(45,212,160,0.12)', fill: '-1', tension: 0.2, pointRadius: 0, borderWidth: 2.5 }
+    ]},
+    options: {
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: { grid: { display: false }, title: { display: true, text: 'jaar' } },
+        y: { ticks: { callback: function(v){ return euroShort(v); } } }
+      },
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 16, boxWidth: 12 } },
+        tooltip: { callbacks: { label: function(c){ return ' ' + c.dataset.label + ': ' + euro(c.parsed.y); } } }
+      }
+    }
+  });
+}
+
+function render(){
+  var start = +document.getElementById('start').value;
+  var monthly = +document.getElementById('monthly').value;
+  var rate = +document.getElementById('rate').value / 100;
+  var years = +document.getElementById('years').value;
+  var fireOn = document.getElementById('fire-on').checked;
+
+  document.getElementById('v-start').textContent = euro(start);
+  document.getElementById('v-monthly').textContent = euro(monthly);
+  document.getElementById('v-rate').textContent = rate*100 + '%';
+  document.getElementById('v-years').textContent = years + ' jaar';
+
+  var mRate = Math.pow(1+rate, 1/12) - 1;
+  var labels = [], invested = [], value = [];
+  var bal = start, inv = start;
+  labels.push('0'); invested.push(inv); value.push(bal);
+  for(var m=1; m<=years*12; m++){
+    bal = bal*(1+mRate) + monthly;
+    inv += monthly;
+    if(m % 12 === 0){ labels.push(''+(m/12)); invested.push(inv); value.push(bal); }
+  }
+  var growth = bal - inv;
+
+  document.getElementById('kpi-total').textContent = euro(bal);
+  document.getElementById('kpi-in').textContent = euro(inv);
+  document.getElementById('kpi-growth').textContent = euro(growth);
+
+  chart.data.labels = labels;
+  chart.data.datasets[0].data = invested;
+  chart.data.datasets[1].data = value;
+  chart.update();
+
+  var growthPct = inv > 0 ? Math.round(growth/inv*100) : 0;
+  var msg = 'Je legt zelf <b>' + euro(inv) + '</b> in, maar je vermogen groeit naar <b>' + euro(bal) + '</b>. ' +
+            'Dat is <b>' + euro(growth) + '</b> aan samengestelde groei — ' + growthPct + '% bovenop je inleg.';
+  if(fireOn){
+    var fireNumber = bal * 0.04; // 4%-regel: jaarlijks veilig op te nemen
+    msg += ' Volgens de 4%-regel zou dit vermogen jaarlijks <b>' + euro(fireNumber) + '</b> (≈ ' + euro(fireNumber/12) + ' per maand) kunnen opleveren zonder de pot aan te tasten.';
+  }
+  document.getElementById('insight').innerHTML = msg;
+}
+
+['start','monthly','rate','years'].forEach(function(id){ document.getElementById(id).addEventListener('input', render); });
+document.getElementById('fire-on').addEventListener('change', render);
+build();
+render();
+</script>
+</body>
+</html>
