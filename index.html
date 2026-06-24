@@ -972,7 +972,56 @@ footer p {
         <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
-      <!-- Project 5: FOV SQL Portfolio -->
+      <!-- Project 5: Product Data Automatisering -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Product Data Automatisering</div>
+          </div>
+          <span class="project-status">● Productie: Live</span>
+        </div>
+        <p class="project-desc">AI-contentplatform dat voor drie webshops tegelijk productpagina's genereert en rechtstreeks naar het ERP pusht. Input: een spreadsheet met productnamen. Output: importklare content in B2B-Nederlands, B2B-Duits en B2C-Nederlands — inclusief GPT-4o Vision die de beste productfoto selecteert uit een pool van concurrentiefoto's.</p>
+
+        <div class="metrics-row">
+          <div class="metric">
+            <span class="metric-val">3</span>
+            <span class="metric-label">Webshops tegelijk</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">~30 sec</span>
+            <span class="metric-label">Per product (was 60 min)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">98%</span>
+            <span class="metric-label">Tijdsbesparing</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">18</span>
+            <span class="metric-label">Taalcodes per product</span>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Multi-tenant contentgeneratie:</strong> Aparte promptarchitectuur per webshop — FOV NL (B2B), FOV DE (B2B Duits) en Jachtlakken.nl (B2C informeel) met eigen toon, USPs en HTML-templates</li>
+          <li><strong>GPT-4o Vision beeldselectie:</strong> Verzamelt kandidaatafbeeldingen van concurrerende webshops via DuckDuckGo, laat Vision de beste productfoto kiezen — geen kleurstalen, geen sfeerfoto's</li>
+          <li><strong>KING ERP directe push:</strong> Gegenereerde data gaat via REST API rechtstreeks het ERP in, met dry-run modus en sessiegeschiedenis</li>
+          <li><strong>PIB/VIB automatisering:</strong> Scrapet en downloadt technische databladen en veiligheidsbladen naar de juiste mapstructuur op het netwerk</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">GPT-4o Vision</span>
+          <span class="tech-tag">OpenAI API</span>
+          <span class="tech-tag">DuckDuckGo Search</span>
+          <span class="tech-tag">Pillow</span>
+          <span class="tech-tag">openpyxl</span>
+        </div>
+
+        <a href="https://github.com/bastiaanvdh/product-data-automation" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
+      <!-- Project 6: FOV SQL Portfolio -->
       <div class="project-card">
         <div class="project-header">
           <div>
