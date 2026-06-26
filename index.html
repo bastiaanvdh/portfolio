@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
@@ -1156,7 +1156,32 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
         <a href="https://github.com/bastiaanvdh/product-data-automation" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
-      <!-- Project 6: FOV SQL Portfolio -->
+
+      <!-- Project 6: ERP Product Content Generator -->
+      <div class="project-card reveal" data-cat="ai">
+        <div class="project-header">
+          <div class="project-title">ERP Product Content Generator</div>
+          <span class="project-status gold">● Open Source · Intranet</span>
+        </div>
+        <p class="project-desc">Flask intranet Blueprint dat KING ERP-exports omzet naar AI-gegenereerde productcontent in het Nederlands en Duits. Verwerkt 500+ opbrengstgroepen batchgewijs via een web-UI met live voortgang, stop-mid-batch en ingebouwde kostenraming per selectie.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">500+</span><span class="metric-label">Opbrengstgroepen</span></div>
+          <div class="metric"><span class="metric-val">12</span><span class="metric-label">Taalcodes per artikel</span></div>
+          <div class="metric"><span class="metric-val">~€0,002</span><span class="metric-label">Per artikel NL+DE volledig</span></div>
+          <div class="metric"><span class="metric-val">17×</span><span class="metric-label">Goedkoper vs. gpt-4o</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>SSE live streaming:</strong> Voortgang loopt via Server-Sent Events naar de browser — geen polling, geen pagerefresh</li>
+          <li><strong>Stop mid-batch:</strong> Stop-event in background thread; huidige groep wordt afgerond, dan stopt de verwerking netjes</li>
+          <li><strong>Datakwaliteit-detectie:</strong> Bepaalt vóór generatie of input Rijk / Voldoende / Minimaal is — voorkomt hallucinations bij spaarse data</li>
+          <li><strong>Kostenraming sidebar:</strong> Schat API-kosten live op basis van geselecteerde groepen en bestandsgrootte, per call-type uitgesplitst</li>
+        </ul>
+
+        <a href="https://github.com/bastiaanvdh/erp-product-content-generator" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+      <!-- Project 7: FOV SQL Portfolio -->
       <div class="project-card reveal" data-cat="data">
         <div class="project-header">
           <div class="project-title">FOV SQL Portfolio</div>
@@ -1552,3 +1577,5 @@ document.querySelectorAll('#navLinks a').forEach(function(a){
 </script>
 </body>
 </html>
+
+
