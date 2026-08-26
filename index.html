@@ -865,14 +865,14 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 <!-- Ticker tape met resultaten als beurskoersen -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker" id="ticker">
-    <span class="tick"><b>ORGANISCH</b><span class="up">▲ +38% YoY</span></span>
+    <span class="tick"><b>ORGANISCH</b><span class="up">▲ +47,6% YoY</span></span>
     <span class="tick"><b>REVENUE.ATTR</b><span class="up">€1.3M</span></span>
     <span class="tick"><b>PORTFOLIO</b><span class="up">▲ +37% YTD</span></span>
-    <span class="tick"><b>POSITIE</b><span class="up">28 → 12</span></span>
+    <span class="tick"><b>POSITIE</b><span class="up">32 → 8,1</span></span>
     <span class="tick"><b>AI.PIPELINE</b><span class="gold">80x sneller</span></span>
     <span class="tick"><b>TIJD.BESPAARD</b><span class="up">10u+/week</span></span>
     <span class="tick"><b>PRODUCTEN</b><span class="gold">5K+ in 4 uur</span></span>
-    <span class="tick"><b>TOOLS.LIVE</b><span class="up">10+</span></span>
+    <span class="tick"><b>TOOLS.LIVE</b><span class="up">14+</span></span>
   </div>
 </div>
 
@@ -893,7 +893,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat-item">
-      <span class="stat-number" data-count="38" data-prefix="+" data-suffix="%">+38%</span>
+      <span class="stat-number" data-count="47.6" data-prefix="+" data-suffix="%" data-decimals="1" data-comma="1">+47,6%</span>
       <span class="stat-label">Organische groei YoY</span>
     </div>
     <div class="stat-item">
@@ -905,7 +905,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
       <span class="stat-label">Beleggingsrendement YTD</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number" data-count="10" data-suffix="+">10+</span>
+      <span class="stat-number" data-count="14" data-suffix="+">14+</span>
       <span class="stat-label">Productietools gebouwd</span>
     </div>
   </div>
@@ -1136,7 +1136,7 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
         <p class="project-desc">De centrale hub voor alle marketingdata bij FOV. Een volledig Python-gebouwde pipeline die data uit Google Search Console, GA4 en Google Ads samenvoegt tot één dashboard waar management dagelijks beslissingen op baseert. Inclusief ML-model voor verkeersvoorspelling en automatische afwijkingsdetectie op omzet.</p>
 
         <div class="metrics-row">
-          <div class="metric"><span class="metric-val">+38%</span><span class="metric-label">Organisch verkeer YoY</span></div>
+          <div class="metric"><span class="metric-val">+47,6%</span><span class="metric-label">Organisch verkeer YoY</span></div>
           <div class="metric"><span class="metric-val">31K</span><span class="metric-label">Clicks/maand</span></div>
           <div class="metric"><span class="metric-val">€1.3M</span><span class="metric-label">Revenue attributed</span></div>
           <div class="metric"><span class="metric-val">0.75+</span><span class="metric-label">ML model R²</span></div>
@@ -1440,11 +1440,11 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 
     <div class="results-grid">
       <div class="result-item reveal">
-        <div class="result-number">+38%</div>
+        <div class="result-number">+47,6%</div>
         <div class="result-text"><strong>Organische groei YoY</strong>Systematische content optimalisatie op basis van ML-voorspellingen en gap-analyse</div>
       </div>
       <div class="result-item reveal">
-        <div class="result-number">28→12</div>
+        <div class="result-number">32 → 8,1</div>
         <div class="result-text"><strong>Gemiddelde positieverbetering</strong>Top-100 producten geanalyseerd, content herschreven via script, resultaat direct meetbaar</div>
       </div>
       <div class="result-item reveal">
@@ -1625,7 +1625,9 @@ function animateCount(el) {
     if (!start) start = ts;
     var p = Math.min((ts - start) / duration, 1);
     var eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+    var uit = prefix + (target * eased).toFixed(decimals) + suffix;
+    if (el.dataset.comma) uit = uit.replace('.', ',');
+    el.textContent = uit;
     if (p < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
