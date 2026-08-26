@@ -1013,6 +1013,120 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
 
     <div class="projects-grid">
 
+      <!-- NIEUW: FOV Intranet -->
+      <div class="project-card reveal" data-cat="data ai">
+        <div class="project-header">
+          <div class="project-title">FOV Intranet — Intern Bedrijfsplatform</div>
+          <span class="project-status">● Productie · Live</span>
+        </div>
+        <p class="project-desc">Een compleet zelfgebouwd intranet dat de hele organisatie samenbrengt: een centrale FOV-omgeving waar elke afdeling zijn informatie terugvindt, data analyseert en rechtstreeks in het KING-ERP werkt. Geen losse tool maar een platform met een startdashboard vol live bedrijfscijfers, een projectregister, planner, kennisbank én zestien gekoppelde apps — uitbreidbaar via een gedocumenteerde tool-integratie-API.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">16</span><span class="metric-label">Interne apps</span></div>
+          <div class="metric"><span class="metric-val">20</span><span class="metric-label">Projecten in register</span></div>
+          <div class="metric"><span class="metric-val">6</span><span class="metric-label">Afdelingen live</span></div>
+          <div class="metric"><span class="metric-val">Live</span><span class="metric-label">KING + GSC data</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Zestien interne apps:</strong> van Directiedashboard en Voorraadbeheer tot een KING-cluster (DataDigger, prijscondities, klantendossier, product- en klantexport) en een CMR-transportdocument</li>
+          <li><strong>Projectregister &amp; planner:</strong> twintig projecten gekoppeld aan afdeling en betrokkenen, met deadlines, berichten, kennisbank en verlofaanvragen op één plek</li>
+          <li><strong>Live bedrijfsdashboard:</strong> orderintake, weborder-aandeel, SEO-positie en KING/GSC-cachestatus real-time op het startscherm</li>
+          <li><strong>Uitbreidbaar via API:</strong> gedocumenteerd tool-integratiecontract (sessie, CSRF, event-logging, poortbeleid) zodat losse tools veilig inpluggen</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">KING API</span><span class="tech-tag">SQL</span><span class="tech-tag">Jinja2</span><span class="tech-tag">REST / CSRF</span>
+        </div>
+        <a href="cases/fov-intranet.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Lees de case study</a>
+        <span class="project-link" style="opacity:.5; cursor:default;">● Bedrijfsintern platform · demo op aanvraag</span>
+      </div>
+
+      <!-- NIEUW: Gewichten uit VIB/PIB -->
+      <div class="project-card reveal" data-cat="data ai">
+        <div class="project-header">
+          <div class="project-title">Artikelgewichten uit Veiligheidsbladen</div>
+          <span class="project-status">● Productie · Live</span>
+        </div>
+        <p class="project-desc">Het magazijn hoeft niet elk product te wegen. Deze tool rekent het artikelgewicht uit <em>dichtheid × inhoud + tarra</em>, waarbij de dichtheid uit de veiligheids- en productinformatiebladen komt die het KING-ERP zelf per artikel aanwijst. Voor 7.382 artikelen zonder gewicht, met een ingebouwde zelfcontrole die niet stilzwijgend groen kan blijven.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">7.382</span><span class="metric-label">Artikelen zonder gewicht</span></div>
+          <div class="metric"><span class="metric-val">98%</span><span class="metric-label">Dekking uit veiligheidsbladen</span></div>
+          <div class="metric"><span class="metric-val">8,6%</span><span class="metric-label">Mediane fout (blind getest)</span></div>
+          <div class="metric"><span class="metric-val">27</span><span class="metric-label">Regressietests</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>KING wijst het blad zelf aan:</strong> de vrije rubrieken bevatten het volledige pad naar het PDF-blad, dus extractie zonder onbetrouwbaar matchen op productnaam</li>
+          <li><strong>Twee sporen:</strong> dichtheid uit het VIB voor losse verpakkingen, uit het PIB voor de tweecomponenten-sets (69% van de voorraad) waar het gemengde product telt</li>
+          <li><strong>Zelfcontrole die zichzelf niet voor de gek houdt:</strong> rekent na tegen al gewogen artikelen en faalt zichtbaar als de ijkset te klein is om iets te bewijzen</li>
+          <li><strong>Onbekend wordt nooit 0:</strong> zonder dichtheid gaat een artikel naar de handwerklijst — een stille nul zou een europallet voor pakkettarief de deur uit laten gaan</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span><span class="tech-tag">PDF-extractie</span><span class="tech-tag">Regex</span><span class="tech-tag">pytest</span><span class="tech-tag">KING XML</span><span class="tech-tag">openpyxl</span>
+        </div>
+        <a href="cases/gewichten-veiligheidsbladen.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Lees de case study</a>
+        <span class="project-link" style="opacity:.5; cursor:default;">● Bedrijfsintern systeem · code op aanvraag</span>
+      </div>
+
+      <!-- NIEUW: Dynamische Verzendkosten -->
+      <div class="project-card reveal" data-cat="data">
+        <div class="project-header">
+          <div class="project-title">Dynamische Verzendkosten-Engine</div>
+          <span class="project-status">● Productie · Live</span>
+        </div>
+        <p class="project-desc">Vervangt het platte tarief van €22,50 door een gewichtsmatrix die per order de juiste klasse, vervoerder en prijs bepaalt — voor fov.nl én de Duitse webshop. Alle tarieven staan in configuratie, niet in code, en 46 tests bewaken juist de grensgevallen waar een verzendcalculatie stilletjes geld lekt.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">€22,50</span><span class="metric-label">Plat tarief vervangen</span></div>
+          <div class="metric"><span class="metric-val">46</span><span class="metric-label">Tests op grensgevallen</span></div>
+          <div class="metric"><span class="metric-val">2</span><span class="metric-label">Landen (NL + DE)</span></div>
+          <div class="metric"><span class="metric-val">5</span><span class="metric-label">Gewichtsklassen</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Gewichtsmatrix i.p.v. plat tarief:</strong> vijf klassen van pakket tot europallet, met franco-drempel, identiek voor NL en DE</li>
+          <li><strong>Tarieven in JSON, niet in code:</strong> een tariefwijziging is een configwijziging — geen release nodig</li>
+          <li><strong>Meerdere vervoerders per order:</strong> splitst een Duitse order over DHL en Veenstra Fritom en toont per zending wat er werkelijk weggaat</li>
+          <li><strong>Onbekend gewicht wordt nooit nul:</strong> ontbreekt één gewicht, dan is de uitkomst expliciet "onbepaalbaar" in plaats van een te lage prijs op de vrachtfactuur</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span><span class="tech-tag">pytest</span><span class="tech-tag">JSON-config</span><span class="tech-tag">E-commerce logica</span><span class="tech-tag">Logistiek</span>
+        </div>
+        <span class="project-link" style="opacity:.5; cursor:default;">● Bedrijfsintern systeem · code op aanvraag</span>
+      </div>
+
+      <!-- NIEUW: Meetcriticus & Zelf-bewakende Pijplijn -->
+      <div class="project-card reveal" data-cat="data ai">
+        <div class="project-header">
+          <div class="project-title">Meetcriticus &amp; Zelf-bewakende Datapijplijn</div>
+          <span class="project-status">● Productie · Live</span>
+        </div>
+        <p class="project-desc">De laag die de andere tools eerlijk houdt. Een deterministische linter die code naleest op klassieke meetfouten, een Control Tower die alle signalen tot één actielijst samentrekt, en een ochtendbriefing die per geplande taak controleert of hij draaide én of het resultaat klopt. Gebouwd nadat een omzetmeting zeven dagen stilstond zonder dat iets het meldde.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">7</span><span class="metric-label">Meetfout-regels</span></div>
+          <div class="metric"><span class="metric-val">0</span><span class="metric-label">Model-aanroepen (deterministisch)</span></div>
+          <div class="metric"><span class="metric-val">08:45</span><span class="metric-label">Dagelijkse zelfcheck</span></div>
+          <div class="metric"><span class="metric-val">1</span><span class="metric-label">Actielijst, alle ketens</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Meetcriticus:</strong> leest gewijzigde code na op zeven meetfouten (nul-is-niet-leeg, bestandsdatum-is-geen-gegevensdatum, afkap-zonder-totaal…), elke regel gekoppeld aan een echt incident</li>
+          <li><strong>Control Tower:</strong> trekt de signalen uit alle SEO-, SEA- en meetketens samen tot één geprioriteerde actielijst</li>
+          <li><strong>Ochtendbriefing:</strong> controleert per taak of hij draaide én of het resultaat past bij de datum — en bewaakt zichzelf via de briefing van gisteren</li>
+          <li><strong>Read-only en gefaseerd:</strong> genereert voorstellen en voert niets uit zonder menselijke goedkeuring</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">Python</span><span class="tech-tag">AST</span><span class="tech-tag">git</span><span class="tech-tag">Task Scheduler</span><span class="tech-tag">pytest</span>
+        </div>
+        <span class="project-link" style="opacity:.5; cursor:default;">● Bedrijfsintern systeem · code op aanvraag</span>
+      </div>
+
       <!-- Project 1: Marketing Intelligence Suite -->
       <div class="project-card reveal" data-cat="data seo">
         <div class="project-header">
