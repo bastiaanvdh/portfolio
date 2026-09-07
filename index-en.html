@@ -1327,6 +1327,35 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
         <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link">→ View on GitHub</a>
       </div>
 
+      <!-- Project 8: Sun Exposure Tool -->
+      <div class="project-card reveal" data-cat="data ai">
+        <div class="project-header">
+          <div class="project-title">Sun Exposure Tool</div>
+          <span class="project-status gold">● Open Source · Personal</span>
+        </div>
+        <p class="project-desc">Enter an address and see how much shadow surrounding buildings cast on the garden throughout the day — and how that changes per season. Built to actually know how sunny a house is before buying it, instead of trusting a listing photo. Runs entirely in the browser: no backend, no server, all data straight from Dutch government geodata sources.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">4</span><span class="metric-label">Open government data sources</span></div>
+          <div class="metric"><span class="metric-val">0</span><span class="metric-label">Backend or server</span></div>
+          <div class="metric"><span class="metric-val">1 click</span><span class="metric-label">Compare seasons</span></div>
+          <div class="metric"><span class="metric-val">m²-accurate</span><span class="metric-label">Real cadastral parcel</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Real cadastral parcel boundary:</strong> "garden" = the official land-registry parcel minus the building footprint, not a rough ring approximation — with automatic fallback for shared/apartment buildings</li>
+          <li><strong>One-click season comparison:</strong> buttons for the solstices and equinoxes instantly show how shadow shifts between summer and winter</li>
+          <li><strong>Live progress, no blank spinner:</strong> every step (geocoding, buildings, per-building heights, parcel) reports a live percentage while it happens</li>
+          <li><strong>Fully client-side:</strong> geocoding, building footprints, heights and parcel boundaries are fetched directly from open government APIs in the browser — geometry and sun position are computed locally</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">JavaScript</span><span class="tech-tag">Turf.js</span><span class="tech-tag">SunCalc</span><span class="tech-tag">Leaflet</span><span class="tech-tag">Open geodata APIs</span><span class="tech-tag">GitHub Pages</span>
+        </div>
+        <a href="https://bastiaanvdh.github.io/zoninval-tool/" class="project-link" style="margin-right: 24px; color: var(--gold);">▶ Try the live demo</a>
+        <a href="https://github.com/bastiaanvdh/zoninval-tool" class="project-link">→ View on GitHub</a>
+      </div>
+
     </div>
   </div>
 </section>

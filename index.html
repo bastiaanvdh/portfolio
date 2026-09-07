@@ -1382,6 +1382,35 @@ footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-siz
         <a href="https://github.com/bastiaanvdh/bmb-content-engine" class="project-link">→ Bekijk op GitHub</a>
       </div>
 
+      <!-- Project 9: Zoninval Tool -->
+      <div class="project-card reveal" data-cat="data ai">
+        <div class="project-header">
+          <div class="project-title">Zoninval Tool</div>
+          <span class="project-status gold">● Open Source · Persoonlijk</span>
+        </div>
+        <p class="project-desc">Vul een adres in en zie hoeveel schaduw omliggende panden gedurende de dag — en per seizoen — op de tuin werpen. Gebouwd om zelf te kunnen bepalen hoe zonnig een huis daadwerkelijk is vóórdat je het koopt, in plaats van op een makelaarsfoto te vertrouwen. Draait volledig in de browser: geen backend, geen server, alle data rechtstreeks van PDOK en de 3D BAG.</p>
+
+        <div class="metrics-row">
+          <div class="metric"><span class="metric-val">4</span><span class="metric-label">Open overheids-databronnen</span></div>
+          <div class="metric"><span class="metric-val">0</span><span class="metric-label">Backend of server</span></div>
+          <div class="metric"><span class="metric-val">1 klik</span><span class="metric-label">Seizoen vergelijken</span></div>
+          <div class="metric"><span class="metric-val">m²-nauwkeurig</span><span class="metric-label">Kadastrale perceelgrens</span></div>
+        </div>
+
+        <ul class="feature-list">
+          <li><strong>Echte kadastrale perceelgrens:</strong> "tuin" = het BRK-perceel minus het pandvoetprint, niet een grove ring-benadering — met automatische fallback bij verzamelgebouwen</li>
+          <li><strong>Seizoensvergelijking met één klik:</strong> knoppen voor de zonnewendes en equinoxen laten meteen zien hoe schaduw wisselt tussen zomer en winter</li>
+          <li><strong>Live voortgang, geen "loading"-spinner:</strong> elke stap (adres opzoeken, panden, hoogtes per pand, perceel) meldt zich met een percentage terwijl het gebeurt</li>
+          <li><strong>Volledig client-side:</strong> geocoding, pandvoetprinten, hoogtes en perceelgrenzen komen rechtstreeks uit de browser bij PDOK en 3D BAG — geometrie en zonnestand worden lokaal berekend</li>
+        </ul>
+
+        <div class="tech-row">
+          <span class="tech-tag">JavaScript</span><span class="tech-tag">Turf.js</span><span class="tech-tag">SunCalc</span><span class="tech-tag">Leaflet</span><span class="tech-tag">PDOK API's</span><span class="tech-tag">GitHub Pages</span>
+        </div>
+        <a href="https://bastiaanvdh.github.io/zoninval-tool/" class="project-link" style="margin-right: 24px; color: var(--gold);">▶ Probeer de live demo</a>
+        <a href="https://github.com/bastiaanvdh/zoninval-tool" class="project-link">→ Bekijk op GitHub</a>
+      </div>
+
     </div>
   </div>
 </section>
