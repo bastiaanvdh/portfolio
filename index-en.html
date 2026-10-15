@@ -305,6 +305,130 @@ h1,h2,h3{margin:0;font-weight:inherit}
 footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:120px;padding-top:22px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
 footer button{background:none;border:0;padding:0;cursor:pointer}
 
+
+/* Demo: orders uit de mail + klant aan de lijn */
+.demo{padding-top:140px}
+.dm-title{font-size:clamp(2.6rem,6.4vw,6rem);font-weight:800;font-stretch:66%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin-top:36px}
+.dm-intro{color:var(--mid);max-width:60ch;margin:18px 0 0;font-size:1.1rem}
+.dm-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 22px}
+.dm-tab{background:transparent;border:1px solid var(--dim);color:var(--ink);padding:11px 20px;border-radius:999px;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.dm-tab:hover{border-color:var(--ink)}
+.dm-tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.dm-panel{border:1px solid var(--line);border-radius:14px;background:var(--bg2);overflow:hidden}
+.dm-note{margin-top:14px}
+.dm-lab{font:500 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.dm-lab.ac{color:var(--accent)}
+.dm-in{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:7px 9px;font:inherit;font-size:.88rem;max-width:100%;min-width:0}
+.dm-in:focus{border-color:var(--accent);outline:none}
+.dm-qty{width:58px}
+.dm-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--dim);border-radius:999px;padding:10px 16px;font:500 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.dm-btn:hover{border-color:var(--ink)}
+.dm-btn.solid{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.dm-btn.solid:hover{background:var(--ink);border-color:var(--ink)}
+.dm-btn:disabled{opacity:.38;cursor:not-allowed}
+.dm-pill{font:500 .6rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--dim);color:var(--mid);white-space:nowrap;display:inline-block}
+.dm-pill.ok{border-color:var(--ink);color:var(--ink)}
+.dm-pill.kies{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+/* mail */
+.dm-mail{display:grid;grid-template-columns:250px minmax(0,1fr) minmax(0,1.3fr);min-height:580px}
+.dm-inbox{border-right:1px solid var(--line);min-width:0}
+.dm-ib-h{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.dm-list{display:flex;flex-direction:column}
+.dm-item{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:13px 16px;color:var(--ink);cursor:pointer;font:inherit;min-width:0}
+.dm-item:hover{background:#1F1E1B}
+.dm-item[aria-current="true"]{background:var(--bg);box-shadow:inset 3px 0 0 var(--accent)}
+.dm-item .r1{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;font-family:var(--mono);color:var(--mid)}
+.dm-item b{display:block;font-size:.92rem;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dm-item .sj{display:block;font-size:.84rem;color:var(--mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dm-item .st{margin-top:7px}
+.dm-orig{padding:20px;border-right:1px solid var(--line);min-width:0}
+.dm-orig h4{margin:6px 0 0;font-size:1.15rem;font-weight:700}
+.dm-body{white-space:pre-wrap;font-size:.92rem;line-height:1.6;color:#C9C5BE;margin-top:14px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:16px;overflow-x:auto;font-family:var(--sans)}
+.dm-body.pdf{font-family:var(--mono);font-size:.78rem;white-space:pre}
+mark.dm-mk{background:transparent;color:var(--ink);border-bottom:2px solid var(--accent);padding:0 1px;transition:background .15s,color .15s}
+mark.dm-mk.hl{background:var(--accent);color:var(--on-accent)}
+.dm-order{padding:20px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.dm-oh{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.dm-oh h4{margin:0;font-size:1.15rem;font-weight:700}
+.dm-klant{border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:6px}
+.dm-klant .kn{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.dm-klant strong{font-size:1.02rem}
+.dm-tw{overflow-x:auto}
+table.dm-t{width:100%;border-collapse:collapse;font-size:.88rem}
+.dm-art{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.dm-art>div{flex:1;min-width:0}
+.dm-art select{width:100%}
+table.dm-t{table-layout:fixed}
+table.dm-t th:nth-child(1){width:70px}
+table.dm-t th:nth-child(3){width:80px}
+table.dm-t th:nth-child(4){width:88px}
+@media (max-width:600px){table.dm-t th:nth-child(3),table.dm-t td:nth-child(3){display:none}.dm-art{flex-direction:column}}
+table.dm-t th{font:500 .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mid);text-align:left;padding:0 6px 8px;border-bottom:1px solid var(--line)}
+table.dm-t td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+table.dm-t td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.dm-t tr.tw td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+table.dm-t tr.hl td{background:#221d18}
+.dm-code{font-family:var(--mono);font-size:.72rem;color:var(--mid);display:block}
+.dm-lnote{font-size:.78rem;color:var(--mid);display:block;margin-top:3px}
+.dm-sum{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.82rem;color:var(--mid)}
+.dm-sum b{color:var(--ink);font-weight:500}
+.dm-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.dm-hint{font:500 .66rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.dm-done{background:var(--accent);color:var(--on-accent);border-radius:8px;padding:12px 14px;font-weight:600}
+.dm-done small{display:block;font-weight:500;opacity:.8;margin-top:2px}
+.dm-empty{border:1px dashed var(--dim);border-radius:8px;padding:18px;color:var(--mid)}
+.dm-reading{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.06em}
+.dm-ask{display:grid;gap:10px;border:1px solid var(--accent);border-radius:8px;padding:14px}
+.dm-ask textarea{width:100%;min-height:120px;resize:vertical}
+.dm-fade{animation:dmfade .35s both}
+@keyframes dmfade{from{opacity:0;transform:translateY(6px)}}
+/* telefoon */
+.dm-tel{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:580px}
+.dm-phone{border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.dm-scn{display:grid;gap:8px}
+.dm-scn .dm-btn{justify-content:flex-start;white-space:normal;text-align:left}
+.dm-scn .dm-btn[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.dm-call{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg);display:grid;gap:8px}
+.dm-call.ring{border-color:var(--accent);animation:dmring 1.1s ease-in-out infinite}
+@keyframes dmring{50%{box-shadow:0 0 0 7px rgba(255,138,61,.16)}}
+.dm-num{font-family:var(--mono);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.dm-who{font-weight:700}
+.dm-card{padding:22px;min-width:0}
+.dm-ch{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px}
+.dm-ch h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;font-stretch:70%;text-transform:uppercase;line-height:.95}
+.dm-acts{display:flex;gap:8px;flex-wrap:wrap}
+.dm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.dm-box{border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.dm-box .dm-lab{display:block;margin-bottom:8px}
+.dm-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.dm-row:last-child{border-bottom:0}
+.dm-row>span:last-child{text-align:right;color:var(--mid)}
+.dm-row .on{color:var(--accent);font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;margin-left:6px}
+.dm-bars{width:100%;height:auto;display:block;margin-top:6px}
+.dm-bars rect{fill:var(--dim)}
+.dm-bars rect.pk{fill:var(--accent)}
+.dm-bars text{fill:var(--mid);font:9px var(--mono)}
+.dm-kv{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px}
+.dm-kv b{display:block;font-weight:800;font-stretch:70%;font-size:1.7rem;line-height:1}
+.dm-form{border:1px solid var(--accent);border-radius:10px;padding:16px;margin-top:16px;display:grid;gap:10px}
+.dm-form .fr{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.dm-pick{display:grid;gap:8px;margin-top:14px;max-width:460px}
+.dm-pick .dm-item{border:1px solid var(--line);border-radius:8px}
+.dm-toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(10px);background:var(--accent);color:var(--on-accent);padding:12px 20px;border-radius:999px;font:500 .74rem var(--mono);letter-spacing:.04em;z-index:80;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;max-width:calc(100vw - 32px);text-align:center}
+.dm-toast.show{opacity:1;transform:translateX(-50%)}
+@media (max-width:980px){
+  .dm-mail{grid-template-columns:minmax(0,1fr)}
+  .dm-inbox{border-right:0;border-bottom:1px solid var(--line)}
+  .dm-list{flex-direction:row;overflow-x:auto}
+  .dm-item{min-width:210px;border-bottom:0;border-right:1px solid var(--line)}
+  .dm-item[aria-current="true"]{box-shadow:inset 0 -3px 0 var(--accent)}
+  .dm-orig{border-right:0;border-bottom:1px solid var(--line)}
+  .dm-tel{grid-template-columns:minmax(0,1fr)}
+  .dm-phone{border-right:0;border-bottom:1px solid var(--line)}
+  .dm-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion: reduce){.dm-call.ring,.dm-fade{animation:none}}
+
 html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 @media (prefers-reduced-motion: reduce){
   .band-in{animation:none}
@@ -383,6 +507,16 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <div class="rail-wrap" id="railWrap">
     <div class="rail-sticky" id="railSticky"><div class="rail" id="rail"></div></div>
   </div>
+</section>
+
+<section class="demo g" id="demo">
+  <div class="sec-head m"><span><b id="dmHead">(Try it yourself)</b></span><span id="dmBadge">Live demo · fictional data</span></div>
+  <h2 class="dm-title" id="dmTitle">Try it yourself.</h2>
+  <p class="dm-intro" id="dmIntro"></p>
+  <div class="dm-tabs" role="tablist" id="dmTabs" aria-label="Demo"></div>
+  <div id="dmMail" class="dm-panel"></div>
+  <div id="dmTel" class="dm-panel" hidden></div>
+  <p class="m dm-note" id="dmNote"></p>
 </section>
 
 <section class="say g" id="hallo">
@@ -606,9 +740,10 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     {k:'1h→s',s:'per set of slides',n:'BmB Content Engine',c:'Personal',d:'Turns text into social media slides in the Beleggen met Bastiaan house style, in one go.',t:'Python · Pillow · ffmpeg'},
     {k:'100%',s:'in the browser',n:'Sunlight Tool',c:'Personal',d:'Enter an address and see, per season, how much shade the neighbours cast on your garden.',t:'Turf.js · SunCalc · Leaflet'}
   ];
+  var DEMO={'Orders zonder overtypen':'mail','Klantkaart bij de telefoon':'tel','Orders without retyping':'mail','Customer card on the phone':'tel'};
   var rail=$('rail');
   R.forEach(function(p,i){var t=document.createElement('div');t.className='tile';
-    t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Read the case (NL) →</a>':'')+(p.u?'<a class="tlnk" href="'+p.u+'">Visit the site ↗</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
+    t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Read the case (NL) →</a>':'')+(p.u?'<a class="tlnk" href="'+p.u+'">Visit the site ↗</a>':'')+(DEMO[p.n]?'<a class="tlnk" href="#demo" data-demo="'+DEMO[p.n]+'">Try the demo ↓</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
   var wrap=$('railWrap'),pinned=false;
   function sizeRail(){pinned=!reduce&&innerWidth>900;wrap.classList.toggle('pinned',pinned);
     if(pinned){wrap.style.height=(rail.scrollWidth-innerWidth+innerHeight)+'px'}else{wrap.style.height='';rail.style.transform=''}}
@@ -694,6 +829,211 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   var big=$('big'),counted=false;
   if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!counted){counted=true;var t0=performance.now();
     (function step(t){var f=Math.min(1,(t-t0)/1500),v=Math.round(43*(1-Math.pow(1-f,3)));big.textContent='+'+v+'%';if(f<1)requestAnimationFrame(step)})(t0)}})},{threshold:.5}).observe(big)}
+
+
+  /* ---------- Demo: orders uit de mail + klant aan de lijn (fictieve data) ---------- */
+  (function(){
+    var DL="en";
+    function t(nl,en){return DL==="en"?en:nl}
+    function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+    function eurR(v){return DL==="en"?"€"+Math.round(v).toLocaleString("en-GB"):"€ "+Math.round(v).toLocaleString("nl-NL")}
+    function eur(v){return DL==="en"?"€"+v.toFixed(2):"€ "+v.toFixed(2).replace(".",",")}
+    var root=document.getElementById("demo");if(!root)return;
+    var toastEl=document.createElement("div");toastEl.className="dm-toast";toastEl.setAttribute("role","status");document.body.appendChild(toastEl);
+    var tt;function toast(m){toastEl.textContent=m;toastEl.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove("show")},3200)}
+    var seq=1048;function nr(p){seq+=7;return p+"26-10"+seq}
+
+    var P={
+      bl:{c:"640210075",d:t("Bootlak hoogglans wit, blik 750 ml","Boat varnish high gloss white, tin 750 ml"),p:24.95},
+      vd:{c:"640900100",d:t("Verdunning voor bootlak, 1 liter","Thinner for boat varnish, 1 litre"),p:12.50},
+      pr:{c:"304120000",d:t("Primer universeel wit, 1 liter","Universal primer white, 1 litre"),p:19.75},
+      gv:{c:"302104250",d:t("Grondverf grijs, blik 2,5 liter","Primer grey, tin 2.5 litre"),p:38.90},
+      tb:{c:"880338050",d:t("Afplaktape blauw 38 mm × 50 m","Masking tape blue 38 mm × 50 m"),p:6.40},
+      tg:{c:"880238050",d:t("Afplaktape geel 38 mm × 50 m","Masking tape yellow 38 mm × 50 m"),p:4.95},
+      lz:{c:"410901025",d:t("Lak RAL 9010 zijdeglans, 2,5 liter","Paint RAL 9010 satin, 2.5 litre"),p:54.20},
+      af:{c:"650120200",d:t("Antifouling zwart, blik 20 liter","Antifouling black, tin 20 litre"),p:null}
+    };
+    var C={
+      kreek:{n:"Jachtwerf De Kreek",d:"12004417",pl:"Workum",since:2014},
+      vandijk:{n:"Schildersbedrijf Van Dijk",d:"12001983",pl:"Sneek",since:2009},
+      hoekI:{n:"Hoekstra Interieurbouw",d:"12006620",pl:"Leeuwarden",since:2018},
+      hoekB:{n:"Hoekstra Botenverhuur",d:"12007105",pl:"Grou",since:2021},
+      zeil:{n:"Zeilmakerij Het Want",d:"12008841",pl:"Harlingen",since:2016}
+    };
+
+    /* ===== Orders uit de mail ===== */
+    var M=[
+      {from:"Sietse · Jachtwerf De Kreek",subj:t("Bestelling voor de werf","Order for the yard"),time:"08:12",kind:"order",klant:{k:"kreek",how:t("Herkend aan het mailadres","Recognised by the email address")},
+       ref:t("Afleveren op de werf","Deliver to the yard"),
+       body:t("Goedemorgen,\n\nGraag [[0|4x bootlak hoogglans wit 750 ml]] en [[1|2 liter verdunning]].\n[[r|Afleveren op de werf graag]], niet op het kantoor.\n\nGroet,\nSietse","Good morning,\n\nPlease send [[0|4x boat varnish high gloss white 750 ml]] and [[1|2 litres of thinner]].\n[[r|Please deliver to the yard]], not the office.\n\nRegards,\nSietse"),
+       lines:[{q:4,o:["bl"]},{q:2,o:["vd"],note:t("2 liter gelezen als 2× 1 liter","2 litres read as 2× 1 litre")}]},
+      {from:"Van Dijk · bestelbon.pdf",subj:t("Bestelbon week 42","Order form week 42"),time:"09:47",kind:"order",pdf:true,klant:{k:"vandijk",how:t("Herkend aan het debiteurnummer op de bon","Recognised by the account number on the form")},
+       body:t("Bijlage: bestelbon.pdf\n\n[[k|Debiteur 12001983]]\n\nArt.nr   Omschrijving            Aantal\n[[0|30412    primer wit 1 ltr        6]]\n[[1|—        grondverf grijs 2,5L    3]]\n[[2|—        tape 38mm               12]]","Attachment: order-form.pdf\n\n[[k|Account 12001983]]\n\nItem no  Description             Qty\n[[0|30412    primer white 1 ltr      6]]\n[[1|—        primer grey 2.5L        3]]\n[[2|—        tape 38mm               12]]"),
+       lines:[{q:6,o:["pr"],note:t("Gevonden via het artikelnummer van de klant","Matched on the customer's own item number")},{q:3,o:["gv"]},{q:12,o:["tb","tg"],raw:"tape 38mm",note:t("Er zijn twee soorten tape van 38 mm","There are two kinds of 38 mm tape")}]},
+      {from:t("WhatsApp · buitendienst","WhatsApp · field sales"),subj:t("Hoekstra, lak mee morgen","Hoekstra, paint tomorrow"),time:"11:05",kind:"order",klant:{opts:["hoekI","hoekB"],how:t("Naam genoemd, maar er zijn twee klanten Hoekstra","Name mentioned, but there are two customers called Hoekstra")},
+       ref:t("Meenemen op de route","Bring on the route"),
+       body:t("[[k|Klant Hoekstra]], [[0|2 blik lak RAL 9010 zijdeglans 2,5 l]], [[r|morgen meenemen op de route]].","[[k|Customer Hoekstra]], [[0|2 tins paint RAL 9010 satin 2.5 l]], [[r|bring tomorrow on the route]]."),
+       lines:[{q:2,o:["lz"]}]},
+      {from:"Anke · Zeilmakerij Het Want",subj:t("Prijsaanvraag antifouling","Price request antifouling"),time:"13:30",kind:"offerte",klant:{k:"zeil",how:t("Herkend aan het mailadres","Recognised by the email address")},
+       body:t("Hallo,\n\nKunnen jullie een prijs geven voor [[0|20 liter antifouling zwart]]? We hebben het pas over drie weken nodig.\n\nMet vriendelijke groet,\nAnke","Hello,\n\nCould you give us a price for [[0|20 litres of black antifouling]]? We only need it in three weeks.\n\nKind regards,\nAnke"),
+       lines:[{q:1,o:["af"]}]},
+      {from:"Sietse · Jachtwerf De Kreek",subj:t("Open met Pasen?","Open at Easter?"),time:"14:02",kind:"geen",
+       body:t("Hoi, zijn jullie op tweede paasdag open?\n\nSietse","Hi, are you open on Easter Monday?\n\nSietse")}
+    ];
+    M.forEach(function(m){m.st={sel:(m.lines||[]).map(function(l){return l.o.length>1?null:0}),qty:(m.lines||[]).map(function(l){return l.q}),klant:m.klant&&m.klant.k?m.klant.k:null,done:null,ask:false,asked:false,read:false}});
+    var cur=0;
+
+    function bodyHtml(b){return esc(b).replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g,function(_,k,tx){return '<mark class="dm-mk" data-l="'+k+'">'+tx+"</mark>"})}
+    function open(m){var o=0;m.st.sel.forEach(function(s){if(s===null)o++});if(m.klant&&!m.st.klant)o++;return o}
+    function tag(m){
+      if(m.kind==="geen")return '<span class="dm-pill">'+t("Geen bestelling","No order")+"</span>";
+      if(m.st.done)return '<span class="dm-pill ok">✓ '+(m.kind==="offerte"?t("Offerte klaar","Quote ready"):t("In KING","In KING"))+"</span>";
+      if(m.st.asked)return '<span class="dm-pill">'+t("Wacht op klant","Waiting for customer")+"</span>";
+      var o=open(m);return o?'<span class="dm-pill kies">'+o+" "+t("keuze open","choice open")+"</span>":'<span class="dm-pill ok">'+t("Klaar om na te kijken","Ready to check")+"</span>";
+    }
+    function inbox(){
+      var todo=M.filter(function(m){return m.kind!=="geen"&&!m.st.done}).length;
+      return '<div class="dm-inbox"><div class="dm-ib-h"><span class="dm-lab ac">'+t("Postbus verkoop@","Inbox sales@")+'</span><span class="dm-lab">'+todo+" "+t("open","open")+'</span></div><div class="dm-list">'+
+        M.map(function(m,i){return '<button type="button" class="dm-item" data-i="'+i+'" aria-current="'+(i===cur)+'"><span class="r1"><span>'+m.time+"</span><span>"+(m.kind==="offerte"?t("Offerte","Quote"):m.kind==="geen"?"—":t("Bestelling","Order"))+"</span></span><b>"+esc(m.from)+'</b><span class="sj">'+esc(m.subj)+'</span><span class="st">'+tag(m)+"</span></button>"}).join("")+"</div></div>";
+    }
+    function orderPanel(m,anim){
+      if(m.kind==="geen")return '<div class="dm-order"><div class="dm-oh"><h4>'+t("Geen bestelling gevonden","No order found")+'</h4></div><div class="dm-empty">'+t("In deze mail staan geen artikelen. Hij blijft gewoon in Outlook staan en komt niet in het overzicht van de binnendienst.","This email contains no products. It stays in Outlook and does not show up in the customer service overview.")+"</div></div>";
+      var off=m.kind==="offerte",h='<div class="dm-order'+(anim?" dm-fade":"")+'">';
+      h+='<div class="dm-oh"><h4>'+(off?t("Concept-offerte","Draft quote"):t("Concept-order","Draft order"))+'</h4><span class="dm-lab">'+t("Ingevuld door het intranet","Filled in by the intranet")+"</span></div>";
+      var k=m.klant,kk=m.st.klant?C[m.st.klant]:null;
+      h+='<div class="dm-klant"><span class="dm-lab">'+t("Klant","Customer")+'</span><div class="kn">';
+      if(k.opts&&!m.st.done){h+='<select class="dm-in" data-k="1"><option value="">'+t("Kies de klant…","Choose the customer…")+"</option>"+k.opts.map(function(o){return '<option value="'+o+'"'+(m.st.klant===o?" selected":"")+">"+esc(C[o].n)+" · "+C[o].pl+" · "+C[o].d+"</option>"}).join("")+"</select>"+(m.st.klant?'<span class="dm-pill ok">'+t("Gekozen","Chosen")+"</span>":'<span class="dm-pill kies">'+t("Kies","Choose")+"</span>")}
+      else{h+="<strong>"+esc(kk.n)+'</strong><span class="dm-pill ok">'+t("Zeker","Certain")+"</span>"}
+      h+='</div><span class="dm-code">'+(kk?t("Debiteur ","Account ")+kk.d+" · "+kk.pl+" · ":"")+esc(k.how)+"</span>"+(m.ref?'<span class="dm-code" data-l="r">'+t("Referentie: ","Reference: ")+esc(m.ref)+"</span>":"")+"</div>";
+      h+='<div class="dm-tw"><table class="dm-t"><thead><tr><th>'+t("Aantal","Qty")+"</th><th>"+t("Artikel","Product")+'</th><th class="n">'+t("Prijs","Price")+'</th><th class="n">'+t("Totaal","Total")+"</th></tr></thead><tbody>";
+      var sum=0,anyNull=false;
+      m.lines.forEach(function(l,i){
+        var s=m.st.sel[i],pr=s===null?null:P[l.o[s]],q=m.st.qty[i],tw=l.o.length>1;
+        var art=tw&&!m.st.done?'<select class="dm-in" data-s="'+i+'"><option value="">'+t("Kies…","Choose…")+"</option>"+l.o.map(function(o,j){return '<option value="'+j+'"'+(s===j?" selected":"")+">"+esc(P[o].d)+" · "+eur(P[o].p)+"</option>"}).join("")+"</select>":'<span class="dm-code">'+pr.c+"</span>"+esc(pr.d);
+        var price=pr&&pr.p!==null?pr.p:null;if(pr&&price===null)anyNull=true;if(price!==null)sum+=price*q;
+        var PILL=tw?(s===null?'<span class="dm-pill kies">'+t("Twijfel","Doubt")+"</span>":'<span class="dm-pill ok">'+t("Gekozen","Chosen")+"</span>"):'<span class="dm-pill ok">'+t("Zeker","Certain")+"</span>";
+        h+='<tr data-l="'+i+'" class="'+(tw?"tw":"")+'" style="'+(anim&&!reduce?"animation:dmfade .35s both;animation-delay:"+(i*160)+"ms":"")+'"><td><input class="dm-in dm-qty" type="number" min="0" value="'+q+'" data-q="'+i+'"'+(m.st.done?" disabled":"")+' aria-label="'+t("Aantal","Quantity")+'"></td><td><div class="dm-art"><div>'+art+'</div>'+PILL+'</div>'+(l.note?'<span class="dm-lnote">'+esc(l.note)+"</span>":"")+'</td><td class="n">'+(pr?price===null?t("op aanvraag","on request"):eur(price):"—")+'</td><td class="n">'+(price!==null?eur(price*q):"—")+"</td></tr>";
+      });
+      h+="</tbody></table></div>";
+      h+='<div class="dm-sum"><span>'+t("Totaal excl. btw","Total excl. VAT")+"</span><b>"+eur(sum)+(anyNull?" + "+t("prijs op aanvraag","price on request"):"")+"</b></div>";
+      if(m.st.done){h+='<div class="dm-done">✓ '+(off?t("Offerte ","Quote ")+m.st.done+t(" staat klaar om te versturen"," is ready to send"):t("Order ","Order ")+m.st.done+t(" staat in KING"," is in KING"))+"<small>"+t("Demo: er is niets verstuurd of opgeslagen.","Demo: nothing was sent or saved.")+"</small></div>"}
+      else{
+        if(m.st.ask){var q2=askText(m);h+='<div class="dm-ask"><span class="dm-lab ac">'+t("Vraag aan de klant","Question for the customer")+'</span><textarea class="dm-in" id="dmAskTxt" aria-label="'+t("Vraag aan de klant","Question for the customer")+'">'+esc(q2)+'</textarea><div class="dm-actions"><button type="button" class="dm-btn solid" data-act="send">'+t("Klaarzetten in Outlook","Prepare in Outlook")+'</button><button type="button" class="dm-btn" data-act="cancel">'+t("Annuleren","Cancel")+"</button></div></div>"}
+        var o=open(m);
+        h+='<div class="dm-actions"><button type="button" class="dm-btn" data-act="reread">↻ '+t("Opnieuw lezen","Read again")+'</button><button type="button" class="dm-btn" data-act="ask"'+(m.st.ask?" disabled":"")+">✉ "+t("Vraag aan klant","Ask customer")+'</button><button type="button" class="dm-btn solid" data-act="king"'+(o?" disabled":"")+">"+(off?t("Maak offerte","Create quote"):t("Zet in KING","Put in KING"))+"</button>"+(o?'<span class="dm-hint">'+o+" "+t("keuze nog open","choice still open")+"</span>":"")+"</div>";
+      }
+      return h+"</div>";
+    }
+    function askText(m){
+      var i=m.st.sel.indexOf(null);
+      if(i>-1){var l=m.lines[i];return t("Goedemiddag,\n\nDank voor uw bestelling. Bij “"+l.raw+"” hebben we "+l.o.length+" mogelijkheden:\n"+l.o.map(function(o){return "- "+P[o].d+" ("+eur(P[o].p)+")"}).join("\n")+"\n\nWelke bedoelt u?\n\nMet vriendelijke groet,\nFOV","Good afternoon,\n\nThank you for your order. For “"+l.raw+"” we have "+l.o.length+" options:\n"+l.o.map(function(o){return "- "+P[o].d+" ("+eur(P[o].p)+")"}).join("\n")+"\n\nWhich one do you mean?\n\nKind regards,\nFOV")}
+      if(m.klant&&m.klant.opts&&!m.st.klant)return t("Hoi,\n\nVoor welke Hoekstra is deze bestelling: Interieurbouw in Leeuwarden of Botenverhuur in Grou?\n\nGroet,\nBinnendienst","Hi,\n\nWhich Hoekstra is this order for: Interieurbouw in Leeuwarden or Botenverhuur in Grou?\n\nRegards,\nCustomer service");
+      return t("Goedemiddag,\n\nWe hebben uw bestelling ontvangen en nagekeken. \n\nMet vriendelijke groet,\nFOV","Good afternoon,\n\nWe have received and checked your order.\n\nKind regards,\nFOV");
+    }
+    var mailEl=document.getElementById("dmMail");
+    function renderMail(anim){
+      var m=M[cur],head='<div class="dm-orig"><span class="dm-lab">'+t("Origineel","Original")+" · "+m.time+"</span><h4>"+esc(m.subj)+'</h4><span class="dm-code">'+esc(m.from)+'</span><div class="dm-body'+(m.pdf?" pdf":"")+'">'+bodyHtml(m.body)+"</div></div>";
+      var right=anim&&!reduce&&m.kind!=="geen"?'<div class="dm-order"><span class="dm-reading">'+t("Mail lezen · klant zoeken in KING · artikelen koppelen…","Reading email · finding customer in KING · matching products…")+"</span></div>":orderPanel(m,anim);
+      mailEl.innerHTML='<div class="dm-mail">'+inbox()+head+right+"</div>";
+      if(anim&&!reduce&&m.kind!=="geen"){var keep=cur;setTimeout(function(){if(keep!==cur)return;mailEl.querySelector(".dm-order").outerHTML=orderPanel(m,true)},750)}
+    }
+    mailEl.addEventListener("click",function(e){
+      var it=e.target.closest(".dm-item");if(it){cur=+it.dataset.i;renderMail(!M[cur].st.read);M[cur].st.read=true;return}
+      var b=e.target.closest("[data-act]");if(!b)return;var m=M[cur],a=b.dataset.act;
+      if(a==="reread"){renderMail(true)}
+      else if(a==="ask"){m.st.ask=true;renderMail(false)}
+      else if(a==="cancel"){m.st.ask=false;renderMail(false)}
+      else if(a==="send"){m.st.ask=false;m.st.asked=true;renderMail(false);toast(t("Vraag staat klaar in Outlook (demo, niets verstuurd)","Question ready in Outlook (demo, nothing sent)"))}
+      else if(a==="king"){m.st.done=m.kind==="offerte"?nr("O-"):nr("");renderMail(false);toast(m.kind==="offerte"?t("Offerte gemaakt (demo)","Quote created (demo)"):t("Order staat in KING (demo)","Order is in KING (demo)"))}
+    });
+    mailEl.addEventListener("change",function(e){var m=M[cur],el=e.target;
+      if(el.dataset.s!==undefined){m.st.sel[+el.dataset.s]=el.value===""?null:+el.value;renderMail(false)}
+      else if(el.dataset.k){m.st.klant=el.value||null;renderMail(false)}
+      else if(el.dataset.q!==undefined){m.st.qty[+el.dataset.q]=Math.max(0,+el.value||0);renderMail(false)}
+    });
+    function hl(l,on){mailEl.querySelectorAll('[data-l="'+l+'"]').forEach(function(x){x.classList.toggle("hl",on)})}
+    mailEl.addEventListener("mouseover",function(e){var x=e.target.closest("[data-l]");if(x)hl(x.dataset.l,true)});
+    mailEl.addEventListener("mouseout",function(e){var x=e.target.closest("[data-l]");if(x)hl(x.dataset.l,false)});
+
+    /* ===== Klant aan de lijn ===== */
+    var K={
+      kreek:{run:[{n:"26-104377",d:"13-10",w:t("6 artikelen · bootlak, verdunning","6 items · varnish, thinner"),s:t("Onderweg · morgen geleverd","On its way · delivered tomorrow")},{n:"26-104102",d:"08-10",w:t("Antifouling 20 l","Antifouling 20 l"),s:t("Wacht op leverancier","Waiting for supplier")},{n:"R-2588",d:"02-10",w:t("Retour · kwastenset","Return · brush set"),s:t("In behandeling","Being processed")}],
+        deal:[{w:t("Bootlak, alle merken","Boat varnish, all brands"),v:t("15% korting","15% discount"),p:{bl:.85}},{w:t("Verdunning","Thinner"),v:t("netto ","net ")+eur(10.95),p:{vd:10.95/12.5}},{w:t("Verzending","Shipping"),v:t("gratis vanaf ","free from ")+eur(250)}],
+        con:[{n:"Sietse de Vries",r:t("Inkoop","Purchasing"),tel:"0515 54 21 80",on:true},{n:"Marit Bakker",r:t("Administratie","Accounts"),tel:"0515 54 21 81"},{n:"Jelle Postma",r:t("Werfleider","Yard manager"),tel:"06 2345 6789"}],
+        omz:[3.1,4.2,9.8,12.4,10.1,6.3,4.0,3.2,4.4,5.1,2.6,1.9],ord:38,last:"13-10-2026"},
+      vandijk:{run:[{n:"26-104390",d:"14-10",w:t("21 artikelen · primer, tape","21 items · primer, tape"),s:t("Wordt gepickt","Being picked")}],deal:[{w:t("Alle artikelen","All products"),v:t("8% korting","8% discount"),p:{bl:.92,vd:.92,lz:.92}}],con:[{n:"Peter van Dijk",r:t("Eigenaar","Owner"),tel:"0515 41 77 02",on:true}],omz:[5.2,5.8,6.1,6.6,7.0,6.8,5.9,5.5,6.2,6.9,6.0,4.8],ord:61,last:"14-10-2026"},
+      hoekI:{run:[],deal:[],con:[{n:"Wietse Hoekstra",r:t("Eigenaar","Owner"),tel:"058 212 44 90",on:true}],omz:[1.2,0.8,1.5,1.1,0.9,1.4,0.6,0.7,1.6,1.2,1.0,0.8],ord:14,last:"30-09-2026"},
+      hoekB:{run:[{n:"26-104201",d:"10-10",w:t("Antifouling, kwasten","Antifouling, brushes"),s:t("Onderweg · vandaag geleverd","On its way · delivered today")}],deal:[{w:t("Antifouling","Antifouling"),v:t("10% korting","10% discount"),p:{}}],con:[{n:"Tjitske Hoekstra",r:t("Bedrijfsleider","Manager"),tel:"058 212 44 90",on:true}],omz:[0.4,1.9,4.6,5.2,2.1,0.6,0.3,0.2,0.4,0.9,0.2,0.1],ord:9,last:"10-10-2026"},
+      zeil:{run:[],deal:[],con:[{n:"Anke Zijlstra",r:t("Inkoop","Purchasing"),tel:"0517 39 12 64",on:true}],omz:[0.9,1.0,1.8,2.2,1.6,1.1,0.8,0.7,1.0,1.2,0.9,0.6],ord:22,last:"25-09-2026"}
+    };
+    var S=[{lab:t("Vaste klant belt","Regular customer calls"),num:"0515 54 21 80",k:"kreek"},{lab:t("Nummer hoort bij twee klanten","Number belongs to two customers"),num:"058 212 44 90",multi:["hoekI","hoekB"]},{lab:t("Onbekend nummer","Unknown number"),num:"06 1234 5678",unknown:true}];
+    var tel={s:0,state:"open",k:"kreek",form:null,q:""},telEl=document.getElementById("dmTel"),clock=null,secs=0;
+    function bars(o){var mx=Math.max.apply(null,o),w=300,h=70,bw=w/12,mo=DL==="en"?"NDJFMAMJJASO":"NDJFMAMJJASO",pk=o.indexOf(mx);
+      return '<svg class="dm-bars" viewBox="0 0 300 86" role="img" aria-label="'+t("Omzet per maand, laatste 12 maanden (fictief)","Revenue per month, last 12 months (fictional)")+'">'+o.map(function(v,i){var bh=Math.max(2,v/mx*h);return '<rect x="'+(i*bw+3)+'" y="'+(h-bh)+'" width="'+(bw-6)+'" height="'+bh+'" rx="2"'+(i===pk?' class="pk"':"")+'></rect><text x="'+(i*bw+bw/2)+'" y="84" text-anchor="middle">'+mo[i]+"</text>"}).join("")+"</svg>"}
+    function phone(){
+      var s=S[tel.s],ring=tel.state==="ring",who=s.k?C[s.k].n:s.multi?t("2 klanten met dit nummer","2 customers with this number"):t("Niet herkend","Not recognised");
+      return '<div class="dm-phone"><span class="dm-lab ac">'+t("Laat de telefoon gaan","Make the phone ring")+'</span><div class="dm-scn">'+S.map(function(x,i){return '<button type="button" class="dm-btn" data-scn="'+i+'" aria-pressed="'+(i===tel.s)+'">'+(i+1)+" · "+x.lab+"</button>"}).join("")+'</div><div class="dm-call'+(ring?" ring":"")+'"><span class="dm-lab">'+(ring?t("Inkomend gesprek","Incoming call"):t("In gesprek","On the line"))+" · 3CX</span>"+'<span class="dm-num">'+s.num+'</span><span class="dm-who">'+esc(who)+"</span>"+(ring?'<span class="dm-code">'+t("3CX vraagt het intranet wie er belt, nog vóór je opneemt.","3CX asks the intranet who is calling, before you pick up.")+'</span><button type="button" class="dm-btn solid" data-act="pick">✆ '+t("Opnemen","Answer")+"</button>":'<span class="dm-code" id="dmClock">00:00</span>')+"</div></div>";
+    }
+    function card(){
+      if(tel.state==="ring")return '<div class="dm-card"><div class="dm-empty">'+t("De telefoon gaat. Neem op en de klantkaart opent vanzelf.","The phone is ringing. Answer and the customer card opens by itself.")+"</div></div>";
+      var s=S[tel.s];
+      if(!tel.k&&s.multi)return '<div class="dm-card dm-fade"><span class="dm-lab ac">'+t("Dit nummer staat bij twee klanten","This number belongs to two customers")+'</span><p class="dm-code" style="margin-top:6px">'+t("Liever een keuze dan een gok.","Better a choice than a guess.")+'</p><div class="dm-pick">'+s.multi.map(function(k){return '<button type="button" class="dm-item" data-pk="'+k+'"><b>'+esc(C[k].n)+'</b><span class="sj">'+C[k].pl+" · "+C[k].d+"</span></button>"}).join("")+"</div></div>";
+      if(!tel.k){var q=tel.q.toLowerCase(),list=Object.keys(C).filter(function(k){return !q||C[k].n.toLowerCase().indexOf(q)>-1||C[k].pl.toLowerCase().indexOf(q)>-1});
+        return '<div class="dm-card dm-fade"><span class="dm-lab ac">'+t("Nummer niet gevonden in KING","Number not found in KING")+'</span><p class="dm-code" style="margin-top:6px">'+t("Zoek de klant op naam of plaats.","Search the customer by name or town.")+'</p><div class="dm-pick"><input class="dm-in" id="dmSearch" type="search" placeholder="'+t("Bijv. Kreek of Sneek","E.g. Kreek or Sneek")+'" value="'+esc(tel.q)+'" aria-label="'+t("Zoek klant","Search customer")+'">'+list.map(function(k){return '<button type="button" class="dm-item" data-pk="'+k+'"><b>'+esc(C[k].n)+'</b><span class="sj">'+C[k].pl+" · "+C[k].d+"</span></button>"}).join("")+"</div></div>"}
+      var c=C[tel.k],d=K[tel.k],tot=d.omz.reduce(function(a,b){return a+b},0);
+      var h='<div class="dm-card dm-fade"><div class="dm-ch"><div><span class="dm-lab">'+t("Debiteur ","Account ")+c.d+" · "+c.pl+" · "+t("klant sinds ","customer since ")+c.since+"</span><h3>"+esc(c.n)+'</h3></div><div class="dm-acts">'+[["offerte",t("Offerte maken","Create quote")],["order",t("Order maken","Create order")],["retour",t("Retour","Return")],["rep",t("Reparatie","Repair")]].map(function(a){return '<button type="button" class="dm-btn'+(a[0]==="order"?" solid":"")+'" data-form="'+a[0]+'">'+a[1]+"</button>"}).join("")+"</div></div>";
+      if(tel.form)h+=form(tel.form,d);
+      h+='<div class="dm-grid"><div class="dm-box"><span class="dm-lab ac">'+t("Wat loopt er nu","What is running now")+"</span>"+(d.run.length?d.run.map(function(r){return '<div class="dm-row"><span><span class="dm-code">'+r.n+" · "+r.d+"</span>"+esc(r.w)+"</span><span>"+esc(r.s)+"</span></div>"}).join(""):'<div class="dm-row"><span>'+t("Niets onderweg","Nothing on its way")+"</span><span></span></div>")+"</div>";
+      h+='<div class="dm-box"><span class="dm-lab ac">'+t("Prijsafspraken","Price agreements")+"</span>"+(d.deal.length?d.deal.map(function(r){return '<div class="dm-row"><span>'+esc(r.w)+"</span><span>"+esc(r.v)+"</span></div>"}).join(""):'<div class="dm-row"><span>'+t("Standaardprijzen","Standard prices")+"</span><span></span></div>")+"</div>";
+      h+='<div class="dm-box"><span class="dm-lab ac">'+t("Contactpersonen","Contacts")+"</span>"+d.con.map(function(r){return '<div class="dm-row"><span>'+esc(r.n)+(r.on&&!S[tel.s].unknown?'<span class="on">● '+t("aan de lijn","on the line")+"</span>":"")+'<span class="dm-code">'+esc(r.r)+"</span></span><span>"+r.tel+"</span></div>"}).join("")+"</div>";
+      h+='<div class="dm-box"><span class="dm-lab ac">'+t("In cijfers","In figures")+'</span><div class="dm-kv"><span><b>'+eurR(tot*1000)+'</b><span class="dm-lab">'+t("omzet 12 mnd","revenue 12 mo")+"</span></span><span><b>"+d.ord+'</b><span class="dm-lab">'+t("orders","orders")+"</span></span><span><b>"+d.last.slice(0,5)+'</b><span class="dm-lab">'+t("laatste order","last order")+"</span></span></div>"+bars(d.omz)+"</div></div></div>";
+      return h;
+    }
+    function form(f,d){
+      var head={offerte:t("Nieuwe offerte","New quote"),order:t("Nieuwe order","New order"),retour:t("Retour aanmelden","Register a return"),rep:t("Reparatie aannemen","Take in a repair")}[f],h='<div class="dm-form dm-fade"><span class="dm-lab ac">'+head+" · "+esc(C[tel.k].n)+"</span>";
+      if(f==="order"||f==="offerte"){
+        h+='<div class="fr"><input class="dm-in dm-qty" type="number" min="1" value="'+(tel.fq||4)+'" id="dmFq" aria-label="'+t("Aantal","Quantity")+'"><select class="dm-in" id="dmFp" aria-label="'+t("Artikel","Product")+'">'+["bl","vd","lz","gv"].map(function(k){return '<option value="'+k+'"'+(tel.fp===k?" selected":"")+">"+esc(P[k].d)+"</option>"}).join("")+"</select></div>";
+        var k=tel.fp||"bl",dl=null;d.deal.forEach(function(x){if(x.p&&x.p[k])dl=x});var base=P[k].p,net=dl?base*dl.p[k]:base,q=tel.fq||4;
+        h+='<span class="dm-code">'+t("Lijstprijs ","List price ")+eur(base)+(dl?" → "+t("met afspraak ","with agreement ")+eur(net)+" ("+esc(dl.v)+")":" · "+t("geen afspraak voor dit artikel","no agreement for this product"))+" · "+t("totaal ","total ")+eur(net*q)+"</span>";
+      }else if(f==="retour"){
+        var opts=d.run.filter(function(r){return r.n.indexOf("R-")!==0});
+        h+='<div class="fr"><select class="dm-in" aria-label="'+t("Order","Order")+'">'+(opts.length?opts:[{n:"26-103950",w:t("eerdere order","earlier order")}]).map(function(r){return "<option>"+r.n+" · "+esc(r.w)+"</option>"}).join("")+'</select><select class="dm-in" aria-label="'+t("Reden","Reason")+'"><option>'+t("Verkeerd besteld","Ordered wrong item")+"</option><option>"+t("Beschadigd geleverd","Delivered damaged")+"</option><option>"+t("Te veel besteld","Ordered too many")+"</option></select></div>";
+        h+='<span class="dm-code">'+t("Vervoersgegevens voor gevaarlijke stoffen komen automatisch uit KING.","Transport data for dangerous goods comes straight from KING.")+"</span>";
+      }else{
+        h+='<div class="fr"><input class="dm-in" placeholder="'+t("Apparaat, bijv. schuurmachine","Device, e.g. sander")+'" aria-label="'+t("Apparaat","Device")+'"><input class="dm-in" placeholder="'+t("Serienummer","Serial number")+'" aria-label="'+t("Serienummer","Serial number")+'"></div><input class="dm-in" placeholder="'+t("Wat is er mis?","What is wrong?")+'" aria-label="'+t("Omschrijving","Description")+'">';
+      }
+      return h+'<div class="dm-actions"><button type="button" class="dm-btn solid" data-act="submit">'+({offerte:t("Maak offerte","Create quote"),order:t("Zet in KING","Put in KING"),retour:t("Maak retour","Create return"),rep:t("Neem aan","Take in")}[f])+'</button><button type="button" class="dm-btn" data-act="close">'+t("Annuleren","Cancel")+"</button></div></div>";
+    }
+    function renderTel(){
+      telEl.innerHTML='<div class="dm-tel">'+phone()+card()+"</div>";
+      var sr=document.getElementById("dmSearch");if(sr&&tel.typing){sr.focus();sr.setSelectionRange(sr.value.length,sr.value.length)}tel.typing=false;
+    }
+    function startClock(){clearInterval(clock);secs=0;clock=setInterval(function(){secs++;var c=document.getElementById("dmClock");if(c)c.textContent=String(Math.floor(secs/60)).padStart(2,"0")+":"+String(secs%60).padStart(2,"0")},1000)}
+    telEl.addEventListener("click",function(e){
+      var sc=e.target.closest("[data-scn]");if(sc){tel.s=+sc.dataset.scn;tel.state="ring";tel.k=null;tel.form=null;tel.q="";clearInterval(clock);renderTel();return}
+      var pk=e.target.closest("[data-pk]");if(pk){tel.k=pk.dataset.pk;renderTel();return}
+      var fm=e.target.closest("[data-form]");if(fm){tel.form=fm.dataset.form;tel.fp="bl";tel.fq=4;renderTel();return}
+      var b=e.target.closest("[data-act]");if(!b)return;
+      if(b.dataset.act==="pick"){tel.state="open";tel.k=S[tel.s].k||null;renderTel();startClock()}
+      else if(b.dataset.act==="close"){tel.form=null;renderTel()}
+      else if(b.dataset.act==="submit"){var f=tel.form;tel.form=null;renderTel();toast({offerte:t("Offerte ","Quote ")+nr("O-")+t(" klaar (demo)"," ready (demo)"),order:t("Order ","Order ")+nr("")+t(" staat in KING (demo)"," is in KING (demo)"),retour:t("Retour ","Return ")+nr("R-")+t(" aangemaakt (demo)"," created (demo)"),rep:t("Reparatie aangenomen (demo)","Repair taken in (demo)")}[f])}
+    });
+    telEl.addEventListener("input",function(e){if(e.target.id==="dmSearch"){tel.q=e.target.value;tel.typing=true;renderTel()}});
+    telEl.addEventListener("change",function(e){if(e.target.id==="dmFp"){tel.fp=e.target.value;renderTel()}else if(e.target.id==="dmFq"){tel.fq=Math.max(1,+e.target.value||1);renderTel()}});
+
+    /* ===== Tabs ===== */
+    document.getElementById("dmTitle").textContent=t("Probeer het zelf.","Try it yourself.");
+    document.getElementById("dmIntro").textContent=t("Twee tools die ik voor de binnendienst van FOV bouwde, hier nagebouwd met verzonnen klanten, artikelen en prijzen. Kies een mail, of laat de telefoon gaan.","Two tools I built for customer service at FOV, rebuilt here with made-up customers, products and prices. Pick an email, or make the phone ring.");
+    document.getElementById("dmNote").textContent=t("Alle klanten, artikelen, prijzen en cijfers in deze demo zijn verzonnen. Er wordt niets verstuurd of opgeslagen.","All customers, products, prices and figures in this demo are made up. Nothing is sent or saved.");
+    document.getElementById("dmHead").textContent=t("(Probeer het zelf)","(Try it yourself)");
+    document.getElementById("dmBadge").textContent=t("Live demo · fictieve data","Live demo · fictional data");
+    var tabs=document.getElementById("dmTabs");
+    [["mail",t("01 · Order uit de mail","01 · Order from email")],["tel",t("02 · Klant aan de lijn","02 · Customer on the phone")]].forEach(function(x,i){var b=document.createElement("button");b.type="button";b.className="dm-tab";b.setAttribute("role","tab");b.dataset.tab=x[0];b.setAttribute("aria-selected",i===0);b.textContent=x[1];tabs.appendChild(b)});
+    function showTab(k){[].forEach.call(tabs.children,function(b){b.setAttribute("aria-selected",b.dataset.tab===k)});mailEl.hidden=k!=="mail";telEl.hidden=k!=="tel"}
+    tabs.addEventListener("click",function(e){var b=e.target.closest(".dm-tab");if(b)showTab(b.dataset.tab)});
+    document.addEventListener("click",function(e){var a=e.target.closest("[data-demo]");if(!a)return;e.preventDefault();showTab(a.dataset.demo);go("#demo")});
+    renderMail(false);M[0].st.read=true;renderTel();
+  })();
 
   /* Pauzeer beweging */
   $('pause').addEventListener('click',function(){var p=document.documentElement.classList.toggle('paused');this.textContent=p?'(Play motion)':'(Pause motion)'});
