@@ -107,6 +107,7 @@ h1,h2,h3{margin:0;font-weight:inherit}
 .hero-foot{position:relative;z-index:4;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;gap:24px;margin-top:auto;padding-top:48px}
 .hero-foot p{margin:0;max-width:30ch;font-size:1.15rem;line-height:1.45}
 .hero-foot .pill{justify-self:end}
+.hero-foot p.avail{display:block;margin-top:16px;font-size:.72rem;max-width:none;line-height:1.5}
 @media (max-width:700px){.hero-meta span:nth-child(2){display:none}.hero-meta{grid-template-columns:1fr 1fr}
   .portrait{width:86vw;bottom:110px}
   .hero-foot{grid-template-columns:1fr}.hero-foot .m{display:none}.hero-foot .pill{justify-self:start}}
@@ -299,6 +300,7 @@ h1,h2,h3{margin:0;font-weight:inherit}
 .contact{padding-top:170px;padding-bottom:40px}
 .contact h2{font-size:clamp(3.2rem,10vw,10rem);font-weight:700;font-stretch:80%;line-height:.92;letter-spacing:-.02em;margin-top:22px}
 .contact h2 em{font-style:italic;font-weight:300;font-stretch:120%;color:var(--accent)}
+.contact .c-lead{color:var(--mid);max-width:52ch;margin:24px 0 0;font-size:1.15rem}
 .c-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:44px}
 .mail{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 20px;max-width:100%;min-width:0}
 .mail code{font:500 .9rem var(--mono);user-select:all;overflow-wrap:anywhere;min-width:0}
@@ -459,7 +461,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <svg class="orb" id="orb" aria-hidden="true"></svg>
   <h1 class="name" aria-label="Bastiaan van der Horst"><span class="l1">Bastiaan</span><span class="l2">van der Horst</span></h1>
   <div class="hero-foot">
-    <p>I turn raw data into decisions. With Python, models and dashboards, measured in euros and hours.</p>
+    <div><p>I turn raw data into decisions. With Python, models and dashboards, measured in euros and hours.</p><p class="m avail"><b>●</b> Open to a new role, an assignment or a collaboration</p></div>
     <span class="m">↓ Scroll, take your time</span>
     <a class="pill" href="#werk" data-go>See the work →</a>
   </div>
@@ -476,15 +478,15 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <div class="mf-ring" aria-hidden="true"></div>
   <div class="mf-in g">
     <div class="m mf-label">Manifest</div>
-    <div class="mf-lines" aria-label="A data team without the team. 14+ tools, live every day. Measured in euros.">
-      <div class="mf-line" aria-hidden="true"><span>A data team</span><span>without the</span><span class="strike" id="strike">team.</span></div>
-      <div class="mf-line" aria-hidden="true"><span>14+ tools.</span><span>Live every day.</span></div>
+    <div class="mf-lines" aria-label="I build tools, not dashboards. For the team, live every day. Measured in euros.">
+      <div class="mf-line" aria-hidden="true"><span>I build</span><span class="strike" id="strike">dashboards</span><span>tools.</span></div>
+      <div class="mf-line" aria-hidden="true"><span>For the team.</span><span>Live every day.</span></div>
       <div class="mf-line" aria-hidden="true"><span>Measured in euros.</span></div>
     </div>
     <div class="mf-body"><div>
       <p>An analysis that disappears into a folder delivers nothing. Data only has value when someone decides differently because of it.</p>
       <p>That is why I build tools that keep running. They collect the data, check themselves and put the decision in front of a person.</p>
-      <p>At FOV I do this as the only data specialist. What it delivers, I calculate in euros or in hours.</p>
+      <p>At FOV I do this as the only data specialist, together with the colleagues who use the tools every day. What it delivers, I calculate in euros or in hours.</p>
     </div></div>
     <div class="mf-foot"><strong>Simply <span class="under" id="under">measurable.</span></strong><i></i><span>for marketing, data and investing</span></div>
   </div>
@@ -547,7 +549,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
           <li><span class="m">2024 — 2025</span><span>SME customer service advisor<small>Rabobank via DPA · Utrecht</small></span></li>
           <li><span class="m">2021 — 2024</span><span>Supervisor / weekend manager<small>Poiesz Supermarkets · Friesland</small></span></li>
           <li><span class="m">2020 — 2023</span><span>Owner and founder<small>BeLion Sportswear · Harlingen</small></span></li>
-          <li class="next"><span class="m"><b>Next</b></span><span>Your team?<small>Data · marketing · technology</small></span></li>
+          <li class="next"><span class="m"><b>Next</b></span><span>Your team or project?<small>A role, an assignment or a collaboration</small></span></li>
         </ol>
       </div>
       <div class="ab-block">
@@ -564,7 +566,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
         <p><b>Bachelor in Business Economics</b> (Commerciële Economie), NHL Stenden University of Applied Sciences.</p>
         <p>Minors in <b>Investing</b> and in <b>Marketing Communication &amp; Content Marketing</b>. I also hold the Dutch Wft Basis financial certificate.</p>
         <div class="quote">
-          <div><blockquote>“A tool is only finished when someone decides differently because of it.”</blockquote><cite class="m">Bastiaan van der Horst</cite></div>
+          <div><blockquote>“Someone who knows how to take the lead, and whose input has taken the web shops to a higher level.”</blockquote><cite class="m">About Bastiaan · FOV (translated)</cite></div>
           <div class="q-photo" id="qphoto"><span class="m">(photo coming)</span></div>
         </div>
       </div>
@@ -619,6 +621,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 <section class="contact g" id="contact">
   <span class="m"><b>(Contact)</b></span>
   <h2>Shall we <em>talk?</em></h2>
+  <p class="c-lead">A new role, an assignment or a collaboration: I am open to whatever you think fits me. Send an email or a message on LinkedIn.</p>
   <div class="c-row">
     <div class="mail"><code id="mail">bastiaanvanderhorst@hotmail.com</code><button class="pill solid" type="button" id="copy">Copy</button></div>
     <a class="pill" href="https://www.linkedin.com/in/bastiaan-v-01846112a">LinkedIn ↗</a>
@@ -696,6 +699,12 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       return s+'<line x1="200" x2="200" y1="390" y2="420" stroke="#FF8A3D" stroke-opacity=".6"/><rect x="130" y="420" width="140" height="34" rx="4" fill="none" stroke="#FF8A3D"/><text class="v-sub" x="200" y="441" text-anchor="middle" style="fill:#EDEAE4">KING ERP</text></svg>'},
     heart:function(bg){function beat(x0,x1){var p=[],x=x0;while(x<x1-30){p.push([x,320],[x+12,320],[x+16,300],[x+20,350],[x+25,262],[x+30,330],[x+34,320]);x+=44}p.push([x1,320]);return p.map(function(q){return q.join(',')}).join(' ')}
       return SV+head('08:45','A SELF-CHECK EVERY MORNING',bg)+grid()+'<polyline class="v-line soft" pathLength="1" points="'+beat(28,140)+'"/><line class="v-flat" x1="140" x2="262" y1="320" y2="320"/><text class="v-tl" x="201" y="296" text-anchor="middle">7 DAYS SILENT</text><polyline class="v-line" style="--d:.9s" pathLength="1" points="'+beat(262,372)+'"/><text class="v-sub" x="30" y="466">7 MEASUREMENT CHECKS · 1 ACTION LIST</text></svg>'},
+    mail:function(bg){var s=SV+head('200+','EMAILS READ AND FILLED IN',bg);for(var i=0;i<5;i++){var y=160+i*54,tw=i===2;
+        s+='<g><rect class="v-tile" x="30" y="'+y+'" width="84" height="38" rx="3" style="--d:'+(i*120)+'ms"/><polyline points="30,'+y+' 72,'+(y+20)+' 114,'+y+'" fill="none" stroke="#57544F"/>'+
+           '<line x1="124" x2="184" y1="'+(y+19)+'" y2="'+(y+19)+'" stroke="#57544F" stroke-dasharray="3 5"/>'+
+           '<rect x="194" y="'+y+'" width="178" height="38" rx="3" fill="'+(tw?'#FF8A3D':'rgba(237,234,228,.05)')+'" stroke="'+(tw?'#FF8A3D':'#2A2926')+'"/>'+
+           '<text class="v-tl" x="206" y="'+(y+23)+'" style="fill:'+(tw?'#140C06':'#EDEAE4')+'">'+(tw?'DOUBT':'✓ CUSTOMER · PRODUCTS')+'</text></g>'}
+      return s+'<text class="v-sub" x="30" y="466">1 CLICK TO KING · NOTHING AUTOMATIC</text></svg>'},
     candle:function(bg){var s=SV+head('19','PYTHON AGENTS',bg)+grid(),prev=400;for(var i=0;i<26;i++){var mid=410-i*8.2+16*Math.sin(i*1.7),o=prev,c=mid,up=c<o,top=Math.min(o,c),h=Math.max(6,Math.abs(o-c)),x=32+i*13.2;
         s+='<g class="v-candle" style="--d:'+(i*45)+'ms"><line class="v-wick" x1="'+(x+4)+'" x2="'+(x+4)+'" y1="'+(top-8)+'" y2="'+(top+h+8)+'"/><rect class="'+(up?'v-up':'v-dn')+'" x="'+x+'" y="'+top+'" width="8" height="'+h+'"/></g>';prev=c}
       return s+'<text class="v-sub" x="30" y="466">≈ 9,200 LINES · 16 TABS · LOCAL</text></svg>'}
@@ -703,7 +712,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   var F=[
     {n:'Marketing Intelligence Suite',c:'FOV · Production',k:'+47.6% organic',d:'GA4, Search Console and Google Ads in one hub. With a forecasting model and anomaly detection, good for €1.3M in attributed revenue.',v:'mis',bg:'#141C26',cs:'marketing-intelligence-suite'},
     {n:'Product Automation',c:'FOV · Production',k:'5K+ in 4 hours',d:'Product descriptions, meta titles and SEO texts with two AI models. About €0.02 per product, against €5 to €10 by hand.',v:'prod',bg:'#221812',cs:'product-automation-platform'},
-    {n:'FOV Intranet',c:'FOV · Internal',k:'16 apps',d:'My own company platform: 16 internal apps, a project register with 26 projects and live figures, connected to the ERP.',v:'intra',bg:'#13201C',cs:'fov-intranet'},
+    {n:'Orders without retyping',c:'FOV · Intranet',k:'200+ emails',d:'Orders from the sales mailbox are ready as a draft order, with customer and products recognised in KING. Customer service checks it and puts the order into KING with one click.',v:'mail',bg:'#13201C',demo:'mail'},
     {n:'Measurement Critic',c:'FOV · Production',k:'08:45 self-check',d:'Built after a revenue measurement stood still for seven days without anyone noticing. Now the pipeline checks itself, every morning.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
     {n:'Portfolio Monitor',c:'Personal · Open source',k:'19 agents',d:'My investment dashboard. Fundamentals, quarterly results, macro and scenarios, running locally without external AI.',v:'candle',bg:'#111A22',cs:'portfolio-monitor',u:'https://bastiaanvdh.github.io/portfolio/monitor.html'}
   ];
@@ -711,7 +720,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   var rowsEl=$('rows'),screen=$('screen');
   F.forEach(function(f,i){
     var r=document.createElement('article');r.className='row';
-    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Read the case (NL) →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">See the demo →</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
+    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Read the case (NL) →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">See the demo →</a>':'')+(f.demo?'<a class="lnk" href="#demo" data-demo="'+f.demo+'">Try the demo ↓</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
     rowsEl.appendChild(r);
     var d=document.createElement('div');d.className='vis';d.innerHTML=V[f.v](f.bg);screen.appendChild(d);
   });
@@ -724,7 +733,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 
   /* ---------- Meeschuivende rij ---------- */
   var R=[
-    {k:'200+',s:'emails read and filled in',n:'Orders without retyping',c:'FOV · Intranet',d:'Orders from the sales mailbox are ready as a draft order: customer and products recognised in KING. Customer service checks it, asks the customer a question if needed and puts the order into KING with one click. Any doubt is always clearly shown.',t:'Python · AI · KING Webservices'},
+    {k:'16',s:'internal apps, 1 ERP',n:'FOV Intranet',c:'FOV · Intranet',d:'My own company platform: 16 internal apps, a project register with 26 projects and live figures, connected to the ERP.',t:'Python · Flask · KING API · SQL',cs:'fov-intranet'},
     {k:'98%',s:'customers recognisable by number',n:'Customer card on the phone',c:'FOV · Intranet',d:'Whoever calls is on screen right away: what is running, the contacts and the figures from KING. From the card you start a quote, order, return or repair. Next step: the 3CX link, so the card opens by itself when a customer calls.',t:'3CX · KING · Flask'},
     {k:'.de',s:'German web shop, live',n:'fovfarbe.de',c:'FOV',d:'Got the German web shop ready: 1,142 German product texts imported, 35 category pages set up and GA4 and Tag Manager tracking live since October 2026.',t:'KING import · GA4 · GTM',u:'https://www.fovfarbe.de/'},
     {k:'98%',s:'prices exact in the trial',n:'Supplier price lists',c:'FOV · Intranet',d:'Supplier Excel in, new cost and sales prices out, using the pricing rule per brand. In a trial on 2,665 products, 1,834 of the 1,868 regular products came out at exactly the current cost price.',t:'Flask · openpyxl · KING'},
