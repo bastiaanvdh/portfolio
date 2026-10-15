@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Bastiaan van der Horst | Data, Marketing Intelligence & Investing</title>
 <meta name="description" content="Data & Marketing Intelligence Specialist. Python, ML, automation and investing. Builds tools that run daily and deliver measurable impact.">
@@ -39,1627 +39,664 @@
   "knowsAbout": ["Data Analysis", "Machine Learning", "Python", "Marketing Intelligence", "SEO", "Google Ads", "Investing", "Fundamental Analysis", "Revenue Attribution"],
   "sameAs": [
     "https://www.linkedin.com/in/bastiaan-v-01846112a",
-    "https://github.com/bastiaanvdh"
+    "https://github.com/bastiaanvdh",
+    "https://www.instagram.com/beleggenmetbastiaan/"
   ]
 }
 </script>
+<style>html{color-scheme:dark}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root {
-  --bg: #0a0f0d;
-  --surface: #101713;
-  --surface2: #16201a;
-  --surface3: #1c2820;
-  --green: #2dd4a0;
-  --green-bright: #4ae8b8;
-  --green-deep: #169873;
-  --gold: #e8b44f;
-  --gold-soft: #f2cd7e;
-  --red: #f0716e;
-  --white: #f2f8f4;
-  --text: #d7e4dc;
-  --muted: #7e9489;
-  --muted2: #a8bcb1;
-  --border: rgba(45, 212, 160, 0.14);
-  --border-gold: rgba(232, 180, 79, 0.25);
-  --glow: rgba(45, 212, 160, 0.10);
+/* Layout: donkere scroll-pagina. Portret met banen, manifest op oranje vlak, werklijst met vast scherm, meeschuivende rij, Over mij met stapelkoppen, licht cirkelschema, beleggen, contact. */
+:root{
+  --bg:#0F0F0E; --bg2:#181816; --ink:#EDEAE4; --mid:#8F8B84; --dim:#57544F; --line:#2A2926;
+  --accent:#FF8A3D; --on-accent:#140C06; --paper:#ECEAE5; --paper-ink:#151413; --paper-mid:#6E6A63; --paper-line:#D3CFC7; --accent-deep:#B04A08;
+  --sans:"Archivo","Arial Narrow","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:var(--on-accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.g{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:600px){.g{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.m{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.m b{color:var(--accent);font-weight:500}
+h1,h2,h3{margin:0;font-weight:inherit}
+.pill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--dim);border-radius:999px;padding:11px 20px;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.pill:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pill.solid{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.pill.solid:hover{background:var(--ink);border-color:var(--ink)}
+.sec-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.sec-head button{background:none;border:0;color:var(--mid);font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;padding:0}
+.sec-head button:hover{color:var(--ink)}
+
+/* Kop */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:linear-gradient(var(--bg) 40%,transparent);transition:opacity .3s}
+.top-in{height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.logo{font-weight:800;font-stretch:80%;font-size:1.05rem;letter-spacing:.01em;display:flex;align-items:center}
+.logo i{font-style:italic;font-weight:400;font-stretch:115%;background:var(--accent);color:var(--on-accent);padding:0 3px;margin:0 1px 0 6px}
+.clock{font-variant-numeric:tabular-nums}
+.nav{justify-self:end;display:flex;align-items:center;gap:24px}
+.nav a.l{font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.nav a.l:hover{color:var(--accent)}
+@media (max-width:820px){.clock,.nav a.l{display:none}.top-in{grid-template-columns:1fr auto}}
+
+/* Opening met portret */
+.hero{position:relative;min-height:max(680px,100vh);min-height:max(680px,100svh);padding-top:calc(96px + env(safe-area-inset-top,0px));padding-bottom:36px;display:flex;flex-direction:column;overflow:hidden}
+.hero-meta{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;position:relative;z-index:4}
+.hero-meta span:last-child{text-align:right}
+.portrait{position:absolute;z-index:1;left:50%;bottom:0;transform:translateX(-50%);width:min(44vw,520px);aspect-ratio:4/5;max-width:100%}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:42% 30%;filter:grayscale(1) contrast(1.1) brightness(.82);-webkit-mask-image:radial-gradient(ellipse 58% 62% at 50% 40%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 58% 62% at 50% 40%,#000 52%,transparent 100%)}
+.ph{width:100%;height:100%;background:radial-gradient(60% 55% at 50% 38%,#2C2B28,transparent 72%);-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.ph span{font-weight:800;font-stretch:62%;font-size:min(34vw,24rem);line-height:.8;color:transparent;-webkit-text-stroke:1px #4A4843}
+.orb{position:absolute;inset:0;z-index:2;pointer-events:none;width:100%;height:100%}
+.orb ellipse{fill:none;stroke:var(--accent);stroke-opacity:.55;stroke-width:1}
+.orb .p-disc{fill:var(--accent)}
+.orb .p-ring{fill:none;stroke:var(--ink);stroke-width:14}
+.orb .p-dot{fill:var(--ink)}
+.orb text{font-family:var(--mono);font-size:10px;letter-spacing:.06em;fill:var(--accent)}
+.name{position:relative;z-index:3;font-weight:800;font-stretch:62%;line-height:.86;letter-spacing:-.01em;font-size:min(15.5vw,15rem);margin:40px 0 0;text-transform:uppercase}
+.name span{display:block;will-change:transform}
+.name .l2{text-align:right}
+.hero-foot{position:relative;z-index:4;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;gap:24px;margin-top:auto;padding-top:48px}
+.hero-foot p{margin:0;max-width:30ch;font-size:1.15rem;line-height:1.45}
+.hero-foot .pill{justify-self:end}
+@media (max-width:700px){.hero-meta span:nth-child(2){display:none}.hero-meta{grid-template-columns:1fr 1fr}
+  .portrait{width:86vw;bottom:110px}
+  .hero-foot{grid-template-columns:1fr}.hero-foot .m{display:none}.hero-foot .pill{justify-self:start}}
+
+/* Band */
+.band{border-block:1px solid var(--line);overflow:hidden;padding-block:14px;position:relative;z-index:2;background:var(--bg)}
+.band-in{display:flex;width:max-content;animation:band 38s linear infinite}
+.band span{font-style:italic;font-stretch:125%;font-weight:300;font-size:clamp(2.2rem,5.2vw,4.8rem);white-space:nowrap;display:flex;align-items:center;gap:.5em;padding-right:.5em;line-height:1.15}
+.band span::after{content:"";width:.16em;height:.16em;background:var(--accent);transform:rotate(45deg);flex:none}
+@keyframes band{to{transform:translateX(-50%)}}
+
+/* Manifest */
+.mf{position:relative;margin-top:120px;background:var(--accent);color:var(--on-accent);border-radius:50% 50% 0 0/var(--curve,180px) var(--curve,180px) 0 0;overflow:hidden;padding-top:150px;padding-bottom:150px}
+.mf .m{color:var(--on-accent)}
+.mf-ring{position:absolute;left:50%;top:50%;width:min(70vw,720px);aspect-ratio:1;max-width:100%;border-radius:50%;border:min(11vw,120px) solid rgba(255,255,255,.28);transform:translate(-50%,-50%) translateY(var(--ring,0px));pointer-events:none}
+.mf-in{position:relative;z-index:1}
+.mf-label{text-align:center;letter-spacing:.2em;font-weight:500}
+.mf-lines{margin-top:30px;font-weight:800;font-stretch:72%;font-size:clamp(2.3rem,7.4vw,7.6rem);line-height:.95;text-transform:uppercase;letter-spacing:-.005em}
+.mf-line{display:flex;justify-content:space-between;gap:.3em;flex-wrap:wrap}
+.strike,.under{position:relative;white-space:nowrap}
+.strike::after{content:"";position:absolute;left:-2%;top:52%;height:.09em;width:calc(var(--s,0) * 104%);background:var(--on-accent)}
+.mf-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:34px}
+.mf-body div{display:flex;flex-direction:column;gap:16px;grid-column:2;max-width:60ch;font-weight:500;font-size:1.02rem}
+.mf-body p{margin:0}
+.mf-foot{display:flex;align-items:center;gap:24px;margin-top:80px;flex-wrap:wrap}
+.mf-foot strong{font-weight:800;font-stretch:72%;font-size:clamp(2.6rem,7.6vw,7.4rem);line-height:.9;text-transform:uppercase;color:var(--ink)}
+.under::after{content:"";position:absolute;left:0;bottom:-.04em;height:.07em;width:calc(var(--u,0) * 100%);background:var(--ink)}
+.mf-foot i{flex:1;min-width:60px;height:1px;background:var(--ink);opacity:.7}
+.mf-foot span{font-weight:600;color:var(--ink)}
+@media (max-width:760px){.mf-body{grid-template-columns:minmax(0,1fr)}.mf-body div{grid-column:1}.mf{padding-top:110px;padding-bottom:110px}}
+
+/* Werk */
+.work{padding-top:140px}
+.work-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,min(400px,30vw));gap:56px;align-items:start}
+.row{min-height:62vh;display:grid;grid-template-columns:3rem minmax(0,1fr);align-content:center;gap:4px 18px;border-bottom:1px solid var(--line);padding-block:48px}
+.row .ix{font-family:var(--mono);font-size:.78rem;color:var(--dim);padding-top:1.4em;transition:color .4s}
+.row h3{font-size:clamp(2.6rem,6.2vw,6rem);font-weight:500;line-height:.98;letter-spacing:-.025em;color:var(--dim);transition:color .5s}
+.row .meta{grid-column:2;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px}
+.row p{grid-column:2;margin:12px 0 0;max-width:46ch;color:var(--mid);font-size:1rem;opacity:.35;transition:opacity .5s}
+.row .lnks{grid-column:2;display:flex;gap:22px;flex-wrap:wrap;margin-top:16px}
+.row .lnk{font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;justify-self:start;border-bottom:1px solid var(--accent)}
+.row.on h3{color:var(--ink)}.row.on .ix{color:var(--accent)}.row.on p{opacity:1}
+.row .vis-inline{display:none}
+.dock{position:sticky;top:calc(50vh - min(250px,19vw) - 20px);padding-top:40px}
+.screen{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:4px;overflow:hidden;background:var(--bg2)}
+.vis{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.vis.on{opacity:1}
+.vis svg,.vis-inline svg{display:block;width:100%;height:100%}
+.dock-foot{display:flex;justify-content:space-between;margin-top:14px}
+.dock-bar{height:1px;background:var(--line);margin-top:10px;position:relative}
+.dock-bar i{position:absolute;left:0;top:0;height:1px;background:var(--accent);width:20%;transition:width .5s}
+@media (max-width:900px){
+  .work-grid{grid-template-columns:minmax(0,1fr)}.dock{display:none}
+  .row{min-height:0;padding-block:40px}
+  .row .vis-inline{display:block;grid-column:1/-1;margin-top:22px;aspect-ratio:4/5;max-width:100%;max-height:70vh;border-radius:4px;overflow:hidden}
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* SVG-schetsen */
+.v-big{font-family:var(--sans);font-weight:800;font-stretch:70%;font-size:76px;fill:var(--ink)}
+.v-sub{font-family:var(--mono);font-size:11px;letter-spacing:.08em;fill:var(--mid)}
+.v-note{font-family:var(--mono);font-size:9px;letter-spacing:.12em;fill:var(--dim)}
+.v-grid{stroke:rgba(237,234,228,.08);stroke-width:1}
+.v-line{fill:none;stroke:var(--accent);stroke-width:3;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.v-line.soft{stroke:var(--mid);stroke-width:2}
+.v-area{fill:var(--accent);fill-opacity:.12}
+.v-cell{fill:var(--accent)}
+.v-tile{fill:rgba(237,234,228,.04);stroke:var(--accent)}
+.v-tl{font-family:var(--mono);font-size:10px;fill:var(--mid)}
+.v-flat{stroke:var(--dim);stroke-width:2;stroke-dasharray:4 6;fill:none}
+.v-up{fill:var(--accent)}.v-dn{fill:none;stroke:var(--ink);stroke-width:1.5}.v-wick{stroke:var(--mid);stroke-width:1}
+.on .v-line{animation:draw 1.6s cubic-bezier(.6,0,.2,1) both;animation-delay:var(--d,0s)}
+.on .v-area{animation:fade 1s .9s both}
+.on .v-cell{animation:cell .35s both;animation-delay:var(--d)}
+.on .v-tile{animation:tile .5s both;animation-delay:var(--d)}
+.on .v-candle{animation:rise .5s both;animation-delay:var(--d)}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes fade{from{opacity:0}}
+@keyframes cell{from{fill:rgba(237,234,228,.1)}}
+@keyframes tile{from{stroke:rgba(237,234,228,.18);fill:rgba(237,234,228,.02)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
 
-html { scroll-behavior: smooth; }
+/* Van dichtbij */
+.close-up{padding-top:120px}
+.rail-wrap{position:relative}
+.rail-sticky{overflow-x:auto;scrollbar-width:none;padding-block:28px 10px}
+.rail-sticky::-webkit-scrollbar{display:none}
+.rail{display:flex;gap:20px;width:max-content;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.rail-wrap.pinned .rail-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.rail-wrap.pinned .rail{will-change:transform}
+.tile{width:min(340px,78vw);flex:none}
+.tile .card{aspect-ratio:4/5;max-width:100%;background:var(--bg2);border-radius:4px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);transition:border-color .3s}
+.tile:hover .card{border-color:var(--accent)}
+.tile .k{font-weight:800;font-stretch:65%;font-size:clamp(3.2rem,5vw,4.6rem);line-height:.9;letter-spacing:-.01em}
+.tile .k small{display:block;font:400 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-top:12px;font-stretch:100%}
+.tile p{margin:0;color:var(--mid);font-size:.95rem;line-height:1.5}
+.tile .tlnk{display:inline-block;margin-top:14px;font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--accent)}
+.tile .tags{font-family:var(--mono);font-size:.68rem;color:var(--dim);margin-top:14px;letter-spacing:.04em}
+.tile .cap{display:flex;justify-content:space-between;margin-top:12px}
+.rail-head{display:flex;justify-content:space-between}
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.65;
-  overflow-x: hidden;
-}
+/* Zin */
+.say{position:relative;height:240vh}
+.say-in{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.say p{margin:0;font-size:clamp(2rem,4.9vw,4.6rem);font-weight:600;line-height:1.08;letter-spacing:-.02em;max-width:22ch}
+.say p span{color:#3A3834;transition:color .25s}
+.say p span.lit{color:var(--ink)}
+.say p span.it{font-style:italic;font-weight:300;font-stretch:120%}
+.say p span.ac.lit{color:var(--accent)}
 
-h1, h2, h3, .project-title, .stat-number, .result-number {
-  font-family: 'Space Grotesk', sans-serif;
-}
+/* Over mij: stapelkoppen */
+.about{padding-top:40px;padding-bottom:60px}
+.ab-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px}
+.stack{position:sticky;top:110px;align-self:start;list-style:none;margin:0;padding:0}
+.stack li{display:grid;grid-template-columns:4.1ch minmax(0,1fr);font-size:clamp(2.4rem,4.6vw,4.4rem);font-weight:600;line-height:1.04;letter-spacing:-.02em;color:#3A3834;transition:color .4s}
+.stack li .pre{opacity:0;transition:opacity .35s;color:var(--ink)}
+.stack li.seen{color:var(--ink)}
+.stack li.cur .t{color:var(--accent)}
+.stack li.cur .pre{opacity:1}
+.ab-block{min-height:72vh;padding-block:12px 80px;font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.45}
+.ab-block p{margin:0 0 .8em}
+.ab-block b{font-weight:700}
+.ab-block .mob-h{display:none}
+.ab-route{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ab-route li{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.ab-route li span:last-child small{display:block;font:400 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-top:4px}
+.ab-route li.next{color:var(--accent)}
+.drive{display:grid;gap:0;border-top:1px solid var(--line)}
+.drive>div{display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:12px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.drive h4{margin:0;font-size:1em;font-weight:700;line-height:1.2}
+.drive p{margin:6px 0 0;color:var(--mid);font-size:.78em;line-height:1.45}
+.quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start;margin-top:40px}
+.quote blockquote{margin:0;font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:700;line-height:1.15;color:var(--accent)}
+.quote cite{display:block;margin-top:12px;font-style:normal}
+.q-photo{aspect-ratio:4/5;max-width:100%;background:radial-gradient(70% 60% at 50% 40%,#2C2B28,var(--bg2));border-radius:4px;display:flex;align-items:flex-end;padding:14px;overflow:hidden}
+.q-photo{padding:0}.q-photo img{width:100%;height:100%;object-fit:cover;object-position:42% 30%;filter:grayscale(1)}
+@media (max-width:860px){.ab-grid{grid-template-columns:minmax(0,1fr)}.stack{display:none}.ab-block{min-height:0;padding-bottom:50px}
+  .ab-block .mob-h{display:block;font-size:2.2rem;font-weight:600;letter-spacing:-.02em;margin-bottom:18px;line-height:1.05}
+  .quote{grid-template-columns:minmax(0,1fr)}}
 
-::selection { background: var(--green); color: var(--bg); }
+/* Cirkelschema (licht) */
+.how{background:var(--paper);color:var(--paper-ink);padding-top:110px;padding-bottom:110px;margin-top:80px}
+.how .m{color:var(--paper-mid)}
+.how .m b{color:var(--accent-deep)}
+.how .sec-head{border-color:var(--paper-line)}
+.how h2{font-size:clamp(2.8rem,7vw,6.4rem);font-weight:600;letter-spacing:-.03em;line-height:.95;margin-top:40px}
+.how h2 em{font-style:normal;color:var(--accent-deep)}
+.how-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:center;margin-top:20px}
+.sys{width:100%;max-width:760px;aspect-ratio:1;margin:0 auto;display:block}
+.sys .ring{fill:none;stroke:var(--paper-line);stroke-width:1}
+.sys .ring.main{stroke:#BDB8AE}
+.sys .rlabel{font-family:var(--sans);font-size:15px;letter-spacing:.06em;fill:var(--paper-mid)}
+.sys .link{stroke:#BDB8AE;stroke-width:1}
+.sys .node{cursor:pointer}
+.sys .node circle{fill:var(--paper-ink);transition:fill .25s}
+.sys .node text.in{font-family:var(--mono);font-size:13px;font-weight:500;fill:var(--paper);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.sys .node text.out{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:var(--paper-mid);text-anchor:middle;pointer-events:none}
+.sys .node:hover circle,.sys .node:focus circle,.sys .node.sel circle{fill:var(--accent)}
+.sys .node.sel text.in,.sys .node:hover text.in{fill:var(--on-accent)}
+.sys .node:focus{outline:none}
+.sys .core circle{fill:var(--accent)}
+.sys .core text{font-family:var(--sans);font-weight:800;font-stretch:75%;font-size:20px;fill:var(--on-accent);text-anchor:middle;dominant-baseline:central;letter-spacing:.04em}
+.panel{background:var(--accent);color:var(--on-accent);border-radius:14px;padding:30px 28px;min-height:280px}
+.panel .m{color:var(--on-accent);opacity:.75}
+.panel h3{font-size:2rem;font-weight:700;letter-spacing:-.01em;margin-top:10px;line-height:1.05}
+.panel p{margin:14px 0 0;font-weight:500}
+.panel .used{margin-top:18px;font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+@media (max-width:900px){.how-grid{grid-template-columns:minmax(0,1fr)}}
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(45, 212, 160, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 212, 160, 0.03) 1px, transparent 1px);
-  background-size: 56px 56px;
-  pointer-events: none;
-  z-index: 0;
-}
+/* Beleggen */
+.invest{padding-top:150px}
+.inv-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;align-items:end;margin-top:30px}
+.big{font-weight:800;font-stretch:62%;font-size:min(30vw,26rem);line-height:.8;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--accent)}
+.inv-side p{margin:0 0 22px;font-size:1.15rem;max-width:36ch}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.kv div{padding:16px 12px 0 0}
+.kv b{display:block;font-weight:800;font-stretch:70%;font-size:2.2rem;line-height:1;font-variant-numeric:tabular-nums}
+.inv-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+@media (max-width:820px){.inv-grid{grid-template-columns:minmax(0,1fr)}}
 
-/* ============ NAVBAR ============ */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(10, 15, 13, 0.9);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 58px;
-  padding: 0 max(40px, 4vw);
-}
-.nav-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.88em;
-  color: var(--green);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  font-weight: 700;
-}
-.nav-logo .cursor-blink {
-  animation: blink 1.1s steps(1) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-.nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-.nav-links a {
-  color: var(--muted2);
-  text-decoration: none;
-  font-size: 0.87em;
-  font-weight: 500;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 100%;
-  bottom: -4px;
-  height: 2px;
-  background: var(--green);
-  transition: right 0.25s ease;
-}
-.nav-links a:hover { color: var(--green-bright); }
-.nav-links a:hover::after { right: 0; }
-.lang-btn {
-  background: rgba(45, 212, 160, 0.1);
-  border: 1px solid var(--border);
-  color: var(--green);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.76em;
-  cursor: pointer;
-  letter-spacing: 0.05em;
-  transition: all 0.2s;
-}
-.lang-btn:hover { background: rgba(45, 212, 160, 0.2); }
+/* Wat ik doe */
+.does{padding-top:150px}
+.d-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line)}
+.d-grid div{border-right:1px solid var(--line);padding:22px 20px 28px;min-height:230px;display:flex;flex-direction:column}
+.d-grid h3{font-size:1.65rem;font-weight:500;letter-spacing:-.01em;margin-top:auto;line-height:1.1}
+.d-grid p{margin:10px 0 0;color:var(--mid);font-size:.95rem}
+@media (max-width:900px){.d-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.d-grid div{border-bottom:1px solid var(--line)}}
+@media (max-width:520px){.d-grid{grid-template-columns:minmax(0,1fr)}.d-grid div{min-height:0}.d-grid h3{margin-top:28px}}
 
-/* ============ TICKER TAPE ============ */
-.ticker-wrap {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  padding: 9px 0;
-}
-.ticker {
-  display: flex;
-  gap: 48px;
-  width: max-content;
-  animation: ticker-scroll 36s linear infinite;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78em;
-  white-space: nowrap;
-}
-.ticker-wrap:hover .ticker { animation-play-state: paused; }
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.tick { color: var(--muted2); }
-.tick b { color: var(--white); font-weight: 500; margin-right: 8px; }
-.tick .up { color: var(--green-bright); }
-.tick .gold { color: var(--gold); }
+/* Contact */
+.contact{padding-top:170px;padding-bottom:40px}
+.contact h2{font-size:clamp(3.2rem,10vw,10rem);font-weight:700;font-stretch:80%;line-height:.92;letter-spacing:-.02em;margin-top:22px}
+.contact h2 em{font-style:italic;font-weight:300;font-stretch:120%;color:var(--accent)}
+.c-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:44px}
+.mail{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 20px;max-width:100%;min-width:0}
+.mail code{font:500 .9rem var(--mono);user-select:all;overflow-wrap:anywhere;min-width:0}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:120px;padding-top:22px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+footer button{background:none;border:0;padding:0;cursor:pointer}
 
-/* ============ HERO ============ */
-header {
-  position: relative;
-  padding: 110px 0 90px;
-  background:
-    radial-gradient(ellipse 800px 500px at 80% -10%, rgba(45, 212, 160, 0.08), transparent),
-    radial-gradient(ellipse 600px 400px at 10% 110%, rgba(232, 180, 79, 0.05), transparent),
-    var(--bg);
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-  z-index: 1;
-}
-.header-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  padding: 0 max(40px, 4vw);
-}
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(45, 212, 160, 0.08);
-  border: 1px solid var(--border);
-  color: var(--green-bright);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.8em;
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.04em;
-  margin-bottom: 30px;
-}
-.badge::before {
-  content: '';
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 8px var(--green);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 50% { opacity: 0.4; } }
-h1 {
-  font-size: clamp(2.6em, 6vw, 4.6em);
-  font-weight: 700;
-  line-height: 1.05;
-  margin-bottom: 18px;
-  color: var(--white);
-  letter-spacing: -0.02em;
-}
-h1 .accent {
-  background: linear-gradient(100deg, var(--green-bright), var(--gold-soft));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.typed-line {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(1em, 2vw, 1.25em);
-  color: var(--muted2);
-  min-height: 1.8em;
-  margin-bottom: 22px;
-}
-.typed-line .prompt { color: var(--green); }
-.typed-line #typed { color: var(--gold-soft); }
-.typed-line .caret {
-  display: inline-block;
-  width: 9px;
-  background: var(--green);
-  animation: blink 1s steps(1) infinite;
-}
-.tagline {
-  font-size: 1.15em;
-  color: var(--muted2);
-  max-width: 620px;
-  margin-bottom: 44px;
-  line-height: 1.7;
-}
-.cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--green);
-  color: #07120d;
-  padding: 14px 28px;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  font-size: 0.95em;
-  transition: all 0.25s;
-  border: 1px solid transparent;
-}
-.btn-primary:hover {
-  background: var(--green-bright);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(45, 212, 160, 0.3);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--green-bright);
-  padding: 14px 28px;
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: 8px;
-  font-size: 0.95em;
-  transition: all 0.25s;
-  border: 1px solid var(--border);
-}
-.btn-secondary:hover {
-  background: rgba(45, 212, 160, 0.08);
-  border-color: var(--green);
-  transform: translateY(-2px);
-}
-.btn-gold {
-  background: transparent;
-  color: var(--gold);
-  padding: 14px 28px;
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: 8px;
-  font-size: 0.95em;
-  transition: all 0.25s;
-  border: 1px solid var(--border-gold);
-}
-.btn-gold:hover {
-  background: rgba(232, 180, 79, 0.08);
-  transform: translateY(-2px);
-}
-
-/* ============ STATS BAR ============ */
-.stats-bar {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: relative;
-  z-index: 1;
-}
-.stats-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 0 max(40px, 4vw);
-}
-.stat-item {
-  padding: 34px 28px;
-  border-right: 1px solid var(--border);
-  position: relative;
-}
-.stat-item:last-child { border-right: none; }
-.stat-item::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
-  background: linear-gradient(to right, var(--green), var(--gold));
-  transition: width 0.4s ease;
-}
-.stat-item:hover::before { width: 100%; }
-.stat-number {
-  font-size: 2.3em;
-  font-weight: 700;
-  color: var(--green-bright);
-  display: block;
-  line-height: 1;
-  margin-bottom: 8px;
-  font-variant-numeric: tabular-nums;
-}
-.stat-label {
-  color: var(--muted);
-  font-size: 0.82em;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* ============ SECTIONS ============ */
-section { position: relative; z-index: 1; }
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 96px max(40px, 4vw);
-}
-.section-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78em;
-  color: var(--green);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-  max-width: 80px;
-}
-h2 {
-  font-size: clamp(1.8em, 3vw, 2.5em);
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
-}
-.section-intro {
-  color: var(--muted2);
-  font-size: 1.08em;
-  max-width: 640px;
-  margin-bottom: 56px;
-  line-height: 1.7;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible { opacity: 1; transform: none; }
-
-/* ============ ABOUT ============ */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-.about-grid p { color: var(--muted2); font-size: 1.03em; line-height: 1.8; margin-bottom: 20px; }
-.about-grid strong { color: var(--text); }
-
-.timeline { position: relative; padding-left: 28px; }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px; bottom: 8px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--green), transparent);
-}
-.timeline-item { position: relative; padding-bottom: 34px; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -32px; top: 8px;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 3px rgba(45, 212, 160, 0.2);
-}
-.timeline-period {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.74em;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
-}
-.timeline-role { font-size: 1.04em; font-weight: 600; color: var(--white); margin-bottom: 2px; }
-.timeline-company { font-size: 0.9em; color: var(--green-bright); margin-bottom: 6px; }
-.timeline-desc { font-size: 0.9em; color: var(--muted2); line-height: 1.6; }
-.timeline-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75em;
-  color: var(--green);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-
-/* ============ DRIVES ============ */
-.drive-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.drive-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 30px 26px;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.drive-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--green), var(--gold));
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.drive-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(45, 212, 160, 0.35);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-}
-.drive-card:hover::after { opacity: 1; }
-.drive-icon {
-  font-size: 1.6em;
-  margin-bottom: 14px;
-  display: inline-block;
-}
-.drive-card h3 { color: var(--white); font-size: 1.08em; margin-bottom: 10px; }
-.drive-card p { color: var(--muted2); font-size: 0.92em; line-height: 1.65; }
-
-/* ============ PROJECT FILTERS ============ */
-.filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-.filter-btn {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--muted2);
-  padding: 9px 20px;
-  border-radius: 24px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8em;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.03em;
-}
-.filter-btn:hover { border-color: var(--green); color: var(--green-bright); }
-.filter-btn.active {
-  background: var(--green);
-  color: #07120d;
-  border-color: var(--green);
-  font-weight: 700;
-}
-
-/* ============ PROJECT CARDS ============ */
-.projects-grid { display: flex; flex-direction: column; }
-.project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 48px 52px;
-  margin-bottom: 24px;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.project-card.hidden-card { display: none; }
-.project-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0;
-  width: 4px; height: 100%;
-  background: linear-gradient(to bottom, var(--green), var(--gold));
-}
-.project-card:hover {
-  border-color: rgba(45, 212, 160, 0.3);
-  background: var(--surface2);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(45, 212, 160, 0.08);
-  transform: translateY(-2px);
-}
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 18px;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.project-title {
-  font-size: 1.45em;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: -0.01em;
-}
-.project-status {
-  background: rgba(45, 212, 160, 0.1);
-  border: 1px solid var(--border);
-  color: var(--green-bright);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.76em;
-  font-family: 'JetBrains Mono', monospace;
-  white-space: nowrap;
-}
-.project-status.gold {
-  background: rgba(232, 180, 79, 0.1);
-  border-color: var(--border-gold);
-  color: var(--gold);
-}
-.project-desc {
-  color: var(--muted2);
-  font-size: 1.02em;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-.metrics-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-.metric { background: var(--surface3); padding: 18px 20px; }
-.metric-val {
-  font-size: 1.35em;
-  font-weight: 700;
-  color: var(--green-bright);
-  font-family: 'JetBrains Mono', monospace;
-  display: block;
-  line-height: 1.1;
-  margin-bottom: 6px;
-}
-.metric-label {
-  font-size: 0.78em;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.feature-list { list-style: none; margin-bottom: 30px; }
-.feature-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--muted2);
-  font-size: 0.96em;
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-}
-.feature-list li:last-child { border-bottom: none; }
-.feature-list li::before {
-  content: '▸';
-  color: var(--green);
-  font-weight: 600;
-  flex-shrink: 0;
-}
-.feature-list strong { color: var(--text); }
-.tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-.tech-tag {
-  background: rgba(45, 212, 160, 0.07);
-  border: 1px solid rgba(45, 212, 160, 0.16);
-  color: var(--muted2);
-  padding: 5px 13px;
-  border-radius: 6px;
-  font-size: 0.8em;
-  font-family: 'JetBrains Mono', monospace;
-  transition: all 0.2s;
-}
-.project-card:hover .tech-tag { color: var(--green-bright); }
-.project-link {
-  color: var(--green-bright);
-  text-decoration: none;
-  font-size: 0.9em;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s;
-}
-.project-link:hover { color: var(--white); gap: 10px; }
-
-/* ============ SKILLS ============ */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-}
-.skill-card {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 30px 26px;
-  transition: all 0.25s;
-}
-.skill-card:hover {
-  border-color: rgba(45, 212, 160, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  transform: translateY(-3px);
-}
-.skill-category {
-  font-size: 0.74em;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--green);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill-item {
-  background: rgba(45, 212, 160, 0.06);
-  border: 1px solid rgba(45, 212, 160, 0.13);
-  color: var(--muted2);
-  padding: 5px 11px;
-  border-radius: 6px;
-  font-size: 0.84em;
-  transition: all 0.2s;
-}
-.skill-item:hover { color: var(--green-bright); border-color: var(--green); }
-
-/* ============ RESULTS ============ */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-.result-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  transition: all 0.25s;
-}
-.result-item:hover {
-  border-color: rgba(45, 212, 160, 0.3);
-  transform: translateY(-3px);
-}
-.result-number {
-  font-size: 1.9em;
-  font-weight: 700;
-  color: var(--green-bright);
-  line-height: 1;
-  flex-shrink: 0;
-  font-variant-numeric: tabular-nums;
-}
-.result-text { color: var(--muted2); font-size: 0.94em; line-height: 1.5; }
-.result-text strong { color: var(--text); display: block; margin-bottom: 4px; }
-
-/* ============ INVESTING / CHART ============ */
-.chart-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 36px 40px;
-  margin-top: 40px;
-}
-.chart-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.chart-title { color: var(--white); font-weight: 600; font-size: 1.05em; }
-.chart-legend {
-  display: flex;
-  gap: 24px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78em;
-}
-.legend-item { display: flex; align-items: center; gap: 8px; color: var(--muted2); }
-.legend-dot { width: 10px; height: 10px; border-radius: 2px; }
-.chart-note {
-  margin-top: 16px;
-  font-size: 0.78em;
-  color: var(--muted);
-  font-family: 'JetBrains Mono', monospace;
-}
-#perf-chart { width: 100%; height: auto; display: block; }
-#perf-chart .chart-line {
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-#perf-chart .grid-line { stroke: rgba(45, 212, 160, 0.08); stroke-width: 1; }
-#perf-chart text {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  fill: var(--muted);
-}
-
-/* ============ FOOTER ============ */
-footer {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  padding: 90px max(40px, 4vw);
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 240px; height: 1px;
-  background: linear-gradient(to right, transparent, var(--green), var(--gold), transparent);
-}
-.footer-inner { max-width: 620px; margin: 0 auto; }
-footer h2 { margin-bottom: 16px; }
-footer > .footer-inner > p { color: var(--muted2); margin-bottom: 40px; font-size: 1.05em; }
-.footer-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-.footer-copy {
-  margin-top: 48px;
-  color: var(--muted);
-  font-size: 0.82em;
-  font-family: 'JetBrains Mono', monospace;
-}
-
-/* ============ NAV TOGGLE & ABOUT PHOTO ============ */
-.nav-controls { display: flex; align-items: center; gap: 10px; }
-.nav-toggle { display: none; background: rgba(45,212,160,0.1); border: 1px solid var(--border); color: var(--green); width: 40px; height: 34px; border-radius: 8px; font-size: 1.05em; cursor: pointer; line-height: 1; transition: all 0.2s; }
-.nav-toggle:hover { background: rgba(45,212,160,0.2); }
-.about-photo { margin-bottom: 26px; }
-.about-photo img { width: 150px; height: 150px; border-radius: 16px; object-fit: cover; border: 1px solid var(--border); display: block; }
-
-/* ============ REDUCED MOTION ============ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal { opacity: 1 !important; transform: none !important; }
-}
-
-/* ============ RESPONSIVE ============ */
-@media (max-width: 860px) {
-  .nav-toggle { display: block; }
-  .nav-links {
-    position: absolute; top: 58px; left: 0; right: 0;
-    flex-direction: column; gap: 0; display: none;
-    background: rgba(10,15,13,0.98); backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border); padding: 6px 0;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links li { width: 100%; }
-  .nav-links a { display: block; padding: 13px max(40px, 4vw); font-size: 0.95em; }
-  .nav-links a::after { display: none; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .stats-inner { grid-template-columns: 1fr 1fr; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-  .project-card { padding: 32px 24px; }
-  .chart-card { padding: 24px 18px; }
-  header { padding: 70px 0 60px; }
-  .container { padding: 64px max(20px, 4vw); }
+html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
+@media (prefers-reduced-motion: reduce){
+  .band-in{animation:none}
+  .on .v-line,.on .v-area,.on .v-cell,.on .v-tile,.on .v-candle{animation:none}
+  .say{height:auto}.say-in{position:static;height:auto;padding-block:120px}.say p span{color:var(--ink)}.say p span.ac{color:var(--accent)}
+  .strike{--s:1}.under{--u:1}
+  *{transition:none!important}
 }
 </style>
 </head>
 <body>
+<header class="top"><div class="top-in g">
+  <a class="logo" href="#top" data-go>BASTIAAN<i>v</i>dH</a>
+  <span class="m clock" id="clock">Harlingen, NL / --:--</span>
+  <nav class="nav" aria-label="Main menu">
+    <a class="l" href="#werk" data-go>Work</a>
+    <a class="l" href="#over-mij" data-go>About</a>
+    <a class="l" href="#beleggen" data-go>Investing</a>
+    <a class="l" href="https://bastiaanvdh.github.io/portfolio/" lang="nl">NL</a>
+    <a class="pill solid" href="#contact" data-go>Let's talk</a>
+  </nav>
+</div></header>
 
-<nav>
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo">bastiaanvdh<span class="cursor-blink">_</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#drives">Drives</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#investing">Investing</a></li>
-      <li><a href="monitor.html">Demo</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-controls">
-      <button class="lang-btn" onclick="window.location.href='index.html'">NL</button>
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
-    </div>
+<main id="top">
+<section class="hero g" id="hero">
+  <div class="hero-meta m"><span>(Portfolio / ©2026)</span><span>Data &amp; Marketing Intelligence</span><span>Harlingen, NL</span></div>
+  <div class="portrait" id="portrait" aria-hidden="true"><div class="ph"><span>B</span><em class="m">(photo coming)</em></div></div>
+  <svg class="orb" id="orb" aria-hidden="true"></svg>
+  <h1 class="name" aria-label="Bastiaan van der Horst"><span class="l1">Bastiaan</span><span class="l2">van der Horst</span></h1>
+  <div class="hero-foot">
+    <p>I turn raw data into decisions. With Python, models and dashboards, measured in euros and hours.</p>
+    <span class="m">↓ Scroll, take your time</span>
+    <a class="pill" href="#werk" data-go>See the work →</a>
   </div>
-</nav>
+</section>
 
-<!-- Ticker tape with results as stock quotes -->
-<div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker" id="ticker">
-    <span class="tick"><b>ORGANIC</b><span class="up">▲ +47.6% YoY</span></span>
-    <span class="tick"><b>REVENUE.ATTR</b><span class="up">€1.3M</span></span>
-    <span class="tick"><b>PORTFOLIO</b><span class="up">▲ +43% YTD</span></span>
-    <span class="tick"><b>AVG.POSITION</b><span class="up">32 → 8.1</span></span>
-    <span class="tick"><b>AI.PIPELINE</b><span class="gold">80x faster</span></span>
-    <span class="tick"><b>TIME.SAVED</b><span class="up">10h+/week</span></span>
-    <span class="tick"><b>PRODUCTS</b><span class="gold">5K+ in 4 hrs</span></span>
-    <span class="tick"><b>TOOLS.LIVE</b><span class="up">14+</span></span>
+<div class="band" aria-label="Skills: Python, SQL, GA4, Google Ads, machine learning, dashboards, automation, investing">
+  <div class="band-in" aria-hidden="true">
+    <span>Python</span><span>SQL</span><span>GA4</span><span>Google Ads</span><span>Machine learning</span><span>Dashboards</span><span>Automation</span><span>Investing</span>
+    <span>Python</span><span>SQL</span><span>GA4</span><span>Google Ads</span><span>Machine learning</span><span>Dashboards</span><span>Automation</span><span>Investing</span>
   </div>
 </div>
 
-<header id="top">
-  <div class="header-inner">
-    <div class="badge">Available for new opportunities</div>
-    <h1>Bastiaan<br><span class="accent">van der Horst</span></h1>
-    <div class="typed-line"><span class="prompt">&gt;&gt;&gt; i_build(</span><span id="typed"></span><span class="prompt">)</span><span class="caret">&nbsp;</span></div>
-    <p class="tagline">Data & Marketing Intelligence Specialist who turns raw data into decisions that work. Python, ML models, dashboards and a healthy obsession with returns: built to be used.</p>
-    <div class="cta-row">
-      <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
-      <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
-      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-gold">Email me</a>
+<section class="mf" id="manifest">
+  <div class="mf-ring" aria-hidden="true"></div>
+  <div class="mf-in g">
+    <div class="m mf-label">Manifest</div>
+    <div class="mf-lines" aria-label="A data team without the team. 14+ tools, live every day. Measured in euros.">
+      <div class="mf-line" aria-hidden="true"><span>A data team</span><span>without the</span><span class="strike" id="strike">team.</span></div>
+      <div class="mf-line" aria-hidden="true"><span>14+ tools.</span><span>Live every day.</span></div>
+      <div class="mf-line" aria-hidden="true"><span>Measured in euros.</span></div>
     </div>
+    <div class="mf-body"><div>
+      <p>An analysis that disappears into a folder delivers nothing. Data only has value when someone decides differently because of it.</p>
+      <p>That is why I build tools that keep running. They collect the data, check themselves and put the decision in front of a person.</p>
+      <p>At FOV I do this as the only data specialist. What it delivers, I calculate in euros or in hours.</p>
+    </div></div>
+    <div class="mf-foot"><strong>Simply <span class="under" id="under">measurable.</span></strong><i></i><span>for marketing, data and investing</span></div>
   </div>
-</header>
+</section>
 
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <span class="stat-number" data-count="47.6" data-prefix="+" data-suffix="%" data-decimals="1">+47.6%</span>
-      <span class="stat-label">Organic growth YoY</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number" data-count="1.3" data-prefix="€" data-suffix="M" data-decimals="1">€1.3M</span>
-      <span class="stat-label">Revenue attributed</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number" data-count="43" data-prefix="+" data-suffix="%">+43%</span>
-      <span class="stat-label">Investment return YTD</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number" data-count="14" data-suffix="+">14+</span>
-      <span class="stat-label">Production tools built</span>
-    </div>
+<section class="work g" id="werk">
+  <div class="sec-head m"><span>Selected work (05)</span><span><button type="button" id="pause">(Pause motion)</button>&nbsp;&nbsp; 2025 — 2026</span></div>
+  <div class="work-grid">
+    <div id="rows"></div>
+    <aside class="dock" aria-hidden="true">
+      <div class="screen" id="screen"></div>
+      <div class="dock-foot m"><span id="dockNum"><b>01</b> / 05</span><span id="dockCat">FOV</span></div>
+      <div class="dock-bar"><i id="dockBar"></i></div>
+    </aside>
   </div>
-</div>
+</section>
 
-<section id="about" style="border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">About me</div>
-    <h2 class="reveal">Who I am</h2>
+<section class="close-up" aria-label="More projects">
+  <div class="rail-head m g"><span>(Up close)</span><span id="railNum">Scroll or swipe · 09 projects</span></div>
+  <div class="rail-wrap" id="railWrap">
+    <div class="rail-sticky" id="railSticky"><div class="rail" id="rail"></div></div>
+  </div>
+</section>
 
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="about-photo" style="display:none;">
-          <!-- PHOTO: place your portrait at assets/bastiaan.jpg and remove style="display:none" above -->
-          <img src="assets/bastiaan.jpg" alt="Bastiaan van der Horst">
-        </div>
-        <p>
-          I'm Bastiaan, 27 years old, based in Harlingen, the Netherlands. I hold a bachelor's degree in Commercial Economics from NHL Stenden, with two minors: <strong>Investing</strong> and <strong>Marketing Communication & Content Marketing</strong>. I work at the intersection of data, marketing and technology — and I'd rather build a tool that solves a problem permanently than tackle it manually every week.
-        </p>
-        <p>
-          At FOV, as the only data specialist, I built a complete <strong>marketing intelligence platform</strong>: from raw API data to dashboards, ML models and automated pipelines that management uses daily. That kind of ownership — building something that actually works and gets used — is what energizes me.
-        </p>
-        <p>
-          Outside work I invest actively, managing my own portfolio based on fundamental and technical analysis. That combination of data, finance and curiosity about why things move the way they do is what drives me. I'm looking for a role where I can apply that breadth and keep growing.
-        </p>
+<section class="say g" id="hallo">
+  <div class="say-in">
+    <span class="m"><b>(Hello)</b></span>
+    <p id="sayText">I'm Bastiaan. I turn data into decisions and build tools that |keep running.| Trained in business economics, grown into data, at home in ^Harlingen.^</p>
+  </div>
+</section>
+
+<section class="about g" id="over-mij">
+  <div class="ab-grid">
+    <ol class="stack" id="stack" aria-hidden="true">
+      <li><span class="pre">About/</span><span class="t">My story</span></li>
+      <li><span class="pre">About/</span><span class="t">Career</span></li>
+      <li><span class="pre">About/</span><span class="t">Drives</span></li>
+      <li><span class="pre">About/</span><span class="t">Education</span></li>
+    </ol>
+    <div>
+      <div class="ab-block">
+        <h3 class="mob-h">My story</h3>
+        <p>I'm 27 and live in Harlingen, the Netherlands. At <b>FOV</b>, as the only data specialist, I built a marketing intelligence platform. From raw API data to dashboards, forecasting models and pipelines that run on their own.</p>
+        <p>Before that I ran my own sportswear brand, led a team in a supermarket and helped business owners at Rabobank. You see that mix in my work: I think like an entrepreneur and build like an engineer.</p>
       </div>
-
-      <div class="reveal">
-        <p class="timeline-title">Work experience</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-period">MAR 2025 — PRESENT</div>
-            <div class="timeline-role">Data & Marketing Intelligence Specialist</div>
-            <div class="timeline-company">FOV Friesche Olie- en Verfhandel · Leeuwarden</div>
-            <div class="timeline-desc">Built a complete marketing intelligence pipeline in Python. ML models, revenue attribution, competitive analysis and automation saving 10+ hours of work per week.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">AUG 2024 — MAR 2025</div>
-            <div class="timeline-role">SME Advisor Customer Service</div>
-            <div class="timeline-company">Rabobank (via DPA Professionals) · Utrecht</div>
-            <div class="timeline-desc">Advised SME clients on financial products and digital banking. Customer analyses in Siebel CRM for upsell and cross-sell opportunities.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">JUN 2020 — JUN 2023</div>
-            <div class="timeline-role">Owner / Founder</div>
-            <div class="timeline-company">BeLion Sportswear · Harlingen</div>
-            <div class="timeline-desc">Founded an e-commerce sportswear brand. Google Ads, SEO, Python automation for feed optimization and competitor tracking.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-period">AUG 2021 — MAY 2024</div>
-            <div class="timeline-role">Supervisor / Weekend Manager</div>
-            <div class="timeline-company">Poiesz Supermarkten · Friesland</div>
-            <div class="timeline-desc">Led teams of ~30 employees across multiple stores. Trained 3 colleagues to keyholder level.</div>
-          </div>
+      <div class="ab-block">
+        <h3 class="mob-h">Career</h3>
+        <ol class="ab-route">
+          <li><span class="m">2025 — now</span><span>Data &amp; Marketing Intelligence Specialist<small>FOV · Leeuwarden</small></span></li>
+          <li><span class="m">2024 — 2025</span><span>SME customer service advisor<small>Rabobank via DPA · Utrecht</small></span></li>
+          <li><span class="m">2021 — 2024</span><span>Supervisor / weekend manager<small>Poiesz Supermarkets · Friesland</small></span></li>
+          <li><span class="m">2020 — 2023</span><span>Owner and founder<small>BeLion Sportswear · Harlingen</small></span></li>
+          <li class="next"><span class="m"><b>Next</b></span><span>Your team?<small>Data · marketing · technology</small></span></li>
+        </ol>
+      </div>
+      <div class="ab-block">
+        <h3 class="mob-h">Drives</h3>
+        <div class="drive">
+          <div><span class="m"><b>01</b></span><div><h4>Finance and stocks</h4><p>Analysing companies and testing an idea against the numbers.</p></div></div>
+          <div><span class="m"><b>02</b></span><div><h4>Creating value</h4><p>Results you can express in euros or in hours.</p></div></div>
+          <div><span class="m"><b>03</b></span><div><h4>Developing and building</h4><p>Automating repetitive work, so there is time left for thinking.</p></div></div>
+          <div><span class="m"><b>04</b></span><div><h4>Working together and sharing</h4><p>Leading teams, sharing knowledge and publishing tools as open source.</p></div></div>
+        </div>
+      </div>
+      <div class="ab-block">
+        <h3 class="mob-h">Education</h3>
+        <p><b>Bachelor in Business Economics</b> (Commerciële Economie), NHL Stenden University of Applied Sciences.</p>
+        <p>Minors in <b>Investing</b> and in <b>Marketing Communication &amp; Content Marketing</b>. I also hold the Dutch Wft Basis financial certificate.</p>
+        <div class="quote">
+          <div><blockquote>“A tool is only finished when someone decides differently because of it.”</blockquote><cite class="m">Bastiaan van der Horst</cite></div>
+          <div class="q-photo" id="qphoto"><span class="m">(photo coming)</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="drives" style="background: var(--surface); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">Drives</div>
-    <h2 class="reveal">What gets me going</h2>
-    <p class="section-intro reveal">Four things that come back in everything I build and do — at work and beyond.</p>
+<section class="how g" id="zo-werk-ik">
+  <div class="sec-head m"><span><b>(How I work)</b></span><span>Click a source</span></div>
+  <h2>From source <em>to decision.</em></h2>
+  <div class="how-grid">
+    <svg class="sys" id="sys" viewBox="0 0 800 800" role="group" aria-label="Diagram: data sources and processing around the decision"></svg>
+    <div class="panel" id="panel" aria-live="polite">
+      <span class="m" id="pKind">The system</span>
+      <h3 id="pTitle">Everything revolves around the decision</h3>
+      <p id="pText">Sources on the outside, processing on the inside, the decision in the middle. Click a circle to see what I do with it.</p>
+      <div class="used" id="pUsed"></div>
+    </div>
+  </div>
+</section>
 
-    <div class="drive-grid">
-      <div class="drive-card reveal">
-        <span class="drive-icon">📈</span>
-        <h3>Finance & stocks</h3>
-        <p>Analyzing companies, building a thesis and testing it against data. Investing minor, Wft Basis certification and a personal portfolio up +43% YTD. Not gut feeling — fundamentals.</p>
+<section class="invest g" id="beleggen">
+  <div class="sec-head m"><span>(After hours)</span><span>Investing</span></div>
+  <div class="inv-grid">
+    <div class="big" id="big" aria-label="plus 43 percent">+43%</div>
+    <div class="inv-side">
+      <p>After hours I analyse companies, fundamentally and technically, and test my ideas against data. For that I built my own Portfolio Monitor. What I learn, I share on Instagram as Beleggen met Bastiaan (Dutch).</p>
+      <div class="kv">
+        <div><b>+43%</b><span class="m">this year</span></div>
+        <div><b>+57%</b><span class="m">all-time</span></div>
+        <div><b>~7</b><span class="m">positions</span></div>
       </div>
-      <div class="drive-card reveal">
-        <span class="drive-icon">💶</span>
-        <h3>Creating value</h3>
-        <p>From my own e-commerce brand to €1.3M revenue attribution: I want what I build to make money or save money. Results you can express in euros or hours.</p>
-      </div>
-      <div class="drive-card reveal">
-        <span class="drive-icon">🛠️</span>
-        <h3>Developing & building</h3>
-        <p>Spotting a problem and building a tool that solves it permanently. From 19-agent pipelines to AI content generation — if it's repetitive, I automate it.</p>
-      </div>
-      <div class="drive-card reveal">
-        <span class="drive-icon">🤝</span>
-        <h3>Collaborating & sharing</h3>
-        <p>Leading teams at Poiesz, sharing knowledge through "Beleggen met Bastiaan" and publishing tools open source. Knowledge becomes more valuable when you share it.</p>
+      <div class="inv-links">
+        <a class="pill" href="https://bastiaanvdh.github.io/portfolio/monitor.html">Portfolio Monitor →</a>
+        <a class="pill" href="https://bastiaanvdh.github.io/portfolio/screener.html">Screener →</a>
+        <a class="pill" href="https://www.instagram.com/beleggenmetbastiaan/">Beleggen met Bastiaan ↗</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="container">
-    <div class="section-label">Projects</div>
-    <h2 class="reveal">Platforms built</h2>
-    <p class="section-intro reveal">No school projects. These are tools that run daily and have measurable impact on business results. Filter by what interests you.</p>
-
-    <div class="filter-row reveal" id="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="data">Data & ML</button>
-      <button class="filter-btn" data-filter="ai">AI & Automation</button>
-      <button class="filter-btn" data-filter="seo">SEO & Marketing</button>
-      <button class="filter-btn" data-filter="finance">Finance & Investing</button>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- NEW: FOV Intranet -->
-      <div class="project-card reveal" data-cat="data ai">
-        <div class="project-header">
-          <div class="project-title">FOV Intranet — Internal Company Platform</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">A fully self-built intranet that brings the whole company together: a central FOV environment where every department finds its information, analyses data and works directly in the KING ERP. Not a single tool but a platform — a home dashboard full of live business figures, a project register, planner, knowledge base and sixteen connected apps, extensible through a documented tool-integration API.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">16</span><span class="metric-label">Internal apps</span></div>
-          <div class="metric"><span class="metric-val">20</span><span class="metric-label">Projects in register</span></div>
-          <div class="metric"><span class="metric-val">6</span><span class="metric-label">Departments live</span></div>
-          <div class="metric"><span class="metric-val">Live</span><span class="metric-label">KING + GSC data</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Sixteen internal apps:</strong> from an executive dashboard and inventory management to a KING cluster (DataDigger, price conditions, customer file, product and customer export) and a CMR transport document</li>
-          <li><strong>Project register &amp; planner:</strong> twenty projects linked to department and stakeholders, with deadlines, messages, knowledge base and leave requests in one place</li>
-          <li><strong>Live business dashboard:</strong> order intake, web-order share, SEO position and KING/GSC cache status in real time on the home screen</li>
-          <li><strong>Extensible via API:</strong> a documented tool-integration contract (session, CSRF, event logging, port policy) so standalone tools plug in safely</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">KING API</span><span class="tech-tag">SQL</span><span class="tech-tag">Jinja2</span><span class="tech-tag">REST / CSRF</span>
-        </div>
-        <a href="cases/fov-intranet.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Read the case study</a>
-        <span class="project-link" style="opacity:.5; cursor:default;">● Internal company platform · demo on request</span>
-      </div>
-
-      <!-- NEW: Weights from safety data sheets -->
-      <div class="project-card reveal" data-cat="data ai">
-        <div class="project-header">
-          <div class="project-title">Article Weights from Safety Data Sheets</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">The warehouse no longer has to weigh every product. This tool computes article weight from <em>density × volume + tare</em>, where the density comes from the safety and product information sheets that the KING ERP already links to per article. For 7,382 articles without a weight, with a built-in self-check that cannot silently pass.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">7,382</span><span class="metric-label">Articles without weight</span></div>
-          <div class="metric"><span class="metric-val">98%</span><span class="metric-label">Coverage from data sheets</span></div>
-          <div class="metric"><span class="metric-val">8.6%</span><span class="metric-label">Median error (blind test)</span></div>
-          <div class="metric"><span class="metric-val">27</span><span class="metric-label">Regression tests</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>KING points to the sheet itself:</strong> the free fields hold the full path to the PDF sheet, so extraction runs without unreliable matching on product name</li>
-          <li><strong>Two tracks:</strong> density from the SDS for single packs, from the product sheet for two-component sets (69% of stock) where the mixed product is what counts</li>
-          <li><strong>A self-check that doesn't fool itself:</strong> reconciles against already-weighed articles and fails visibly when the calibration set is too small to prove anything</li>
-          <li><strong>Unknown is never 0:</strong> without a density an article goes to the manual list — a silent zero would send a Euro pallet out the door at parcel rate</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">PDF extraction</span><span class="tech-tag">Regex</span><span class="tech-tag">pytest</span><span class="tech-tag">KING XML</span><span class="tech-tag">openpyxl</span>
-        </div>
-        <a href="cases/gewichten-veiligheidsbladen.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Read the case study</a>
-        <span class="project-link" style="opacity:.5; cursor:default;">● Internal company system · code on request</span>
-      </div>
-
-      <!-- NEW: Dynamic Shipping Costs -->
-      <div class="project-card reveal" data-cat="data">
-        <div class="project-header">
-          <div class="project-title">Dynamic Shipping-Cost Engine</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">Replaces the flat €22.50 rate with a weight matrix that determines the right class, carrier and price per order — for fov.nl and the German webshop. All rates live in configuration, not in code, and 46 tests guard exactly the edge cases where a shipping calculation quietly leaks money.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">€22.50</span><span class="metric-label">Flat rate replaced</span></div>
-          <div class="metric"><span class="metric-val">46</span><span class="metric-label">Edge-case tests</span></div>
-          <div class="metric"><span class="metric-val">2</span><span class="metric-label">Countries (NL + DE)</span></div>
-          <div class="metric"><span class="metric-val">5</span><span class="metric-label">Weight classes</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Weight matrix instead of a flat rate:</strong> five classes from parcel to Euro pallet, with a free-shipping threshold, identical for NL and DE</li>
-          <li><strong>Rates in JSON, not in code:</strong> a rate change is a config change — no release needed</li>
-          <li><strong>Multiple carriers per order:</strong> splits a German order across DHL and Veenstra Fritom and shows per shipment what actually leaves</li>
-          <li><strong>Unknown weight is never zero:</strong> if one weight is missing, the result is explicitly "undeterminable" instead of a too-low price on the freight invoice</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">pytest</span><span class="tech-tag">JSON config</span><span class="tech-tag">E-commerce logic</span><span class="tech-tag">Logistics</span>
-        </div>
-        <span class="project-link" style="opacity:.5; cursor:default;">● Internal company system · code on request</span>
-      </div>
-
-      <!-- NEW: Measurement Critic & Self-monitoring Pipeline -->
-      <div class="project-card reveal" data-cat="data ai">
-        <div class="project-header">
-          <div class="project-title">Measurement Critic &amp; Self-monitoring Data Pipeline</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">The layer that keeps the other tools honest. A deterministic linter that reviews code for classic measurement mistakes, a Control Tower that pulls every signal into one action list, and a morning briefing that checks per scheduled task whether it ran and whether its result makes sense. Built after a revenue measurement stood still for seven days without anything flagging it.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">7</span><span class="metric-label">Measurement-error rules</span></div>
-          <div class="metric"><span class="metric-val">0</span><span class="metric-label">Model calls (deterministic)</span></div>
-          <div class="metric"><span class="metric-val">08:45</span><span class="metric-label">Daily self-check</span></div>
-          <div class="metric"><span class="metric-val">1</span><span class="metric-label">Action list, all chains</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Measurement Critic:</strong> reviews changed code for seven measurement mistakes (zero-is-not-empty, file-date-is-not-data-date, truncation-without-total…), each rule tied to a real incident</li>
-          <li><strong>Control Tower:</strong> pulls the signals from every SEO, SEA and measurement chain into one prioritised action list</li>
-          <li><strong>Morning briefing:</strong> checks per task whether it ran and whether its result fits the date — and guards itself via yesterday's briefing</li>
-          <li><strong>Read-only and phased:</strong> generates proposals and executes nothing without human approval</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">AST</span><span class="tech-tag">git</span><span class="tech-tag">Task Scheduler</span><span class="tech-tag">pytest</span>
-        </div>
-        <a href="cases/meetcriticus-pijplijn.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Read the case study</a>
-        <span class="project-link" style="opacity:.5; cursor:default;">● Internal company system · code on request</span>
-      </div>
-
-      <!-- Project 1: Marketing Intelligence Suite -->
-      <div class="project-card reveal" data-cat="data seo">
-        <div class="project-header">
-          <div class="project-title">Marketing Intelligence Suite</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">The central hub for all marketing data at FOV. A fully Python-built pipeline that merges data from Google Search Console, GA4 and Google Ads into one dashboard that management bases daily decisions on. Includes an ML model for traffic forecasting and automatic anomaly detection on revenue.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">+47.6%</span><span class="metric-label">Organic traffic YoY</span></div>
-          <div class="metric"><span class="metric-val">31K</span><span class="metric-label">Clicks/month</span></div>
-          <div class="metric"><span class="metric-val">€1.3M</span><span class="metric-label">Revenue attributed</span></div>
-          <div class="metric"><span class="metric-val">0.75+</span><span class="metric-label">ML model R²</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Multi-source dashboard:</strong> GSC, GA4 and Google Ads data combined into one real-time overview for management</li>
-          <li><strong>SEO Performance Forecaster:</strong> Random Forest model with 100+ features predicting per page how many clicks can be gained</li>
-          <li><strong>Revenue Attribution:</strong> Tracks €1.3M/year from first click to purchase, including automatic anomaly alerts</li>
-          <li><strong>Keyword pipeline:</strong> Automatic keyword prioritization by volume, position and CTR gap</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Google APIs</span><span class="tech-tag">Pandas/NumPy</span><span class="tech-tag">Streamlit</span><span class="tech-tag">OpenAI API</span>
-        </div>
-        <a href="cases/marketing-intelligence-suite.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Read the case study</a>
-        <a href="https://github.com/bastiaanvdh/marketing-intelligence-suite" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 2: FOV Ads Autopilot -->
-      <div class="project-card reveal" data-cat="ai seo">
-        <div class="project-header">
-          <div class="project-title">FOV Ads Autopilot</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">A Google Ads autopilot that automatically analyzes and evaluates campaigns, search terms and recommendations. The system is read-only and review-first: it makes no changes without approval, but delivers ready-made advice and action lists. Being rolled out across multiple companies.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">4h+</span><span class="metric-label">Saved per company/week</span></div>
-          <div class="metric"><span class="metric-val">4</span><span class="metric-label">Companies in rollout</span></div>
-          <div class="metric"><span class="metric-val">43</span><span class="metric-label">Scripts in the system</span></div>
-          <div class="metric"><span class="metric-val">1x/week</span><span class="metric-label">Review cycle</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Campaign analysis:</strong> Automatically audits performance, budget allocation and anomalies per campaign</li>
-          <li><strong>Search term management:</strong> Flags irrelevant search terms and proposes negative keywords for approval</li>
-          <li><strong>Recommendation engine:</strong> Generates concrete action advice based on historical data and performance patterns</li>
-          <li><strong>Multi-account rollout:</strong> Built for FOV, being extended to Jachtlakken, FOVde and SLB</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">Google Ads API</span><span class="tech-tag">Pandas</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">Excel/CSV export</span>
-        </div>
-        <a href="https://github.com/bastiaanvdh/ads-autopilot" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 3: Gap Intelligence -->
-      <div class="project-card reveal" data-cat="seo data">
-        <div class="project-header">
-          <div class="project-title">Gap Intelligence Suite</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">A fully self-built SEO competitive analysis tool that does what Ahrefs and SEMrush do, but tailored specifically to FOV. The system crawls competitor pages, compares them with our own GSC data, automatically detects where opportunities lie and where competitors are strong. Directly usable as input for content decisions.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">12</span><span class="metric-label">Scripts in the suite</span></div>
-          <div class="metric"><span class="metric-val">No</span><span class="metric-label">Ahrefs/SEMrush needed</span></div>
-          <div class="metric"><span class="metric-val">Realtime</span><span class="metric-label">Content briefs</span></div>
-          <div class="metric"><span class="metric-val">2-way</span><span class="metric-label">Gaps and strengths</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Competitor crawler:</strong> Crawls competitor websites and extracts relevant pages, keywords and content structure</li>
-          <li><strong>Gap detector:</strong> Compares own GSC data with competitor data and automatically detects missing content</li>
-          <li><strong>Two-way analysis:</strong> Shows where you beat the competitor and where the competitor has the edge</li>
-          <li><strong>Content brief generator:</strong> Creates directly usable content briefs based on detected gaps</li>
-          <li><strong>Real-world example:</strong> Competitor had strong bathroom pages, gap detected, multiple pages written on painting, sealing and finishing</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">Playwright</span><span class="tech-tag">BeautifulSoup</span><span class="tech-tag">GSC API</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">OpenAI API</span>
-        </div>
-        <a href="https://github.com/bastiaanvdh/gap-intelligence-suite" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 4: Product Automation Platform -->
-      <div class="project-card reveal" data-cat="ai">
-        <div class="project-header">
-          <div class="project-title">Product Automation Platform</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">AI-powered content generation platform that creates product descriptions, meta titles and SEO copy based on product data, scraped information and PDF product sheets. Processes thousands of products in a single run via a dual-AI approach with ChatGPT and Claude as cross-validation.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">5K+</span><span class="metric-label">Products in 4 hours</span></div>
-          <div class="metric"><span class="metric-val">80x</span><span class="metric-label">Faster than manual</span></div>
-          <div class="metric"><span class="metric-val">€0.02</span><span class="metric-label">Per product vs €5-10</span></div>
-          <div class="metric"><span class="metric-val">99%</span><span class="metric-label">Cost reduction</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Web scraper:</strong> Collects product data from suppliers and competitors as a basis for content generation</li>
-          <li><strong>PDF parser:</strong> OCR-based extraction of technical product sheets and safety data sheets</li>
-          <li><strong>Dual-AI generator:</strong> ChatGPT and Claude generate and validate each other for higher consistency at scale</li>
-          <li><strong>CMS integration:</strong> Direct export to KING-compatible format for bulk import into the webshop system</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">BeautifulSoup</span><span class="tech-tag">Tesseract OCR</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">Claude API</span><span class="tech-tag">Pandas</span>
-        </div>
-        <a href="cases/product-automation-platform.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Read the case study</a>
-        <a href="https://github.com/bastiaanvdh/product-automation-platform" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 5: Product Data Automation -->
-      <div class="project-card reveal" data-cat="ai">
-        <div class="project-header">
-          <div class="project-title">Product Data Automation</div>
-          <span class="project-status">● Production · Live</span>
-        </div>
-        <p class="project-desc">AI content platform that simultaneously generates product pages for three webshops and pushes directly to the ERP. Input: a spreadsheet with product names. Output: import-ready content in B2B Dutch, B2B German and B2C Dutch — including GPT-4o Vision selecting the best product photo from a pool of competitor images.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">3</span><span class="metric-label">Webshops at once</span></div>
-          <div class="metric"><span class="metric-val">~30 sec</span><span class="metric-label">Per product (was 60 min)</span></div>
-          <div class="metric"><span class="metric-val">98%</span><span class="metric-label">Time saved</span></div>
-          <div class="metric"><span class="metric-val">18</span><span class="metric-label">Language codes per product</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Multi-tenant content generation:</strong> Separate prompt architecture per webshop — FOV NL (B2B), FOV DE (B2B German) and Jachtlakken.nl (B2C informal) with own tone, USPs and HTML templates</li>
-          <li><strong>GPT-4o Vision image selection:</strong> Collects candidate images from competitor webshops via DuckDuckGo, lets Vision pick the best product photo — no color swatches, no lifestyle shots</li>
-          <li><strong>Direct KING ERP push:</strong> Generated data goes straight into the ERP via REST API, with dry-run mode and session history</li>
-          <li><strong>Datasheet automation:</strong> Detects and downloads technical datasheets and safety sheets into the right folder structure on the network</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">GPT-4o Vision</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">DuckDuckGo Search</span><span class="tech-tag">Pillow</span><span class="tech-tag">openpyxl</span>
-        </div>
-        <a href="https://github.com/bastiaanvdh/product-data-automation" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 6: FOV SQL Portfolio -->
-      <div class="project-card reveal" data-cat="data">
-        <div class="project-header">
-          <div class="project-title">FOV SQL Portfolio</div>
-          <span class="project-status gold">● Open Source · Data Analysis</span>
-        </div>
-        <p class="project-desc">Three BigQuery queries based on real FOV e-commerce and SEO data. No tutorial questions — concrete business questions: which products attract traffic but don't convert, how does organic traffic grow month-over-month, and which keywords does the competitor rank for that we miss. Each case includes dummy data, the query and a README with expected output.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">3</span><span class="metric-label">Use cases</span></div>
-          <div class="metric"><span class="metric-val">JOIN</span><span class="metric-label">+ GROUP BY + HAVING</span></div>
-          <div class="metric"><span class="metric-val">LAG()</span><span class="metric-label">Window function</span></div>
-          <div class="metric"><span class="metric-val">LEFT JOIN</span><span class="metric-label">+ NULL gap detection</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Product performance:</strong> JOIN between traffic and revenue, identifying high-traffic/low-revenue products via revenue_per_session</li>
-          <li><strong>Monthly growth:</strong> LAG() window function for MoM organic traffic, including seasonal pattern analysis</li>
-          <li><strong>Competitive gap:</strong> LEFT JOIN + NULL check to find keywords the competitor covers but FOV doesn't — direct input for the Gap Intelligence Suite</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">BigQuery</span><span class="tech-tag">SQL</span><span class="tech-tag">Window Functions</span><span class="tech-tag">JOIN / GROUP BY</span><span class="tech-tag">GSC Data</span><span class="tech-tag">E-commerce Analytics</span>
-        </div>
-        <a href="https://github.com/bastiaanvdh/fov-sql-portfolio" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 7: Portfolio Monitor -->
-      <div class="project-card reveal" data-cat="finance data">
-        <div class="project-header">
-          <div class="project-title">Portfolio Monitor — Personal Investment Dashboard</div>
-          <span class="project-status gold">● Open Source · Personal</span>
-        </div>
-        <p class="project-desc">A self-built, fully local portfolio monitoring system with 19 specialized Python agents. No external AI API, no subscription, no cloud. The system analyzes all positions daily on fundamentals, earnings, peer comparison, macro correlations and scenario impact, and serves the result as an interactive dashboard on localhost. Built for my own portfolio — published for others who want to set up the same.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">19</span><span class="metric-label">Specialized agents</span></div>
-          <div class="metric"><span class="metric-val">9.2K</span><span class="metric-label">Lines of code</span></div>
-          <div class="metric"><span class="metric-val">16</span><span class="metric-label">Dashboard tabs</span></div>
-          <div class="metric"><span class="metric-val">0</span><span class="metric-label">External AI APIs needed</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>19-agent modular pipeline:</strong> Data, alerts, thesis thermometer, earnings, peer comparison, fair-value models, macro correlations, scenario analysis, benchmark vs. S&P 500, dividends, Dutch Box 3 taxes and more</li>
-          <li><strong>Interactive local dashboard:</strong> Local HTTP server serves a Chart.js dashboard on localhost — add and remove watchlist names directly via forms in the browser, no terminal needed</li>
-          <li><strong>Watchlist screener:</strong> Vault-code screening of candidate stocks: score 0–100 on generic fundamentals, fair value, peer ranking and entry criteria check</li>
-          <li><strong>Macro correlation + scenarios:</strong> Pearson correlation matrix + OLS regression (numpy) for portfolio betas, followed by 5 macro shock scenarios (recession, dollar rally, inflation etc.)</li>
-          <li><strong>EUR/USD exposure:</strong> Exact currency splits and sensitivity table — what does a 10% EUR/USD move do to your purchasing power as a Dutch investor with a USD portfolio?</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">Python</span><span class="tech-tag">yfinance</span><span class="tech-tag">NumPy</span><span class="tech-tag">Chart.js</span><span class="tech-tag">http.server</span><span class="tech-tag">JSON pipeline</span>
-        </div>
-        <a href="monitor.html" class="project-link" style="margin-right: 24px; color: var(--gold);">▶ Try the live demo</a>
-        <a href="cases/portfolio-monitor.html" class="project-link" style="margin-right: 24px; color: var(--gold);">📄 Read the case study</a>
-        <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link">→ View on GitHub</a>
-      </div>
-
-      <!-- Project 8: Sun Exposure Tool -->
-      <div class="project-card reveal" data-cat="data ai">
-        <div class="project-header">
-          <div class="project-title">Sun Exposure Tool</div>
-          <span class="project-status gold">● Open Source · Personal</span>
-        </div>
-        <p class="project-desc">Enter an address and see how much shadow surrounding buildings cast on the garden throughout the day — and how that changes per season. Built to actually know how sunny a house is before buying it, instead of trusting a listing photo. Runs entirely in the browser: no backend, no server, all data straight from Dutch government geodata sources.</p>
-
-        <div class="metrics-row">
-          <div class="metric"><span class="metric-val">4</span><span class="metric-label">Open government data sources</span></div>
-          <div class="metric"><span class="metric-val">0</span><span class="metric-label">Backend or server</span></div>
-          <div class="metric"><span class="metric-val">1 click</span><span class="metric-label">Compare seasons</span></div>
-          <div class="metric"><span class="metric-val">m²-accurate</span><span class="metric-label">Real cadastral parcel</span></div>
-        </div>
-
-        <ul class="feature-list">
-          <li><strong>Real cadastral parcel boundary:</strong> "garden" = the official land-registry parcel minus the building footprint, not a rough ring approximation — with automatic fallback for shared/apartment buildings</li>
-          <li><strong>One-click season comparison:</strong> buttons for the solstices and equinoxes instantly show how shadow shifts between summer and winter</li>
-          <li><strong>Live progress, no blank spinner:</strong> every step (geocoding, buildings, per-building heights, parcel) reports a live percentage while it happens</li>
-          <li><strong>Fully client-side:</strong> geocoding, building footprints, heights and parcel boundaries are fetched directly from open government APIs in the browser — geometry and sun position are computed locally</li>
-        </ul>
-
-        <div class="tech-row">
-          <span class="tech-tag">JavaScript</span><span class="tech-tag">Turf.js</span><span class="tech-tag">SunCalc</span><span class="tech-tag">Leaflet</span><span class="tech-tag">Open geodata APIs</span><span class="tech-tag">GitHub Pages</span>
-        </div>
-        <a href="https://bastiaanvdh.github.io/zoninval-tool/" class="project-link" style="margin-right: 24px; color: var(--gold);">▶ Try the live demo</a>
-        <a href="https://github.com/bastiaanvdh/zoninval-tool" class="project-link">→ View on GitHub</a>
-      </div>
-
-    </div>
+<section class="does g">
+  <div class="sec-head m"><span>(What I do)</span><span>Four things, one goal: return</span></div>
+  <div class="d-grid">
+    <div><span class="m"><b>01</b></span><h3>Data &amp; analysis</h3><p>GA4, Search Console, SQL and Pandas. From raw export to an answer.</p></div>
+    <div><span class="m"><b>02</b></span><h3>Marketing intelligence</h3><p>SEO, Google Ads and attribution. Knowing which euro pays off.</p></div>
+    <div><span class="m"><b>03</b></span><h3>Automation &amp; AI</h3><p>Pipelines and tools that take over the repetitive work.</p></div>
+    <div><span class="m"><b>04</b></span><h3>Investing</h3><p>Analysing companies and testing an idea against the numbers. Wft Basis certified.</p></div>
   </div>
 </section>
 
-<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">Skills</div>
-    <h2 class="reveal">Technical stack</h2>
-    <p class="section-intro reveal">Not a list of certificates. These are tools I use daily and have delivered demonstrable results with.</p>
-
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-category">Data & Analysis</div>
-        <div class="skill-items">
-          <span class="skill-item">GA4</span><span class="skill-item">Google Search Console</span><span class="skill-item">Looker Studio</span><span class="skill-item">Pandas</span><span class="skill-item">NumPy</span><span class="skill-item">SQL</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Machine Learning</div>
-        <div class="skill-items">
-          <span class="skill-item">scikit-learn</span><span class="skill-item">Random Forest</span><span class="skill-item">Feature Engineering</span><span class="skill-item">Predictive Modelling</span><span class="skill-item">Trend Detection</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Automation & APIs</div>
-        <div class="skill-items">
-          <span class="skill-item">Python</span><span class="skill-item">Google Ads API</span><span class="skill-item">Analytics API</span><span class="skill-item">REST APIs</span><span class="skill-item">Playwright</span><span class="skill-item">Git</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Marketing</div>
-        <div class="skill-items">
-          <span class="skill-item">Google Ads</span><span class="skill-item">SEO/SEA</span><span class="skill-item">Conversion Optimization</span><span class="skill-item">Revenue Attribution</span><span class="skill-item">HubSpot</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Dashboards & Visualization</div>
-        <div class="skill-items">
-          <span class="skill-item">Looker Studio</span><span class="skill-item">Streamlit</span><span class="skill-item">Tkinter</span><span class="skill-item">Google Sheets API</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Finance & Investing</div>
-        <div class="skill-items">
-          <span class="skill-item">Portfolio Analytics</span><span class="skill-item">Fundamental Analysis</span><span class="skill-item">Technical Analysis</span><span class="skill-item">Wft Basis</span><span class="skill-item">37% YTD return</span>
-        </div>
-      </div>
-    </div>
+<section class="contact g" id="contact">
+  <span class="m"><b>(Contact)</b></span>
+  <h2>Shall we <em>talk?</em></h2>
+  <div class="c-row">
+    <div class="mail"><code id="mail">bastiaanvanderhorst@hotmail.com</code><button class="pill solid" type="button" id="copy">Copy</button></div>
+    <a class="pill" href="https://www.linkedin.com/in/bastiaan-v-01846112a">LinkedIn ↗</a>
+    <a class="pill" href="https://github.com/bastiaanvdh">GitHub ↗</a>
+    <a class="pill" href="https://www.instagram.com/beleggenmetbastiaan/">Instagram ↗</a>
+    <a class="pill" href="https://bastiaanvdh.github.io/portfolio/cv.html">CV ↗</a>
   </div>
+  <footer class="m"><span>© 2026 Bastiaan van der Horst · Harlingen</span><span>Project sketches are illustrations, the numbers are real</span><button class="m" type="button" id="toTop">Back to top ↑</button></footer>
 </section>
+</main>
 
-<section>
-  <div class="container">
-    <div class="section-label">Results</div>
-    <h2 class="reveal">Concrete impact</h2>
-    <p class="section-intro reveal">Numbers that actually mean something.</p>
-
-    <div class="results-grid">
-      <div class="result-item reveal">
-        <div class="result-number">+47.6%</div>
-        <div class="result-text"><strong>Organic growth YoY</strong>Systematic content optimization based on ML predictions and gap analysis</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">32 → 8.1</div>
-        <div class="result-text"><strong>Average position improvement</strong>Top-100 products analyzed, content rewritten via script, results directly measurable</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">€1.3M</div>
-        <div class="result-text"><strong>Revenue attribution</strong>Real-time dashboard tracking revenue from first touchpoint to conversion</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">80x</div>
-        <div class="result-text"><strong>Faster than manual</strong>5,000+ product descriptions processed in 4 hours via automated AI pipeline</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">43%</div>
-        <div class="result-text"><strong>Investment return YTD</strong>Personal portfolio systematically reviewed based on data and fundamental analysis</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">10h+</div>
-        <div class="result-text"><strong>Saved per week</strong>By automating repetitive marketing and data tasks with Python pipelines</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="investing" style="background: var(--surface); border-top: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-label">Investing</div>
-    <h2 class="reveal">Personal portfolio</h2>
-    <p class="section-intro reveal">I don't invest on gut feeling. I analyze companies systematically, maintain a clear thesis per position and have built tooling for it: so I have a sharp daily view of what's going on.</p>
-
-    <div class="cta-row reveal" style="margin-bottom: 44px;">
-      <a href="monitor.html" class="btn-primary">▶ Portfolio Monitor demo</a>
-      <a href="screener.html" class="btn-gold">🎯 Stock screener</a>
-      <a href="calculator.html" class="btn-secondary">📈 Compound interest calculator</a>
-    </div>
-
-    <div class="results-grid" style="margin-top: 0;">
-      <div class="result-item reveal">
-        <div class="result-number">43%</div>
-        <div class="result-text"><strong>YTD return</strong>Personal portfolio, actively managed based on data and my own analysis</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">57%</div>
-        <div class="result-text"><strong>All-time return</strong>Consistently above market average through concentrated, well-researched positions</div>
-      </div>
-      <div class="result-item reveal">
-        <div class="result-number">~7</div>
-        <div class="result-text"><strong>Concentrated positions</strong>From broad diversification to focus on a handful of thoroughly vetted stocks</div>
-      </div>
-    </div>
-
-    <!-- Animated performance chart -->
-    <div class="chart-card reveal">
-      <div class="chart-head">
-        <div class="chart-title">2026 YTD return — portfolio vs. S&amp;P 500</div>
-        <div class="chart-legend">
-          <span class="legend-item"><span class="legend-dot" style="background: var(--green);"></span>Portfolio +37%</span>
-          <span class="legend-item"><span class="legend-dot" style="background: var(--gold);"></span>S&amp;P 500</span>
-        </div>
-      </div>
-      <svg id="perf-chart" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Line chart: portfolio return versus S&P 500 in 2026">
-        <line class="grid-line" x1="50" y1="40"  x2="780" y2="40"/>
-        <line class="grid-line" x1="50" y1="100" x2="780" y2="100"/>
-        <line class="grid-line" x1="50" y1="160" x2="780" y2="160"/>
-        <line class="grid-line" x1="50" y1="220" x2="780" y2="220"/>
-        <line class="grid-line" x1="50" y1="260" x2="780" y2="260"/>
-        <text x="10" y="44">+40%</text>
-        <text x="10" y="104">+25%</text>
-        <text x="10" y="164">+10%</text>
-        <text x="14" y="224">0%</text>
-        <text x="10" y="264">-10%</text>
-        <text x="60"  y="290">jan</text>
-        <text x="190" y="290">feb</text>
-        <text x="320" y="290">mar</text>
-        <text x="450" y="290">apr</text>
-        <text x="580" y="290">may</text>
-        <text x="710" y="290">jun</text>
-        <path class="chart-line draw-line" stroke="var(--gold)" stroke-dasharray="0" d="M65,220 L195,212 L325,222 L455,204 L585,196 L715,188"/>
-        <path class="chart-line draw-line" stroke="var(--green)" d="M65,220 L195,200 L325,210 L455,160 L585,120 L715,72"/>
-        <circle cx="715" cy="72" r="5" fill="var(--green)">
-          <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
-        </circle>
-      </svg>
-      <p class="chart-note">// Indicative monthly progression. Past performance is no guarantee of future results.</p>
-    </div>
-
-    <div class="project-card reveal" style="margin-top: 40px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
-        <div class="project-title">Portfolio Monitor — open source on GitHub</div>
-        <div style="display:flex;gap:20px;flex-wrap:wrap">
-          <a href="monitor.html" class="project-link" style="white-space:nowrap; color: var(--gold);">▶ Try the live demo</a>
-          <a href="https://github.com/bastiaanvdh/portfolio-monitor" class="project-link" style="white-space:nowrap">→ github.com/bastiaanvdh/portfolio-monitor</a>
-        </div>
-      </div>
-      <p class="project-desc">A 19-agent Python pipeline that analyzes my full portfolio daily: prices, alerts, earnings, peer comparison, macro correlations and scenario analysis. No external subscription, no AI API — everything runs locally and serves an interactive Chart.js dashboard on localhost. The watchlist screener automatically vets candidate stocks using a vault-code methodology (score 0–100), including fair-value calculation and entry criteria check. Published open source so others can set it up with their own positions.</p>
-
-      <ul class="feature-list">
-        <li><strong>Daily briefing:</strong> Price movements, macro data (EUR/USD, VIX, S&amp;P 500), alerts and news per position — generated as HTML in seconds</li>
-        <li><strong>Thesis thermometer:</strong> Each position has a documented investment thesis with weighted fundamental checks — score 0–100, tracked daily</li>
-        <li><strong>Macro correlation + scenarios:</strong> Pearson correlation matrix with numpy OLS betas, followed by 5 macro shock scenarios (recession, dollar rally, inflation etc.)</li>
-        <li><strong>Watchlist screener:</strong> Candidate stocks are automatically screened on fundamentals, valuation and peers — with entry criteria check per name</li>
-        <li><strong>EUR/USD exposure:</strong> Exact currency splits and sensitivity table for purchasing power risk as a Dutch investor with a predominantly USD portfolio</li>
-      </ul>
-
-      <div class="tech-row">
-        <span class="tech-tag">Python</span><span class="tech-tag">yfinance</span><span class="tech-tag">NumPy</span><span class="tech-tag">Chart.js</span><span class="tech-tag">http.server</span><span class="tech-tag">Fundamental Analysis</span><span class="tech-tag">Wft Basis</span><span class="tech-tag">Investing Minor</span>
-      </div>
-
-      <div style="margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--border);">
-        <div style="font-size: 0.78em; font-family: 'JetBrains Mono', monospace; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">Beleggen met Bastiaan</div>
-        <p style="color: var(--muted2); font-size: 0.95em; line-height: 1.7;">Besides my own portfolio, I share my approach via <strong style="color: var(--text);">Beleggen met Bastiaan</strong> ("Investing with Bastiaan"), an Instagram channel where I analyze companies, discuss market movements and show people how to look at investments themselves. Purely informational, not advice. The idea is simple: show how to look at a stock systematically and what's behind an investment decision.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="footer-inner">
-    <h2>Let's connect</h2>
-    <p>Looking for a data or analytics role where I can make direct impact. Open to conversations — about data, automation or a good stock.</p>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/bastiaan-v-01846112a" class="btn-primary">LinkedIn</a>
-      <a href="https://github.com/bastiaanvdh" class="btn-secondary">GitHub</a>
-      <a href="cv.html" class="btn-secondary">📄 Download CV</a>
-      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-gold">Email me</a>
-    </div>
-    <p class="footer-copy">© 2026 Bastiaan van der Horst · Harlingen, Netherlands</p>
-  </div>
-</footer>
-
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
-// ===== Ticker: duplicate content for a seamless loop =====
-(function () {
-  var ticker = document.getElementById('ticker');
-  ticker.innerHTML += ticker.innerHTML;
-})();
+(function(){
+  /* Zet hier later je portret neer (data:-URI of eigen bestand). Leeg = tijdelijke invulling. */
+  var PHOTO='assets/bastiaan.jpg';
 
-// ===== Hero typing effect =====
-(function () {
-  var words = ['data_pipelines', 'ml_models', 'stock_analyses', 'ai_automation', 'dashboards', 'returns'];
-  var el = document.getElementById('typed');
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = "'data_pipelines'"; return; }
-  var wi = 0, ci = 0, deleting = false;
-  function tick() {
-    var word = words[wi];
-    if (!deleting) {
-      ci++;
-      el.textContent = "'" + word.slice(0, ci) + "'";
-      if (ci === word.length) { deleting = true; setTimeout(tick, 1700); return; }
-      setTimeout(tick, 65 + Math.random() * 50);
-    } else {
-      ci--;
-      el.textContent = ci > 0 ? "'" + word.slice(0, ci) + "'" : '';
-      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(tick, 350); return; }
-      setTimeout(tick, 32);
-    }
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.getElementById(s)};
+  var NS='http://www.w3.org/2000/svg';
+  function paused(){return document.documentElement.classList.contains('paused')}
+  function mk(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+
+  if(PHOTO){$('portrait').innerHTML='<img src="'+PHOTO+'" alt="">';$('qphoto').innerHTML='<img src="'+PHOTO+'" alt="Bastiaan van der Horst">'}
+
+  /* Klok */
+  function tick(){try{$('clock').textContent='Harlingen, NL / '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Amsterdam'})}catch(e){}}
+  tick();setInterval(tick,15000);
+
+  /* Zacht scrollen */
+  var lenis=null;
+  if(!reduce&&window.Lenis){try{lenis=new Lenis({lerp:.1});(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(performance.now())}catch(e){lenis=null}}
+  function go(target){var el=target==='#top'?document.body:document.querySelector(target);if(!el)return;if(lenis)lenis.scrollTo(el,{offset:target==='#top'?0:-70});else el.scrollIntoView({behavior:reduce?'auto':'smooth'})}
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();go(a.getAttribute('href'))})});
+  $('toTop').addEventListener('click',function(){go('#top')});
+
+  /* ---------- Banen rond het portret ---------- */
+  var hero=$('hero'),orb=$('orb'),O={};
+  function buildOrb(){
+    orb.innerHTML='';var W=hero.clientWidth,H=hero.clientHeight,pr=$('portrait').getBoundingClientRect(),hr=hero.getBoundingClientRect();
+    orb.setAttribute('viewBox','0 0 '+W+' '+H);
+    var cx=pr.left-hr.left+pr.width/2,cy=pr.top-hr.top+pr.height*.42;
+    O.E=[{cx:cx,cy:cy,rx:Math.min(W*.4,600),ry:Math.min(H*.36,330),r:-14*Math.PI/180},{cx:cx+W*.07,cy:cy+H*.13,rx:Math.min(W*.22,320),ry:Math.min(H*.28,250),r:24*Math.PI/180}];
+    O.E.forEach(function(e){mk('ellipse',{cx:e.cx,cy:e.cy,rx:e.rx,ry:e.ry,transform:'rotate('+(e.r*180/Math.PI)+' '+e.cx+' '+e.cy+')'},orb)});
+    var s=Math.max(.6,Math.min(1,W/1400));
+    O.P=[
+      {e:0,ph:2.3,v:1,el:mk('circle',{'class':'p-disc',r:38*s},orb)},
+      {e:0,ph:5.4,v:1,el:mk('circle',{'class':'p-ring',r:30*s},orb)},
+      {e:1,ph:.6,v:-1.6,el:mk('circle',{'class':'p-disc',r:14*s},orb)},
+      {e:1,ph:3.7,v:-1.6,el:mk('circle',{'class':'p-dot',r:5},orb),lab:['● +47.6% · ORG.','R² 0.75 · θ ']},
+      {e:0,ph:.9,v:1,el:mk('circle',{'class':'p-dot',r:4},orb),lab:['● €1.3M · ATTR.','80X · θ ']}
+    ];
+    O.P.forEach(function(p){if(p.lab){p.t1=mk('text',{},orb);p.t2=mk('text',{},orb);p.t1.textContent=p.lab[0]}});
+    O.t=0;placeOrb();
   }
-  tick();
-})();
+  function pos(e,t){var c=Math.cos(t),s=Math.sin(t);return[e.cx+e.rx*c*Math.cos(e.r)-e.ry*s*Math.sin(e.r),e.cy+e.rx*c*Math.sin(e.r)+e.ry*s*Math.cos(e.r)]}
+  function placeOrb(){O.P.forEach(function(p){var a=p.ph+O.t*p.v,xy=pos(O.E[p.e],a);p.el.setAttribute('cx',xy[0].toFixed(1));p.el.setAttribute('cy',xy[1].toFixed(1));
+    if(p.t1){p.t1.setAttribute('x',xy[0]+12);p.t1.setAttribute('y',xy[1]-4);p.t2.setAttribute('x',xy[0]+12);p.t2.setAttribute('y',xy[1]+9);p.t2.textContent=p.lab[1]+(((a%6.283)+6.283)%6.283).toFixed(2)}})}
+  var lastO=0;
+  function loopOrb(ts){var dt=lastO?Math.min(50,ts-lastO):16;lastO=ts;
+    if(!reduce&&!paused()&&hero.getBoundingClientRect().bottom>0){O.t+=dt*.00009;placeOrb()}
+    requestAnimationFrame(loopOrb)}
 
-// ===== Scroll reveal =====
-var revealObserver = new IntersectionObserver(function (entries) {
-  entries.forEach(function (e) {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+  /* ---------- Schetsen bij het werk ---------- */
+  var SV='<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">';
+  function head(big,sub,bg){return '<rect width="400" height="500" fill="'+bg+'"/><text class="v-big" x="28" y="98">'+big+'</text><text class="v-sub" x="30" y="124">'+sub+'</text><text class="v-note" x="372" y="482" text-anchor="end">SKETCH</text>'}
+  function grid(){var s='';for(var y=200;y<=440;y+=60)s+='<line class="v-grid" x1="28" x2="372" y1="'+y+'" y2="'+y+'"/>';return s}
+  var V={
+    mis:function(bg){var p=[],n=40;for(var i=0;i<=n;i++){var f=i/n;p.push([28+f*344,430-Math.pow(f,1.5)*220-9*Math.sin(i*1.25)*(1-f*.4)])}
+      var pts=p.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' ');
+      return SV+head('+47.6%','ORGANIC TRAFFIC · YOY',bg)+grid()+'<polygon class="v-area" points="28,440 '+pts+' 372,440"/><polyline class="v-line" pathLength="1" points="'+pts+'"/><text class="v-sub" x="30" y="466">GSC + GA4 + ADS · R² 0.75+</text></svg>'},
+    prod:function(bg){var s=SV+head('5,000+','PRODUCT TEXTS IN 4 HOURS',bg),c=0;for(var r=0;r<14;r++)for(var k=0;k<20;k++){s+='<rect class="v-cell" x="'+(30+k*17)+'" y="'+(170+r*18)+'" width="13" height="13" rx="2" style="--d:'+(c*4)+'ms"/>';c++}
+      return s+'<text class="v-sub" x="30" y="466">≈ €0.02 EACH · 80X FASTER</text></svg>'},
+    intra:function(bg){var s=SV+head('16','INTERNAL APPS · 1 ERP',bg),c=0;for(var r=0;r<4;r++)for(var k=0;k<4;k++){c++;s+='<g><rect class="v-tile" x="'+(30+k*86)+'" y="'+(160+r*58)+'" width="72" height="44" rx="5" style="--d:'+(c*70)+'ms"/><text class="v-tl" x="'+(40+k*86)+'" y="'+(186+r*58)+'">'+(c<10?'0':'')+c+'</text></g>'}
+      return s+'<line x1="200" x2="200" y1="390" y2="420" stroke="#FF8A3D" stroke-opacity=".6"/><rect x="130" y="420" width="140" height="34" rx="4" fill="none" stroke="#FF8A3D"/><text class="v-sub" x="200" y="441" text-anchor="middle" style="fill:#EDEAE4">KING ERP</text></svg>'},
+    heart:function(bg){function beat(x0,x1){var p=[],x=x0;while(x<x1-30){p.push([x,320],[x+12,320],[x+16,300],[x+20,350],[x+25,262],[x+30,330],[x+34,320]);x+=44}p.push([x1,320]);return p.map(function(q){return q.join(',')}).join(' ')}
+      return SV+head('08:45','A SELF-CHECK EVERY MORNING',bg)+grid()+'<polyline class="v-line soft" pathLength="1" points="'+beat(28,140)+'"/><line class="v-flat" x1="140" x2="262" y1="320" y2="320"/><text class="v-tl" x="201" y="296" text-anchor="middle">7 DAYS SILENT</text><polyline class="v-line" style="--d:.9s" pathLength="1" points="'+beat(262,372)+'"/><text class="v-sub" x="30" y="466">7 MEASUREMENT CHECKS · 1 ACTION LIST</text></svg>'},
+    candle:function(bg){var s=SV+head('19','PYTHON AGENTS',bg)+grid(),prev=400;for(var i=0;i<26;i++){var mid=410-i*8.2+16*Math.sin(i*1.7),o=prev,c=mid,up=c<o,top=Math.min(o,c),h=Math.max(6,Math.abs(o-c)),x=32+i*13.2;
+        s+='<g class="v-candle" style="--d:'+(i*45)+'ms"><line class="v-wick" x1="'+(x+4)+'" x2="'+(x+4)+'" y1="'+(top-8)+'" y2="'+(top+h+8)+'"/><rect class="'+(up?'v-up':'v-dn')+'" x="'+x+'" y="'+top+'" width="8" height="'+h+'"/></g>';prev=c}
+      return s+'<text class="v-sub" x="30" y="466">≈ 9,200 LINES · 16 TABS · LOCAL</text></svg>'}
+  };
+  var F=[
+    {n:'Marketing Intelligence Suite',c:'FOV · Production',k:'+47.6% organic',d:'GA4, Search Console and Google Ads in one hub. With a forecasting model and anomaly detection, good for €1.3M in attributed revenue.',v:'mis',bg:'#141C26',cs:'marketing-intelligence-suite'},
+    {n:'Product Automation',c:'FOV · Production',k:'5K+ in 4 hours',d:'Product descriptions, meta titles and SEO texts with two AI models. About €0.02 per product, against €5 to €10 by hand.',v:'prod',bg:'#221812',cs:'product-automation-platform'},
+    {n:'FOV Intranet',c:'FOV · Internal',k:'16 apps',d:'My own company platform: 16 internal apps, a project register and live figures, connected to the ERP.',v:'intra',bg:'#13201C',cs:'fov-intranet'},
+    {n:'Measurement Critic',c:'FOV · Production',k:'08:45 self-check',d:'Built after a revenue measurement stood still for seven days without anyone noticing. Now the pipeline checks itself, every morning.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
+    {n:'Portfolio Monitor',c:'Personal · Open source',k:'19 agents',d:'My investment dashboard. Fundamentals, quarterly results, macro and scenarios, running locally without external AI.',v:'candle',bg:'#111A22',cs:'portfolio-monitor',u:'https://bastiaanvdh.github.io/portfolio/monitor.html'}
+  ];
+  var CASES='https://bastiaanvdh.github.io/portfolio/cases/';
+  var rowsEl=$('rows'),screen=$('screen');
+  F.forEach(function(f,i){
+    var r=document.createElement('article');r.className='row';
+    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Read the case (NL) →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">See the demo →</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
+    rowsEl.appendChild(r);
+    var d=document.createElement('div');d.className='vis';d.innerHTML=V[f.v](f.bg);screen.appendChild(d);
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+  var rows=[].slice.call(rowsEl.children),dockV=[].slice.call(screen.children),curW=-1;
+  function setWork(i){if(i===curW)return;curW=i;
+    rows.forEach(function(r,j){r.classList.toggle('on',j===i);r.querySelector('.vis-inline').classList.toggle('on',j===i)});
+    dockV.forEach(function(v,j){v.classList.toggle('on',j===i)});
+    $('dockNum').innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b> / 05';$('dockCat').textContent=F[i].c;$('dockBar').style.width=((i+1)/F.length*100)+'%';}
+  setWork(0);
 
-// ===== Count-up stats =====
-function animateCount(el) {
-  var target = parseFloat(el.dataset.count);
-  var prefix = el.dataset.prefix || '';
-  var suffix = el.dataset.suffix || '';
-  var decimals = parseInt(el.dataset.decimals || '0', 10);
-  var duration = 1400, start = null;
-  function step(ts) {
-    if (!start) start = ts;
-    var p = Math.min((ts - start) / duration, 1);
-    var eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
-    if (p < 1) requestAnimationFrame(step);
+  /* ---------- Meeschuivende rij ---------- */
+  var R=[
+    {k:'98%',s:'coverage',n:'Product weights',c:'FOV',d:'Weights for 7,382 products, calculated from safety data sheets. Median error 8.6%.',t:'Python · PDF · pytest',cs:'gewichten-veiligheidsbladen'},
+    {k:'5',s:'weight classes',n:'Shipping cost engine',c:'FOV',d:'Replaces a flat rate of €22.50, for the Netherlands and Germany. 46 tests on edge cases.',t:'Python · JSON · pytest'},
+    {k:'~4h',s:'per week per company',n:'FOV Ads Autopilot',c:'FOV',d:'Google Ads advice for four companies. It changes nothing itself, a person decides.',t:'Google Ads API · Pandas'},
+    {k:'SEO',s:'own competitor analysis',n:'Gap Intelligence',c:'FOV',d:'Finds topics where competitors rank and we do not yet, and turns them into content briefs.',t:'Playwright · scikit-learn'},
+    {k:'30s',s:'per product, was 60 min',n:'Product Data Automation',c:'FOV',d:'Product pages for three web shops, 18 language codes, best photo picked by image recognition.',t:'Flask · GPT-4o Vision'},
+    {k:'€0.002',s:'per product',n:'ERP Content Generator',c:'Open source',d:'ERP exports to texts in Dutch and German, with live progress and a cost estimate up front.',t:'Flask · SSE · OpenAI'},
+    {k:'3',s:'BigQuery cases',n:'FOV SQL Portfolio',c:'Open source',d:'Product performance, monthly growth and gaps against competitors.',t:'SQL · BigQuery'},
+    {k:'1h→s',s:'per set of slides',n:'BmB Content Engine',c:'Personal',d:'Turns text into social media slides in the Beleggen met Bastiaan house style, in one go.',t:'Python · Pillow · ffmpeg'},
+    {k:'100%',s:'in the browser',n:'Sunlight Tool',c:'Personal',d:'Enter an address and see, per season, how much shade the neighbours cast on your garden.',t:'Turf.js · SunCalc · Leaflet'}
+  ];
+  var rail=$('rail');
+  R.forEach(function(p,i){var t=document.createElement('div');t.className='tile';
+    t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Read the case (NL) →</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
+  var wrap=$('railWrap'),pinned=false;
+  function sizeRail(){pinned=!reduce&&innerWidth>900;wrap.classList.toggle('pinned',pinned);
+    if(pinned){wrap.style.height=(rail.scrollWidth-innerWidth+innerHeight)+'px'}else{wrap.style.height='';rail.style.transform=''}}
+
+  /* ---------- Zin die oplicht ---------- */
+  var sayP=$('sayText'),raw=sayP.textContent,html='',mode='';
+  raw.split(/(\||\^)/).forEach(function(part){if(part==='|'){mode=mode==='it'?'':'it';return}if(part==='^'){mode=mode==='ac'?'':'ac';return}
+    part.split(/(\s+)/).forEach(function(w){if(!w)return;html+=/^\s+$/.test(w)?w:'<span'+(mode?' class="'+mode+'"':'')+'>'+w+'</span>'})});
+  sayP.innerHTML=html;var words=[].slice.call(sayP.querySelectorAll('span'));
+
+  /* ---------- Cirkelschema ---------- */
+  var sys=$('sys'),C=400;
+  var N=[
+    {id:'ga4',in:'GA4',out:'GOOGLE ANALYTICS',ring:1,kind:'Source',t:'Google Analytics 4',x:'What visitors do on the site: where they come from, what they look at and where they drop off.',u:'Marketing Intelligence Suite · meetcontrole'},
+    {id:'gsc',in:'GSC',out:'SEARCH CONSOLE',ring:1,kind:'Source',t:'Search Console',x:'What we are found for in Google, at which position and how often people click.',u:'Marketing Intelligence Suite · Gap Intelligence'},
+    {id:'ads',in:'ADS',out:'GOOGLE ADS',ring:1,kind:'Source',t:'Google Ads',x:'What a click costs and what it brings in. That tells me which euro pays off.',u:'FOV Ads Autopilot'},
+    {id:'erp',in:'ERP',out:'KING ERP',ring:1,kind:'Source',t:'KING ERP',x:'Orders, margins and products as they were actually booked. I test everything else against this.',u:'FOV Intranet · Verzendkosten-engine · Artikelgewichten'},
+    {id:'py',in:'PY',out:'PYTHON',ring:0,kind:'Processing',t:'Python',x:'The glue between everything. Collecting, cleaning and combining data, automatically every day.',u:'Almost every project'},
+    {id:'sql',in:'SQL',out:'SQL · BIGQUERY',ring:0,kind:'Processing',t:'SQL',x:'Asking questions of large tables: monthly growth, performance per product, gaps against competitors.',u:'FOV SQL Portfolio'},
+    {id:'ml',in:'ML',out:'SCIKIT-LEARN',ring:0,kind:'Processing',t:'Machine learning',x:'Predicting which page will grow, and telling a real decline from noise.',u:'Marketing Intelligence Suite (R² 0,75+)'},
+    {id:'ai',in:'AI',out:'LANGUAGE MODELS',ring:0,kind:'Processing',t:'AI models',x:'Text at scale. Thousands of product texts for a few cents each, checked before they go live.',u:'Product Automatisering · ERP Content Generator'}
+  ];
+  var RAD=[150,290],sysT=0,hoverSys=false,sel=null;
+  [70,150,290,360,420].forEach(function(r){mk('circle',{'class':'ring'+(r===150||r===290?' main':''),cx:C,cy:C,r:r},sys)});
+  [['PROCESSING',172,-1.9],['SOURCES',312,-1.7]].forEach(function(l,i){
+    var r=l[1];mk('path',{id:'rp'+i,d:'M '+(C-r)+' '+C+' A '+r+' '+r+' 0 1 1 '+(C+r)+' '+C,fill:'none'},sys);
+    var t=mk('text',{'class':'rlabel'},sys),tp=mk('textPath',{href:'#rp'+i,startOffset:i?'22%':'14%'},t);tp.textContent=l[0]});
+  N.forEach(function(n){n.link=mk('line',{'class':'link',x1:C,y1:C},sys)});
+  var core=mk('g',{'class':'core node',tabindex:'0',role:'button','aria-label':'The decision'},sys);
+  mk('circle',{cx:C,cy:C,r:60},core);var ct=mk('text',{x:C,y:C},core);ct.textContent='DECISION';
+  var perRing=[0,0];N.forEach(function(n){n.k=perRing[n.ring]++});
+  N.forEach(function(n){
+    n.base=(n.k/4)*Math.PI*2+(n.ring?Math.PI/4:0);
+    n.g=mk('g',{'class':'node',tabindex:'0',role:'button','aria-label':n.t},sys);
+    mk('circle',{r:n.ring?36:30},n.g);var a=mk('text',{'class':'in'},n.g);a.textContent=n.in;
+    var b=mk('text',{'class':'out',y:n.ring?54:48},n.g);b.textContent=n.out;
+    function pick(){select(n)}
+    n.g.addEventListener('click',pick);n.g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}});
+  });
+  function select(n){sel=n;N.forEach(function(m){m.g.classList.toggle('sel',m===n)});
+    if(!n){$('pKind').textContent='The decision';$('pTitle').textContent='The end point';$('pText').textContent='A tool is only finished when someone acts differently because of it. Every source and every step works towards that.';$('pUsed').textContent='';return}
+    $('pKind').textContent=n.kind;$('pTitle').textContent=n.t;$('pText').textContent=n.x;$('pUsed').textContent='Used in: '+n.u}
+  core.addEventListener('click',function(){select(null)});core.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();select(null)}});
+  sys.addEventListener('mouseenter',function(){hoverSys=true});sys.addEventListener('mouseleave',function(){hoverSys=false});
+  function placeSys(){N.forEach(function(n){var a=n.base+sysT*(n.ring?1:-1.4),r=RAD[n.ring],x=C+r*Math.cos(a),y=C+r*Math.sin(a);
+    n.g.setAttribute('transform','translate('+x.toFixed(1)+','+y.toFixed(1)+')');n.link.setAttribute('x2',x.toFixed(1));n.link.setAttribute('y2',y.toFixed(1))})}
+  placeSys();
+  var lastS=0;function loopSys(ts){var dt=lastS?Math.min(50,ts-lastS):16;lastS=ts;
+    var r=sys.getBoundingClientRect();if(!reduce&&!paused()&&!hoverSys&&r.bottom>0&&r.top<innerHeight){sysT+=dt*.00006;placeSys()}
+    requestAnimationFrame(loopSys)}
+
+  /* ---------- Scrollhandler ---------- */
+  var l1=document.querySelector('.name .l1'),l2=document.querySelector('.name .l2'),say=$('hallo'),mf=$('manifest'),strike=$('strike'),under=$('under');
+  var stackLi=[].slice.call($('stack').children),blocks=[].slice.call(document.querySelectorAll('.ab-block'));
+  function clamp(v){return Math.max(0,Math.min(1,v))}
+  function onScroll(){
+    var y=scrollY,vh=innerHeight;
+    if(!reduce&&y<vh*1.2){l1.style.transform='translateX('+(-y*.18)+'px)';l2.style.transform='translateX('+(y*.18)+'px)';$('portrait').style.transform='translateX(-50%) translateY('+(y*.12)+'px)'}
+    // manifest: bocht trekt recht, streep en onderstreping tekenen
+    var m=mf.getBoundingClientRect();
+    if(!reduce){var pc=clamp((vh-m.top)/(vh*.9));mf.style.setProperty('--curve',Math.round(220*(1-pc))+'px');mf.style.setProperty('--ring',Math.round((m.top+m.height/2-vh/2)*-.15)+'px');
+      strike.style.setProperty('--s',clamp((vh*.55-strike.getBoundingClientRect().top)/(vh*.25)).toFixed(3));
+      under.style.setProperty('--u',clamp((vh*.75-under.getBoundingClientRect().top)/(vh*.25)).toFixed(3))}
+    // werk
+    var best=0,bd=1e9;rows.forEach(function(r,i){var b=r.getBoundingClientRect(),d=Math.abs(b.top+b.height/2-vh*.5);if(d<bd){bd=d;best=i}});setWork(best);
+    // rij
+    if(pinned){var b=wrap.getBoundingClientRect(),span=b.height-vh,p=clamp(-b.top/span),dist=rail.scrollWidth-innerWidth;
+      rail.style.transform='translate3d('+(-p*dist)+'px,0,0)';$('railNum').textContent='('+String(Math.min(9,Math.floor(p*9)+1)).padStart(2,'0')+' / 09)'}
+    // zin
+    if(!reduce){var s=say.getBoundingClientRect(),q=clamp((-s.top+vh*.35)/(s.height-vh*.6)),n=Math.round(q*words.length*1.1);
+      words.forEach(function(w,i){w.classList.toggle('lit',i<n)})}
+    // stapelkoppen
+    var cur=0;blocks.forEach(function(bl,i){if(bl.getBoundingClientRect().top<vh*.55)cur=i});
+    stackLi.forEach(function(li,i){li.classList.toggle('seen',i<=cur);li.classList.toggle('cur',i===cur)});
   }
-  requestAnimationFrame(step);
-}
-var countObserver = new IntersectionObserver(function (entries) {
-  entries.forEach(function (e) {
-    if (e.isIntersecting) { animateCount(e.target); countObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-count]').forEach(function (el) { countObserver.observe(el); });
+  var ticking=false;addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;onScroll()})}},{passive:true});
+  var rz;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){sizeRail();buildOrb();onScroll()},120)});
+  sizeRail();buildOrb();onScroll();
+  requestAnimationFrame(loopOrb);requestAnimationFrame(loopSys);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){sizeRail();buildOrb();onScroll()});
 
-// ===== Project filters =====
-(function () {
-  var buttons = document.querySelectorAll('.filter-btn');
-  var cards = document.querySelectorAll('.project-card[data-cat]');
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      buttons.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      var f = btn.dataset.filter;
-      cards.forEach(function (card) {
-        var show = f === 'all' || card.dataset.cat.split(' ').indexOf(f) !== -1;
-        card.classList.toggle('hidden-card', !show);
-        if (show) card.classList.add('visible');
-      });
-    });
-  });
+  /* +37% telt op */
+  var big=$('big'),counted=false;
+  if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!counted){counted=true;var t0=performance.now();
+    (function step(t){var f=Math.min(1,(t-t0)/1500),v=Math.round(43*(1-Math.pow(1-f,3)));big.textContent='+'+v+'%';if(f<1)requestAnimationFrame(step)})(t0)}})},{threshold:.5}).observe(big)}
+
+  /* Pauzeer beweging */
+  $('pause').addEventListener('click',function(){var p=document.documentElement.classList.toggle('paused');this.textContent=p?'(Play motion)':'(Pause motion)'});
+
+  /* Kopieer e-mail */
+  var cb=$('copy');cb.addEventListener('click',function(){var m=$('mail');function sel(){var r=document.createRange();r.selectNodeContents(m);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected'}
+    try{navigator.clipboard.writeText(m.textContent).then(function(){cb.textContent='Copied'},sel)}catch(e){sel()}});
 })();
-
-// ===== Chart: draw lines on scroll =====
-(function () {
-  var chart = document.getElementById('perf-chart');
-  if (!chart) return;
-  var lines = chart.querySelectorAll('.draw-line');
-  lines.forEach(function (path) {
-    var len = path.getTotalLength();
-    path.style.strokeDasharray = len;
-    path.style.strokeDashoffset = len;
-  });
-  var chartObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        lines.forEach(function (path, i) {
-          path.style.transition = 'stroke-dashoffset 1.8s ease ' + (i * 0.3) + 's';
-          path.style.strokeDashoffset = '0';
-        });
-        chartObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  chartObserver.observe(chart);
-})();
-
-// ===== Mobile menu =====
-function toggleMenu(btn){
-  var n = document.getElementById('navLinks');
-  var open = n.classList.toggle('open');
-  btn.setAttribute('aria-expanded', open);
-}
-document.querySelectorAll('#navLinks a').forEach(function(a){
-  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
-});
 </script>
+
 </body>
 </html>
