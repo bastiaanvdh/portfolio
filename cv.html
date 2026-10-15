@@ -2,106 +2,129 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>CV — Bastiaan van der Horst | Data & Marketing Intelligence Specialist</title>
 <meta name="description" content="Curriculum vitae van Bastiaan van der Horst — Data & Marketing Intelligence Specialist. Python, ML, automatisering en beleggen.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cv.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root {
-  --bg: #0a0f0d; --surface: #101713; --surface3: #1c2820;
-  --green: #2dd4a0; --green-bright: #4ae8b8; --gold: #e8b44f;
-  --white: #f2f8f4; --text: #d7e4dc; --muted: #7e9489; --muted2: #a8bcb1;
-  --border: rgba(45, 212, 160, 0.14);
+/* Huisstijl: zelfde als de homepage en de cases. Donker, oranje accent, Archivo + JetBrains Mono. */
+:root{--bg:#0F0F0E;--bg2:#181816;--ink:#EDEAE4;--body:#C9C5BE;--mid:#8F8B84;--dim:#57544F;--line:#2A2926;--accent:#FF8A3D;--on-accent:#140C06;
+  --sans:"Archivo","Arial Narrow","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--on-accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a{color:inherit}
+h1,h2,h3{font-family:var(--sans);color:var(--ink);text-wrap:balance}
+.top{position:sticky;top:0;z-index:50;background:linear-gradient(var(--bg) 55%,transparent);padding-top:env(safe-area-inset-top,0px)}
+.top-in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.logo{font-weight:800;font-stretch:80%;font-size:1.05rem;text-decoration:none;display:flex;align-items:center;white-space:nowrap}
+.logo i{font-style:italic;font-weight:400;font-stretch:115%;background:var(--accent);color:var(--on-accent);padding:0 3px;margin:0 1px 0 6px}
+.top-r{display:flex;align-items:center;gap:22px}
+.m,.top-r a{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);text-decoration:none}
+.top-r a:hover{color:var(--accent)}
+.container{max-width:1140px;margin:0 auto;padding:48px max(24px,env(safe-area-inset-left,0px)) 40px}
+h1{font-size:clamp(2.8rem,7.4vw,6rem);font-weight:800;font-stretch:66%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin-bottom:28px}
+.intro{font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.6;color:var(--body);max-width:62ch;margin-bottom:36px}
+.intro a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.intro a:hover{color:var(--ink)}
+.demo-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:26px 28px;min-width:0}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:var(--line);outline:none;margin:6px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--bg2);box-shadow:0 0 0 1px var(--accent)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--bg2)}
+input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.btn-primary{display:inline-flex;align-items:center;border-radius:999px;padding:13px 22px;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;background:var(--on-accent);color:var(--accent);transition:background .25s,color .25s}
+.btn-primary:hover{background:var(--ink);color:var(--on-accent)}
+.cta-card{margin-top:60px;background:var(--accent);color:var(--on-accent);border-radius:14px;padding:clamp(26px,5vw,44px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta-card h3{color:var(--on-accent);font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;font-stretch:70%;text-transform:uppercase;line-height:.95;margin-bottom:12px;max-width:24ch}
+.cta-card p{color:var(--on-accent);font-weight:500;max-width:560px}
+.disclaimer{margin-top:40px;font-family:var(--mono);font-size:.76rem;color:var(--mid);line-height:1.6;max-width:90ch}
+footer{max-width:1140px;margin:70px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:22px max(24px,env(safe-area-inset-left,0px)) calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--accent)}
+@media (max-width:700px){
+  body{font-size:16px}
+  .top-r .hide-s{display:none}
+  .container,.top-in,footer{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .card{padding:20px 16px}
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
-h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* Toolbar (niet meegeprint) */
-.toolbar { position: sticky; top: 0; z-index: 10; background: rgba(10,15,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-.toolbar-inner { max-width: 880px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 56px; padding: 0 24px; }
-.toolbar a { color: var(--muted2); text-decoration: none; font-size: 0.87em; font-weight: 500; }
-.toolbar a:hover { color: var(--green-bright); }
-.btn-print { background: var(--green); color: #07120d; border: none; padding: 10px 20px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9em; cursor: pointer; transition: all 0.2s; }
-.btn-print:hover { background: var(--green-bright); }
-
-.page { max-width: 880px; margin: 0 auto; padding: 48px 56px 80px; }
-
-/* Header */
-.cv-head { display: flex; gap: 28px; align-items: flex-start; border-bottom: 1px solid var(--border); padding-bottom: 26px; margin-bottom: 30px; }
-.cv-photo { width: 96px; height: 96px; border-radius: 14px; object-fit: cover; border: 1px solid var(--border); flex-shrink: 0; }
-.cv-head-text { flex: 1; }
-.cv-head h1 { font-size: 2.1em; letter-spacing: -0.02em; line-height: 1.1; }
-.cv-role { color: var(--green-bright); font-size: 1.05em; font-weight: 500; margin: 4px 0 12px; }
-.cv-contact { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.86em; color: var(--muted2); font-family: 'JetBrains Mono', monospace; }
-.cv-contact a { color: var(--muted2); text-decoration: none; }
-.cv-contact a:hover { color: var(--green-bright); }
-
-.cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.cv-section { margin-bottom: 26px; }
-.cv-section h2 { font-size: 0.82em; font-family: 'JetBrains Mono', monospace; color: var(--green); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-.cv-section p { color: var(--muted2); font-size: 0.94em; }
-
-.job { margin-bottom: 16px; }
-.job-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
-.job-role { color: var(--white); font-weight: 600; font-size: 0.98em; }
-.job-period { font-family: 'JetBrains Mono', monospace; font-size: 0.76em; color: var(--muted); white-space: nowrap; }
-.job-company { color: var(--green-bright); font-size: 0.86em; margin-bottom: 4px; }
-.job-desc { color: var(--muted2); font-size: 0.88em; }
-
-.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.metric { background: var(--surface3); border-radius: 8px; padding: 14px 16px; }
-.metric b { display: block; font-family: 'JetBrains Mono', monospace; color: var(--green-bright); font-size: 1.2em; line-height: 1; margin-bottom: 5px; }
-.metric span { font-size: 0.74em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-
-.tags { display: flex; flex-wrap: wrap; gap: 7px; }
-.tag { background: rgba(45,212,160,0.07); border: 1px solid rgba(45,212,160,0.16); color: var(--muted2); padding: 4px 11px; border-radius: 5px; font-size: 0.8em; font-family: 'JetBrains Mono', monospace; }
-
-.proj { margin-bottom: 12px; }
-.proj b { color: var(--white); font-size: 0.92em; }
-.proj span { color: var(--muted2); font-size: 0.86em; }
-
-.edu-item { margin-bottom: 10px; }
-.edu-item b { color: var(--white); font-size: 0.94em; display: block; }
-.edu-item span { color: var(--muted2); font-size: 0.85em; }
-
-@media (max-width: 720px) {
-  .page { padding: 32px 22px 60px; }
-  .cv-grid { grid-template-columns: 1fr; }
-  .metrics { grid-template-columns: 1fr 1fr; }
-  .cv-head { flex-direction: column; }
+.btn-print{display:inline-flex;align-items:center;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);border-radius:999px;padding:10px 18px;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+.btn-print:hover{background:var(--ink);border-color:var(--ink)}
+.page{max-width:880px;margin:0 auto;padding:40px max(24px,env(safe-area-inset-left,0px)) 40px}
+.cv-head{display:flex;gap:28px;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:34px}
+.cv-photo{width:112px;height:112px;border-radius:10px;object-fit:cover;border:1px solid var(--line);flex-shrink:0}
+.cv-head-text{flex:1;min-width:0}
+.cv-head h1{font-size:clamp(2.4rem,6.4vw,4.2rem);margin-bottom:10px}
+.cv-role{color:var(--accent);font-size:1.1rem;font-weight:600;margin:0 0 12px}
+.cv-contact{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:.78rem;color:var(--mid);font-family:var(--mono)}
+.cv-contact a{color:var(--mid);text-decoration:none;overflow-wrap:anywhere}
+.cv-contact a:hover{color:var(--accent)}
+.cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cv-section{margin-bottom:34px}
+.cv-section h2{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.cv-section h2::before{content:"("}.cv-section h2::after{content:")"}
+.cv-section p{color:var(--body);font-size:.97rem}
+.job{margin-bottom:20px}
+.job-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.job-role{color:var(--ink);font-weight:700;font-size:1.02rem}
+.job-period{font-family:var(--mono);font-size:.72rem;color:var(--mid);white-space:nowrap}
+.job-company{color:var(--accent);font-size:.9rem;margin-bottom:4px}
+.job-desc{color:var(--body);font-size:.93rem}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.metric{background:var(--bg);padding:16px 16px 14px}
+.metric b{display:block;font-weight:800;font-stretch:66%;font-size:2.1rem;color:var(--accent);line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.metric span{font-family:var(--mono);font-size:.64rem;color:var(--mid);text-transform:uppercase;letter-spacing:.07em;line-height:1.4;display:block}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--mid)}
+.proj{margin-bottom:12px}
+.proj b{color:var(--ink);font-size:.97rem}
+.proj span{color:var(--body);font-size:.93rem}
+.edu-item{margin-bottom:12px}
+.edu-item b{color:var(--ink);font-size:.97rem;display:block}
+.edu-item span{color:var(--body);font-size:.9rem}
+@media screen and (max-width:720px){
+  .cv-grid{grid-template-columns:1fr;gap:0}
+  .metrics{grid-template-columns:1fr 1fr}
+  .cv-head{flex-direction:column;align-items:flex-start}
+  .job-top{flex-direction:column;gap:2px}
+  .page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 }
+@media screen and (max-width:420px){.top-r{gap:12px}.top-r a{display:none}}
 
-/* ---- PRINT ---- */
-@media print {
-  @page { margin: 14mm; }
-  body { background: #fff; color: #1a2420; }
-  .toolbar { display: none; }
-  .page { max-width: none; padding: 0; }
-  h1, h2, h3, .job-role, .proj b, .edu-item b { color: #0a0f0d; }
-  .cv-role, .job-company, .cv-section h2 { color: #169873; }
-  .cv-contact, .cv-contact a, .job-desc, .cv-section p, .proj span, .edu-item span, .job-period { color: #3a4742; }
-  .cv-head, .cv-section h2 { border-color: #c9d6cf; }
-  .metric { background: #eef4f1; }
-  .metric b { color: #169873; }
-  .metric span { color: #5a6c64; }
-  .tag { background: #eef4f1; border-color: #c9d6cf; color: #3a4742; }
-  .cv-section { page-break-inside: avoid; }
-  a { text-decoration: none; }
+/* ---- PRINT: wit papier, zwarte tekst ---- */
+@media print{
+  @page{margin:14mm}
+  html,body{background:#fff;color:#000;font-size:10.5pt}
+  .top,footer{display:none}
+  .page{max-width:none;padding:0}
+  h1,h2,h3,.job-role,.proj b,.edu-item b{color:#000}
+  .cv-role,.job-company,.cv-section h2,.metric b{color:#000}
+  .cv-section h2{font-weight:700}
+  .cv-contact,.cv-contact a,.job-desc,.cv-section p,.proj span,.edu-item span,.job-period,.metric span{color:#333}
+  .cv-head,.cv-section h2{border-color:#bbb}
+  .cv-photo{border-color:#bbb}
+  .metrics{background:#bbb;border-color:#bbb}
+  .metric{background:#fff}
+  .tag{border-color:#bbb;color:#333}
+  .cv-section{page-break-inside:avoid;break-inside:avoid}
+  a{text-decoration:none;color:inherit}
 }
 </style>
 </head>
 <body>
-<div class="toolbar">
-  <div class="toolbar-inner">
-    <a href="index.html">← Terug naar portfolio</a>
-    <button class="btn-print" onclick="window.print()">⬇ Download als PDF</button>
-  </div>
-</div>
+<header class="top"><div class="top-in">
+  <a href="index.html" class="logo">BASTIAAN<i>v</i>dH</a>
+  <nav class="top-r" aria-label="Navigatie"><a href="index.html#werk">← Terug naar de homepage</a><button class="btn-print" onclick="window.print()">⬇ Download als PDF</button></nav>
+</div></header>
 
 <div class="page">
   <div class="cv-head">
@@ -193,8 +216,9 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
     <div class="proj"><b>Gap Intelligence Suite</b> — <span>Zelfgebouwde SEO-concurrentieanalyse zonder Ahrefs/SEMrush.</span></div>
     <div class="proj"><b>Product Automatisering</b> — <span>AI-contentgeneratie: 5.000+ producten in 4 uur, 99% kostenreductie.</span></div>
     <div class="proj"><b>Portfolio Monitor</b> — <span>Lokale 19-agent Python-pipeline voor dagelijkse portefeuilleanalyse (open source).</span></div>
-    <p style="margin-top:10px; font-size:0.84em; color:var(--muted);">Volledig overzicht met cijfers en code: bastiaanvdh.github.io/portfolio</p>
+    <p style="margin-top:10px; font-size:0.84em; color:var(--mid);">Volledig overzicht met cijfers en code: bastiaanvdh.github.io/portfolio</p>
   </div>
 </div>
+<footer class="m"><span>© 2026 Bastiaan van der Horst · Harlingen</span><a href="index.html">Terug naar de homepage ↑</a></footer>
 </body>
 </html>

@@ -379,7 +379,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 </section>
 
 <section class="close-up" aria-label="More projects">
-  <div class="rail-head m g"><span>(Up close)</span><span id="railNum">Scroll or swipe · 09 projects</span></div>
+  <div class="rail-head m g"><span>(Up close)</span><span id="railNum">Scroll or swipe · 15 projects</span></div>
   <div class="rail-wrap" id="railWrap">
     <div class="rail-sticky" id="railSticky"><div class="rail" id="rail"></div></div>
   </div>
@@ -569,7 +569,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   var F=[
     {n:'Marketing Intelligence Suite',c:'FOV · Production',k:'+47.6% organic',d:'GA4, Search Console and Google Ads in one hub. With a forecasting model and anomaly detection, good for €1.3M in attributed revenue.',v:'mis',bg:'#141C26',cs:'marketing-intelligence-suite'},
     {n:'Product Automation',c:'FOV · Production',k:'5K+ in 4 hours',d:'Product descriptions, meta titles and SEO texts with two AI models. About €0.02 per product, against €5 to €10 by hand.',v:'prod',bg:'#221812',cs:'product-automation-platform'},
-    {n:'FOV Intranet',c:'FOV · Internal',k:'16 apps',d:'My own company platform: 16 internal apps, a project register and live figures, connected to the ERP.',v:'intra',bg:'#13201C',cs:'fov-intranet'},
+    {n:'FOV Intranet',c:'FOV · Internal',k:'16 apps',d:'My own company platform: 16 internal apps, a project register with 26 projects and live figures, connected to the ERP.',v:'intra',bg:'#13201C',cs:'fov-intranet'},
     {n:'Measurement Critic',c:'FOV · Production',k:'08:45 self-check',d:'Built after a revenue measurement stood still for seven days without anyone noticing. Now the pipeline checks itself, every morning.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
     {n:'Portfolio Monitor',c:'Personal · Open source',k:'19 agents',d:'My investment dashboard. Fundamentals, quarterly results, macro and scenarios, running locally without external AI.',v:'candle',bg:'#111A22',cs:'portfolio-monitor',u:'https://bastiaanvdh.github.io/portfolio/monitor.html'}
   ];
@@ -590,7 +590,13 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 
   /* ---------- Meeschuivende rij ---------- */
   var R=[
-    {k:'98%',s:'coverage',n:'Product weights',c:'FOV',d:'Weights for 7,382 products, calculated from safety data sheets. Median error 8.6%.',t:'Python · PDF · pytest',cs:'gewichten-veiligheidsbladen'},
+    {k:'200+',s:'emails read and filled in',n:'Orders without retyping',c:'FOV · Intranet',d:'Orders from the sales mailbox are ready as a draft order: customer and products recognised in KING. Customer service checks it, asks the customer a question if needed and puts the order into KING with one click. Any doubt is always clearly shown.',t:'Python · AI · KING Webservices'},
+    {k:'98%',s:'customers recognisable by number',n:'Customer card on the phone',c:'FOV · Intranet',d:'Whoever calls is on screen right away: what is running, the contacts and the figures from KING. From the card you start a quote, order, return or repair. Next step: the 3CX link, so the card opens by itself when a customer calls.',t:'3CX · KING · Flask'},
+    {k:'.de',s:'German web shop, live',n:'fovfarbe.de',c:'FOV',d:'Got the German web shop ready: 1,142 German product texts imported, 35 category pages set up and GA4 and Tag Manager tracking live since October 2026.',t:'KING import · GA4 · GTM',u:'https://www.fovfarbe.de/'},
+    {k:'98%',s:'prices exact in the trial',n:'Supplier price lists',c:'FOV · Intranet',d:'Supplier Excel in, new cost and sales prices out, using the pricing rule per brand. In a trial on 2,665 products, 1,834 of the 1,868 regular products came out at exactly the current cost price.',t:'Flask · openpyxl · KING'},
+    {k:'1',s:'screen for a new customer',n:'Create customer',c:'FOV · Intranet',d:'Register a new customer on one screen, with Chamber of Commerce data added, and straight into the ERP through the KING web services. No more retyping.',t:'KING Webservices · KvK · Flask'},
+    {k:'10,909',s:'products with a UN number',n:'Returns and repairs',c:'FOV · Intranet',d:'Tracking returns and repairs in the intranet. Transport data for dangerous goods (UN number, class, packing group) comes straight from KING.',t:'Flask · KING · ADR'},
+    {k:'95%',s:'within 20% of weighed',n:'Product weights',c:'FOV',d:'Weight from density × volume + packaging, read from safety data sheets. 1,843 products calculated and checked against 8,129 weighed products.',t:'Python · PDF · pytest',cs:'gewichten-veiligheidsbladen'},
     {k:'5',s:'weight classes',n:'Shipping cost engine',c:'FOV',d:'Replaces a flat rate of €22.50, for the Netherlands and Germany. 46 tests on edge cases.',t:'Python · JSON · pytest'},
     {k:'~4h',s:'per week per company',n:'FOV Ads Autopilot',c:'FOV',d:'Google Ads advice for four companies. It changes nothing itself, a person decides.',t:'Google Ads API · Pandas'},
     {k:'SEO',s:'own competitor analysis',n:'Gap Intelligence',c:'FOV',d:'Finds topics where competitors rank and we do not yet, and turns them into content briefs.',t:'Playwright · scikit-learn'},
@@ -602,7 +608,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   ];
   var rail=$('rail');
   R.forEach(function(p,i){var t=document.createElement('div');t.className='tile';
-    t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Read the case (NL) →</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
+    t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Read the case (NL) →</a>':'')+(p.u?'<a class="tlnk" href="'+p.u+'">Visit the site ↗</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
   var wrap=$('railWrap'),pinned=false;
   function sizeRail(){pinned=!reduce&&innerWidth>900;wrap.classList.toggle('pinned',pinned);
     if(pinned){wrap.style.height=(rail.scrollWidth-innerWidth+innerHeight)+'px'}else{wrap.style.height='';rail.style.transform=''}}
@@ -670,7 +676,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     var best=0,bd=1e9;rows.forEach(function(r,i){var b=r.getBoundingClientRect(),d=Math.abs(b.top+b.height/2-vh*.5);if(d<bd){bd=d;best=i}});setWork(best);
     // rij
     if(pinned){var b=wrap.getBoundingClientRect(),span=b.height-vh,p=clamp(-b.top/span),dist=rail.scrollWidth-innerWidth;
-      rail.style.transform='translate3d('+(-p*dist)+'px,0,0)';$('railNum').textContent='('+String(Math.min(9,Math.floor(p*9)+1)).padStart(2,'0')+' / 09)'}
+      rail.style.transform='translate3d('+(-p*dist)+'px,0,0)';$('railNum').textContent='('+String(Math.min(R.length,Math.floor(p*R.length)+1)).padStart(2,'0')+' / '+R.length+')'}
     // zin
     if(!reduce){var s=say.getBoundingClientRect(),q=clamp((-s.top+vh*.35)/(s.height-vh*.6)),n=Math.round(q*words.length*1.1);
       words.forEach(function(w,i){w.classList.toggle('lit',i<n)})}
