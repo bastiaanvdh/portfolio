@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <title>Case: Artikelgewichten uit Veiligheidsbladen | Bastiaan van der Horst</title>
-<meta name="description" content="Hoe ik voor 7.382 artikelen zonder gewicht de dichtheid uit veiligheids- en productinformatiebladen haalde die het KING-ERP zelf aanwijst — met een zelfcontrole die niet stilzwijgend groen kan blijven.">
+<meta name="description" content="Hoe ik voor 7.382 artikelen zonder gewicht (aug 2026) de dichtheid uit veiligheids- en productinformatiebladen haalde die het ERP zelf aanwijst — met een zelfcontrole die niet stilzwijgend groen kan blijven.">
 <meta name="author" content="Bastiaan van der Horst">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/gewichten-veiligheidsbladen.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/cases/gewichten-veiligheidsbladen.html">
 <meta property="og:title" content="Case: Artikelgewichten uit Veiligheidsbladen">
-<meta property="og:description" content="Gewicht berekenen uit dichtheid × inhoud + tarra, met de dichtheid uit PDF-databladen die KING zelf per artikel aanwijst.">
+<meta property="og:description" content="Gewicht berekenen uit dichtheid × inhoud + tarra, met de dichtheid uit PDF-databladen die het ERP zelf per artikel aanwijst.">
 <meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
@@ -20,7 +20,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Case: Artikelgewichten uit Veiligheidsbladen",
-  "description": "Gewicht berekenen uit dichtheid uit PDF-databladen die het KING-ERP zelf per artikel aanwijst, met een zelfcontrole die niet stil kan falen.",
+  "description": "Gewicht berekenen uit dichtheid uit PDF-databladen die het ERP zelf per artikel aanwijst, met een zelfcontrole die niet stil kan falen.",
   "author": { "@type": "Person", "name": "Bastiaan van der Horst", "url": "https://bastiaanvdh.github.io/portfolio/" },
   "publisher": { "@type": "Person", "name": "Bastiaan van der Horst" },
   "mainEntityOfPage": "https://bastiaanvdh.github.io/portfolio/cases/gewichten-veiligheidsbladen.html",
@@ -118,55 +118,56 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
 <div class="container">
   <div class="case-label">Case study · FOV</div>
   <h1>Artikelgewichten uit Veiligheidsbladen</h1>
-  <p class="lead">7.382 artikelen zonder gewicht, een magazijn dat ze niet allemaal op de weegschaal kan leggen, en een verzendcalculatie die het gewicht wél nodig heeft. De oplossing lag al in het ERP — je moest hem alleen uit de PDF's halen.</p>
+  <p class="lead">7.382 artikelen zonder gewicht (aug 2026), een magazijn dat ze niet allemaal op de weegschaal kan leggen, en een verzendcalculatie die het gewicht wél nodig heeft. De oplossing lag al in het ERP — je moest hem alleen uit de PDF's halen.</p>
 
   <div class="tech-row">
-    <span class="tech-tag">Python</span><span class="tech-tag">PDF-extractie</span><span class="tech-tag">Regex</span><span class="tech-tag">pytest</span><span class="tech-tag">KING XML</span><span class="tech-tag">openpyxl</span>
+    <span class="tech-tag">Python</span><span class="tech-tag">PDF-extractie</span><span class="tech-tag">Regex</span><span class="tech-tag">pytest</span><span class="tech-tag">ERP-import (XML)</span><span class="tech-tag">openpyxl</span>
   </div>
 
   <div class="kpi-row">
-    <div class="kpi"><span class="kpi-val">7.382</span><span class="kpi-label">Artikelen zonder gewicht</span></div>
-    <div class="kpi"><span class="kpi-val">98%</span><span class="kpi-label">Dekking uit VIB</span></div>
-    <div class="kpi"><span class="kpi-val">8,6%</span><span class="kpi-label">Mediane fout (blind)</span></div>
-    <div class="kpi"><span class="kpi-val">27</span><span class="kpi-label">Regressietests</span></div>
+    <div class="kpi"><span class="kpi-val">7.382</span><span class="kpi-label">Zonder gewicht (aug 2026)</span></div>
+    <div class="kpi"><span class="kpi-val">98%</span><span class="kpi-label">Dekking waar een VIB is</span></div>
+    <div class="kpi"><span class="kpi-val">1–6%</span><span class="kpi-label">Mediane fout (blind)</span></div>
+    <div class="kpi"><span class="kpi-val">23.000+</span><span class="kpi-label">Artikelen kregen gewicht</span></div>
   </div>
 
   <span class="section-tag">Het probleem</span>
   <h2>Bijna de helft van de catalogus weegt niets</h2>
-  <p>Van de webartikelen in het KING-ERP hadden er <strong>7.382 geen gewicht</strong> — bijna de helft. Zonder gewicht kun je geen verzendtarief op maat rekenen: elk pakket valt terug op een plat tarief, en een europallet van 200 kg kan zo voor pakketprijs de deur uit. Het magazijn elk product laten wegen was geen optie, en de directe toegang tot de KING DataDigger was net vervallen.</p>
+  <p>Van de 15.522 webartikelen in het ERP hadden er in augustus 2026 <strong>7.382 geen gewicht</strong> — bijna de helft. Zonder gewicht kun je geen verzendtarief op maat rekenen: elk pakket valt terug op een plat tarief, en een europallet van 200 kg kan zo voor pakketprijs de deur uit. Het magazijn elk product laten wegen was geen optie, en de directe toegang tot een databasetool van het ERP was net vervallen.</p>
   <p>De informatie bestond wel: verf heeft een dichtheid, en die staat op de veiligheids- en productinformatiebladen. Alleen stonden die als duizenden losse PDF's op een netwerkschijf, zonder dat iets ze aan een artikel koppelde. Of dat dacht ik.</p>
 
   <span class="section-tag">De aanpak</span>
-  <h2>KING wijst het blad zelf aan</h2>
-  <p>De doorbraak: de vrije rubrieken in KING bevatten het <strong>volledige pad</strong> naar het PDF-blad per artikel. Geen fragiele matching op productnaam nodig — het ERP zegt zelf welk blad bij welk artikel hoort. Daarmee werd het een extractieprobleem: open het juiste blad, lees de dichtheid, reken <em>dichtheid × inhoud + tarra</em>.</p>
+  <h2>Het ERP wijst het blad zelf aan</h2>
+  <p>De doorbraak: de vrije rubrieken in het ERP bevatten het <strong>volledige pad</strong> naar het PDF-blad per artikel. Geen fragiele matching op productnaam nodig — het ERP zegt zelf welk blad bij welk artikel hoort. Daarmee werd het een extractieprobleem: open het juiste blad, lees de dichtheid, reken <em>dichtheid × inhoud + tarra</em>.</p>
   <div class="flow">
-    <div class="flow-step"><div class="flow-num">01</div><b>Pad uit KING</b><span>Vrije rubriek wijst het PDF-blad aan</span></div>
+    <div class="flow-step"><div class="flow-num">01</div><b>Pad uit het ERP</b><span>Vrije rubriek wijst het PDF-blad aan</span></div>
     <div class="flow-step"><div class="flow-num">02</div><b>Dichtheid lezen</b><span>VIB voor losse verpakking, PIB voor sets</span></div>
     <div class="flow-step"><div class="flow-num">03</div><b>Gewicht rekenen</b><span>dichtheid × inhoud + geleerde tarra</span></div>
     <div class="flow-step"><div class="flow-num">04</div><b>Zelfcontrole</b><span>narekenen tegen gewogen artikelen</span></div>
   </div>
-  <p>Er lopen bewust <strong>twee sporen</strong>. Voor losse verpakkingen (blik, jerrycan, emmer) komt de dichtheid uit het veiligheidsblad. Maar 69% van de voorraad zijn <strong>tweecomponenten-sets</strong> — en dan is het veiligheidsblad van component A het verkeerde getal, want een "Set 20 liter" is basis plus verharder samen. Daarvoor leest het systeem het productinformatieblad, dat de dichtheid van het gemengde product rechtstreeks geeft.</p>
+  <p>Er lopen bewust <strong>twee sporen</strong>. Voor losse verpakkingen (blik, jerrycan, emmer) komt de dichtheid uit het veiligheidsblad. Maar 69% van de artikelen zonder gewicht is een <strong>tweecomponenten-set</strong> — en dan is het veiligheidsblad van component A het verkeerde getal, want een "Set 20 liter" is basis plus verharder samen. Daarvoor leest het systeem het productinformatieblad, dat de dichtheid van het gemengde product rechtstreeks geeft.</p>
 
   <blockquote>Een dekkingspercentage kan er gezond uitzien terwijl de extractor stilletjes het verkeerde getal leest. De bugs kwamen niet boven door naar het percentage te kijken, maar door naar de wáárden te kijken.</blockquote>
 
   <span class="section-tag">De uitdaging</span>
   <h2>Een getal dat klopt, niet een getal dat past</h2>
-  <p>PDF-databladen zijn rommelig. De eerste versie las bij één product <code>0,464</code> in plaats van 1,4 — het zoekvenster liep door naar het VOS-gehalte van 464 g/l verderop, en dat viel na omrekening keurig binnen een plausibel bereik. Andere vallen: een dichtheid van <code>3,44 lb/US gal</code> die als kg/l werd gelezen, tabelkolommen bij Hempel die label en waarde op verschillende regels zetten, en één blad dat een hele kleurenreeks dekt terwijl kleuren echt in dichtheid verschillen.</p>
-  <p>De verdediging daartegen zit in twee principes. <strong>De eenheid is verplicht</strong>, zodat losse getallen, percentages en g/l-waarden vanzelf afvallen. En <strong>een ontbrekend gewicht wordt nooit 0</strong>: zonder betrouwbare dichtheid gaat een artikel naar de handwerklijst in plaats van stilzwijgend op nul te komen. Elke fout die ooit gemaakt is, staat nu vast in één van de 27 regressietests.</p>
+  <p>PDF-databladen zijn rommelig. De eerste versie las bij één product <code>0,464</code> in plaats van 1,4 — het zoekvenster liep door naar het VOS-gehalte van 464 g/l verderop, en dat viel na omrekening keurig binnen een plausibel bereik. Andere vallen: een dichtheid van <code>3,44 lb/US gal</code> die als kg/l werd gelezen, tabelkolommen bij een leverancier die label en waarde op verschillende regels zetten, en één blad dat een hele kleurenreeks dekt terwijl kleuren echt in dichtheid verschillen.</p>
+  <p>De verdediging daartegen zit in twee principes. <strong>De eenheid is verplicht</strong>, zodat losse getallen, percentages en g/l-waarden vanzelf afvallen. En <strong>een ontbrekend gewicht wordt nooit 0</strong>: zonder betrouwbare dichtheid gaat een artikel naar de handwerklijst in plaats van stilzwijgend op nul te komen. Elke fout die ooit gemaakt is, staat nu vast in een test. Inmiddels zijn dat er meer dan 50.</p>
 
   <span class="section-tag">Het resultaat</span>
   <h2>Meten of het klopt, niet hopen</h2>
   <ul>
-    <li><strong>98% dekking</strong> uit de veiligheidsbladen voor de losse verpakkingen; de setgroep via de productinformatiebladen erbovenop.</li>
-    <li><strong>Mediane fout van 8,6%</strong> in een blinde test — tarra geleerd op de ene helft van de ijkartikelen, voorspeld op de andere.</li>
+    <li><strong>98% dekking waar een veiligheidsblad is</strong>, voor de losse verpakkingen; de setgroep via de productinformatiebladen erbovenop.</li>
+    <li><strong>Mediane fout van 1–6%</strong> in een blinde test — tarra geleerd op de ene helft van de ijkartikelen, voorspeld op de andere. 90–95% van de berekende gewichten valt binnen 20% van de weegschaal.</li>
+    <li><strong>Ruim 23.000 artikelen kregen een gewicht:</strong> in het hele ERP daalde het aantal artikelen zonder gewicht daarna van ruim 30.000 naar ruim 7.000.</li>
     <li><strong>Een zelfcontrole die niet stil groen kan blijven:</strong> te weinig gewogen ijkartikelen levert geen "OK" op maar een expliciete "niet uitgevoerd" met foutcode.</li>
     <li><strong>Herhaalbaar:</strong> een herdraai leest alleen nieuwe of gewijzigde bladen — 3 seconden in plaats van 10 minuten, met een uitkomst die regel voor regel gelijk is.</li>
   </ul>
-  <p>Daarmee ligt de basis onder de <a href="../index.html#werk" class="inline">dynamische verzendkosten</a>: pas met een gewicht per artikel kan de webshop de juiste vervoerder en prijs kiezen in plaats van een plat tarief.</p>
+  <p>Daarmee ligt de basis onder de <a href="../index.html#werk" class="inline">nieuwe verzendkosten</a>: een staffel op gewicht in plaats van één vast tarief. Voor Nederland is dat besloten, Duitsland is in voorbereiding, en de berekening draait op 112 tests.</p>
 
   <span class="section-tag">Wat ik eruit haalde</span>
   <h2>Geleerd onderweg</h2>
-  <p>De scherpste les zat in de meting van de meting. Een extractor die "91% dekking" rapporteert voelt af — tot je ziet dat een deel van die 91% het VOS-gehalte of een straalgraad heeft gelezen. Datakwaliteit bewijs je niet met een percentage maar door de waarden naast een onafhankelijke bron te leggen, en door een controle te bouwen die luider meldt dát hij niets kon meten dan wat hij vond.</p>
+  <p>De scherpste les zat in de meting van de meting. Een extractor met een hoog dekkingspercentage voelt af — tot je ziet dat een deel daarvan het VOS-gehalte of een straalgraad heeft gelezen. Datakwaliteit bewijs je niet met een percentage maar door de waarden naast een onafhankelijke bron te leggen, en door een controle te bouwen die luider meldt dát hij niets kon meten dan wat hij vond.</p>
 
   <div class="cta-card">
     <h3>Meer weten?</h3>

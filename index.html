@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Bastiaan van der Horst | Data, Marketing Intelligence & Beleggen</title>
-<meta name="description" content="Data & Marketing Intelligence Specialist. Python, ML, automatisering en beleggen. Bouwt tools die dagelijks draaien en meetbare impact hebben.">
+<meta name="description" content="Bastiaan van der Horst zoekt een rol als Data Analist, Marketing Data Analist of AI Automation Specialist. GA4, SQL, Python en AI-automatisering, met vijf demo’s om zelf te proberen.">
 <meta name="author" content="Bastiaan van der Horst">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/">
@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/">
 <meta property="og:site_name" content="Bastiaan van der Horst">
 <meta property="og:title" content="Bastiaan van der Horst | Data, Marketing Intelligence & Beleggen">
-<meta property="og:description" content="Data & Marketing Intelligence Specialist. Python, ML, automatisering en beleggen. Bouwt tools die dagelijks draaien en meetbare impact hebben.">
+<meta property="og:description" content="Bastiaan van der Horst zoekt een rol als Data Analist, Marketing Data Analist of AI Automation Specialist. GA4, SQL, Python en AI-automatisering, met vijf demo’s om zelf te proberen.">
 <meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bastiaan van der Horst | Data, Marketing Intelligence & Beleggen">
@@ -241,6 +241,10 @@ h1,h2,h3{margin:0;font-weight:inherit}
 .quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start;margin-top:40px}
 .quote blockquote{margin:0;font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:700;line-height:1.15;color:var(--accent)}
 .quote cite{display:block;margin-top:12px;font-style:normal}
+.quote .qt{margin:0;font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:700;line-height:1.15;color:var(--accent)}
+.hero-foot p.avail b{color:var(--accent)}
+.hero-foot p.avail{position:relative;z-index:5;font-size:.8rem;display:inline-block;background:var(--bg);padding:6px 10px 6px 0;border-radius:4px}
+@media (max-width:700px){.hero-foot p.avail{display:block}}
 .q-photo{aspect-ratio:4/5;max-width:100%;background:radial-gradient(70% 60% at 50% 40%,#2C2B28,var(--bg2));border-radius:4px;display:flex;align-items:flex-end;padding:14px;overflow:hidden}
 .q-photo{padding:0}.q-photo img{width:100%;height:100%;object-fit:cover;object-position:42% 30%;filter:grayscale(1)}
 @media (max-width:860px){.ab-grid{grid-template-columns:minmax(0,1fr)}.stack{display:none}.ab-block{min-height:0;padding-bottom:50px}
@@ -279,11 +283,14 @@ h1,h2,h3{margin:0;font-weight:inherit}
 /* Beleggen */
 .invest{padding-top:150px}
 .inv-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;align-items:end;margin-top:30px}
+.inv-side p.inv-disc{font-size:.68rem;line-height:1.5;color:var(--dim);margin:18px 0 0;max-width:52ch}
 .big{font-weight:800;font-stretch:62%;font-size:min(30vw,26rem);line-height:.8;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--accent)}
 .inv-side p{margin:0 0 22px;font-size:1.15rem;max-width:36ch}
 .kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
 .kv div{padding:16px 12px 0 0}
 .kv b{display:block;font-weight:800;font-stretch:70%;font-size:2.2rem;line-height:1;font-variant-numeric:tabular-nums}
+.kv{grid-template-columns:1.2fr 1.2fr .6fr}
+@media (max-width:600px){.kv{grid-template-columns:1fr 1fr}.kv div:last-child{grid-column:1/-1}.kv b{font-size:1.8rem}}
 .inv-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
 @media (max-width:820px){.inv-grid{grid-template-columns:minmax(0,1fr)}}
 
@@ -416,6 +423,33 @@ table.dm-t tr.hl td{background:#221d18}
 .dm-form .fr{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .dm-pick{display:grid;gap:8px;margin-top:14px;max-width:460px}
 .dm-pick .dm-item{border:1px solid var(--line);border-radius:8px}
+.dx-fun,.dx-txt{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:520px}
+.dx-side{border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.dx-main,.dx-out{padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
+.dx-step{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px}
+.dx-step.on{border:2px solid var(--accent)}
+.dx-sh{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.dx-bar{display:grid;grid-template-columns:110px minmax(0,1fr) 56px;gap:10px;align-items:center;font-size:.84rem}
+.dx-track{height:12px;background:var(--bg);border-radius:3px;overflow:hidden}
+.dx-track i{display:block;height:100%;background:var(--dim);transition:width .5s}
+.dx-track i.b{background:var(--ink)}
+.dx-bv{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.dx-say{margin:4px 0 0;border-left:3px solid var(--accent);padding-left:12px;font-size:.95rem}
+.dx-ph{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;margin-top:8px;align-items:start}
+.dx-frame{position:relative;width:200px;height:400px;border:2px solid var(--dim);border-radius:22px;background:var(--bg);overflow:hidden}
+.dx-img{position:absolute;left:14px;right:14px;top:20px;height:150px;border-radius:8px;background:#24231F;display:flex;align-items:center;justify-content:center;font:.6rem var(--mono);color:var(--mid)}
+.dx-l{position:absolute;left:14px;right:40px;height:8px;border-radius:3px;background:#2E2D29}.dx-l.s{right:80px}
+.dx-buy{position:absolute;left:14px;right:14px;height:34px;border-radius:8px;background:var(--accent);color:var(--on-accent);font-weight:600;font-size:.72rem;display:flex;align-items:center;justify-content:center;transition:top .5s}
+.dx-fold{position:absolute;left:0;right:0;top:300px;bottom:0;border-top:2px dashed var(--accent);background:rgba(15,15,14,.6)}
+.dx-fold b{display:block;font:500 .56rem var(--mono);color:var(--accent);padding:5px 8px;text-transform:uppercase;letter-spacing:.06em}
+.dx-pt{display:grid;gap:10px;align-content:start}.dx-pt p{margin:0;font-size:.92rem;color:var(--mid)}
+.dx-wgt{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);min-height:520px}
+.dx-wl{padding:20px;border-right:1px solid var(--line);display:grid;gap:12px;align-content:start;min-width:0}
+.dx-wr{padding:20px;display:grid;gap:14px;align-content:start;min-width:0}
+.dx-cur{font-weight:700}
+.dx-chk{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;color:var(--mid);cursor:pointer}
+.dx-f{display:grid;gap:4px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+@media (max-width:800px){.dx-fun,.dx-wgt,.dx-txt{grid-template-columns:1fr}.dx-side,.dx-wl{border-right:0;border-bottom:1px solid var(--line)}.dx-ph{grid-template-columns:1fr}.dx-bar{grid-template-columns:84px minmax(0,1fr) 48px}}
 .dm-toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(10px);background:var(--accent);color:var(--on-accent);padding:12px 20px;border-radius:999px;font:500 .74rem var(--mono);letter-spacing:.04em;z-index:80;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;max-width:calc(100vw - 32px);text-align:center}
 .dm-toast.show{opacity:1;transform:translateX(-50%)}
 @media (max-width:980px){
@@ -457,11 +491,11 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 <main id="top">
 <section class="hero g" id="hero">
   <div class="hero-meta m"><span>(Portfolio / ©2026)</span><span>Data &amp; Marketing Intelligence</span><span>Harlingen, NL</span></div>
-  <div class="portrait" id="portrait" aria-hidden="true"><div class="ph"><span>B</span><em class="m">(foto volgt)</em></div></div>
+  <div class="portrait" id="portrait" aria-hidden="true"><img src="assets/bastiaan.jpg" alt=""></div>
   <svg class="orb" id="orb" aria-hidden="true"></svg>
   <h1 class="name" aria-label="Bastiaan van der Horst"><span class="l1">Bastiaan</span><span class="l2">van der Horst</span></h1>
   <div class="hero-foot">
-    <div><p>Ik zet ruwe data om in beslissingen. Met Python, modellen en dashboards, afgerekend in euro's en uren.</p><p class="m avail"><b>●</b> Open voor een nieuwe rol, een opdracht of een samenwerking</p></div>
+    <div><p>Ik zet ruwe data om in beslissingen. Met Python, modellen en dashboards, afgerekend in euro's en uren.</p><p class="m avail"><b>●</b> Op zoek naar een nieuwe rol:<br>Data Analist · Marketing Data Analist · AI Automation Specialist</p></div>
     <span class="m">↓ Scroll, rustig aan</span>
     <a class="pill" href="#werk" data-go>Bekijk het werk →</a>
   </div>
@@ -505,7 +539,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 </section>
 
 <section class="close-up" aria-label="Meer projecten">
-  <div class="rail-head m g"><span>(Van dichtbij)</span><span id="railNum">Scroll of veeg · 15 projecten</span></div>
+  <div class="rail-head m g"><span>(Van dichtbij)</span><span id="railNum">Scroll of veeg · 12 projecten</span></div>
   <div class="rail-wrap" id="railWrap">
     <div class="rail-sticky" id="railSticky"><div class="rail" id="rail"></div></div>
   </div>
@@ -518,6 +552,9 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <div class="dm-tabs" role="tablist" id="dmTabs" aria-label="Demo"></div>
   <div id="dmMail" class="dm-panel"></div>
   <div id="dmTel" class="dm-panel" hidden></div>
+  <div id="dmFun" class="dm-panel" hidden></div>
+  <div id="dmWgt" class="dm-panel" hidden></div>
+  <div id="dmTxt" class="dm-panel" hidden></div>
   <p class="m dm-note" id="dmNote"></p>
 </section>
 
@@ -549,7 +586,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
           <li><span class="m">2024 — 2025</span><span>MKB-adviseur klantenservice<small>Rabobank via DPA · Utrecht</small></span></li>
           <li><span class="m">2021 — 2024</span><span>Leidinggevende / weekendmanager<small>Poiesz Supermarkten · Friesland</small></span></li>
           <li><span class="m">2020 — 2023</span><span>Eigenaar en oprichter<small>BeLion Sportswear · Harlingen</small></span></li>
-          <li class="next"><span class="m"><b>Volgende</b></span><span>Jouw team of opdracht?<small>Een rol, een opdracht of een samenwerking</small></span></li>
+          <li class="next"><span class="m"><b>Volgende</b></span><span>Jouw team?<small>Data Analist · Marketing Data Analist · AI Automation Specialist</small></span></li>
         </ol>
       </div>
       <div class="ab-block">
@@ -566,8 +603,8 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
         <p><b>HBO Commerciële Economie</b>, NHL Stenden.</p>
         <p>Minors in <b>Beleggen</b> en in <b>Marketing Communicatie &amp; Content Marketing</b>. Daarnaast heb ik mijn Wft Basis.</p>
         <div class="quote">
-          <div><blockquote>„Iemand die weet het voortouw te pakken, en met zijn inbreng het niveau van de webshops naar een hoger niveau heeft gebracht.”</blockquote><cite class="m">Over Bastiaan · FOV</cite></div>
-          <div class="q-photo" id="qphoto"><span class="m">(foto volgt)</span></div>
+          <div><p class="qt">Ik zoek een team waar data het gesprek stuurt, en ruimte om processen met AI te automatiseren en te verbeteren.</p><cite class="m">Wat ik zoek · Data Analist · Marketing Data Analist · AI Automation Specialist</cite></div>
+          <div class="q-photo" id="qphoto"><img src="assets/bastiaan.jpg" alt="Bastiaan van der Horst" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -591,12 +628,12 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 <section class="invest g" id="beleggen">
   <div class="sec-head m"><span>(Na werktijd)</span><span>Beleggen</span></div>
   <div class="inv-grid">
-    <div class="big" id="big" aria-label="plus 43 procent">+43%</div>
+    <div class="big" id="big" aria-label="plus 29,6 procent dit jaar">+29,6%</div>
     <div class="inv-side">
-      <p>Na werktijd licht ik bedrijven door, fundamenteel en technisch, en toets ik mijn ideeën aan data. Daarvoor bouwde ik mijn eigen Portfolio Monitor. Wat ik leer, deel ik op Instagram als Beleggen met Bastiaan.</p>
+      <p>Na werktijd licht ik bedrijven door, fundamenteel en technisch, en toets ik mijn ideeën aan data. Daarvoor bouwde ik mijn eigen Portfolio Monitor. Wat ik leer, deel ik op Instagram als Beleggen met Bastiaan. Ik beleg sinds mijn 19e en meet mijn rendement tegen de S&amp;P 500.</p>
       <div class="kv">
-        <div><b>+43%</b><span class="m">dit jaar</span></div>
-        <div><b>+57%</b><span class="m">all-time</span></div>
+        <div><b>+29,55%</b><span class="m">dit jaar · S&amp;P 500 +13,13%</span></div>
+        <div><b>+31,26%</b><span class="m">laatste 12 maanden · S&amp;P 500 +16,08%</span></div>
         <div><b>~7</b><span class="m">posities</span></div>
       </div>
       <div class="inv-links">
@@ -604,6 +641,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
         <a class="pill" href="https://bastiaanvdh.github.io/portfolio/screener.html">Screener →</a>
         <a class="pill" href="https://www.instagram.com/beleggenmetbastiaan/">Beleggen met Bastiaan ↗</a>
       </div>
+      <p class="m inv-disc">Stand 16-10-2026. S&amp;P 500: koersrendement in dollar. Geen beleggingsadvies. Rendement uit het verleden biedt geen garantie voor de toekomst.</p>
     </div>
   </div>
 </section>
@@ -621,7 +659,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 <section class="contact g" id="contact">
   <span class="m"><b>(Contact)</b></span>
   <h2>Zullen we <em>kennismaken?</em></h2>
-  <p class="c-lead">Een nieuwe rol, een opdracht of een samenwerking: ik sta open voor wat jij bij mij vindt passen. Stuur een mail of een bericht op LinkedIn.</p>
+  <p class="c-lead">Ik zoek een rol als Data Analist, Marketing Data Analist of AI Automation Specialist: werk waar ik data omzet in besluiten en processen automatiseer. Stuur een mail of een bericht op LinkedIn.</p>
   <div class="c-row">
     <div class="mail"><code id="mail">bastiaanvanderhorst@hotmail.com</code><button class="pill solid" type="button" id="copy">Kopieer</button></div>
     <a class="pill" href="https://www.linkedin.com/in/bastiaan-v-01846112a">LinkedIn ↗</a>
@@ -671,8 +709,8 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       {e:0,ph:2.3,v:1,el:mk('circle',{'class':'p-disc',r:38*s},orb)},
       {e:0,ph:5.4,v:1,el:mk('circle',{'class':'p-ring',r:30*s},orb)},
       {e:1,ph:.6,v:-1.6,el:mk('circle',{'class':'p-disc',r:14*s},orb)},
-      {e:1,ph:3.7,v:-1.6,el:mk('circle',{'class':'p-dot',r:5},orb),lab:['● +47,6% · ORG.','R² 0,75 · θ ']},
-      {e:0,ph:.9,v:1,el:mk('circle',{'class':'p-dot',r:4},orb),lab:['● €1,3M · ATTR.','80X · θ ']}
+      {e:1,ph:3.7,v:-1.6,el:mk('circle',{'class':'p-dot',r:5},orb),lab:['● +45% · WEERG.','R² 0,65 · θ ']},
+      {e:0,ph:.9,v:1,el:mk('circle',{'class':'p-dot',r:4},orb),lab:['● ×5,8 · FUNNEL','98% · θ ']}
     ];
     O.P.forEach(function(p){if(p.lab){p.t1=mk('text',{},orb);p.t2=mk('text',{},orb);p.t1.textContent=p.lab[0]}});
     O.t=0;placeOrb();
@@ -690,31 +728,33 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   function head(big,sub,bg){return '<rect width="400" height="500" fill="'+bg+'"/><text class="v-big" x="28" y="98">'+big+'</text><text class="v-sub" x="30" y="124">'+sub+'</text><text class="v-note" x="372" y="482" text-anchor="end">SCHETS</text>'}
   function grid(){var s='';for(var y=200;y<=440;y+=60)s+='<line class="v-grid" x1="28" x2="372" y1="'+y+'" y2="'+y+'"/>';return s}
   var V={
+    fun:function(bg){var s=SV+head('×5,8','OMSLAGPUNT · PRODUCT → MANDJE',bg)+grid(),A=[46,5,68,79],B=[58,30,77,86];for(var i=0;i<4;i++){var x=40+i*84,ha=A[i]*2.4,hb=B[i]*2.4,on=i===1;s+='<rect class="v-tile" x="'+x+'" y="'+(430-ha)+'" width="28" height="'+ha+'" style="--d:'+(i*120)+'ms"/>';s+='<rect x="'+(x+32)+'" y="'+(430-hb)+'" width="28" height="'+hb+'" rx="2" fill="'+(on?'#FF8A3D':'rgba(237,234,228,.25)')+'"/>';if(on)s+='<text class="v-tl" x="'+(x+30)+'" y="'+(430-hb-14)+'" text-anchor="middle">▲ ×5,8</text>'}return s+'<text class="v-sub" x="30" y="466">NIEUW · TERUGKEREND · PER STAP</text></svg>'},
+    scale:function(bg){var s=SV+head('23.000+','ARTIKELEN KREGEN EEN GEWICHT',bg)+grid(),T=[60,90,125,165,210,255];for(var i=0;i<6;i++){var x=34+i*56,on=i===2;s+='<rect class="v-tile" x="'+x+'" y="'+(430-T[i])+'" width="48" height="'+T[i]+'" style="--d:'+(i*90)+'ms'+(on?';fill:#FF8A3D':'')+'"/>'}return s+'<text class="v-tl" x="170" y="'+(430-125-12)+'" text-anchor="middle">◀ DEZE DOOS</text><text class="v-sub" x="30" y="466">90–95% BINNEN 20% · 112 TESTS</text></svg>'},
     mis:function(bg){var p=[],n=40;for(var i=0;i<=n;i++){var f=i/n;p.push([28+f*344,430-Math.pow(f,1.5)*220-9*Math.sin(i*1.25)*(1-f*.4)])}
       var pts=p.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' ');
-      return SV+head('+47,6%','ORGANISCH VERKEER · J-O-J',bg)+grid()+'<polygon class="v-area" points="28,440 '+pts+' 372,440"/><polyline class="v-line" pathLength="1" points="'+pts+'"/><text class="v-sub" x="30" y="466">GSC + GA4 + ADS · R² 0,75+</text></svg>'},
-    prod:function(bg){var s=SV+head('5.000+','PRODUCTTEKSTEN IN 4 UUR',bg),c=0;for(var r=0;r<14;r++)for(var k=0;k<20;k++){s+='<rect class="v-cell" x="'+(30+k*17)+'" y="'+(170+r*18)+'" width="13" height="13" rx="2" style="--d:'+(c*4)+'ms"/>';c++}
-      return s+'<text class="v-sub" x="30" y="466">≈ €0,02 PER STUK · 80X SNELLER</text></svg>'},
-    intra:function(bg){var s=SV+head('16','INTERNE APPS · 1 ERP',bg),c=0;for(var r=0;r<4;r++)for(var k=0;k<4;k++){c++;s+='<g><rect class="v-tile" x="'+(30+k*86)+'" y="'+(160+r*58)+'" width="72" height="44" rx="5" style="--d:'+(c*70)+'ms"/><text class="v-tl" x="'+(40+k*86)+'" y="'+(186+r*58)+'">'+(c<10?'0':'')+c+'</text></g>'}
-      return s+'<line x1="200" x2="200" y1="390" y2="420" stroke="#FF8A3D" stroke-opacity=".6"/><rect x="130" y="420" width="140" height="34" rx="4" fill="none" stroke="#FF8A3D"/><text class="v-sub" x="200" y="441" text-anchor="middle" style="fill:#EDEAE4">KING ERP</text></svg>'},
+      return SV+head('+45%','PAGINAWEERGAVEN · J-O-J',bg)+grid()+'<polygon class="v-area" points="28,440 '+pts+' 372,440"/><polyline class="v-line" pathLength="1" points="'+pts+'"/><text class="v-sub" x="30" y="466">GSC + GA4 + ADS · R² 0,65</text></svg>'},
+    prod:function(bg){var s=SV+head('30.576','DUITSE TEKSTVELDEN',bg),c=0;for(var r=0;r<14;r++)for(var k=0;k<20;k++){s+='<rect class="v-cell" x="'+(30+k*17)+'" y="'+(170+r*18)+'" width="13" height="13" rx="2" style="--d:'+(c*4)+'ms"/>';c++}
+      return s+'<text class="v-sub" x="30" y="466">✓ CONTROLE VÓÓR IMPORT · 92,6% ZICHTBAAR</text></svg>'},
+    intra:function(bg){var s=SV+head('18+','INTERNE APPS · 1 ERP',bg),c=0;for(var r=0;r<4;r++)for(var k=0;k<4;k++){c++;s+='<g><rect class="v-tile" x="'+(30+k*86)+'" y="'+(160+r*58)+'" width="72" height="44" rx="5" style="--d:'+(c*70)+'ms"/><text class="v-tl" x="'+(40+k*86)+'" y="'+(186+r*58)+'">'+(c<10?'0':'')+c+'</text></g>'}
+      return s+'<line x1="200" x2="200" y1="390" y2="420" stroke="#FF8A3D" stroke-opacity=".6"/><rect x="130" y="420" width="140" height="34" rx="4" fill="none" stroke="#FF8A3D"/><text class="v-sub" x="200" y="441" text-anchor="middle" style="fill:#EDEAE4">ERP</text></svg>'},
     heart:function(bg){function beat(x0,x1){var p=[],x=x0;while(x<x1-30){p.push([x,320],[x+12,320],[x+16,300],[x+20,350],[x+25,262],[x+30,330],[x+34,320]);x+=44}p.push([x1,320]);return p.map(function(q){return q.join(',')}).join(' ')}
       return SV+head('08:45','ELKE OCHTEND EEN ZELFCHECK',bg)+grid()+'<polyline class="v-line soft" pathLength="1" points="'+beat(28,140)+'"/><line class="v-flat" x1="140" x2="262" y1="320" y2="320"/><text class="v-tl" x="201" y="296" text-anchor="middle">7 DAGEN STIL</text><polyline class="v-line" style="--d:.9s" pathLength="1" points="'+beat(262,372)+'"/><text class="v-sub" x="30" y="466">7 SOORTEN MEETFOUTEN · 1 ACTIELIJST</text></svg>'},
-    mail:function(bg){var s=SV+head('200+','MAILS GELEZEN EN INGEVULD',bg);for(var i=0;i<5;i++){var y=160+i*54,tw=i===2;
+    mail:function(bg){var s=SV+head('1 klik','MAIL WORDT CONCEPTORDER',bg);for(var i=0;i<5;i++){var y=160+i*54,tw=i===2;
         s+='<g><rect class="v-tile" x="30" y="'+y+'" width="84" height="38" rx="3" style="--d:'+(i*120)+'ms"/><polyline points="30,'+y+' 72,'+(y+20)+' 114,'+y+'" fill="none" stroke="#57544F"/>'+
            '<line x1="124" x2="184" y1="'+(y+19)+'" y2="'+(y+19)+'" stroke="#57544F" stroke-dasharray="3 5"/>'+
            '<rect x="194" y="'+y+'" width="178" height="38" rx="3" fill="'+(tw?'#FF8A3D':'rgba(237,234,228,.05)')+'" stroke="'+(tw?'#FF8A3D':'#2A2926')+'"/>'+
            '<text class="v-tl" x="206" y="'+(y+23)+'" style="fill:'+(tw?'#140C06':'#EDEAE4')+'">'+(tw?'TWIJFEL':'✓ KLANT · ARTIKELEN')+'</text></g>'}
-      return s+'<text class="v-sub" x="30" y="466">1 KLIK NAAR KING · NIETS VANZELF</text></svg>'},
+      return s+'<text class="v-sub" x="30" y="466">PROTOTYPE · NIETS GAAT VANZELF</text></svg>'},
     candle:function(bg){var s=SV+head('19','PYTHON-AGENTS',bg)+grid(),prev=400;for(var i=0;i<26;i++){var mid=410-i*8.2+16*Math.sin(i*1.7),o=prev,c=mid,up=c<o,top=Math.min(o,c),h=Math.max(6,Math.abs(o-c)),x=32+i*13.2;
         s+='<g class="v-candle" style="--d:'+(i*45)+'ms"><line class="v-wick" x1="'+(x+4)+'" x2="'+(x+4)+'" y1="'+(top-8)+'" y2="'+(top+h+8)+'"/><rect class="'+(up?'v-up':'v-dn')+'" x="'+x+'" y="'+top+'" width="8" height="'+h+'"/></g>';prev=c}
-      return s+'<text class="v-sub" x="30" y="466">≈ 9.200 REGELS · 16 TABS · LOKAAL</text></svg>'}
+      return s+'<text class="v-sub" x="30" y="466">≈ 9.600 REGELS · 18 TABS · LOKAAL</text></svg>'}
   };
   var F=[
-    {n:'Marketing Intelligence Suite',c:'FOV · Productie',k:'+47,6% organisch',d:'GA4, Search Console en Google Ads in één hub. Met een voorspelmodel en afwijkingsdetectie, goed voor €1,3M toegerekende omzet.',v:'mis',bg:'#141C26',cs:'marketing-intelligence-suite'},
-    {n:'Product Automatisering',c:'FOV · Productie',k:'5K+ in 4 uur',d:'Productteksten, metatitels en SEO-teksten met twee AI-modellen. Ca. €0,02 per product, tegen €5 tot €10 met de hand.',v:'prod',bg:'#221812',cs:'product-automation-platform'},
-    {n:'Orders zonder overtypen',c:'FOV · Intranet',k:'200+ mails',d:'Bestellingen uit de mailbox van verkoop staan alvast als order klaar, met klant en artikelen herkend in KING. De binnendienst kijkt na en zet de order met één klik in KING.',v:'mail',bg:'#13201C',demo:'mail'},
-    {n:'Meetcriticus',c:'FOV · Productie',k:'08:45 zelfcheck',d:'Gebouwd nadat een omzetmeting zeven dagen stil lag zonder dat iemand het zag. Nu controleert de pijplijn zichzelf, elke ochtend.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
-    {n:'Portfolio Monitor',c:'Eigen · Open source',k:'19 agents',d:'Mijn beleggingsdashboard. Fundamentals, kwartaalcijfers, macro en scenario\'s, lokaal en zonder externe AI.',v:'candle',bg:'#111A22',cs:'portfolio-monitor',u:'https://bastiaanvdh.github.io/portfolio/monitor.html'}
+    {n:'Klantreis en mobiel',c:'FOV · Analyse',k:'×5,8 omslagpunt',d:'De GA4-funnel gesneden op nieuw of terugkerend en op apparaat. Gemiddeld leek alles in orde. Gesneden bleek één stap de breuk: van productpagina naar mandje gaan terugkerende bezoekers bijna 6× vaker door. Op mobiel staat de koopknop onder de vouw. Eén maatstaf gekozen om de oplossing te meten, bewust niet de omzet.',v:'fun',bg:'#141C26',demo:'fun'},
+    {n:'Productteksten op schaal',c:'FOV · Productie',k:'92,6% zichtbaar',d:'Een taalmodel schrijft per webshop en per taal de titel, meta en omschrijving, waaronder 30.576 Duitse tekstvelden op 6.237 artikelen. Een vaste controle houdt fouten tegen vóór de import. Daarna meet een tweede stap of de tekst echt op de pagina staat: 92,6% aantoonbaar zichtbaar.',v:'prod',bg:'#221812',demo:'txt'},
+    {n:'Van gewicht naar verzendprijs',c:'FOV · Productie',k:'23.000+ gewichten',d:'Gewicht berekend uit dichtheid × inhoud + verpakking, gelezen uit veiligheidsbladen en getoetst aan de weegschaal: 90 tot 95% binnen 20%. Zo kregen ruim 23.000 artikelen een gewicht. Daarop staat een verzendstaffel op gewicht voor webshop en binnendienst, met 112 tests.',v:'scale',bg:'#1A1C14',cs:'gewichten-veiligheidsbladen',demo:'wgt'},
+    {n:'Meetcriticus',c:'FOV · Productie',k:'08:45 zelfcheck',d:'Gebouwd nadat een omzetmeting zeven dagen stil lag zonder dat iemand het zag. Nu controleert de pijplijn zichzelf, elke werkdag om 08:45: zeven soorten meetfouten, één actielijst.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
+    {n:'Orders zonder overtypen',c:'FOV · Prototype',k:'prototype',d:'Bestellingen uit mail, pdf of Excel staan alvast als conceptorder klaar, met klant en artikelen herkend in het ERP. Twijfel wordt zichtbaar gemaakt, de binnendienst beslist en zet de order met één klik door. Werkend prototype, ligt als voorstel bij de directie.',v:'mail',bg:'#13201C',demo:'mail'}
   ];
   var CASES='https://bastiaanvdh.github.io/portfolio/cases/';
   var rowsEl=$('rows'),screen=$('screen');
@@ -733,20 +773,17 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
 
   /* ---------- Meeschuivende rij ---------- */
   var R=[
-    {k:'16',s:'interne apps, 1 ERP',n:'FOV Intranet',c:'FOV · Intranet',d:'Mijn eigen bedrijfsplatform: 16 interne apps, een projectregister met 26 projecten en live cijfers, gekoppeld aan het ERP.',t:'Python · Flask · KING API · SQL',cs:'fov-intranet'},
-    {k:'98%',s:'klanten herkenbaar op nummer',n:'Klantkaart bij de telefoon',c:'FOV · Intranet',d:'Wie belt, staat direct in beeld: wat er loopt, de contactpersonen en de cijfers uit KING. Vanuit de kaart start je meteen een offerte, order, retour of reparatie. Volgende stap: de koppeling met 3CX, zodat de kaart vanzelf opent als een klant belt.',t:'3CX · KING · Flask'},
-    {k:'.de',s:'Duitse webshop, live',n:'fovfarbe.de',c:'FOV',d:'De Duitse webshop klaargezet: 1.142 Duitse productteksten ingelezen, 35 categoriepagina\'s ingericht en de meting met GA4 en Tag Manager live sinds oktober 2026.',t:'KING-import · GA4 · GTM',u:'https://www.fovfarbe.de/'},
-    {k:'98%',s:'prijzen exact in de proef',n:'Prijslijsten verwerken',c:'FOV · Intranet',d:'Excel van de leverancier erin, nieuwe kost- en verkoopprijzen eruit, met de rekenregel per merk. In de proef op 2.665 artikelen kwam bij 1.834 van de 1.868 gewone artikelen precies de huidige kostprijs uit.',t:'Flask · openpyxl · KING'},
-    {k:'1',s:'scherm voor een nieuwe klant',n:'Klant aanmaken',c:'FOV · Intranet',d:'Een nieuwe klant in één scherm vastleggen, met de KvK-gegevens erbij, en via de KING-webservices direct in het ERP. Geen overtypen meer.',t:'KING Webservices · KvK · Flask'},
-    {k:'10.909',s:'artikelen met UN-nummer',n:'Retouren en reparaties',c:'FOV · Intranet',d:'Retouren en reparaties volgen in het intranet. De vervoersgegevens voor gevaarlijke stoffen (UN-nummer, klasse, verpakkingsgroep) komen automatisch uit KING.',t:'Flask · KING · ADR'},
-    {k:'95%',s:'binnen 20% van gewogen',n:'Artikelgewichten',c:'FOV',d:'Gewicht uit dichtheid × inhoud + verpakking, gelezen uit veiligheidsbladen. 1.843 artikelen berekend en nagerekend tegen 8.129 gewogen artikelen.',t:'Python · PDF · pytest',cs:'gewichten-veiligheidsbladen'},
-    {k:'5',s:'gewichtsklassen',n:'Verzendkosten-engine',c:'FOV',d:'Vervangt een vast tarief van €22,50, voor NL en DE. 46 tests op grensgevallen.',t:'Python · JSON · pytest'},
-    {k:'~4u',s:'per week per bedrijf',n:'FOV Ads Autopilot',c:'FOV',d:'Advies over Google Ads bij vier bedrijven. Wijzigt zelf niets, de mens beslist.',t:'Google Ads API · Pandas'},
-    {k:'SEO',s:'eigen concurrentieanalyse',n:'Gap Intelligence',c:'FOV',d:'Vindt onderwerpen waar concurrenten scoren en wij nog niet, en maakt er content briefs van.',t:'Playwright · scikit-learn'},
-    {k:'30s',s:'per product, was 60 min',n:'Product Data Automatisering',c:'FOV',d:'Productpagina\'s voor drie webshops, 18 taalcodes, beste foto gekozen door beeldherkenning.',t:'Flask · GPT-4o Vision'},
-    {k:'€0,002',s:'per artikel',n:'ERP Content Generator',c:'Open source',d:'ERP-export naar teksten in NL en DE, met live voortgang en vooraf een kostenraming.',t:'Flask · SSE · OpenAI'},
-    {k:'3',s:'BigQuery-cases',n:'FOV SQL Portfolio',c:'Open source',d:'Productprestaties, groei per maand en gaten ten opzichte van concurrenten.',t:'SQL · BigQuery'},
-    {k:'1u→s',s:'per set slides',n:'BmB Content Engine',c:'Eigen',d:'Maakt in één keer social media-slides in de huisstijl van Beleggen met Bastiaan.',t:'Python · Pillow · ffmpeg'},
+    {k:'18+',s:'interne apps, 1 ERP',n:'FOV Intranet',c:'FOV · Intranet',d:'Mijn eigen bedrijfsplatform: 18+ interne apps en een projectregister met 26 projecten voor vier afdelingen, gekoppeld aan het ERP.',t:'Python · Flask · ERP-API · SQL',cs:'fov-intranet'},
+    {k:'+45%',s:'paginaweergaven jaar-op-jaar',n:'Marketing Intelligence Suite',c:'FOV · Productie',d:'GA4, Search Console en Google Ads in één overzicht: omzet per kanaal, afwijkingen en een voorspelmodel per pagina (R² 0,65 op 38 kenmerken).',t:'Python · GA4 API · scikit-learn',cs:'marketing-intelligence-suite'},
+    {k:'98%',s:'exact in de proef',n:'Prijslijsten verwerken',c:'FOV · Intranet',d:'Excel van de leverancier erin, nieuwe kost- en verkoopprijzen eruit, met een rekenregel per merk. In een proef op één merk kwam 98% van de gekoppelde artikelen precies op de huidige kostprijs uit. Er gaat niets vanzelf naar het ERP.',t:'Flask · openpyxl · ERP'},
+    {k:'~11.000',s:'artikelen met ADR-gegevens',n:'Retouren en reparaties',c:'FOV · Intranet',d:'Retour aanmelden vanaf de orderregels, tellen bij binnenkomst, creditorder naar het ERP en de ophaalopdracht naar de vervoerder. De gegevens voor gevaarlijke stoffen komen automatisch mee. Dagelijks in gebruik.',t:'Flask · ERP-webservices · ADR'},
+    {k:'3',s:'Google Ads-accounts, dagelijks',n:'Ads Autopilot',c:'FOV',d:'Dagelijks advies over biedingen, zoektermen en uitsluitingen. Voert pas iets uit na akkoord van een mens.',t:'Google Ads API · Pandas · pytest'},
+    {k:'98%',s:'actieve klanten vindbaar op nummer',n:'Klantkaart bij de telefoon',c:'FOV · Ontwerp',d:'Ontwerp en mockup: wie belt, staat direct in beeld met wat er loopt, de contactpersonen en de cijfers. Vanuit de kaart start je een offerte, order, retour of reparatie. De koppeling met de telefooncentrale volgt.',t:'Flask · ERP · telefonie'},
+    {k:'174',s:'categoriepagina\'s live',n:'fovfarbe.de',c:'FOV',d:'De Duitse webshop klaargezet: 1.142 Duitse productteksten en 174 categoriepagina\'s live, met de meting in GA4 en Tag Manager sinds oktober 2026.',t:'ERP-import · GA4 · GTM',u:'https://www.fovfarbe.de/'},
+    {k:'18',s:'taalcodes, 3 webshops',n:'Product Data Automatisering',c:'FOV',d:'Productpagina\'s voor drie webshops in 18 tekstvelden, met de beste productfoto gekozen door beeldherkenning.',t:'Flask · GPT-4o Vision'},
+    {k:'SEO',s:'eigen concurrentieanalyse',n:'Gap Intelligence',c:'FOV',d:'Vindt onderwerpen waar concurrenten scoren en wij nog niet, en maakt er content briefs van.',t:'Playwright · scikit-learn · pytest'},
+    {k:'3',s:'BigQuery-cases',n:'SQL Portfolio',c:'Open source',d:'Productprestaties, groei per maand en gaten ten opzichte van concurrenten, op voorbeelddata.',t:'SQL · BigQuery'},
+    {k:'19',s:'agents, lokaal',n:'Portfolio Monitor',c:'Eigen · Open source',d:'Mijn beleggingsdashboard: fundamentals, kwartaalcijfers, macro en scenario\'s in 18 tabbladen. Lokaal en zonder externe AI.',t:'Python · yfinance · Streamlit',cs:'portfolio-monitor',u:'https://bastiaanvdh.github.io/portfolio/monitor.html'},
     {k:'100%',s:'in de browser',n:'Zoninval Tool',c:'Eigen',d:'Vul een adres in en zie per seizoen hoeveel schaduw de buren op je tuin werpen.',t:'Turf.js · SunCalc · Leaflet'}
   ];
   var DEMO={'Orders zonder overtypen':'mail','Klantkaart bij de telefoon':'tel','Orders without retyping':'mail','Customer card on the phone':'tel'};
@@ -769,11 +806,11 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     {id:'ga4',in:'GA4',out:'GOOGLE ANALYTICS',ring:1,kind:'Bron',t:'Google Analytics 4',x:'Wat bezoekers doen op de site: waar ze vandaan komen, wat ze bekijken en waar ze afhaken.',u:'Marketing Intelligence Suite · meetcontrole'},
     {id:'gsc',in:'GSC',out:'SEARCH CONSOLE',ring:1,kind:'Bron',t:'Search Console',x:'Waarop we gevonden worden in Google, op welke positie en hoe vaak er wordt geklikt.',u:'Marketing Intelligence Suite · Gap Intelligence'},
     {id:'ads',in:'ADS',out:'GOOGLE ADS',ring:1,kind:'Bron',t:'Google Ads',x:'Wat een klik kost en wat hij oplevert. Daarmee reken ik uit welke euro rendeert.',u:'FOV Ads Autopilot'},
-    {id:'erp',in:'ERP',out:'KING ERP',ring:1,kind:'Bron',t:'KING ERP',x:'De orders, marges en artikelen zoals ze echt geboekt zijn. Hier toets ik de rest aan.',u:'FOV Intranet · Verzendkosten-engine · Artikelgewichten'},
+    {id:'erp',in:'ERP',out:'ERP',ring:1,kind:'Bron',t:'ERP',x:'De orders, marges en artikelen zoals ze echt geboekt zijn. Hier toets ik de rest aan.',u:'FOV Intranet · Van gewicht naar verzendprijs'},
     {id:'py',in:'PY',out:'PYTHON',ring:0,kind:'Bewerking',t:'Python',x:'De lijm tussen alles. Data ophalen, schoonmaken en combineren, elke dag automatisch.',u:'Bijna elk project'},
     {id:'sql',in:'SQL',out:'SQL · BIGQUERY',ring:0,kind:'Bewerking',t:'SQL',x:'Vragen stellen aan grote tabellen: groei per maand, prestaties per product, gaten bij concurrenten.',u:'FOV SQL Portfolio'},
-    {id:'ml',in:'ML',out:'SCIKIT-LEARN',ring:0,kind:'Bewerking',t:'Machine learning',x:'Voorspellen welke pagina gaat groeien en herkennen welke daling echt is en welke ruis.',u:'Marketing Intelligence Suite (R² 0,75+)'},
-    {id:'ai',in:'AI',out:'TAALMODELLEN',ring:0,kind:'Bewerking',t:'AI-modellen',x:'Tekst op schaal. Duizenden productteksten voor een paar cent per stuk, gecontroleerd voordat ze live gaan.',u:'Product Automatisering · ERP Content Generator'}
+    {id:'ml',in:'ML',out:'SCIKIT-LEARN',ring:0,kind:'Bewerking',t:'Machine learning',x:'Voorspellen welke pagina gaat groeien en herkennen welke daling echt is en welke ruis.',u:'Marketing Intelligence Suite (R² 0,65) · Klantreis en mobiel'},
+    {id:'ai',in:'AI',out:'TAALMODELLEN',ring:0,kind:'Bewerking',t:'AI-modellen',x:'Tekst op schaal. Duizenden productteksten voor een fractie van een cent per stuk, gecontroleerd voordat ze live gaan.',u:'Productteksten op schaal · Orders zonder overtypen'}
   ];
   var RAD=[150,290],sysT=0,hoverSys=false,sel=null;
   [70,150,290,360,420].forEach(function(r){mk('circle',{'class':'ring'+(r===150||r===290?' main':''),cx:C,cy:C,r:r},sys)});
@@ -834,10 +871,11 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   requestAnimationFrame(loopOrb);requestAnimationFrame(loopSys);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){sizeRail();buildOrb();onScroll()});
 
-  /* +37% telt op */
+  /* rendement telt op */
+  var DEC=',';
   var big=$('big'),counted=false;
   if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!counted){counted=true;var t0=performance.now();
-    (function step(t){var f=Math.min(1,(t-t0)/1500),v=Math.round(43*(1-Math.pow(1-f,3)));big.textContent='+'+v+'%';if(f<1)requestAnimationFrame(step)})(t0)}})},{threshold:.5}).observe(big)}
+    (function step(t){var f=Math.min(1,(t-t0)/1500),v=29.55*(1-Math.pow(1-f,3));big.textContent='+'+v.toFixed(1).replace('.',DEC)+'%';if(f<1)requestAnimationFrame(step)})(t0)}})},{threshold:.5}).observe(big)}
 
 
   /* ---------- Demo: orders uit de mail + klant aan de lijn (fictieve data) ---------- */
@@ -896,7 +934,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     function open(m){var o=0;m.st.sel.forEach(function(s){if(s===null)o++});if(m.klant&&!m.st.klant)o++;return o}
     function tag(m){
       if(m.kind==="geen")return '<span class="dm-pill">'+t("Geen bestelling","No order")+"</span>";
-      if(m.st.done)return '<span class="dm-pill ok">✓ '+(m.kind==="offerte"?t("Offerte klaar","Quote ready"):t("In KING","In KING"))+"</span>";
+      if(m.st.done)return '<span class="dm-pill ok">✓ '+(m.kind==="offerte"?t("Offerte klaar","Quote ready"):t("In het ERP","In the ERP"))+"</span>";
       if(m.st.asked)return '<span class="dm-pill">'+t("Wacht op klant","Waiting for customer")+"</span>";
       var o=open(m);return o?'<span class="dm-pill kies">'+o+" "+t("keuze open","choice open")+"</span>":'<span class="dm-pill ok">'+t("Klaar om na te kijken","Ready to check")+"</span>";
     }
@@ -925,11 +963,11 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       });
       h+="</tbody></table></div>";
       h+='<div class="dm-sum"><span>'+t("Totaal excl. btw","Total excl. VAT")+"</span><b>"+eur(sum)+(anyNull?" + "+t("prijs op aanvraag","price on request"):"")+"</b></div>";
-      if(m.st.done){h+='<div class="dm-done">✓ '+(off?t("Offerte ","Quote ")+m.st.done+t(" staat klaar om te versturen"," is ready to send"):t("Order ","Order ")+m.st.done+t(" staat in KING"," is in KING"))+"<small>"+t("Demo: er is niets verstuurd of opgeslagen.","Demo: nothing was sent or saved.")+"</small></div>"}
+      if(m.st.done){h+='<div class="dm-done">✓ '+(off?t("Offerte ","Quote ")+m.st.done+t(" staat klaar om te versturen"," is ready to send"):t("Order ","Order ")+m.st.done+t(" staat in het ERP"," is in the ERP"))+"<small>"+t("Demo: er is niets verstuurd of opgeslagen.","Demo: nothing was sent or saved.")+"</small></div>"}
       else{
         if(m.st.ask){var q2=askText(m);h+='<div class="dm-ask"><span class="dm-lab ac">'+t("Vraag aan de klant","Question for the customer")+'</span><textarea class="dm-in" id="dmAskTxt" aria-label="'+t("Vraag aan de klant","Question for the customer")+'">'+esc(q2)+'</textarea><div class="dm-actions"><button type="button" class="dm-btn solid" data-act="send">'+t("Klaarzetten in Outlook","Prepare in Outlook")+'</button><button type="button" class="dm-btn" data-act="cancel">'+t("Annuleren","Cancel")+"</button></div></div>"}
         var o=open(m);
-        h+='<div class="dm-actions"><button type="button" class="dm-btn" data-act="reread">↻ '+t("Opnieuw lezen","Read again")+'</button><button type="button" class="dm-btn" data-act="ask"'+(m.st.ask?" disabled":"")+">✉ "+t("Vraag aan klant","Ask customer")+'</button><button type="button" class="dm-btn solid" data-act="king"'+(o?" disabled":"")+">"+(off?t("Maak offerte","Create quote"):t("Zet in KING","Put in KING"))+"</button>"+(o?'<span class="dm-hint">'+o+" "+t("keuze nog open","choice still open")+"</span>":"")+"</div>";
+        h+='<div class="dm-actions"><button type="button" class="dm-btn" data-act="reread">↻ '+t("Opnieuw lezen","Read again")+'</button><button type="button" class="dm-btn" data-act="ask"'+(m.st.ask?" disabled":"")+">✉ "+t("Vraag aan klant","Ask customer")+'</button><button type="button" class="dm-btn solid" data-act="king"'+(o?" disabled":"")+">"+(off?t("Maak offerte","Create quote"):t("Zet in het ERP","Put in the ERP"))+"</button>"+(o?'<span class="dm-hint">'+o+" "+t("keuze nog open","choice still open")+"</span>":"")+"</div>";
       }
       return h+"</div>";
     }
@@ -942,7 +980,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     var mailEl=document.getElementById("dmMail");
     function renderMail(anim){
       var m=M[cur],head='<div class="dm-orig"><span class="dm-lab">'+t("Origineel","Original")+" · "+m.time+"</span><h4>"+esc(m.subj)+'</h4><span class="dm-code">'+esc(m.from)+'</span><div class="dm-body'+(m.pdf?" pdf":"")+'">'+bodyHtml(m.body)+"</div></div>";
-      var right=anim&&!reduce&&m.kind!=="geen"?'<div class="dm-order"><span class="dm-reading">'+t("Mail lezen · klant zoeken in KING · artikelen koppelen…","Reading email · finding customer in KING · matching products…")+"</span></div>":orderPanel(m,anim);
+      var right=anim&&!reduce&&m.kind!=="geen"?'<div class="dm-order"><span class="dm-reading">'+t("Mail lezen · klant zoeken in het ERP · artikelen koppelen…","Reading email · finding customer in the ERP · matching products…")+"</span></div>":orderPanel(m,anim);
       mailEl.innerHTML='<div class="dm-mail">'+inbox()+head+right+"</div>";
       if(anim&&!reduce&&m.kind!=="geen"){var keep=cur;setTimeout(function(){if(keep!==cur)return;mailEl.querySelector(".dm-order").outerHTML=orderPanel(m,true)},750)}
     }
@@ -953,7 +991,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       else if(a==="ask"){m.st.ask=true;renderMail(false)}
       else if(a==="cancel"){m.st.ask=false;renderMail(false)}
       else if(a==="send"){m.st.ask=false;m.st.asked=true;renderMail(false);toast(t("Vraag staat klaar in Outlook (demo, niets verstuurd)","Question ready in Outlook (demo, nothing sent)"))}
-      else if(a==="king"){m.st.done=m.kind==="offerte"?nr("O-"):nr("");renderMail(false);toast(m.kind==="offerte"?t("Offerte gemaakt (demo)","Quote created (demo)"):t("Order staat in KING (demo)","Order is in KING (demo)"))}
+      else if(a==="king"){m.st.done=m.kind==="offerte"?nr("O-"):nr("");renderMail(false);toast(m.kind==="offerte"?t("Offerte gemaakt (demo)","Quote created (demo)"):t("Order staat in het ERP (demo)","Order is in the ERP (demo)"))}
     });
     mailEl.addEventListener("change",function(e){var m=M[cur],el=e.target;
       if(el.dataset.s!==undefined){m.st.sel[+el.dataset.s]=el.value===""?null:+el.value;renderMail(false)}
@@ -988,7 +1026,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       var s=S[tel.s];
       if(!tel.k&&s.multi)return '<div class="dm-card dm-fade"><span class="dm-lab ac">'+t("Dit nummer staat bij twee klanten","This number belongs to two customers")+'</span><p class="dm-code" style="margin-top:6px">'+t("Liever een keuze dan een gok.","Better a choice than a guess.")+'</p><div class="dm-pick">'+s.multi.map(function(k){return '<button type="button" class="dm-item" data-pk="'+k+'"><b>'+esc(C[k].n)+'</b><span class="sj">'+C[k].pl+" · "+C[k].d+"</span></button>"}).join("")+"</div></div>";
       if(!tel.k){var q=tel.q.toLowerCase(),list=Object.keys(C).filter(function(k){return !q||C[k].n.toLowerCase().indexOf(q)>-1||C[k].pl.toLowerCase().indexOf(q)>-1});
-        return '<div class="dm-card dm-fade"><span class="dm-lab ac">'+t("Nummer niet gevonden in KING","Number not found in KING")+'</span><p class="dm-code" style="margin-top:6px">'+t("Zoek de klant op naam of plaats.","Search the customer by name or town.")+'</p><div class="dm-pick"><input class="dm-in" id="dmSearch" type="search" placeholder="'+t("Bijv. Kreek of Sneek","E.g. Kreek or Sneek")+'" value="'+esc(tel.q)+'" aria-label="'+t("Zoek klant","Search customer")+'">'+list.map(function(k){return '<button type="button" class="dm-item" data-pk="'+k+'"><b>'+esc(C[k].n)+'</b><span class="sj">'+C[k].pl+" · "+C[k].d+"</span></button>"}).join("")+"</div></div>"}
+        return '<div class="dm-card dm-fade"><span class="dm-lab ac">'+t("Nummer niet gevonden in het ERP","Number not found in the ERP")+'</span><p class="dm-code" style="margin-top:6px">'+t("Zoek de klant op naam of plaats.","Search the customer by name or town.")+'</p><div class="dm-pick"><input class="dm-in" id="dmSearch" type="search" placeholder="'+t("Bijv. Kreek of Sneek","E.g. Kreek or Sneek")+'" value="'+esc(tel.q)+'" aria-label="'+t("Zoek klant","Search customer")+'">'+list.map(function(k){return '<button type="button" class="dm-item" data-pk="'+k+'"><b>'+esc(C[k].n)+'</b><span class="sj">'+C[k].pl+" · "+C[k].d+"</span></button>"}).join("")+"</div></div>"}
       var c=C[tel.k],d=K[tel.k],tot=d.omz.reduce(function(a,b){return a+b},0);
       var h='<div class="dm-card dm-fade"><div class="dm-ch"><div><span class="dm-lab">'+t("Debiteur ","Account ")+c.d+" · "+c.pl+" · "+t("klant sinds ","customer since ")+c.since+"</span><h3>"+esc(c.n)+'</h3></div><div class="dm-acts">'+[["offerte",t("Offerte maken","Create quote")],["order",t("Order maken","Create order")],["retour",t("Retour","Return")],["rep",t("Reparatie","Repair")]].map(function(a){return '<button type="button" class="dm-btn'+(a[0]==="order"?" solid":"")+'" data-form="'+a[0]+'">'+a[1]+"</button>"}).join("")+"</div></div>";
       if(tel.form)h+=form(tel.form,d);
@@ -1007,11 +1045,11 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       }else if(f==="retour"){
         var opts=d.run.filter(function(r){return r.n.indexOf("R-")!==0});
         h+='<div class="fr"><select class="dm-in" aria-label="'+t("Order","Order")+'">'+(opts.length?opts:[{n:"26-103950",w:t("eerdere order","earlier order")}]).map(function(r){return "<option>"+r.n+" · "+esc(r.w)+"</option>"}).join("")+'</select><select class="dm-in" aria-label="'+t("Reden","Reason")+'"><option>'+t("Verkeerd besteld","Ordered wrong item")+"</option><option>"+t("Beschadigd geleverd","Delivered damaged")+"</option><option>"+t("Te veel besteld","Ordered too many")+"</option></select></div>";
-        h+='<span class="dm-code">'+t("Vervoersgegevens voor gevaarlijke stoffen komen automatisch uit KING.","Transport data for dangerous goods comes straight from KING.")+"</span>";
+        h+='<span class="dm-code">'+t("Vervoersgegevens voor gevaarlijke stoffen komen automatisch uit het ERP.","Transport data for dangerous goods comes straight from the ERP.")+"</span>";
       }else{
         h+='<div class="fr"><input class="dm-in" placeholder="'+t("Apparaat, bijv. schuurmachine","Device, e.g. sander")+'" aria-label="'+t("Apparaat","Device")+'"><input class="dm-in" placeholder="'+t("Serienummer","Serial number")+'" aria-label="'+t("Serienummer","Serial number")+'"></div><input class="dm-in" placeholder="'+t("Wat is er mis?","What is wrong?")+'" aria-label="'+t("Omschrijving","Description")+'">';
       }
-      return h+'<div class="dm-actions"><button type="button" class="dm-btn solid" data-act="submit">'+({offerte:t("Maak offerte","Create quote"),order:t("Zet in KING","Put in KING"),retour:t("Maak retour","Create return"),rep:t("Neem aan","Take in")}[f])+'</button><button type="button" class="dm-btn" data-act="close">'+t("Annuleren","Cancel")+"</button></div></div>";
+      return h+'<div class="dm-actions"><button type="button" class="dm-btn solid" data-act="submit">'+({offerte:t("Maak offerte","Create quote"),order:t("Zet in het ERP","Put in the ERP"),retour:t("Maak retour","Create return"),rep:t("Neem aan","Take in")}[f])+'</button><button type="button" class="dm-btn" data-act="close">'+t("Annuleren","Cancel")+"</button></div></div>";
     }
     function renderTel(){
       telEl.innerHTML='<div class="dm-tel">'+phone()+card()+"</div>";
@@ -1025,23 +1063,24 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       var b=e.target.closest("[data-act]");if(!b)return;
       if(b.dataset.act==="pick"){tel.state="open";tel.k=S[tel.s].k||null;renderTel();startClock()}
       else if(b.dataset.act==="close"){tel.form=null;renderTel()}
-      else if(b.dataset.act==="submit"){var f=tel.form;tel.form=null;renderTel();toast({offerte:t("Offerte ","Quote ")+nr("O-")+t(" klaar (demo)"," ready (demo)"),order:t("Order ","Order ")+nr("")+t(" staat in KING (demo)"," is in KING (demo)"),retour:t("Retour ","Return ")+nr("R-")+t(" aangemaakt (demo)"," created (demo)"),rep:t("Reparatie aangenomen (demo)","Repair taken in (demo)")}[f])}
+      else if(b.dataset.act==="submit"){var f=tel.form;tel.form=null;renderTel();toast({offerte:t("Offerte ","Quote ")+nr("O-")+t(" klaar (demo)"," ready (demo)"),order:t("Order ","Order ")+nr("")+t(" staat in het ERP (demo)"," is in the ERP (demo)"),retour:t("Retour ","Return ")+nr("R-")+t(" aangemaakt (demo)"," created (demo)"),rep:t("Reparatie aangenomen (demo)","Repair taken in (demo)")}[f])}
     });
     telEl.addEventListener("input",function(e){if(e.target.id==="dmSearch"){tel.q=e.target.value;tel.typing=true;renderTel()}});
     telEl.addEventListener("change",function(e){if(e.target.id==="dmFp"){tel.fp=e.target.value;renderTel()}else if(e.target.id==="dmFq"){tel.fq=Math.max(1,+e.target.value||1);renderTel()}});
 
     /* ===== Tabs ===== */
     document.getElementById("dmTitle").textContent=t("Probeer het zelf.","Try it yourself.");
-    document.getElementById("dmIntro").textContent=t("Twee tools die ik voor de binnendienst van FOV bouwde, hier nagebouwd met verzonnen klanten, artikelen en prijzen. Kies een mail, of laat de telefoon gaan.","Two tools I built for customer service at FOV, rebuilt here with made-up customers, products and prices. Pick an email, or make the phone ring.");
+    document.getElementById("dmIntro").textContent=t("Vijf dingen die ik bij FOV bouwde of analyseerde, hier nagebouwd met verzonnen klanten, artikelen en cijfers. Klik gerust alles kapot.","Five things I built or analysed at FOV, rebuilt here with made-up customers, products and figures. Feel free to click everything.");
     document.getElementById("dmNote").textContent=t("Alle klanten, artikelen, prijzen en cijfers in deze demo zijn verzonnen. Er wordt niets verstuurd of opgeslagen.","All customers, products, prices and figures in this demo are made up. Nothing is sent or saved.");
     document.getElementById("dmHead").textContent=t("(Probeer het zelf)","(Try it yourself)");
     document.getElementById("dmBadge").textContent=t("Live demo · fictieve data","Live demo · fictional data");
     var tabs=document.getElementById("dmTabs");
-    [["mail",t("01 · Order uit de mail","01 · Order from email")],["tel",t("02 · Klant aan de lijn","02 · Customer on the phone")]].forEach(function(x,i){var b=document.createElement("button");b.type="button";b.className="dm-tab";b.setAttribute("role","tab");b.dataset.tab=x[0];b.setAttribute("aria-selected",i===0);b.textContent=x[1];tabs.appendChild(b)});
-    function showTab(k){[].forEach.call(tabs.children,function(b){b.setAttribute("aria-selected",b.dataset.tab===k)});mailEl.hidden=k!=="mail";telEl.hidden=k!=="tel"}
+    [["fun",t("01 · Klantreis","01 · Customer journey")],["txt",t("02 · Productteksten","02 · Product texts")],["wgt",t("03 · Gewicht en verzendprijs","03 · Weight and shipping")],["mail",t("04 · Order uit de mail","04 · Order from email")],["tel",t("05 · Klant aan de lijn","05 · Customer on the phone")]].forEach(function(x,i){var b=document.createElement("button");b.type="button";b.className="dm-tab";b.setAttribute("role","tab");b.dataset.tab=x[0];b.setAttribute("aria-selected",i===0);b.textContent=x[1];tabs.appendChild(b)});
+    var PAN={mail:"dmMail",tel:"dmTel",fun:"dmFun",wgt:"dmWgt",txt:"dmTxt"};
+    function showTab(k){[].forEach.call(tabs.children,function(b){b.setAttribute("aria-selected",b.dataset.tab===k)});Object.keys(PAN).forEach(function(p){document.getElementById(PAN[p]).hidden=p!==k})}
     tabs.addEventListener("click",function(e){var b=e.target.closest(".dm-tab");if(b)showTab(b.dataset.tab)});
     document.addEventListener("click",function(e){var a=e.target.closest("[data-demo]");if(!a)return;e.preventDefault();showTab(a.dataset.demo);go("#demo")});
-    renderMail(false);M[0].st.read=true;renderTel();
+    renderMail(false);M[0].st.read=true;renderTel();showTab("fun");
   })();
 
   /* Pauzeer beweging */
@@ -1052,6 +1091,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     try{navigator.clipboard.writeText(m.textContent).then(function(){cb.textContent='Gekopieerd'},sel)}catch(e){sel()}});
 })();
 </script>
+<script src="assets/demos.js"></script>
 
 </body>
 </html>

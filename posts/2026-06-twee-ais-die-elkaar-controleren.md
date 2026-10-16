@@ -1,58 +1,68 @@
-# Twee AI's die elkaar controleren: zo schreef ik 5.000 productteksten in 4 uur
+# Zo controleer ik AI-productteksten voordat ze live gaan
 
-Productteksten schrijven is het soort werk dat niemand leuk vindt en iedereen toch moet doen. Voor een webshop met duizenden artikelen is het bovendien onbetaalbaar als je het uitbesteedt: al snel €5 à €10 per product. Dus bouwde ik een pipeline die het overneemt — en het interessante zit hem niet in "AI laat teksten schrijven", maar in *hoe je AI op schaal betrouwbaar maakt*.
+Productteksten schrijven is werk dat niemand leuk vindt, maar dat wel moet gebeuren. Bij FOV gaat het om duizenden artikelen, meerdere webshops en twee talen. Dus laat ik AI het schrijfwerk doen. Het interessante zit niet in "AI schrijft teksten". Het zit in de vraag: *hoe weet je dat het klopt, zonder alles te lezen?*
 
 Dit is de build-log. *(De volledige case lees je [hier](cases/product-automation-platform.html).)*
 
-## Het probleem met één AI
+## Waarom AI alleen niet genoeg is
 
-De eerste versie was simpel: stuur productdata naar één taalmodel, vraag om een titel, meta-beschrijving en omschrijving, klaar. Bij tien producten werkt dat prachtig. Bij vijfduizend kom je drie problemen tegen:
+Een taalmodel vragen om een titel, een metabeschrijving en een producttekst gaat snel. Bij tien artikelen lees je alles na. Bij duizenden niet. Dan krijg je drie problemen:
 
-1. **Hallucinaties** — het model verzint specificaties die er niet zijn. Bij één product zie je dat; bij duizenden niet.
-2. **Inconsistentie** — de toon en structuur driften langzaam weg over een grote batch.
-3. **Geen vangnet** — je kunt onmogelijk vijfduizend teksten met de hand controleren.
+1. **Verzonnen details.** Het model vult gaten in de brondata op met specificaties die niemand heeft gecontroleerd.
+2. **Kleine fouten die groot uitpakken.** Eén verkeerd teken kan een heel artikel tegenhouden.
+3. **Geen zicht op het eindresultaat.** Een tekst in het importbestand staat nog niet op de site.
 
-> De vraag was niet "kan AI dit schrijven?" — dat kan het. De vraag was: "hoe weet ik dat het klopt zonder alles te lezen?"
+Mijn antwoord is geen tweede AI die de eerste controleert. Het is een vaste regelcontrole vóór de import, en een meting erna.
 
-## De oplossing: cross-validatie
+## Stap 1: AI schrijft, met een rem
 
-In plaats van te vertrouwen op één model, liet ik er **twee** samenwerken: ChatGPT en Claude. Het ene model genereert, het andere controleert — en andersom. Concreet:
+Een Python-tool leest de artikeldata uit het ERP. Per webshop en per taal schrijft AI de velden: titel, metabeschrijving, URL en de producttekst in HTML. Elke webshop heeft zijn eigen toon en opmaak.
 
-```
-1. Model A genereert de producttekst op basis van bron-data
-2. Model B krijgt de bron-data én de gegenereerde tekst
-   en checkt: kloppen de claims? mist er iets? toon goed?
-3. Verschil van mening -> markeren voor handmatige review
-4. Consensus -> direct importklaar
-```
+Is de brondata mager, dan krijgt het model de opdracht om niets te verzinnen. Liever een korte tekst die klopt dan een lange tekst vol details die nergens vandaan komen.
 
-Twee modellen die elkaars werk moeten goedkeuren, vangen elkaars fouten. Een hallucinatie van model A wordt door model B betrapt, omdat B de brondata erbij heeft. Dat verschil — van "leuk experiment" naar "productieklaar" — zat hem volledig in die validatielaag.
+## Stap 2: vaste regels keuren vóór de import
 
-## De pipeline eromheen
+De controle is bewust geen AI. Regels zijn saai, en dat is precies de bedoeling: ze doen elke keer hetzelfde, en je kunt zien waarom iets is afgekeurd. De regels zoeken onder meer naar:
 
-De AI is eigenlijk maar één stap. Het meeste werk zit in de data ervoor en erna:
+- Nederlandse woorden in een Duitse tekst
+- dubbele tekstblokken in de HTML
+- dubbele URL's
+- tekens die het webshopplatform niet accepteert
 
-- **Scrapen** van leveranciers- en concurrentpagina's voor brondata (BeautifulSoup)
-- **OCR** op technische product- en veiligheidsbladen (Tesseract) — want de beste specs zitten vaak in PDF's
-- **Genereren + valideren** met de dual-AI opzet
-- **Exporteren** naar een KING-compatibel formaat, direct te bulk-importeren
+Wat niet door de controle komt, gaat niet mee in de import.
 
-## Wat het opleverde
+> De vraag was niet "kan AI dit schrijven?" Dat kan het. De vraag was: "hoe weet ik dat het klopt zonder alles te lezen?"
 
-| Metric | Voor | Na |
-|---|---|---|
-| Tijd per product | ~handmatig | seconden |
-| Kosten per product | €5–10 | €0,02 |
-| Doorlooptijd 5.000 producten | weken | 4 uur |
+## Het gedachtestreepje
 
-Een kostenreductie van **99%**, en circa **80x sneller** dan handmatig.
+De lastigste fout gaf geen foutmelding. Het webshopplatform weigerde een gedachtestreepje (–) in de metabeschrijving. AI gebruikt dat teken graag. Het gevolg: het hele artikel bleef stil hangen. Dat zag je alleen in een aparte foutenlijst, niet bij de import zelf.
+
+Nu vervangt de regelcontrole dat teken vóór de import. En ik scan elke import er nog een keer op.
+
+## Dubbele blokken
+
+Een tweede val: bij het herschrijven kwam een stuk tekst soms twee keer in de HTML terecht. In de tool zag je dat niet. Op de productpagina wel. Ook daarvoor is nu een regel.
+
+## Stap 3: meten of het echt op de pagina staat
+
+"Geïmporteerd" bewijst niets. Dus kijk ik na de import op de site zelf of de tekst er staat.
+
+| Wat | Uitkomst |
+|---|---|
+| Teksten in één batch | ~2.300 |
+| Tijd per artikel | ~20 seconden |
+| Teksten in het ERP | 2.698 van 2.704 |
+| Aantoonbaar zichtbaar op de site | 92,6% |
+| API-kosten | een fractie van een cent per tekst |
+
+Later draaide dezelfde aanpak voor de Duitse webshop: 30.576 tekstvelden op 6.237 artikelen.
+
+Let op het gat tussen de twee middelste regels. Bijna alles stond in het ERP, maar niet alles stond op de site. Dat gat zie je alleen als je verder kijkt dan de import.
 
 ## De les
 
-De grootste les was niet technisch maar conceptueel: **AI op schaal inzetten draait om controle, niet om creativiteit.** De mooiste prompt ter wereld helpt je niet als je niet kunt garanderen dat de output klopt. Validatie, vaste regels en een vangnet voor de randgevallen — dáár zit de echte engineering.
-
-En precies daarom bouw ik dit soort dingen graag: niet om een taak één keer te doen, maar om een proces te bouwen dat het voor altijd betrouwbaar doet.
+AI op schaal inzetten draait om controle, niet om de mooiste prompt. Vóór de import: regels die elke keer hetzelfde doen. Na de import: meten op de pagina zelf. Daar zit het echte werk.
 
 ---
 
-*Vragen over de aanpak? [Mail me](mailto:bastiaanvanderhorst@hotmail.com) of bekijk de [code op GitHub](https://github.com/bastiaanvdh/product-automation-platform).*
+*Vragen over de aanpak? [Mail me](mailto:bastiaanvanderhorst@hotmail.com).*

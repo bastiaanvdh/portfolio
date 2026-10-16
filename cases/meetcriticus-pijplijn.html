@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <title>Case: Meetcriticus & Zelf-bewakende Datapijplijn | Bastiaan van der Horst</title>
-<meta name="description" content="Hoe ik voor FOV een betrouwbaarheidslaag bouwde die de andere datatools eerlijk houdt: een deterministische linter op meetfouten, een Control Tower en een ochtendbriefing die zichzelf bewaakt — nadat een omzetmeting zeven dagen stilstond zonder dat iets het meldde.">
+<meta name="description" content="Hoe ik voor FOV een betrouwbaarheidslaag bouwde die de andere datatools eerlijk houdt: een deterministische linter op meetfouten, een Control Tower en een ochtendbriefing die zichzelf bewaakt — nadat een omzetmeting dagenlang stilstond zonder dat iets het meldde.">
 <meta name="author" content="Bastiaan van der Horst">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/meetcriticus-pijplijn.html">
 <meta property="og:type" content="article">
@@ -118,7 +118,7 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
 <div class="container">
   <div class="case-label">Case study · FOV</div>
   <h1>Meetcriticus &amp; Zelf-bewakende Datapijplijn</h1>
-  <p class="lead">Een verzameling datatools is maar zo betrouwbaar als de metingen eronder. Dit is de laag die de rest eerlijk houdt: hij leest de code na op meetfouten, trekt alle signalen samen tot één actielijst, en controleert elke ochtend of de tools écht draaiden — en of hun uitkomst ergens op slaat.</p>
+  <p class="lead">Een verzameling datatools is maar zo betrouwbaar als de metingen eronder. Dit is de laag die de rest eerlijk houdt: hij leest de code na op meetfouten, trekt alle signalen samen tot één actielijst, en controleert elke werkdag om 08:45 of de tools écht draaiden — en of hun uitkomst ergens op slaat.</p>
 
   <div class="tech-row">
     <span class="tech-tag">Python</span><span class="tech-tag">AST</span><span class="tech-tag">git</span><span class="tech-tag">Task Scheduler</span><span class="tech-tag">pytest</span>
@@ -127,13 +127,13 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
   <div class="kpi-row">
     <div class="kpi"><span class="kpi-val">7</span><span class="kpi-label">Meetfout-regels</span></div>
     <div class="kpi"><span class="kpi-val">0</span><span class="kpi-label">Model-aanroepen</span></div>
-    <div class="kpi"><span class="kpi-val">08:45</span><span class="kpi-label">Dagelijkse zelfcheck</span></div>
+    <div class="kpi"><span class="kpi-val">08:45</span><span class="kpi-label">Zelfcheck, elke werkdag</span></div>
     <div class="kpi"><span class="kpi-val">1</span><span class="kpi-label">Actielijst, alle ketens</span></div>
   </div>
 
   <span class="section-tag">Het probleem</span>
-  <h2>Zeven dagen een stille nul</h2>
-  <p>In juli stond de omzetmeting van de webshop zeven dagen stil zonder dat iets het meldde. Het venijn zit in één eigenschap: <strong>nul is een geldige uitkomst</strong>. Een pagina zonder verkoop meet ook nul. In het logbestand is er geen enkel verschil tussen "gemeten en het was nul" en "de vraag kwam nooit aan".</p>
+  <h2>Een stille nul</h2>
+  <p>In juli stond de omzetmeting van de webshop dagenlang stil, zonder dat iets het meldde. Het venijn zit in één eigenschap: <strong>nul is een geldige uitkomst</strong>. Een pagina zonder verkoop meet ook nul. In het logbestand is er geen enkel verschil tussen "gemeten en het was nul" en "de vraag kwam nooit aan".</p>
   <p>Dat is de valkuil onder elke datatool die ik bouw: een dashboard dat er gezond uitziet, een script dat groen afsluit, een dekkingspercentage van 98% — allemaal kunnen ze een kapotte meting verbergen. Ik had niet nog een dashboard nodig, maar een laag die de metingen zelf wantrouwt.</p>
 
   <span class="section-tag">De aanpak</span>
@@ -152,13 +152,13 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
 
   <span class="section-tag">De uitdaging</span>
   <h2>De bewaker die zelf stilviel</h2>
-  <p>De scherpste les kwam van de criticus zelf. Zes dagen lang draaide hij geen enkele keer mee: een <code>UnicodeDecodeError</code> viel in de leesthread van een subprocess, bereikte de aanroeper nooit, en liet de testsuite gewoon groen — met een onopvallend regeltje "Meetcriticus: overgeslagen". Een controle die mág falen, maakte zichzelf onzichtbaar precies toen hij stuk was.</p>
+  <p>De scherpste les kwam van de criticus zelf. Hij draaide stil niet mee, door een fout die niemand zag: een <code>UnicodeDecodeError</code> viel in de leesthread van een subprocess, bereikte de aanroeper nooit, en liet de testsuite gewoon groen — met een onopvallend regeltje "Meetcriticus: overgeslagen". Een controle die mág falen, maakte zichzelf onzichtbaar precies toen hij stuk was.</p>
   <p>Dat leidde tot het principe dat de hele laag draagt: <strong>een controle die mag falen, moet luider melden dát hij faalde dan wat hij vindt.</strong> De ochtendbriefing bewaakt zichzelf nu via de briefing van gisteren, uitgezette taken tellen even hard mee als ontbrekende, en drie meetfouten die ooit in de Control Tower zélf zaten hebben er hun eigen test aan overgehouden.</p>
 
   <span class="section-tag">Het resultaat</span>
   <h2>Metingen die je kunt vertrouwen</h2>
   <ul>
-    <li><strong>Zeven meetfout-regels</strong>, elk gekoppeld aan een echte fout uit de historie en getoetst tegen de bug waarvoor hij bedoeld is.</li>
+    <li><strong>Zeven meetfout-regels</strong>, elk gekoppeld aan een echte fout uit de historie. 14 tests toetsen ze tegen de bugs waarvoor ze bedoeld zijn.</li>
     <li><strong>Eén ochtendbriefing</strong> die per taak zegt: draaide hij, en slaat zijn uitkomst ergens op — met het oordeel en de grond eronder.</li>
     <li><strong>Eén actielijst</strong> die de signalen uit alle ketens bundelt, in plaats van vijf losse dashboards die niemand allemaal opent.</li>
     <li><strong>Volledig deterministisch:</strong> geen modelaanroep in de bewakingslaag, zodat de criticus zelf geen nieuwe onzekerheid toevoegt.</li>

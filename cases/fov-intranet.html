@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <title>Case: FOV Intranet | Bastiaan van der Horst</title>
-<meta name="description" content="Hoe ik voor FOV een compleet intern bedrijfsplatform bouwde in Python en Flask: één omgeving met 16 gekoppelde apps, een KING-ERP-integratie, projectregister en een uitbreidbare tool-integratie-API.">
+<meta name="description" content="Hoe ik voor FOV een compleet intern bedrijfsplatform bouwde in Python en Flask: één omgeving met 18+ gekoppelde apps, een ERP-integratie, projectregister en een uitbreidbare tool-integratie-API.">
 <meta name="author" content="Bastiaan van der Horst">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/fov-intranet.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/cases/fov-intranet.html">
 <meta property="og:title" content="Case: FOV Intranet">
-<meta property="og:description" content="Van verspreide KING-data en Excel-eilanden naar één intern platform met 16 apps, een projectregister en een uitbreidbare API.">
+<meta property="og:description" content="Van verspreide ERP-data en Excel-eilanden naar één intern platform met 18+ apps, een projectregister en een uitbreidbare API.">
 <meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
@@ -20,7 +20,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Case: FOV Intranet",
-  "description": "Hoe ik voor FOV een compleet intern bedrijfsplatform bouwde in Python en Flask, met 16 gekoppelde apps en een KING-ERP-integratie.",
+  "description": "Hoe ik voor FOV een compleet intern bedrijfsplatform bouwde in Python en Flask, met 18+ gekoppelde apps en een ERP-integratie.",
   "author": { "@type": "Person", "name": "Bastiaan van der Horst", "url": "https://bastiaanvdh.github.io/portfolio/" },
   "publisher": { "@type": "Person", "name": "Bastiaan van der Horst" },
   "mainEntityOfPage": "https://bastiaanvdh.github.io/portfolio/cases/fov-intranet.html",
@@ -118,34 +118,34 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
 <div class="container">
   <div class="case-label">Case study · FOV</div>
   <h1>FOV Intranet</h1>
-  <p class="lead">Van verspreide KING-data, losse Excel-bestanden en kennis in iemands hoofd naar één centraal platform waar elke afdeling zijn informatie terugvindt, data analyseert en rechtstreeks in het ERP werkt.</p>
+  <p class="lead">Van verspreide ERP-data, losse Excel-bestanden en kennis in iemands hoofd naar één centraal platform waar elke afdeling zijn informatie terugvindt, data analyseert en rechtstreeks in het ERP werkt.</p>
 
   <div class="tech-row">
-    <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">KING API</span><span class="tech-tag">SQL</span><span class="tech-tag">Jinja2</span><span class="tech-tag">REST / CSRF</span>
+    <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">ERP-webservices</span><span class="tech-tag">SQL</span><span class="tech-tag">Jinja2</span><span class="tech-tag">REST / CSRF</span>
   </div>
 
   <div class="kpi-row">
-    <div class="kpi"><span class="kpi-val">16</span><span class="kpi-label">Interne apps</span></div>
-    <div class="kpi"><span class="kpi-val">20</span><span class="kpi-label">Projecten in register</span></div>
-    <div class="kpi"><span class="kpi-val">6</span><span class="kpi-label">Afdelingen live</span></div>
-    <div class="kpi"><span class="kpi-val">Live</span><span class="kpi-label">KING + GSC data</span></div>
+    <div class="kpi"><span class="kpi-val">18+</span><span class="kpi-label">Interne apps</span></div>
+    <div class="kpi"><span class="kpi-val">26</span><span class="kpi-label">Projecten, 10 actief</span></div>
+    <div class="kpi"><span class="kpi-val">4</span><span class="kpi-label">Afdelingen live</span></div>
+    <div class="kpi"><span class="kpi-val">Live</span><span class="kpi-label">ERP- + GSC-data</span></div>
   </div>
 
   <span class="section-tag">Het probleem</span>
   <h2>Elke afdeling een eigen eiland</h2>
-  <p>De informatie die FOV dagelijks nodig heeft, zat overal en nergens: klantgegevens in het KING-ERP, verkoopcijfers in losse exports, voorraadkennis in hoofden, afspraken in mailwisselingen. Wie iets wilde weten, moest weten wíé het wist. Elke afdeling — verkoop, expeditie, administratie, marketing — werkte in zijn eigen hoek, met zijn eigen bestanden.</p>
+  <p>De informatie die FOV dagelijks nodig heeft, zat overal en nergens: klantgegevens in het ERP, verkoopcijfers in losse exports, voorraadkennis in hoofden, afspraken in mailwisselingen. Wie iets wilde weten, moest weten wíé het wist. Elke afdeling — verkoop, expeditie, administratie, marketing — werkte in zijn eigen hoek, met zijn eigen bestanden.</p>
   <p>Het gevolg: dezelfde vraag werd tien keer gesteld, exports werden met de hand gemaakt en waren de volgende dag alweer oud, en er was geen enkele plek waar je kon zien wat er speelde. <strong>Er was geen thuis voor de organisatie.</strong></p>
 
   <span class="section-tag">De aanpak</span>
   <h2>Eén platform, niet nóg een tool</h2>
-  <p>In plaats van weer een losse tool bouwde ik een compleet intranet in Python en Flask: één login, rollen per afdeling, en een startdashboard dat de belangrijkste bedrijfscijfers real-time toont — orderintake, weborder-aandeel, SEO-positie en de cachestatus van KING en Search Console. Daaromheen groeide een groeiende catalogus van apps.</p>
+  <p>In plaats van weer een losse tool bouwde ik een compleet intranet in Python en Flask: één login, rollen per afdeling, en een startdashboard dat de belangrijkste bedrijfscijfers real-time toont — orderintake, weborder-aandeel, SEO-positie en de cachestatus van het ERP en Search Console. Daaromheen groeide een groeiende catalogus van apps.</p>
   <div class="flow">
     <div class="flow-step"><div class="flow-num">01</div><b>Rol &amp; toegang</b><span>Eén login, rechten per afdeling</span></div>
     <div class="flow-step"><div class="flow-num">02</div><b>Dashboard</b><span>Live order-, web- en SEO-cijfers</span></div>
-    <div class="flow-step"><div class="flow-num">03</div><b>Apps</b><span>16 gekoppelde KING- en analyse-tools</span></div>
+    <div class="flow-step"><div class="flow-num">03</div><b>Apps</b><span>18+ gekoppelde ERP- en analyse-tools</span></div>
     <div class="flow-step"><div class="flow-num">04</div><b>Overzicht</b><span>Projectregister, planner, kennisbank</span></div>
   </div>
-  <p>De apps lopen van een <strong>Directiedashboard</strong> (omzet, marge, logistiek) en <strong>Voorraadbeheer</strong> met verklaarbaar besteladvies, tot een heel KING-cluster: een read-only <strong>DataDigger</strong> met SQL-builder, prijscondities, klantendossier, prijsafspraken, datacontrole, product- en klantexport, en een CMR-transportdocument dat rechtstreeks uit een KING-order wordt gevuld. Daarnaast een projectregister met twintig lopende projecten, een planner, kennisbank, nieuws en verlofaanvragen.</p>
+  <p>De apps lopen van een <strong>Directiedashboard</strong> (omzet, marge, logistiek) en <strong>Voorraadbeheer</strong> met verklaarbaar besteladvies, tot een heel ERP-cluster: een read-only <strong>databasetool</strong> met SQL-builder, prijscondities, klantendossier, prijsafspraken, datacontrole, product- en klantexport, en een CMR-transportdocument dat rechtstreeks uit een ERP-order wordt gevuld. Daarnaast een projectregister met 26 projecten, waarvan 10 actief, een planner, kennisbank, nieuws en verlofaanvragen.</p>
 
   <blockquote>Het verschil tussen een tool en een platform is de tweede tool. Zodra apps een gedeelde login, rol en data delen, wordt het geheel meer waard dan de som — mits je de koppeling van begin af aan als contract behandelt.</blockquote>
 
@@ -157,15 +157,15 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
   <span class="section-tag">Het resultaat</span>
   <h2>Een thuis voor de organisatie</h2>
   <ul>
-    <li><strong>16 interne apps</strong> onder één dak, van directie-analyse tot KING-exports en transportdocumenten.</li>
+    <li><strong>18+ interne apps</strong> onder één dak, van directie-analyse tot ERP-exports en transportdocumenten.</li>
     <li><strong>Eén bron van waarheid</strong> voor klant-, order- en artikeldata, met exports die niemand meer met de hand hoeft te maken.</li>
-    <li><strong>Transparantie</strong> via een projectregister waarin twintig projecten met status, afdeling en betrokkenen voor iedereen zichtbaar zijn.</li>
+    <li><strong>Transparantie</strong> via een projectregister waarin 26 projecten (10 actief) met status, afdeling en betrokkenen voor iedereen zichtbaar zijn.</li>
     <li><strong>Een fundament om op te bouwen:</strong> nieuwe tools pluggen in via een vast contract in plaats van als los eiland.</li>
   </ul>
 
   <span class="section-tag">Wat ik eruit haalde</span>
   <h2>Geleerd onderweg</h2>
-  <p>De grootste les: het waardevolste stuk software was niet een schitterende app, maar de saaie afspraak eronder. Door vroeg een integratie-contract en een read-only KING-laag vast te leggen, kon het platform doorgroeien van één dashboard naar zestien apps zonder in een wildgroei te veranderen. Architectuur die je niet ziet, is precies wat een verzameling tools tot een platform maakt.</p>
+  <p>De grootste les: het waardevolste stuk software was niet een schitterende app, maar de saaie afspraak eronder. Door vroeg een integratie-contract en een read-only ERP-laag vast te leggen, kon het platform doorgroeien van één dashboard naar ruim achttien apps zonder in een wildgroei te veranderen. Architectuur die je niet ziet, is precies wat een verzameling tools tot een platform maakt.</p>
 
   <div class="cta-card">
     <h3>Meer weten?</h3>

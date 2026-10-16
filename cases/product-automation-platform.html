@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<title>Case: Product Automatisering Platform | Bastiaan van der Horst</title>
-<meta name="description" content="Hoe ik productcontent op schaal liet genereren met twee AI's die elkaar controleren: 5.000+ producten in 4 uur, 99% kostenreductie.">
+<title>Case: Productteksten op schaal | Bastiaan van der Horst</title>
+<meta name="description" content="Hoe ik AI productteksten liet schrijven per webshop en taal, met een vaste regelcontrole vóór import en een meting na import of de tekst echt live staat.">
 <meta name="author" content="Bastiaan van der Horst">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/product-automation-platform.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/cases/product-automation-platform.html">
-<meta property="og:title" content="Case: Product Automatisering Platform">
-<meta property="og:description" content="5.000+ producten in 4 uur via een dual-AI aanpak met ChatGPT en Claude. 99% kostenreductie.">
+<meta property="og:title" content="Case: Productteksten op schaal">
+<meta property="og:description" content="AI schrijft, een vaste regelcontrole keurt vóór import, en daarna meet ik of de tekst echt op de pagina staat. ~2.300 teksten in één batch, 92,6% aantoonbaar live.">
 <meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
@@ -19,12 +19,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Case: Product Automatisering Platform",
-  "description": "AI-contentgeneratie op schaal met dual-AI cross-validatie: 5.000+ producten in 4 uur, 99% kostenreductie.",
+  "headline": "Case: Productteksten op schaal",
+  "description": "AI-productteksten per webshop en taal, met een vaste regelcontrole vóór import en een meting na import of de tekst echt live staat.",
   "author": { "@type": "Person", "name": "Bastiaan van der Horst", "url": "https://bastiaanvdh.github.io/portfolio/" },
   "publisher": { "@type": "Person", "name": "Bastiaan van der Horst" },
   "mainEntityOfPage": "https://bastiaanvdh.github.io/portfolio/cases/product-automation-platform.html",
-  "about": ["AI Content Generation", "Python", "Web Scraping", "OCR", "E-commerce"]
+  "about": ["AI-contentgeneratie", "Python", "Datakwaliteit", "E-commerce", "Meertalige content"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,58 +117,60 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
 
 <div class="container">
   <div class="case-label">Case study · FOV</div>
-  <h1>Product Automatisering Platform</h1>
-  <p class="lead">Productteksten schrijven is duur, traag en saai. Ik liet twee AI-modellen het werk doen — en elkaar controleren — zodat duizenden producten in uren in plaats van maanden van content werden voorzien.</p>
+  <h1>Productteksten op schaal</h1>
+  <p class="lead">Duizenden artikelen, meerdere webshops, twee talen. Ik liet AI de productteksten schrijven, maar niets ging live zonder vaste controle. En na de import meet ik of de tekst echt op de pagina staat.</p>
 
   <div class="tech-row">
-    <span class="tech-tag">Python</span><span class="tech-tag">BeautifulSoup</span><span class="tech-tag">Tesseract OCR</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">Claude API</span><span class="tech-tag">Pandas</span>
+    <span class="tech-tag">Python</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">Flask</span><span class="tech-tag">Pandas</span><span class="tech-tag">Regex</span><span class="tech-tag">ERP-import</span>
   </div>
 
   <div class="kpi-row">
-    <div class="kpi"><span class="kpi-val">5K+</span><span class="kpi-label">Producten in 4 uur</span></div>
-    <div class="kpi"><span class="kpi-val">80x</span><span class="kpi-label">Sneller dan handmatig</span></div>
-    <div class="kpi"><span class="kpi-val">€0.02</span><span class="kpi-label">Per product (was €5-10)</span></div>
-    <div class="kpi"><span class="kpi-val">99%</span><span class="kpi-label">Kostenreductie</span></div>
+    <div class="kpi"><span class="kpi-val">~2.300</span><span class="kpi-label">Teksten in één batch</span></div>
+    <div class="kpi"><span class="kpi-val">~20 s</span><span class="kpi-label">Per artikel</span></div>
+    <div class="kpi"><span class="kpi-val">30.576</span><span class="kpi-label">Duitse tekstvelden</span></div>
+    <div class="kpi"><span class="kpi-val">92,6%</span><span class="kpi-label">Aantoonbaar live</span></div>
   </div>
 
   <span class="section-tag">Het probleem</span>
-  <h2>Duizenden producten, geen content</h2>
-  <p>Een webshop met duizenden artikelen heeft voor élk product een titel, meta-beschrijving en productomschrijving nodig. Handmatig kost dat €5 à €10 per product aan tekstschrijverwerk en weken doorlooptijd. Voor een catalogus van duizenden producten is dat simpelweg niet haalbaar — laat staan bij te houden als het assortiment verandert.</p>
+  <h2>Duizenden artikelen, geen goede tekst</h2>
+  <p>FOV verkoopt via meerdere webshops, waaronder de Duitse webshop fovfarbe.de. Elk artikel heeft per webshop en per taal een titel, een metabeschrijving, een URL en een producttekst nodig. Veel artikelen hadden een korte tekst, of helemaal geen. Met de hand schrijven kost weken. En het assortiment verandert steeds.</p>
 
   <span class="section-tag">De aanpak</span>
-  <h2>Twee AI's die elkaar controleren</h2>
-  <p>Ik bouwde een pipeline die productdata verzamelt, verrijkt met gescrapete leveranciersinfo en technische PDF's, en daar vervolgens content op genereert. De kern is een <strong>dual-AI aanpak</strong>: ChatGPT en Claude genereren en valideren elkaars output, wat de consistentie en kwaliteit op schaal flink verhoogt.</p>
+  <h2>AI schrijft, regels keuren</h2>
+  <p>Ik bouwde een Python-tool die de artikeldata uit het ERP leest en AI per webshop en per taal laat schrijven. Elke webshop heeft zijn eigen toon en opmaak. Is de brondata mager, dan krijgt het model de opdracht om niets te verzinnen. Liever een korte tekst die klopt dan een lange vol specificaties die niemand heeft gecontroleerd.</p>
   <div class="flow">
-    <div class="flow-step"><div class="flow-num">01</div><b>Scrape</b><span>Productdata van leveranciers & concurrenten</span></div>
-    <div class="flow-step"><div class="flow-num">02</div><b>Parse</b><span>OCR op technische product- en veiligheidsbladen</span></div>
-    <div class="flow-step"><div class="flow-num">03</div><b>Genereer</b><span>ChatGPT + Claude schrijven en valideren</span></div>
-    <div class="flow-step"><div class="flow-num">04</div><b>Exporteer</b><span>KING-compatibel formaat voor bulk import</span></div>
+    <div class="flow-step"><div class="flow-num">01</div><b>Lees</b><span>Artikeldata uit het ERP</span></div>
+    <div class="flow-step"><div class="flow-num">02</div><b>Schrijf</b><span>AI per webshop en per taal</span></div>
+    <div class="flow-step"><div class="flow-num">03</div><b>Keur</b><span>Vaste regelcontrole vóór import</span></div>
+    <div class="flow-step"><div class="flow-num">04</div><b>Meet</b><span>Staat de tekst echt op de site?</span></div>
   </div>
+  <p>De controle is <strong>geen tweede AI, maar een vaste set regels</strong>. Regels zijn saai, en dat is precies de bedoeling: ze doen elke keer hetzelfde. Ze zoeken onder meer naar Nederlandse woorden in een Duitse tekst, dubbele tekstblokken, dubbele URL's en tekens die het webshopplatform niet accepteert. Wat niet door de controle komt, gaat niet mee in de import.</p>
 
-  <blockquote>Eén AI hallucineert soms. Twee AI's die elkaars werk moeten goedkeuren, vangen elkaars fouten — dat was het verschil tussen "leuk experiment" en "productieklaar".</blockquote>
+  <blockquote>Een tekst in het importbestand staat nog niet op de site. Pas als je op de pagina zelf kijkt, weet je of het gelukt is.</blockquote>
 
   <span class="section-tag">De uitdaging</span>
-  <h2>Kwaliteit bewaken op schaal</h2>
-  <p>Bij vijf producten controleer je alles met de hand. Bij vijfduizend niet. De uitdaging was om kwaliteit te garanderen zónder elk item te lezen. De cross-validatie tussen de twee modellen, gecombineerd met vaste regels en steekproeven, maakte de output betrouwbaar genoeg om in bulk te importeren.</p>
+  <h2>Fouten die je pas op de pagina ziet</h2>
+  <p>De lastigste fouten gaven geen foutmelding. Het webshopplatform weigerde bijvoorbeeld een gedachtestreepje (<code>–</code>) in de metabeschrijving. AI gebruikt dat teken graag. Het gevolg: het hele artikel bleef stil hangen, en dat zag je alleen in een aparte foutenlijst. Nu vervangt de regelcontrole dat teken vóór de import, en scan ik elke import erop.</p>
+  <p>Een tweede val: <strong>dubbele blokken</strong>. Bij het herschrijven kwam een stuk tekst soms twee keer in de HTML terecht. In de tool zag je dat niet, op de productpagina wel. Ook daarvoor is nu een regel.</p>
 
   <span class="section-tag">Het resultaat</span>
-  <h2>Van weken naar uren</h2>
+  <h2>Gemeten op de site, niet in het importbestand</h2>
   <ul>
-    <li><strong>5.000+ producten in 4 uur</strong> voorzien van volledige content — circa 80x sneller dan handmatig.</li>
-    <li><strong>Kosten van €5-10 naar €0,02 per product</strong>: een kostenreductie van 99%.</li>
-    <li><strong>Direct importklaar</strong> in het KING-webshopsysteem, zonder tussenstappen.</li>
-    <li><strong>Schaalbaar en herhaalbaar</strong>: nieuwe producten of assortimentswijzigingen draaien zo opnieuw mee.</li>
+    <li><strong>~2.300 productteksten in één batch</strong>, ongeveer 20 seconden per artikel.</li>
+    <li><strong>30.576 Duitse tekstvelden</strong> op 6.237 artikelen voor fovfarbe.de, met dezelfde aanpak.</li>
+    <li><strong>2.698 van de 2.704 teksten</strong> staan in het ERP, en <strong>92,6%</strong> is aantoonbaar zichtbaar op de site.</li>
+    <li><strong>Een fractie van een cent per tekst</strong> aan API-kosten.</li>
   </ul>
 
   <span class="section-tag">Wat ik eruit haalde</span>
   <h2>Geleerd onderweg</h2>
-  <p>AI op schaal inzetten draait niet om de mooiste prompt, maar om controle: validatie, vaste regels en een vangnet voor de gevallen waar het misgaat. De dual-AI opzet was precies dat vangnet. En het bredere inzicht: de echte winst zit niet in "AI die teksten schrijft", maar in een pipeline die het hele proces — van databron tot importbestand — automatiseert.</p>
+  <p>AI op schaal draait niet om de mooiste prompt, maar om controle. Vóór de import: vaste regels die elke keer hetzelfde doen. Na de import: meten of de tekst echt op de pagina staat. "Geïmporteerd" bewijst niets. Het gat tussen wat in het ERP staat en wat op de site staat, is precies wat je mist als je stopt bij de import.</p>
 
   <div class="cta-card">
-    <h3>Meer zien?</h3>
-    <p>Bekijk de code, of ga terug naar het volledige projectoverzicht.</p>
+    <h3>Meer weten?</h3>
+    <p>Dit is een bedrijfsintern systeem, dus de code is niet publiek. Benieuwd naar de regels of de meting? Neem gerust contact op.</p>
     <div class="btn-row">
-      <a href="https://github.com/bastiaanvdh/product-automation-platform" class="btn-primary">→ Bekijk op GitHub</a>
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-primary">→ Neem contact op</a>
       <a href="../index.html#werk" class="btn-secondary">Alle projecten</a>
     </div>
   </div>

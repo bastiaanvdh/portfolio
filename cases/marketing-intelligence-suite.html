@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <title>Case: Marketing Intelligence Suite | Bastiaan van der Horst</title>
-<meta name="description" content="Hoe ik bij FOV een volledig marketing intelligence platform bouwde in Python: van losse API-data naar één dashboard met ML-forecasting en €1.3M revenue attribution.">
+<meta name="description" content="Hoe ik bij FOV een marketing intelligence platform bouwde in Python: van losse API-data naar één dashboard met ML-forecasting en omzet per kanaal.">
 <meta name="author" content="Bastiaan van der Horst">
 <link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html">
 <meta property="og:title" content="Case: Marketing Intelligence Suite">
-<meta property="og:description" content="Van losse exports uit drie tools naar één dashboard met ML-forecasting en €1.3M revenue attribution.">
+<meta property="og:description" content="Van losse exports uit drie tools naar één dashboard met ML-forecasting en omzet per kanaal.">
 <meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
@@ -20,11 +20,11 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Case: Marketing Intelligence Suite",
-  "description": "Hoe ik bij FOV een volledig marketing intelligence platform bouwde in Python met ML-forecasting en €1.3M revenue attribution.",
+  "description": "Hoe ik bij FOV een marketing intelligence platform bouwde in Python met ML-forecasting en omzet per kanaal.",
   "author": { "@type": "Person", "name": "Bastiaan van der Horst", "url": "https://bastiaanvdh.github.io/portfolio/" },
   "publisher": { "@type": "Person", "name": "Bastiaan van der Horst" },
   "mainEntityOfPage": "https://bastiaanvdh.github.io/portfolio/cases/marketing-intelligence-suite.html",
-  "about": ["Marketing Intelligence", "Machine Learning", "Python", "Revenue Attribution", "SEO"]
+  "about": ["Marketing Intelligence", "Machine Learning", "Python", "Kanaalanalyse", "SEO"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,17 +118,17 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
 <div class="container">
   <div class="case-label">Case study · FOV</div>
   <h1>Marketing Intelligence Suite</h1>
-  <p class="lead">Van losse exports uit drie tools naar één dashboard waar het management dagelijks beslissingen op baseert — inclusief een ML-model dat voorspelt waar de volgende groei zit.</p>
+  <p class="lead">Van losse exports uit drie tools naar één dashboard waar management en marketing op sturen. Met een ML-model dat voorspelt waar de volgende groei zit.</p>
 
   <div class="tech-row">
     <span class="tech-tag">Python</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Google APIs</span><span class="tech-tag">Pandas/NumPy</span><span class="tech-tag">Streamlit</span><span class="tech-tag">OpenAI API</span>
   </div>
 
   <div class="kpi-row">
-    <div class="kpi"><span class="kpi-val">+47,6%</span><span class="kpi-label">Organisch YoY</span></div>
-    <div class="kpi"><span class="kpi-val">€1.3M</span><span class="kpi-label">Revenue attributed</span></div>
-    <div class="kpi"><span class="kpi-val">0.75+</span><span class="kpi-label">ML model R²</span></div>
-    <div class="kpi"><span class="kpi-val">10u+</span><span class="kpi-label">Bespaard/week</span></div>
+    <div class="kpi"><span class="kpi-val">+45%</span><span class="kpi-label">Paginaweergaven J-o-J</span></div>
+    <div class="kpi"><span class="kpi-val">3x+</span><span class="kpi-label">Organische klikken jun–okt</span></div>
+    <div class="kpi"><span class="kpi-val">0,65</span><span class="kpi-label">ML-model R²</span></div>
+    <div class="kpi"><span class="kpi-val">~40%</span><span class="kpi-label">Webomzet uit organisch</span></div>
   </div>
 
   <span class="section-tag">Het probleem</span>
@@ -145,38 +145,38 @@ footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between
     <div class="flow-step"><div class="flow-num">03</div><b>Modelleer</b><span>Random Forest forecast + anomaliedetectie</span></div>
     <div class="flow-step"><div class="flow-num">04</div><b>Beslis</b><span>Dashboard + geprioriteerde actielijst</span></div>
   </div>
-  <p>Het hart is een <strong>Random Forest-model met 100+ features</strong> dat per pagina voorspelt hoeveel clicks er te winnen zijn als de positie verbetert. Daarnaast draait er continu anomaliedetectie op de omzet: zakt een productlijn onverwacht weg, dan komt er automatisch een melding — voordat iemand het in een maandrapport zou zien.</p>
+  <p>Het hart is een <strong>Random Forest-model met 38 kenmerken, gekozen uit 100+ kandidaten</strong>. Het voorspelt per pagina voorspelt hoeveel clicks er te winnen zijn als de positie verbetert. Daarnaast draait er continu anomaliedetectie op de omzet: zakt een productlijn onverwacht weg, dan komt er automatisch een melding — voordat iemand het in een maandrapport zou zien.</p>
 
   <blockquote>De kern was niet het model, maar de koppeling. Pas toen GSC-posities, GA4-gedrag en Ads-kosten op één rij stonden, werd zichtbaar waar verkeer wél binnenkwam maar niet converteerde.</blockquote>
 
   <span class="section-tag">De uitdaging</span>
-  <h2>Attributie die klopt</h2>
-  <p>De lastigste stap was revenue attribution: omzet terugleiden van de uiteindelijke aankoop naar het eerste contactmoment, over sessies en kanalen heen. Door GA4-events te koppelen aan de transactiedata en een consistent attributiemodel te kiezen, kon ik <strong>€1.3M jaaromzet</strong> betrouwbaar toewijzen aan de bron. Dat veranderde het gesprek: niet meer "SEO voelt waardevol", maar "dit kanaal leverde dit bedrag op".</p>
+  <h2>Omzet per kanaal zichtbaar</h2>
+  <p>De lastigste stap was de omzet aan de bron koppelen. Door GA4-events naast de transactiedata te leggen, werd per kanaal zichtbaar wat het opleverde. Organisch zoeken bleek <strong>ongeveer 40% van de webomzet</strong>. Dat veranderde het gesprek: niet meer "SEO voelt waardevol", maar "dit kanaal levert dit deel van de omzet".</p>
 
   <span class="section-tag">Het resultaat</span>
   <h2>Sturen op de toekomst, niet op het verleden</h2>
   <ul>
-    <li><strong>+47,6% organische groei jaar-op-jaar</strong> door systematisch de pagina's aan te pakken die het model als kansrijk markeerde.</li>
-    <li><strong>€1.3M aan omzet</strong> betrouwbaar toegewezen, met automatische signalering bij afwijkingen.</li>
-    <li><strong>10+ uur per week bespaard</strong> doordat het wekelijkse handwerk volledig verdween.</li>
-    <li><strong>Eén bron van waarheid</strong> waar management én marketing dagelijks op vertrouwen.</li>
+    <li><strong>+45% paginaweergaven jaar-op-jaar</strong> (jan–okt 2026), terwijl we de pagina's aanpakten die het model als kansrijk markeerde. De organische zoekklikken zijn van juni tot oktober ruim verdrievoudigd.</li>
+    <li><strong>Omzet per kanaal zichtbaar</strong>: organisch zoeken is ongeveer 40% van de webomzet. Met een automatische melding bij afwijkingen.</li>
+    <li><strong>Het wekelijkse handmatige rapport verdween</strong>: de pipeline maakt het nu zelf.</li>
+    <li><strong>Eén bron van waarheid</strong> waar management én marketing op sturen.</li>
   </ul>
 
   <span class="section-tag">Wat ik eruit haalde</span>
   <h2>Geleerd onderweg</h2>
-  <p>De grootste les: een voorspelmodel is pas waardevol als de data eronder kloppen en de uitkomst leidt tot een concrete actie. Ik heb bewust veel tijd in de datakoppeling en in een begrijpelijke, geprioriteerde actielijst gestoken — niet in een nóg complexer model. Een R² van 0.75 die wekelijks gebruikt wordt, is meer waard dan een 0.90 die in een notebook blijft staan.</p>
+  <p>De grootste les: een voorspelmodel is pas waardevol als de data eronder kloppen en de uitkomst leidt tot een concrete actie. Ik heb bewust veel tijd in de datakoppeling en in een begrijpelijke, geprioriteerde actielijst gestoken — niet in een nóg complexer model. Een R² van 0,65 die elke week gebruikt wordt, is meer waard dan een 0,90 die in een notebook blijft staan.</p>
 
   <div class="cta-card">
     <h3>Meer zien?</h3>
-    <p>Dit is één van de tools die ik bouwde. Bekijk de code, of ga terug naar het volledige overzicht.</p>
+    <p>Dit is een bedrijfsintern systeem, dus de code is niet publiek. Benieuwd naar de aanpak of het model? Neem gerust contact op.</p>
     <div class="btn-row">
-      <a href="https://github.com/bastiaanvdh/marketing-intelligence-suite" class="btn-primary">→ Bekijk op GitHub</a>
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-primary">→ Neem contact op</a>
       <a href="../index.html#werk" class="btn-secondary">Alle projecten</a>
     </div>
   </div>
 </div>
 
-<a class="next" href="product-automation-platform.html"><span class="m"><span>(Volgende case)</span><span><b>02</b> / 06</span></span><strong>Product Automatisering Platform →</strong></a>
+<a class="next" href="product-automation-platform.html"><span class="m"><span>(Volgende case)</span><span><b>02</b> / 06</span></span><strong>Productteksten op schaal →</strong></a>
 <footer class="m"><span>© 2026 Bastiaan van der Horst · Harlingen</span><a href="../index.html">Terug naar de homepage ↑</a></footer>
 <script>/* build_cases: leesvoortgang */(function(){var b=document.getElementById("bar");function u(){var h=document.documentElement.scrollHeight-innerHeight;b.style.width=(h>0?scrollY/h*100:0)+"%"}addEventListener("scroll",u,{passive:true});u()})();</script>
 </body>

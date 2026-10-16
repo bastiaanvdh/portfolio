@@ -3,10 +3,10 @@
     {
       "slug": "twee-ais-die-elkaar-controleren",
       "file": "2026-06-twee-ais-die-elkaar-controleren.md",
-      "title": "Twee AI's die elkaar controleren: 5.000 productteksten in 4 uur",
+      "title": "Zo controleer ik AI-productteksten voordat ze live gaan",
       "date": "2026-06-14",
-      "tags": ["ai", "python", "automatisering"],
-      "summary": "Build-log: hoe ik AI op schaal betrouwbaar maakte met een dual-AI opzet waarin ChatGPT en Claude elkaars werk valideren. De echte winst zit in controle, niet in creativiteit."
+      "tags": ["ai", "python", "datakwaliteit"],
+      "summary": "Build-log: AI schrijft de productteksten, een vaste regelcontrole keurt ze vóór de import, en daarna meet ik of ze echt op de pagina staan. Over een gedachtestreepje dat een heel artikel tegenhield, dubbele blokken en 92,6% aantoonbaar live."
     },
     {
       "slug": "zo-werkt-mijn-screener",
