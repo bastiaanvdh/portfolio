@@ -142,7 +142,7 @@ h1,h2,h3{margin:0;font-weight:inherit}
 /* Werk */
 .work{padding-top:140px}
 .work-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,min(400px,30vw));gap:56px;align-items:start}
-.row{min-height:62vh;display:grid;grid-template-columns:3rem minmax(0,1fr);align-content:center;gap:4px 18px;border-bottom:1px solid var(--line);padding-block:48px}
+.row{min-height:50vh;display:grid;grid-template-columns:3rem minmax(0,1fr);align-content:center;gap:4px 18px;border-bottom:1px solid var(--line);padding-block:48px}
 .row .ix{font-family:var(--mono);font-size:.78rem;color:var(--dim);padding-top:1.4em;transition:color .4s}
 .row h3{font-size:clamp(2.6rem,6.2vw,6rem);font-weight:500;line-height:.98;letter-spacing:-.025em;color:var(--dim);transition:color .5s}
 .row .meta{grid-column:2;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px}
@@ -423,6 +423,17 @@ table.dm-t tr.hl td{background:#221d18}
 .dm-form .fr{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .dm-pick{display:grid;gap:8px;margin-top:14px;max-width:460px}
 .dm-pick .dm-item{border:1px solid var(--line);border-radius:8px}
+.hero-proof{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:5}
+.hero-proof div{background:var(--bg);padding:4px 10px 4px 0;border-radius:4px}
+.hero-proof b{display:block;font-weight:800;font-stretch:70%;font-size:1.9rem;line-height:1;color:var(--ink)}
+.hero-proof span{display:block;font:500 .62rem var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--mid);margin-top:4px}
+.hero-cta{justify-self:end;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:5}
+.hero-cta .pill{background:var(--bg)}.hero-cta .pill.solid{background:var(--accent)}
+.proof-m{display:none}
+@media (max-width:700px){.hero .hero-proof{display:none}.proof-m{display:block;padding-top:22px;padding-bottom:22px;border-bottom:1px solid var(--line)}.proof-m .hero-proof{margin-top:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.proof-m .hero-proof div{padding:0}}
+.row .tags{grid-column:2;margin-top:12px;color:var(--mid);font-size:.68rem;letter-spacing:.06em}
+@media (max-width:700px){.hero-cta{justify-self:start;justify-content:flex-start}.hero-proof{gap:14px}.hero-proof b{font-size:1.5rem}}
+@media (min-width:900px){.rail{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));width:auto;gap:20px}.tile{width:auto}.tile .card{aspect-ratio:auto;min-height:330px;gap:22px}}
 .dx-fun,.dx-txt{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:520px}
 .dx-side{border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .dx-main,.dx-out{padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
@@ -481,8 +492,10 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <span class="m clock" id="clock">Harlingen, NL / --:--</span>
   <nav class="nav" aria-label="Main menu">
     <a class="l" href="#werk" data-go>Work</a>
+    <a class="l" href="#demo" data-go>Demo</a>
     <a class="l" href="#over-mij" data-go>About</a>
     <a class="l" href="#beleggen" data-go>Investing</a>
+    <a class="l" href="cv.html">CV</a>
     <a class="l" href="https://bastiaanvdh.github.io/portfolio/" lang="nl">NL</a>
     <a class="pill solid" href="#contact" data-go>Let's talk</a>
   </nav>
@@ -495,11 +508,12 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <svg class="orb" id="orb" aria-hidden="true"></svg>
   <h1 class="name" aria-label="Bastiaan van der Horst"><span class="l1">Bastiaan</span><span class="l2">van der Horst</span></h1>
   <div class="hero-foot">
-    <div><p>I turn raw data into decisions. With Python, models and dashboards, measured in euros and hours.</p><p class="m avail"><b>●</b> Looking for a new role:<br>Data Analyst · Marketing Data Analyst · AI Automation Specialist</p></div>
+    <div><p>I turn raw data into decisions. With Python, models and dashboards, measured in euros and hours.</p><p class="m avail"><b>●</b> Looking for a new role:<br>Data Analyst · Marketing Data Analyst · AI Automation Specialist</p><div class="hero-proof"><div><b>×5.8</b><span>tipping point in the funnel</span></div><div><b>23,000+</b><span>weights calculated</span></div><div><b>92.6%</b><span>AI texts provably live</span></div></div></div>
     <span class="m">↓ Scroll, take your time</span>
-    <a class="pill" href="#werk" data-go>See the work →</a>
+    <div class="hero-cta"><a class="pill solid" href="#werk" data-go>See the work →</a><a class="pill" href="#demo" data-go>Try a demo</a><a class="pill" href="cv.html">CV ↗</a></div>
   </div>
 </section>
+<div class="proof-m g"><div class="hero-proof pm"><div><b>×5.8</b><span>tipping point in the funnel</span></div><div><b>23,000+</b><span>weights calculated</span></div><div><b>92.6%</b><span>AI texts provably live</span></div></div></div>
 
 <div class="band" aria-label="Skills: Python, SQL, GA4, Google Ads, machine learning, dashboards, automation, investing">
   <div class="band-in" aria-hidden="true">
@@ -507,6 +521,32 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     <span>Python</span><span>SQL</span><span>GA4</span><span>Google Ads</span><span>Machine learning</span><span>Dashboards</span><span>Automation</span><span>Investing</span>
   </div>
 </div>
+
+
+<section class="work g" id="werk">
+  <div class="sec-head m"><span>Selected work (05)</span><span><button type="button" id="pause">(Pause motion)</button>&nbsp;&nbsp; 2025 — 2026</span></div>
+  <div class="work-grid">
+    <div id="rows"></div>
+    <aside class="dock" aria-hidden="true">
+      <div class="screen" id="screen"></div>
+      <div class="dock-foot m"><span id="dockNum"><b>01</b> / 05</span><span id="dockCat">FOV</span></div>
+      <div class="dock-bar"><i id="dockBar"></i></div>
+    </aside>
+  </div>
+</section>
+
+<section class="demo g" id="demo">
+  <div class="sec-head m"><span><b id="dmHead">(Try it yourself)</b></span><span id="dmBadge">Live demo · fictional data</span></div>
+  <h2 class="dm-title" id="dmTitle">Try it yourself.</h2>
+  <p class="dm-intro" id="dmIntro"></p>
+  <div class="dm-tabs" role="tablist" id="dmTabs" aria-label="Demo"></div>
+  <div id="dmMail" class="dm-panel"></div>
+  <div id="dmTel" class="dm-panel" hidden></div>
+  <div id="dmFun" class="dm-panel" hidden></div>
+  <div id="dmWgt" class="dm-panel" hidden></div>
+  <div id="dmTxt" class="dm-panel" hidden></div>
+  <p class="m dm-note" id="dmNote"></p>
+</section>
 
 <section class="mf" id="manifest">
   <div class="mf-ring" aria-hidden="true"></div>
@@ -526,37 +566,13 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   </div>
 </section>
 
-<section class="work g" id="werk">
-  <div class="sec-head m"><span>Selected work (05)</span><span><button type="button" id="pause">(Pause motion)</button>&nbsp;&nbsp; 2025 — 2026</span></div>
-  <div class="work-grid">
-    <div id="rows"></div>
-    <aside class="dock" aria-hidden="true">
-      <div class="screen" id="screen"></div>
-      <div class="dock-foot m"><span id="dockNum"><b>01</b> / 05</span><span id="dockCat">FOV</span></div>
-      <div class="dock-bar"><i id="dockBar"></i></div>
-    </aside>
-  </div>
-</section>
-
 <section class="close-up" aria-label="More projects">
-  <div class="rail-head m g"><span>(Up close)</span><span id="railNum">Scroll or swipe · 12 projects</span></div>
+  <div class="rail-head m g"><span>(More work)</span><span id="railNum">More work · 12 projects</span></div>
   <div class="rail-wrap" id="railWrap">
     <div class="rail-sticky" id="railSticky"><div class="rail" id="rail"></div></div>
   </div>
 </section>
 
-<section class="demo g" id="demo">
-  <div class="sec-head m"><span><b id="dmHead">(Try it yourself)</b></span><span id="dmBadge">Live demo · fictional data</span></div>
-  <h2 class="dm-title" id="dmTitle">Try it yourself.</h2>
-  <p class="dm-intro" id="dmIntro"></p>
-  <div class="dm-tabs" role="tablist" id="dmTabs" aria-label="Demo"></div>
-  <div id="dmMail" class="dm-panel"></div>
-  <div id="dmTel" class="dm-panel" hidden></div>
-  <div id="dmFun" class="dm-panel" hidden></div>
-  <div id="dmWgt" class="dm-panel" hidden></div>
-  <div id="dmTxt" class="dm-panel" hidden></div>
-  <p class="m dm-note" id="dmNote"></p>
-</section>
 
 <section class="say g" id="hallo">
   <div class="say-in">
@@ -750,17 +766,17 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       return s+'<text class="v-sub" x="30" y="466">≈ 9,600 LINES · 18 TABS · LOCAL</text></svg>'}
   };
   var F=[
-    {n:'Customer journey and mobile',c:'FOV · Analysis',k:'×5.8 tipping point',d:'The GA4 funnel sliced by new versus returning and by device. On average everything looked fine. Sliced, one step turned out to be the break: from product page to cart, returning visitors move on almost 6× as often. On mobile the buy button sits below the fold. One measure chosen to test the fix, deliberately not revenue.',v:'fun',bg:'#141C26',demo:'fun'},
-    {n:'Product texts at scale',c:'FOV · Production',k:'92.6% visible',d:'A language model writes the title, meta and description per web shop and per language, including 30,576 German text fields on 6,237 products. A fixed check stops errors before import. A second step then measures whether the text is really on the page: 92.6% provably visible.',v:'prod',bg:'#221812',demo:'txt'},
-    {n:'From weight to shipping price',c:'FOV · Production',k:'23,000+ weights',d:'Weight calculated from density × volume + packaging, read from safety data sheets and tested against the scales: 90 to 95% within 20%. That gave more than 23,000 products a weight. On top of it sits a weight-based shipping table for web shop and customer service, with 112 tests.',v:'scale',bg:'#1A1C14',cs:'gewichten-veiligheidsbladen',demo:'wgt'},
-    {n:'Measurement critic',c:'FOV · Production',k:'08:45 self-check',d:'Built after a revenue measurement was silent for seven days without anyone noticing. Now the pipeline checks itself, every working day at 08:45: seven kinds of measurement error, one action list.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
-    {n:'Orders without retyping',c:'FOV · Prototype',k:'prototype',d:'Orders from email, pdf or Excel are ready as a draft order, with customer and products recognised in the ERP. Doubt is made visible, customer service decides and sends the order on with one click. Working prototype, proposed to management.',v:'mail',bg:'#13201C',demo:'mail'}
+    {n:'Customer journey and mobile',c:'FOV · Analysis',k:'×5.8 tipping point',d:'The GA4 funnel sliced by new versus returning and by device. On average everything looked fine. Sliced, one step turned out to be the break: from product page to cart, returning visitors move on almost 6× as often. On mobile the buy button sits below the fold. One measure chosen to test the fix, deliberately not revenue.',v:'fun',bg:'#141C26',demo:'fun',t:'GA4 Data API · Python · pandas · funnel analysis',cs:'klantreis-mobiel'},
+    {n:'Product texts at scale',c:'FOV · Production',k:'92.6% visible',d:'A language model writes the title, meta and description per web shop and per language, including 30,576 German text fields on 6,237 products. A fixed check stops errors before import. A second step then measures whether the text is really on the page: 92.6% provably visible.',v:'prod',bg:'#221812',demo:'txt',t:'Python · OpenAI API · Flask · validation'},
+    {n:'From weight to shipping price',c:'FOV · Production',k:'23,000+ weights',d:'Weight calculated from density × volume + packaging, read from safety data sheets and tested against the scales: 90 to 95% within 20%. That gave more than 23,000 products a weight. On top of it sits a weight-based shipping table for web shop and customer service, with 112 tests.',v:'scale',bg:'#1A1C14',cs:'gewichten-veiligheidsbladen',demo:'wgt',t:'Python · PDF parsing · pytest · ERP import'},
+    {n:'Measurement critic',c:'FOV · Production',k:'08:45 self-check',d:'Built after a revenue measurement was silent for seven days without anyone noticing. Now the pipeline checks itself, every working day at 08:45: seven kinds of measurement error, one action list.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn',t:'Python · AST · pytest · Task Scheduler'},
+    {n:'Orders without retyping',c:'FOV · Prototype',k:'prototype',d:'Orders from email, pdf or Excel are ready as a draft order, with customer and products recognised in the ERP. Doubt is made visible, customer service decides and sends the order on with one click. Working prototype, proposed to management.',v:'mail',bg:'#13201C',demo:'mail',t:'LLM · Flask · ERP web services'}
   ];
   var CASES='https://bastiaanvdh.github.io/portfolio/cases/';
   var rowsEl=$('rows'),screen=$('screen');
   F.forEach(function(f,i){
     var r=document.createElement('article');r.className='row';
-    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Read the case (NL) →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">See the demo →</a>':'')+(f.demo?'<a class="lnk" href="#demo" data-demo="'+f.demo+'">Try the demo ↓</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
+    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+(f.t?'<div class="tags m">'+f.t+'</div>':'')+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Read the case (NL) →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">See the demo →</a>':'')+(f.demo?'<a class="lnk" href="#demo" data-demo="'+f.demo+'">Try the demo ↓</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
     rowsEl.appendChild(r);
     var d=document.createElement('div');d.className='vis';d.innerHTML=V[f.v](f.bg);screen.appendChild(d);
   });
@@ -791,7 +807,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   R.forEach(function(p,i){var t=document.createElement('div');t.className='tile';
     t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Read the case (NL) →</a>':'')+(p.u?'<a class="tlnk" href="'+p.u+'">Visit the site ↗</a>':'')+(DEMO[p.n]?'<a class="tlnk" href="#demo" data-demo="'+DEMO[p.n]+'">Try the demo ↓</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
   var wrap=$('railWrap'),pinned=false;
-  function sizeRail(){pinned=!reduce&&innerWidth>900;wrap.classList.toggle('pinned',pinned);
+  function sizeRail(){pinned=false;wrap.classList.toggle('pinned',pinned);
     if(pinned){wrap.style.height=(rail.scrollWidth-innerWidth+innerHeight)+'px'}else{wrap.style.height='';rail.style.transform=''}}
 
   /* ---------- Zin die oplicht ---------- */

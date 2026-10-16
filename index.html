@@ -142,7 +142,7 @@ h1,h2,h3{margin:0;font-weight:inherit}
 /* Werk */
 .work{padding-top:140px}
 .work-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,min(400px,30vw));gap:56px;align-items:start}
-.row{min-height:62vh;display:grid;grid-template-columns:3rem minmax(0,1fr);align-content:center;gap:4px 18px;border-bottom:1px solid var(--line);padding-block:48px}
+.row{min-height:50vh;display:grid;grid-template-columns:3rem minmax(0,1fr);align-content:center;gap:4px 18px;border-bottom:1px solid var(--line);padding-block:48px}
 .row .ix{font-family:var(--mono);font-size:.78rem;color:var(--dim);padding-top:1.4em;transition:color .4s}
 .row h3{font-size:clamp(2.6rem,6.2vw,6rem);font-weight:500;line-height:.98;letter-spacing:-.025em;color:var(--dim);transition:color .5s}
 .row .meta{grid-column:2;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px}
@@ -423,6 +423,17 @@ table.dm-t tr.hl td{background:#221d18}
 .dm-form .fr{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .dm-pick{display:grid;gap:8px;margin-top:14px;max-width:460px}
 .dm-pick .dm-item{border:1px solid var(--line);border-radius:8px}
+.hero-proof{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:5}
+.hero-proof div{background:var(--bg);padding:4px 10px 4px 0;border-radius:4px}
+.hero-proof b{display:block;font-weight:800;font-stretch:70%;font-size:1.9rem;line-height:1;color:var(--ink)}
+.hero-proof span{display:block;font:500 .62rem var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--mid);margin-top:4px}
+.hero-cta{justify-self:end;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:5}
+.hero-cta .pill{background:var(--bg)}.hero-cta .pill.solid{background:var(--accent)}
+.proof-m{display:none}
+@media (max-width:700px){.hero .hero-proof{display:none}.proof-m{display:block;padding-top:22px;padding-bottom:22px;border-bottom:1px solid var(--line)}.proof-m .hero-proof{margin-top:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.proof-m .hero-proof div{padding:0}}
+.row .tags{grid-column:2;margin-top:12px;color:var(--mid);font-size:.68rem;letter-spacing:.06em}
+@media (max-width:700px){.hero-cta{justify-self:start;justify-content:flex-start}.hero-proof{gap:14px}.hero-proof b{font-size:1.5rem}}
+@media (min-width:900px){.rail{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));width:auto;gap:20px}.tile{width:auto}.tile .card{aspect-ratio:auto;min-height:330px;gap:22px}}
 .dx-fun,.dx-txt{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:520px}
 .dx-side{border-right:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .dx-main,.dx-out{padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
@@ -481,8 +492,10 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <span class="m clock" id="clock">Harlingen, NL / --:--</span>
   <nav class="nav" aria-label="Hoofdmenu">
     <a class="l" href="#werk" data-go>Werk</a>
+    <a class="l" href="#demo" data-go>Demo</a>
     <a class="l" href="#over-mij" data-go>Over</a>
     <a class="l" href="#beleggen" data-go>Beleggen</a>
+    <a class="l" href="cv.html">CV</a>
     <a class="l" href="https://bastiaanvdh.github.io/portfolio/index-en.html" lang="en">EN</a>
     <a class="pill solid" href="#contact" data-go>Kennismaken</a>
   </nav>
@@ -495,11 +508,12 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   <svg class="orb" id="orb" aria-hidden="true"></svg>
   <h1 class="name" aria-label="Bastiaan van der Horst"><span class="l1">Bastiaan</span><span class="l2">van der Horst</span></h1>
   <div class="hero-foot">
-    <div><p>Ik zet ruwe data om in beslissingen. Met Python, modellen en dashboards, afgerekend in euro's en uren.</p><p class="m avail"><b>●</b> Op zoek naar een nieuwe rol:<br>Data Analist · Marketing Data Analist · AI Automation Specialist</p></div>
+    <div><p>Ik zet ruwe data om in beslissingen. Met Python, modellen en dashboards, afgerekend in euro's en uren.</p><p class="m avail"><b>●</b> Op zoek naar een nieuwe rol:<br>Data Analist · Marketing Data Analist · AI Automation Specialist</p><div class="hero-proof"><div><b>×5,8</b><span>omslagpunt in de funnel</span></div><div><b>23.000+</b><span>gewichten berekend</span></div><div><b>92,6%</b><span>AI-teksten aantoonbaar live</span></div></div></div>
     <span class="m">↓ Scroll, rustig aan</span>
-    <a class="pill" href="#werk" data-go>Bekijk het werk →</a>
+    <div class="hero-cta"><a class="pill solid" href="#werk" data-go>Bekijk het werk →</a><a class="pill" href="#demo" data-go>Probeer een demo</a><a class="pill" href="cv.html">CV ↗</a></div>
   </div>
 </section>
+<div class="proof-m g"><div class="hero-proof pm"><div><b>×5,8</b><span>omslagpunt in de funnel</span></div><div><b>23.000+</b><span>gewichten berekend</span></div><div><b>92,6%</b><span>AI-teksten aantoonbaar live</span></div></div></div>
 
 <div class="band" aria-label="Vaardigheden: Python, SQL, GA4, Google Ads, machine learning, dashboards, automatisering, beleggen">
   <div class="band-in" aria-hidden="true">
@@ -507,6 +521,32 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
     <span>Python</span><span>SQL</span><span>GA4</span><span>Google Ads</span><span>Machine learning</span><span>Dashboards</span><span>Automatisering</span><span>Beleggen</span>
   </div>
 </div>
+
+
+<section class="work g" id="werk">
+  <div class="sec-head m"><span>Geselecteerd werk (05)</span><span><button type="button" id="pause">(Pauzeer beweging)</button>&nbsp;&nbsp; 2025 — 2026</span></div>
+  <div class="work-grid">
+    <div id="rows"></div>
+    <aside class="dock" aria-hidden="true">
+      <div class="screen" id="screen"></div>
+      <div class="dock-foot m"><span id="dockNum"><b>01</b> / 05</span><span id="dockCat">FOV</span></div>
+      <div class="dock-bar"><i id="dockBar"></i></div>
+    </aside>
+  </div>
+</section>
+
+<section class="demo g" id="demo">
+  <div class="sec-head m"><span><b id="dmHead">(Probeer het zelf)</b></span><span id="dmBadge">Live demo · fictieve data</span></div>
+  <h2 class="dm-title" id="dmTitle">Probeer het zelf.</h2>
+  <p class="dm-intro" id="dmIntro"></p>
+  <div class="dm-tabs" role="tablist" id="dmTabs" aria-label="Demo"></div>
+  <div id="dmMail" class="dm-panel"></div>
+  <div id="dmTel" class="dm-panel" hidden></div>
+  <div id="dmFun" class="dm-panel" hidden></div>
+  <div id="dmWgt" class="dm-panel" hidden></div>
+  <div id="dmTxt" class="dm-panel" hidden></div>
+  <p class="m dm-note" id="dmNote"></p>
+</section>
 
 <section class="mf" id="manifest">
   <div class="mf-ring" aria-hidden="true"></div>
@@ -526,37 +566,13 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   </div>
 </section>
 
-<section class="work g" id="werk">
-  <div class="sec-head m"><span>Geselecteerd werk (05)</span><span><button type="button" id="pause">(Pauzeer beweging)</button>&nbsp;&nbsp; 2025 — 2026</span></div>
-  <div class="work-grid">
-    <div id="rows"></div>
-    <aside class="dock" aria-hidden="true">
-      <div class="screen" id="screen"></div>
-      <div class="dock-foot m"><span id="dockNum"><b>01</b> / 05</span><span id="dockCat">FOV</span></div>
-      <div class="dock-bar"><i id="dockBar"></i></div>
-    </aside>
-  </div>
-</section>
-
 <section class="close-up" aria-label="Meer projecten">
-  <div class="rail-head m g"><span>(Van dichtbij)</span><span id="railNum">Scroll of veeg · 12 projecten</span></div>
+  <div class="rail-head m g"><span>(Meer werk)</span><span id="railNum">Meer werk · 12 projecten</span></div>
   <div class="rail-wrap" id="railWrap">
     <div class="rail-sticky" id="railSticky"><div class="rail" id="rail"></div></div>
   </div>
 </section>
 
-<section class="demo g" id="demo">
-  <div class="sec-head m"><span><b id="dmHead">(Probeer het zelf)</b></span><span id="dmBadge">Live demo · fictieve data</span></div>
-  <h2 class="dm-title" id="dmTitle">Probeer het zelf.</h2>
-  <p class="dm-intro" id="dmIntro"></p>
-  <div class="dm-tabs" role="tablist" id="dmTabs" aria-label="Demo"></div>
-  <div id="dmMail" class="dm-panel"></div>
-  <div id="dmTel" class="dm-panel" hidden></div>
-  <div id="dmFun" class="dm-panel" hidden></div>
-  <div id="dmWgt" class="dm-panel" hidden></div>
-  <div id="dmTxt" class="dm-panel" hidden></div>
-  <p class="m dm-note" id="dmNote"></p>
-</section>
 
 <section class="say g" id="hallo">
   <div class="say-in">
@@ -750,17 +766,17 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
       return s+'<text class="v-sub" x="30" y="466">≈ 9.600 REGELS · 18 TABS · LOKAAL</text></svg>'}
   };
   var F=[
-    {n:'Klantreis en mobiel',c:'FOV · Analyse',k:'×5,8 omslagpunt',d:'De GA4-funnel gesneden op nieuw of terugkerend en op apparaat. Gemiddeld leek alles in orde. Gesneden bleek één stap de breuk: van productpagina naar mandje gaan terugkerende bezoekers bijna 6× vaker door. Op mobiel staat de koopknop onder de vouw. Eén maatstaf gekozen om de oplossing te meten, bewust niet de omzet.',v:'fun',bg:'#141C26',demo:'fun'},
-    {n:'Productteksten op schaal',c:'FOV · Productie',k:'92,6% zichtbaar',d:'Een taalmodel schrijft per webshop en per taal de titel, meta en omschrijving, waaronder 30.576 Duitse tekstvelden op 6.237 artikelen. Een vaste controle houdt fouten tegen vóór de import. Daarna meet een tweede stap of de tekst echt op de pagina staat: 92,6% aantoonbaar zichtbaar.',v:'prod',bg:'#221812',demo:'txt'},
-    {n:'Van gewicht naar verzendprijs',c:'FOV · Productie',k:'23.000+ gewichten',d:'Gewicht berekend uit dichtheid × inhoud + verpakking, gelezen uit veiligheidsbladen en getoetst aan de weegschaal: 90 tot 95% binnen 20%. Zo kregen ruim 23.000 artikelen een gewicht. Daarop staat een verzendstaffel op gewicht voor webshop en binnendienst, met 112 tests.',v:'scale',bg:'#1A1C14',cs:'gewichten-veiligheidsbladen',demo:'wgt'},
-    {n:'Meetcriticus',c:'FOV · Productie',k:'08:45 zelfcheck',d:'Gebouwd nadat een omzetmeting zeven dagen stil lag zonder dat iemand het zag. Nu controleert de pijplijn zichzelf, elke werkdag om 08:45: zeven soorten meetfouten, één actielijst.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn'},
-    {n:'Orders zonder overtypen',c:'FOV · Prototype',k:'prototype',d:'Bestellingen uit mail, pdf of Excel staan alvast als conceptorder klaar, met klant en artikelen herkend in het ERP. Twijfel wordt zichtbaar gemaakt, de binnendienst beslist en zet de order met één klik door. Werkend prototype, ligt als voorstel bij de directie.',v:'mail',bg:'#13201C',demo:'mail'}
+    {n:'Klantreis en mobiel',c:'FOV · Analyse',k:'×5,8 omslagpunt',d:'De GA4-funnel gesneden op nieuw of terugkerend en op apparaat. Gemiddeld leek alles in orde. Gesneden bleek één stap de breuk: van productpagina naar mandje gaan terugkerende bezoekers bijna 6× vaker door. Op mobiel staat de koopknop onder de vouw. Eén maatstaf gekozen om de oplossing te meten, bewust niet de omzet.',v:'fun',bg:'#141C26',demo:'fun',t:'GA4 Data API · Python · pandas · funnelanalyse',cs:'klantreis-mobiel'},
+    {n:'Productteksten op schaal',c:'FOV · Productie',k:'92,6% zichtbaar',d:'Een taalmodel schrijft per webshop en per taal de titel, meta en omschrijving, waaronder 30.576 Duitse tekstvelden op 6.237 artikelen. Een vaste controle houdt fouten tegen vóór de import. Daarna meet een tweede stap of de tekst echt op de pagina staat: 92,6% aantoonbaar zichtbaar.',v:'prod',bg:'#221812',demo:'txt',t:'Python · OpenAI API · Flask · validatie'},
+    {n:'Van gewicht naar verzendprijs',c:'FOV · Productie',k:'23.000+ gewichten',d:'Gewicht berekend uit dichtheid × inhoud + verpakking, gelezen uit veiligheidsbladen en getoetst aan de weegschaal: 90 tot 95% binnen 20%. Zo kregen ruim 23.000 artikelen een gewicht. Daarop staat een verzendstaffel op gewicht voor webshop en binnendienst, met 112 tests.',v:'scale',bg:'#1A1C14',cs:'gewichten-veiligheidsbladen',demo:'wgt',t:'Python · PDF-parsing · pytest · ERP-import'},
+    {n:'Meetcriticus',c:'FOV · Productie',k:'08:45 zelfcheck',d:'Gebouwd nadat een omzetmeting zeven dagen stil lag zonder dat iemand het zag. Nu controleert de pijplijn zichzelf, elke werkdag om 08:45: zeven soorten meetfouten, één actielijst.',v:'heart',bg:'#21151A',cs:'meetcriticus-pijplijn',t:'Python · AST · pytest · Task Scheduler'},
+    {n:'Orders zonder overtypen',c:'FOV · Prototype',k:'prototype',d:'Bestellingen uit mail, pdf of Excel staan alvast als conceptorder klaar, met klant en artikelen herkend in het ERP. Twijfel wordt zichtbaar gemaakt, de binnendienst beslist en zet de order met één klik door. Werkend prototype, ligt als voorstel bij de directie.',v:'mail',bg:'#13201C',demo:'mail',t:'LLM · Flask · ERP-webservices'}
   ];
   var CASES='https://bastiaanvdh.github.io/portfolio/cases/';
   var rowsEl=$('rows'),screen=$('screen');
   F.forEach(function(f,i){
     var r=document.createElement('article');r.className='row';
-    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Lees de case →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">Bekijk de demo →</a>':'')+(f.demo?'<a class="lnk" href="#demo" data-demo="'+f.demo+'">Probeer de demo ↓</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
+    r.innerHTML='<span class="ix">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.n+'</h3><div class="meta"><span class="m">'+f.c+'</span><span class="m"><b>'+f.k+'</b></span></div><p>'+f.d+'</p>'+(f.t?'<div class="tags m">'+f.t+'</div>':'')+'<div class="lnks">'+(f.cs?'<a class="lnk" href="'+CASES+f.cs+'.html">Lees de case →</a>':'')+(f.u?'<a class="lnk" href="'+f.u+'">Bekijk de demo →</a>':'')+(f.demo?'<a class="lnk" href="#demo" data-demo="'+f.demo+'">Probeer de demo ↓</a>':'')+'</div>'+'<div class="vis-inline" aria-hidden="true">'+V[f.v](f.bg)+'</div>';
     rowsEl.appendChild(r);
     var d=document.createElement('div');d.className='vis';d.innerHTML=V[f.v](f.bg);screen.appendChild(d);
   });
@@ -791,7 +807,7 @@ html.paused .band-in, html.paused .on *{animation-play-state:paused!important}
   R.forEach(function(p,i){var t=document.createElement('div');t.className='tile';
     t.innerHTML='<div class="card"><div class="k">'+p.k+'<small>'+p.s+'</small></div><div><p>'+p.d+'</p><div class="tags">'+p.t+'</div>'+(p.cs?'<a class="tlnk" href="'+CASES+p.cs+'.html">Lees de case →</a>':'')+(p.u?'<a class="tlnk" href="'+p.u+'">Bekijk de site ↗</a>':'')+(DEMO[p.n]?'<a class="tlnk" href="#demo" data-demo="'+DEMO[p.n]+'">Probeer de demo ↓</a>':'')+'</div></div><div class="cap m"><span>('+String(i+6).padStart(2,'0')+') '+p.n+'</span><span>'+p.c+'</span></div>';rail.appendChild(t)});
   var wrap=$('railWrap'),pinned=false;
-  function sizeRail(){pinned=!reduce&&innerWidth>900;wrap.classList.toggle('pinned',pinned);
+  function sizeRail(){pinned=false;wrap.classList.toggle('pinned',pinned);
     if(pinned){wrap.style.height=(rail.scrollWidth-innerWidth+innerHeight)+'px'}else{wrap.style.height='';rail.style.transform=''}}
 
   /* ---------- Zin die oplicht ---------- */

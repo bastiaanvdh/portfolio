@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Case: Klantreis en mobiel | Bastiaan van der Horst</title>
+<meta name="description" content="Hoe ik de klantreis van een webshop in GA4 sneed en zag dat hij niet gelijkmatig lekt, maar op één stap omklapt: van productpagina naar mandje. Met de oorzaak op mobiel en een meetplan.">
+<meta name="author" content="Bastiaan van der Horst">
+<link rel="canonical" href="https://bastiaanvdh.github.io/portfolio/cases/klantreis-mobiel.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bastiaanvdh.github.io/portfolio/cases/klantreis-mobiel.html">
+<meta property="og:title" content="Case: Klantreis en mobiel">
+<meta property="og:description" content="Hoe ik de klantreis van een webshop in GA4 sneed en zag dat hij niet gelijkmatig lekt, maar op één stap omklapt: van productpagina naar mandje. Met de oorzaak op mobiel en een meetplan.">
+<meta property="og:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bastiaanvdh.github.io/portfolio/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Case: Klantreis en mobiel",
+  "description": "Hoe ik de klantreis van een webshop in GA4 sneed en zag dat hij niet gelijkmatig lekt, maar op één stap omklapt: van productpagina naar mandje. Met de oorzaak op mobiel en een meetplan.",
+  "author": { "@type": "Person", "name": "Bastiaan van der Horst", "url": "https://bastiaanvdh.github.io/portfolio/" },
+  "publisher": { "@type": "Person", "name": "Bastiaan van der Horst" },
+  "mainEntityOfPage": "https://bastiaanvdh.github.io/portfolio/cases/klantreis-mobiel.html",
+  "about": ["Web Analytics", "GA4", "Funnel Analysis", "Conversion", "Mobile UX", "Python"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Case-pagina's: zelfde huisstijl als de homepage. Donker, oranje accent, Archivo + JetBrains Mono. */
+:root{--bg:#0F0F0E;--bg2:#181816;--ink:#EDEAE4;--mid:#8F8B84;--dim:#57544F;--line:#2A2926;--accent:#FF8A3D;--on-accent:#140C06;
+  --sans:"Archivo","Arial Narrow","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--on-accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a{color:inherit}
+.bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60}
+.top{position:sticky;top:0;z-index:50;background:linear-gradient(var(--bg) 55%,transparent);padding-top:env(safe-area-inset-top,0px)}
+.top-in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.logo{font-weight:800;font-stretch:80%;font-size:1.05rem;text-decoration:none;display:flex;align-items:center}
+.logo i{font-style:italic;font-weight:400;font-stretch:115%;background:var(--accent);color:var(--on-accent);padding:0 3px;margin:0 1px 0 6px}
+.top-r{display:flex;align-items:center;gap:22px}
+.m,.top-r a{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);text-decoration:none}
+.top-r a:hover{color:var(--accent)}
+.top-r b{color:var(--accent);font-weight:500}
+.container{max-width:880px;margin:0 auto;padding:56px max(24px,env(safe-area-inset-left,0px)) 40px}
+.case-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.case-label::before{content:"("}.case-label::after{content:")"}
+h1,h2,h3{font-family:var(--sans);color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(2.8rem,7.4vw,6rem);font-weight:800;font-stretch:66%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin-bottom:28px}
+.lead{font-size:clamp(1.2rem,2.1vw,1.45rem);line-height:1.5;color:var(--ink);margin-bottom:34px;max-width:40ch}
+.tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:46px}
+.tech-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--mid)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:70px}
+.kpi{padding:22px 16px 22px 0}
+.kpi+.kpi{padding-left:16px;border-left:1px solid var(--line)}
+.kpi-val{display:block;font-weight:800;font-stretch:66%;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:.95;color:var(--accent);font-variant-numeric:tabular-nums;margin-bottom:10px}
+.kpi-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mid);display:block;line-height:1.4}
+.section-tag{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-top:70px;padding-top:18px;border-top:1px solid var(--line)}
+.section-tag::before{content:"("}.section-tag::after{content:")"}
+h2{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin:14px 0 22px}
+h3{font-size:1.7rem;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+p{color:#C9C5BE;margin-bottom:18px;max-width:68ch}
+strong{color:var(--ink);font-weight:700}
+em{font-style:italic}
+a.inline{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+code{font-family:var(--mono);font-size:.82em;background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--ink);overflow-wrap:anywhere}
+ul{margin:0 0 18px;padding:0;list-style:none;border-top:1px solid var(--line)}
+li{color:#C9C5BE;padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative;max-width:68ch}
+li::before{content:"";position:absolute;left:4px;top:1.25em;width:8px;height:8px;background:var(--accent);transform:rotate(45deg)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:26px 0 32px}
+.flow-step{padding:20px 18px 22px 0}
+.flow-step+.flow-step{padding-left:18px;border-left:1px solid var(--line)}
+.flow-num{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-bottom:16px}
+.flow-step b{display:block;font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.flow-step span{display:block;font-size:.9rem;color:var(--mid);line-height:1.45}
+blockquote{margin:30px 0;padding:4px 0 4px 26px;border-left:3px solid var(--accent);font-size:clamp(1.2rem,2vw,1.45rem);line-height:1.45;color:var(--ink);font-weight:500;max-width:60ch}
+.cta-card{margin-top:90px;background:var(--accent);color:var(--on-accent);border-radius:14px;padding:clamp(26px,5vw,48px)}
+.cta-card h3{color:var(--on-accent);font-size:clamp(2rem,4.6vw,3.2rem);font-weight:800;font-stretch:70%;text-transform:uppercase;line-height:.95;margin-bottom:14px}
+.cta-card p{color:var(--on-accent);font-weight:500}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn-primary,.btn-secondary{display:inline-flex;align-items:center;border-radius:999px;padding:12px 22px;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s}
+.btn-primary{background:var(--on-accent);color:var(--accent)}
+.btn-primary:hover{background:var(--ink);color:var(--on-accent)}
+.btn-secondary{border:1px solid var(--on-accent);color:var(--on-accent)}
+.btn-secondary:hover{background:var(--on-accent);color:var(--accent)}
+.next{display:block;text-decoration:none;max-width:1180px;margin:110px auto 0;padding:46px max(24px,env(safe-area-inset-left,0px)) 40px;border-top:1px solid var(--line)}
+.next .m{display:flex;justify-content:space-between;gap:16px}
+.next strong{display:block;margin-top:18px;font-size:clamp(2.6rem,8vw,7rem);font-weight:800;font-stretch:66%;text-transform:uppercase;line-height:.9;color:var(--dim);transition:color .4s}
+.next:hover strong,.next:focus-visible strong{color:var(--ink)}
+.next:hover .m b{color:var(--accent)}
+footer{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:22px max(24px,env(safe-area-inset-left,0px)) calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+@media (max-width:700px){
+  body{font-size:17px}
+  .kpi-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(3){padding-left:0;border-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+  .flow-step+.flow-step{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .top-r .hide-s{display:none}
+  .container,.top-in,.next,footer{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar" aria-hidden="true"></div>
+<header class="top"><div class="top-in">
+  <a href="../index.html" class="logo">BASTIAAN<i>v</i>dH</a>
+  <nav class="top-r" aria-label="Case-navigatie"><span class="m hide-s">Case study</span><a href="../index.html#werk">← Alle projecten</a></nav>
+</div></header>
+
+<div class="container">
+  <div class="case-label">Case study · FOV</div>
+  <h1>Klantreis en mobiel</h1>
+  <p class="lead">De webshop verloor bezoekers, maar waar? Gemiddeld leek elke stap redelijk. Pas toen ik de klantreis sneed op nieuw of terugkerend en op apparaat, werd het duidelijk: de reis lekt niet overal een beetje. Hij klapt om op één stap.</p>
+
+  <div class="tech-row">
+    <span class="tech-tag">GA4 Data API</span><span class="tech-tag">Python</span><span class="tech-tag">pandas</span><span class="tech-tag">Tag Manager</span><span class="tech-tag">Funnelanalyse</span>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><span class="kpi-val">93%</span><span class="kpi-label">Valt weg tussen product en mandje</span></div>
+    <div class="kpi"><span class="kpi-val">×5,8</span><span class="kpi-label">Terugkerend tegen nieuw, op die stap</span></div>
+    <div class="kpi"><span class="kpi-val">×2,6</span><span class="kpi-label">Desktop tegen mobiel, zelfde stap</span></div>
+    <div class="kpi"><span class="kpi-val">1</span><span class="kpi-label">Maatstaf voor het meetplan</span></div>
+  </div>
+
+  <span class="section-tag">Het probleem</span>
+  <h2>Een gemiddelde dat niets zegt</h2>
+  <p>Een webshop met veel bezoek en weinig bestellingen. De standaardvraag is dan: waar haken mensen af? Het standaardantwoord is een funnel met vijf balken die allemaal een beetje kleiner worden. Daar kun je niets mee. Elke stap lijkt een beetje slecht, dus elke stap lijkt een kandidaat.</p>
+  <p>Een gemiddelde middelt de vraag weg. Ik wilde weten <strong>voor wie</strong> de reis breekt, en <strong>op welke stap</strong>.</p>
+
+  <span class="section-tag">De aanpak</span>
+  <h2>Snijden op de as van de vraag</h2>
+  <p>Ik haalde de klantreis per stap op via de GA4 Data API: bezoek, productpagina, mandje, afrekenen, bestelling. Elke stap sneed ik op drie assen.</p>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-num">01</div><b>Nieuw of terugkerend</b><span>gedraagt een eerste bezoek zich anders?</span></div>
+    <div class="flow-step"><div class="flow-num">02</div><b>Mobiel of desktop</b><span>hetzelfde patroon op een ander scherm?</span></div>
+    <div class="flow-step"><div class="flow-num">03</div><b>Ingelogd of niet</b><span>via een eigen meting in Tag Manager</span></div>
+    <div class="flow-step"><div class="flow-num">04</div><b>Oorzaak op de pagina</b><span>gemeten in een venster van 390 pixels</span></div>
+  </div>
+  <p>Het beeld was op alle drie de assen hetzelfde. <strong>Van productpagina naar mandje</strong> gaan terugkerende bezoekers 5,8 keer zo vaak door als nieuwe. Desktop doet het 2,6 keer zo goed als mobiel. Ingelogde klanten scoren ook duidelijk hoger. Alle andere stappen verschillen minder dan een factor 2.</p>
+  <p>En zodra er iets in het mandje ligt, gedragen nieuwe en terugkerende bezoekers zich bijna hetzelfde. Nieuwe bezoekers haken dus niet af bij de kassa. <strong>Ze komen daar nooit.</strong></p>
+
+  <blockquote>Wie de reis wil verbeteren, moet naar de productpagina kijken en niet naar de checkout. Daar zit 93% van het verlies.</blockquote>
+
+  <span class="section-tag">De uitdaging</span>
+  <h2>Een uitsplitsing die niet optelt</h2>
+  <p>Halverwege klopte er iets niet. Gesplitst op nieuw en terugkerend telde GA4 ruim 30% méér sessies dan de webshop in totaal had. Bestellingen en omzet klopten wel precies. Had ik op die sessies gerekend, dan was de waarde per bezoek van terugkerende klanten flink overschat.</p>
+  <p>Daarom reken ik de verhoudingen op events en bestellingen, nooit op de sessieverdeling van die uitsplitsing. En nog een signaal in de data zelf: meer mensen bekijken hun mandje dan er iets in leggen. Een deel komt dus terug naar een mandje uit een eerder bezoek. De reis loopt over meerdere bezoeken. Bijna driekwart van de bestellingen valt op een niet-eerste bezoek.</p>
+
+  <span class="section-tag">De oorzaak op mobiel</span>
+  <h2>De koopknop onder de vouw</h2>
+  <p>Ruim de helft van het bezoek is mobiel, maar mobiel levert maar een klein deel van de omzet. Dus heb ik de productpagina's gemeten in een venster van 390 pixels breed, zo groot als een gewone telefoon. Op de drukste pagina's staat de koopknop tussen 812 en 1.097 pixels van boven. Een telefoon laat zo'n 700 pixels zien. <strong>Wie niet scrolt, ziet de knop nooit.</strong> Op desktop staat hij wel direct in beeld.</p>
+
+  <span class="section-tag">Het resultaat</span>
+  <h2>Eén stap, één maatstaf</h2>
+  <ul>
+    <li><strong>De vraag is verschoven</strong> van "waarom kopen mensen niet?" naar één stap op één type pagina.</li>
+    <li><strong>Een nulmeting</strong> per apparaat: in het mandje gedeeld door productpagina, op mobiel 9,6% tegen 26,0% op desktop.</li>
+    <li><strong>Eén maatstaf voor het effect:</strong> diezelfde verhouding op mobiel. Bewust niet de omzet, want die beweegt mee met seizoen en kanalen.</li>
+    <li><strong>Een project met een deadline</strong> vóór het drukke seizoen. Het bouwen van de nieuwe mobiele pagina gebeurt extern. Ik lever de meting en het meetplan.</li>
+  </ul>
+  <p>Eerlijk is eerlijk: het effect is nog niet gemeten, want de nieuwe pagina is er nog niet. Wat er wel ligt, is de juiste vraag en een manier om het antwoord straks te toetsen.</p>
+
+  <span class="section-tag">Wat ik eruit haalde</span>
+  <h2>Geleerd onderweg</h2>
+  <p>Een gemiddelde verbergt waar het misgaat. Snijd op de as waar de vraag over gaat, en controleer of je uitsplitsing optelt voordat je erop rekent. Probeer de funnel zelf in de <a class="inline" href="../index.html#demo">demo op de homepage</a>, met verzonnen cijfers.</p>
+
+  <div class="cta-card">
+    <h3>Meer weten?</h3>
+    <p>Dit is een analyse op bedrijfsdata, dus de cijfers per kanaal en de omzet deel ik niet. Benieuwd naar de aanpak? Neem gerust contact op.</p>
+    <div class="btn-row">
+      <a href="mailto:bastiaanvanderhorst@hotmail.com" class="btn-primary">→ Neem contact op</a>
+      <a href="../index.html#werk" class="btn-secondary">Alle projecten</a>
+    </div>
+  </div>
+</div>
+
+<a class="next" href="product-automation-platform.html"><span class="m"><span>(Volgende case)</span><span></span></span><strong>Productteksten op schaal →</strong></a>
+<footer class="m"><span>© 2026 Bastiaan van der Horst · Harlingen</span><a href="../index.html">Terug naar de homepage ↑</a></footer>
+<script>/* build_cases: leesvoortgang */(function(){var b=document.getElementById("bar");function u(){var h=document.documentElement.scrollHeight-innerHeight;b.style.width=(h>0?scrollY/h*100:0)+"%"}addEventListener("scroll",u,{passive:true});u()})();</script>
+</body>
+</html>
